@@ -1,0 +1,96 @@
+[
+    {
+        "id": "8862aeca-0bc5-43ce-b584-4064667c9922",
+        "title": "Python",
+        "description": "The world's most versitle language",
+        "teacherID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
+        "teacherName": "Jordan Wood",
+        "students": [
+            {
+                "id": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                "name": "Caleb Brunson", 
+                "grades": [100],
+                "currentTopicNumber": 1
+            },
+            {
+                "id": "6b40acbe-c101-4701-8123-343a071c460c",
+                "name": "Abdullah Bueno",
+                "grades": [85],
+                "currentTopicNumber": 1
+            }
+        ],
+        "topics": [
+            {
+                "number": 1,
+                "title": "Topic 1: Loops",
+                "description": "How to use different loops.",
+                "lessons": [
+                    {
+                        "number": 1,
+                        "title": "For Loops Lesson",
+                        "content": "...",
+                        "comments": [
+                            {
+                                "username": "calebrb03",
+                                "date": "03/12/2023",
+                                "content": "Hello, what keyword do I use to make for loop?",
+                                "replys": [
+                                    {
+                                        "username": "jordanw420",
+                                        "date": "03/12/2023",
+                                        "content": "The keyword is 'for'."
+                                    }
+                                ]
+                            },
+                            {
+                                "username": "abdullahbueno53",
+                                "date": "02/20/23",
+                                "conent": "Why is my ... code not working?",
+                                "replys": [
+                                    {
+                                        "username": "coler360",
+                                        "date": "02/20/2023",
+                                        "content": "It could be you have a missing indentation." 
+                                    },
+                                    {
+                                        "username": "jordanw420",
+                                        "date": "02/21/2023",
+                                        "content": "It could be you are using incorrect logic." 
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "number": 2,
+                        "title": "While Loops Lesson",
+                        "content": "..."
+                    },
+                    {
+                        "number": 3,
+                        "title": "Do-While Loops Lesson",
+                        "content": "..."
+                    }
+                ],
+                "quiz": {
+                    "title": "Loops Assessment",
+                    "description": "For Loops, While Loops, and Do-While Loops",
+                    "questions": [
+                        {
+                            "number": 1,
+                            "question": "When would you use a For Loop?",
+                            "choices": ["A) always", "B) whenever", "C) never"],
+                            "correctAnswer": "B"
+                        },
+                        {
+                            "number": 2,
+                            "question": "When would you use a While Loop?",
+                            "choices": ["A) always", "B) whenever", "C) never"],
+                            "correctAnswer": "C"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

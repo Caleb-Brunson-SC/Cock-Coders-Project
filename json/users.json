@@ -1,0 +1,42 @@
+[
+    {
+        "id": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+        "type": "student",
+        "firstName": "Caleb",
+        "lastName": "Brunson",
+        "username": "calebrb03",
+        "email": "johnsmith@bbc.com",
+        "dateOfBirth": "03/12/2002",
+        "password": "y[&&p9n]$Z/+G!$<"
+    },
+    {
+        "id": "6b40acbe-c101-4701-8123-343a071c460c",
+        "type": "student",
+        "firstName": "Abdullah",
+        "lastName": "Bueno",
+        "username": "abdullahbueno53",
+        "email": "abdullah@bigtech.com",
+        "dateOfBirth": "09/03/2002",
+        "password": "9m9,mkZnsjT@$BCS"
+    },
+    {
+        "id": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
+        "type": "teacher",
+        "firstName": "Jordan",
+        "lastName": "Wood",
+        "username": "jordanw420",
+        "email": "jordanw@bbc.com",
+        "dateOfBirth": "06/09/2002",
+        "password": "(76aB3fND2<rlC,P"
+    },
+    {
+        "id": "62e22f7d-e7da-4835-85f1-b9dc5036e752",
+        "type": "teacher",
+        "firstName": "Cole",
+        "lastName": "Reiss",
+        "username": "coler360",
+        "email": "coleriess@gmail.com",
+        "dateOfBirth": "06/09/2002",
+        "password": "Tr:eSp8)4KG?b'GC"
+    }
+]
