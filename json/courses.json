@@ -1,8 +1,8 @@
 [
     {
-        "courseID": "",
-        "title": "",
-        "description": "",
+        "courseID": "8bd1c8c2-2240-45a7-9884-25d033514e76",
+        "title": "Python",
+        "description": "The world's most versatile programming language.",
         "teacherID": "",
         "students": [
             {
