@@ -1,11 +1,17 @@
+import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.UUID;
 
-public class DataLoader {
-    public ArrayList<User> getUsers() {
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;;
 
+public class DataLoader extends DataConstants {
+    public static ArrayList<User> getUsers() {
+        ArrayList<User> users = new ArrayList<User>();
     }
 
-    public ArrayList<Course> getCourses() {
+    public static ArrayList<Course> getCourses() {
         
     }
 }
