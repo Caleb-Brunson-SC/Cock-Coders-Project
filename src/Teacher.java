@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Teacher {
+public class Teacher extends User {
     private ArrayList<Course> coursesCreated;
 
     public void removeStudent(Student student) {

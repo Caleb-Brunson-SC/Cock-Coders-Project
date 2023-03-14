@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Admin {
+public class Admin extends User {
     private ArrayList<Teacher> teachers;
 
     public void addTeacher(Teacher teacher) {
