@@ -94,6 +94,14 @@
                     }
                 ]
             }
+        ],
+        "reviews": [
+            {
+                "userID": "",
+                "date": "",
+                "rating": -1,
+                "content": ""
+            }
         ]
     }
 ]
