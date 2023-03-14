@@ -1,17 +1,17 @@
 [
     {
-        "id": "",
+        "courseID": "",
         "title": "",
         "description": "",
         "teacherID": "",
         "students": [
             {
-                "id": "",
+                "studentID": "",
                 "grades": [-1],
                 "currentTopicIndex": 1
             },
             {
-                "id": "",
+                "studentID": "",
                 "grades": [-1],
                 "currentTopicIndex": 0
             }
