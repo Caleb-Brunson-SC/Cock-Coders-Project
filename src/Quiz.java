@@ -10,14 +10,14 @@ public class Quiz {
     }
 
     public double grade() {
-
+        return 0;
     }
 
     public boolean hasNext() {
-        
+        return true;
     }
 
     public Question next() {
-        
+        return null;
     }
 }
