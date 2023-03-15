@@ -9,6 +9,10 @@ public class Teacher extends User {
         super(id, firstName, lastName, userName, email, dateOfBirth, password);
     }
 
+    public Teacher(String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
+        super(firstName, lastName, userName, email, dateOfBirth, password);
+    }
+
     public void removeStudent(Student student) {
 
     }
