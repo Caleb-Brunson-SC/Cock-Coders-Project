@@ -10,6 +10,10 @@ public class Student extends User {
         super(id, firstName, lastName, userName, email, dateOfBirth, password);
     }
 
+    public Student(String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
+        super(firstName, lastName, userName, email, dateOfBirth, password);
+    }
+
     public void takeQuiz() {
 
     }
