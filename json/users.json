@@ -6,7 +6,7 @@
         "lastName": "Brunson",
         "username": "calebrb03",
         "email": "johnsmith@bbc.com",
-        "dateOfBirth": "03/12/2002",
+        "dateOfBirth": "2002-03-12",
         "password": "y[&&p9n]$Z/+G!$<"
     },
     {
@@ -16,7 +16,7 @@
         "lastName": "Bueno",
         "username": "abdullahbueno53",
         "email": "abdullah@bigtech.com",
-        "dateOfBirth": "09/03/2002",
+        "dateOfBirth": "2002-09-03",
         "password": "9m9,mkZnsjT@$BCS"
     },
     {
@@ -26,7 +26,7 @@
         "lastName": "Wood",
         "username": "jordanw420",
         "email": "jordanw@bbc.com",
-        "dateOfBirth": "06/09/2002",
+        "dateOfBirth": "2001-06-09",
         "password": "(76aB3fND2<rlC,P"
     },
     {
@@ -36,7 +36,7 @@
         "lastName": "Reiss",
         "username": "coler360",
         "email": "coleriess@gmail.com",
-        "dateOfBirth": "06/09/2002",
+        "dateOfBirth": "2003-04-20",
         "password": "Tr:eSp8)4KG?b'GC"
     }
 ]

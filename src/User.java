@@ -1,13 +1,35 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public abstract class User {
-    protected String username;
-    protected String password;
+    private UUID id;
     protected String firstName;
     protected String lastName;
+    protected String userName;
     protected String email;
-    protected String dateOfBirth;
-    protected System auth;
+    protected LocalDate dateOfBirth;
+    protected String password;
+
+    public User(String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
+        this.id = UUID.randomUUID();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+    }
+
+    public User(UUID id, String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+    }
 
     public User login(String username, String password) {
         return null;
