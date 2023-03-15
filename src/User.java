@@ -82,4 +82,10 @@ public abstract class User {
     public ArrayList<Course> getAllCourses() {
         return null;
     }
+
+    public String toString() {
+        return "ID: " + id + "; FIRST NAME: " + firstName + "; LAST NAME " + 
+        lastName + "; USERNAME: " + userName + "; EMAIL: " + email + "; DATE OF BIRTH: " + 
+        dateOfBirth + "; PASSWORD: " + password;
+    }
 }
