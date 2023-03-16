@@ -10,7 +10,7 @@ public abstract class DataConstants {
     protected static final String USER_PASSWORD = "password";
 
     protected static final String COURSE_FILE_NAME = "json/courses.json";
-    protected static final String COURSE_COURSE_ID = "courseID";
+    protected static final String COURSE_ID = "id";
     protected static final String COURSE_TITLE = "title";
     protected static final String COURSE_LANGUAGE = "language";
     protected static final String COURSE_DESCRIPTION = "description";
