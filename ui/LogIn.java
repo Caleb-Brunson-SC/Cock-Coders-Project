@@ -33,7 +33,7 @@ public class LogIn {
     textField.setBounds(200, 80, 100, 20);
     fieldLabel2.setBounds(120, 110, 100, 20);
     passwordField.setBounds(200, 110, 100, 20);
-    button1.setBounds(210, 140, 80, 30);
+    button1.setBounds(220, 140, 80, 30);
   
     frame1.add(l);
     frame1.add(textField);
@@ -43,6 +43,7 @@ public class LogIn {
     frame1.add(textField);
     frame1.add(passwordField);
   
+    //400 width and 500 height of frame1
     frame1.setSize(500, 300) ;
     frame1.setLayout(null);
     frame1.setVisible(true);
