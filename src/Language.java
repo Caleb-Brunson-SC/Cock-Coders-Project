@@ -1,4 +1,6 @@
 public enum Language {
+    CSharp,
+    CPP,
     C,
     Java,
     Javascript,

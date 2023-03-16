@@ -7,35 +7,30 @@ public class Course {
     private Language courseLanguage;
     private ArrayList<Review> reviews;
     private ArrayList<Comment> comments;
-    private Certificate certificate;
     private Teacher teacher;
-    private Quiz quiz;
 
     public Course(String courseTitle, String courseDescription, Teacher teacher) {
-
+        this.courseTitle = courseTitle;
+        this.courseDescription = courseDescription;
+        this.teacher = teacher;
     }
 
     public void addTopic(Topic topic) {
-
+        if(topic != null) {
+            topics.add(topic);
+        }
     }
 
     public void removeTopic(Topic topic) {
-
+        if(topic != null) {
+            topics.remove(topic);
+        }
     }
 
-    public void addQuiz(Quiz quiz) {
-
-    }
-
-    public void removeQuiz(Quiz quiz) {
-
-    }
-
-    public Review updateReviews(Review review) {
-
-    }
-
-    public void createCertificate() {
-        
+    public ArrayList<Review> updateReviews(Review review) {
+        if(review != null) {
+            reviews.addAll(reviews);
+        }
+        return reviews;
     }
 }

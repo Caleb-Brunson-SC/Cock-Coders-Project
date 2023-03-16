@@ -14,10 +14,14 @@ public class Admin extends User {
     }
 
     public void addTeacher(Teacher teacher) {
-
+        if(teacher != null) {
+            teachers.add(teacher);
+        }
     }
 
     public void removeTeacher(Teacher teacher) {
-
+        if(teacher != null) {
+            teachers.remove(teacher);
+        }
     }
 }

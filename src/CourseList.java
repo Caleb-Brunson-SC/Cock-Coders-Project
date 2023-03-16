@@ -5,7 +5,7 @@ public class CourseList {
     private ArrayList<CourseProgress> courses;
     
     private CourseList() {
-
+        
     }
 
     public UserList addCourseList(UserList userList) {
@@ -20,8 +20,11 @@ public class CourseList {
 
     }
 
-    public CourseProgress getInstance() {
-        return null;
+    public CourseList getInstance() {
+        if(courseList == null) {
+            courseList = new CourseList();
+        }
+        return courseList;
     }
 
     public ArrayList<CourseProgress> getCourses(String keyword) {

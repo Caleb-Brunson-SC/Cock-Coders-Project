@@ -8,14 +8,14 @@ public class Review {
     }
 
     public Student getReviewer() {
-
+        return null;
     }
 
     public int getRating() {
-
+        return 0;
     }
 
     public String getComment() {
-        
+        return null;
     }
 }
