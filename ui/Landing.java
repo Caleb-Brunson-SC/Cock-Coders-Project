@@ -25,7 +25,6 @@ public class Landing {
     frame1.add(button1);
     frame1.add(button2);
   
-    //400 width and 500 height of frame1
     frame1.setSize(500, 300) ;
     frame1.setLayout(null);
     frame1.setVisible(true);
