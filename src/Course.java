@@ -40,6 +40,81 @@ public class Course {
             this.studentProgresses = studentProgresses;
     }
 
+    // GETTERS AND SETTERS
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public ArrayList<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(ArrayList<Topic> topics) {
+        this.topics = topics;
+    }
+
+    public ArrayList<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(ArrayList<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public ArrayList<StudentProgress> getStudentProgresses() {
+        return studentProgresses;
+    }
+
+    public void setStudentProgresses(ArrayList<StudentProgress> studentProgresses) {
+        this.studentProgresses = studentProgresses;
+    }
+
+    
+
     /* This might need to go in Teacher class
     public void addTopic(Topic topic) {
         if(topic != null) {

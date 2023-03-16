@@ -13,15 +13,38 @@ public class Review {
         this.comment = comment;
     }
 
+    //GETTERS AND SETTERS
     public Student getReviewer() {
-        return null;
+        return reviewer;
+    }
+
+    public void setReviewer(Student reviewer) {
+        this.reviewer = reviewer;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public int getRating() {
-        return 0;
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String getComment() {
-        return null;
+        return comment;
     }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+    
+
 }
