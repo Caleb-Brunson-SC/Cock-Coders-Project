@@ -1,10 +1,10 @@
 public enum Language {
-    CSharp,
+    CSHARP,
     CPP,
     C,
-    Java,
-    Javascript,
-    Python,
+    JAVA,
+    JAVASCRIPT,
+    PYTHON,
     HTML,
     CSS;
 }
