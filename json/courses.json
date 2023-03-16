@@ -105,7 +105,7 @@
         ],
         "reviews": [
             {
-                "userID": "6b40acbe-c101-4701-8123-343a071c460c",
+                "studentID": "6b40acbe-c101-4701-8123-343a071c460c",
                 "date": "2023-03-12",
                 "rating": 5,
                 "content": "This class was awesome!!!"
