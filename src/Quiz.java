@@ -2,11 +2,13 @@ import java.util.ArrayList;
 
 public class Quiz {
     protected String title;
+    protected String description;
     protected ArrayList<Question> questions;
-    protected double timeLimit;
 
-    public Quiz(String title, double timeLimit, double numOfQuestions) {
-
+    public Quiz(String title, String description, ArrayList<Question> questions) {
+        this.title = title;
+        this.description = description;
+        this.questions = questions;
     }
 
     public double grade() {

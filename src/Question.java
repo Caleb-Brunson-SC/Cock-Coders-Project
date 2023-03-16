@@ -1,12 +1,11 @@
-import java.lang.reflect.Array;
-
 public class Question {
-    private int index;
-    private String correctAnswer;
-    private String[] possibleAnswers;
-    private String questionDescription;
+    private String question;
+    private String[] choices;
+    private int correctAnswerIndex;
 
-    public Question(String correctAnswer, String[] possibleAnswers, String questionDescription) {
-        
+    public Question(String question, String[] choices, int correctAnswerIndex) {
+        this.question = question;
+        this.choices = choices;
+        this.correctAnswerIndex = correctAnswerIndex;
     }
 }
