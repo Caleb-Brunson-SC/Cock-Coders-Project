@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class CourseProgress {
+public class StudentProgress {
     private Course course;
     private HashMap<Quiz, Double> quizzes;
 

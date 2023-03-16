@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class CourseList {
     private CourseList courseList;
-    private ArrayList<CourseProgress> courses;
+    private ArrayList<StudentProgress> courses;
     
     private CourseList() {
         
@@ -27,7 +27,7 @@ public class CourseList {
         return courseList;
     }
 
-    public ArrayList<CourseProgress> getCourses(String keyword) {
+    public ArrayList<StudentProgress> getCourses(String keyword) {
         return null;
     }
 }

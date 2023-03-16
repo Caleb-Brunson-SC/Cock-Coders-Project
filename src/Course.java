@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Course {
     private ArrayList<Topic> topics;
+    private ArrayList<Review> reviews;
+    private ArrayList<Comment> comments;
     private String courseTitle;
     private String courseDescription;
     private Language courseLanguage;
-    private ArrayList<Review> reviews;
-    private ArrayList<Comment> comments;
     private Teacher teacher;
 
     public Course(String courseTitle, String courseDescription, Teacher teacher) {

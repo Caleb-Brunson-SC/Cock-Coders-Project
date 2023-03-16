@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Student extends User {
-    private ArrayList<CourseProgress> coursesEnrolled;
-    private ArrayList<CourseProgress> coursesCompleted;
+    private ArrayList<StudentProgress> coursesEnrolled;
+    private ArrayList<StudentProgress> coursesCompleted;
 
     public Student(UUID id, String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
         super(id, firstName, lastName, userName, email, dateOfBirth, password);
@@ -22,11 +22,11 @@ public class Student extends User {
         return true;
     }
 
-    public CourseProgress getCourseProgressByKeyword(String keyword) {
+    public StudentProgress getCourseProgressByKeyword(String keyword) {
         return null;
     }
 
-    public ArrayList<CourseProgress> getAllCourseProgress() {
+    public ArrayList<StudentProgress> getAllCourseProgress() {
         return null;
     }
 
