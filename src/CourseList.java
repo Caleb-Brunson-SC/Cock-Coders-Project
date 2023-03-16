@@ -5,19 +5,24 @@ public class CourseList {
     private ArrayList<StudentProgress> courses;
     
     private CourseList() {
-        
+        courses = new ArrayList<>();
     }
 
-    public UserList addCourseList(UserList userList) {
-        return null;
+    public void addCourseList(StudentProgress course) {
+        courses.add(course);
     }
 
-    public void deleteCourseList(UserList userList) {
-
+    public void deleteCourseList(StudentProgress course) {
+        courses.remove(course);
     }
 
-    public void editCourseList(UserList userList) {
-
+    public void editCourseList(StudentProgress course) {
+        for(int i = 0; i <= courses.size(); i++) {
+            if(courses.get(i).equals(course)) {
+                courses.set(i, course);
+                break;
+            }
+        }
     }
 
     public CourseList getInstance() {
@@ -28,6 +33,12 @@ public class CourseList {
     }
 
     public ArrayList<StudentProgress> getCourses(String keyword) {
-        return null;
+        ArrayList<StudentProgress> match = new ArrayList<>();
+        for(StudentProgress course : courses) {
+            if(course.getStudent().getAllCourses().contains(keyword.toLowerCase())) {
+                match.add(course);
+            }
+        }
+        return match;
     }
 }
