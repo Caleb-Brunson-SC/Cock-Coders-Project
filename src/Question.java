@@ -21,6 +21,14 @@ public class Question {
     }
 
     //GETTERS AND SETTERS
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
     public String getQuestion() {
         return question;
     }

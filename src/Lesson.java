@@ -21,6 +21,14 @@ public class Lesson {
     }
 
     //GETTERS AND SETTERS
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
