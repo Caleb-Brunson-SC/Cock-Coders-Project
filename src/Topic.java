@@ -2,17 +2,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Topic {
-    private ArrayList<Lesson> lessons;
-    private String topicTitle;
-    private String topicDescription;
+    private String title;
+    private String description;
     private Quiz quiz;
+    private ArrayList<Lesson> lessons;
     private ArrayList<Comment> comments;
 
-    public Topic(String topicTitle, String topicDescription) {
-        this.topicTitle = topicTitle;
-        this.topicDescription = topicDescription;
+    public Topic(String title, String description, Quiz quiz, 
+        ArrayList<Lesson> lessons, ArrayList<Comment> comments) {
+        this.title = title;
+        this.description = description;
+        this.quiz = quiz;
+        this.lessons = lessons;
+        this.comments = comments;
     }
 
+    /* May need to go in Teacher class
     public void addLesson(Lesson lesson) {
         if(lesson != null) {
             lessons.addAll(Arrays.asList(lesson));
@@ -30,4 +35,5 @@ public class Topic {
     public void removeQuiz(Quiz quiz) {
         
     }
+    */
 }
