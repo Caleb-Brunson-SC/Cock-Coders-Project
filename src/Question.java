@@ -1,9 +1,20 @@
+import java.util.UUID;
+
 public class Question {
+    private UUID id;
     private String question;
     private String[] choices;
     private int correctAnswerIndex;
 
     public Question(String question, String[] choices, int correctAnswerIndex) {
+        this.id = UUID.randomUUID();
+        this.question = question;
+        this.choices = choices;
+        this.correctAnswerIndex = correctAnswerIndex;
+    }
+
+    public Question(UUID id, String question, String[] choices, int correctAnswerIndex) {
+        this.id = id;
         this.question = question;
         this.choices = choices;
         this.correctAnswerIndex = correctAnswerIndex;

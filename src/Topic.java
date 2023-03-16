@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Topic {
+    private UUID id;
     private String title;
     private String description;
     private Quiz quiz;
@@ -9,6 +11,17 @@ public class Topic {
 
     public Topic(String title, String description, Quiz quiz, 
         ArrayList<Lesson> lessons, ArrayList<Comment> comments) {
+        this.id = UUID.randomUUID();
+        this.title = title;
+        this.description = description;
+        this.quiz = quiz;
+        this.lessons = lessons;
+        this.comments = comments;
+    }
+
+    public Topic(UUID id, String title, String description, Quiz quiz, 
+        ArrayList<Lesson> lessons, ArrayList<Comment> comments) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.quiz = quiz;

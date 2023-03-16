@@ -1,12 +1,23 @@
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Review {
+    private UUID id;
     private Student reviewer;
     private LocalDate date;
     private int rating;
     private String comment;
 
     public Review(Student reviewer, LocalDate date, int rating, String comment) {
+        this.id = UUID.randomUUID();
+        this.reviewer = reviewer;
+        this.date = date;
+        this.rating = rating;
+        this.comment = comment;
+    }
+
+    public Review(UUID id, Student reviewer, LocalDate date, int rating, String comment) {
+        this.id = id;
         this.reviewer = reviewer;
         this.date = date;
         this.rating = rating;
