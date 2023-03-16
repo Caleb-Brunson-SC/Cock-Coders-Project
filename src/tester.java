@@ -14,7 +14,7 @@ public class tester {
         us.addUser("admin", "bob", "jones", "bj32", "bj@gmail.com", date, "5892759fshkag");
         printUsers(us.getUsers());
         
-        //us.saveUsers(); works but removed indentation formatting on users.json
+        //us.saveUsers(); 
     }
 
     public static void printUsers(ArrayList<User> users) {

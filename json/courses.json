@@ -1,7 +1,8 @@
 [
     {
-        "courseID": "8bd1c8c2-2240-45a7-9884-25d033514e76",
+        "id": "8bd1c8c2-2240-45a7-9884-25d033514e76",
         "title": "Python",
+        "language": "PYTHON",
         "description": "The world's most versatile programming language.",
         "teacherID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
         "students": [
@@ -18,19 +19,23 @@
         ],
         "topics": [
             {
+                "id": "",
                 "title": "Loops",
                 "description": "For Loops, While Loops, Do-While Loops.",
                 "lessons": [
                     {
+                        "id": "",
                         "title": "For Loops",
                         "content": "...For Content...",
                         "comments": [
                             {
+                                "id": "",
                                 "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
                                 "date": "2023-03-12",
                                 "content": "How do I fix my For Loop?",
                                 "replys": [
                                     {
+                                        "id": "",
                                         "userID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
                                         "date": "2023-03-12",
                                         "content": "Here is how you fix it ...",
@@ -39,11 +44,13 @@
                                 ]
                             },
                             {
+                                "id": "",
                                 "userID": "6b40acbe-c101-4701-8123-343a071c460c",
                                 "date": "2023-03-12",
                                 "content": "How do I make a For Loop?",
                                 "replys": [
                                     {
+                                        "id": "",
                                         "userID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
                                         "date": "2023-03-12",
                                         "content": "To make a For Loop ...",
@@ -54,11 +61,13 @@
                         ]
                     },
                     {
+                        "id": "",
                         "title": "While Loops",
                         "content": "...While content...",
                         "comments": []
                     },
                     {
+                        "id": "",
                         "title": "Do-While Loops",
                         "content": "...Do-While content...",
                         "comments": []
@@ -69,16 +78,19 @@
                     "description": "For Loops, While Loops, Do-While Loops.",
                     "questions": [
                         {
+                            "id": "",
                             "question": "When do you use For Loops",
                             "choices": ["Always", "Sometimes", "Never"],
                             "correctAnswerIndex": 0
                         },
                         {
+                            "id": "",
                             "question": "When do you use While Loops",
                             "choices": ["Always", "Sometimes", "Never"],
                             "correctAnswerIndex": 1
                         },
                         {
+                            "id": "",
                             "question": "When do you use Do-While Loops",
                             "choices": ["Always", "Sometimes", "Never"],
                             "correctAnswerIndex": 2
@@ -89,11 +101,13 @@
         ],
         "comments": [
             {
+                "id": "",
                 "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
                 "date": "2023-03-12",
                 "content": "Why should I even care about loops?",
                 "replys": [
                     {
+                        "id": "",
                         "userID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
                         "date": "2023-03-12",
                         "content": "Because they are cool, duh.",
@@ -104,7 +118,8 @@
         ],
         "reviews": [
             {
-                "userID": "6b40acbe-c101-4701-8123-343a071c460c",
+                "id": "",
+                "studentID": "6b40acbe-c101-4701-8123-343a071c460c",
                 "date": "2023-03-12",
                 "rating": 5,
                 "content": "This class was awesome!!!"

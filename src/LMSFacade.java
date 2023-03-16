@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class LMSFacade {
-    private User user;
+    private User user; // use this user for information (user.<blank>)
     private Course currentCourse;
     private Lesson currentLesson;
     private Topic currentTopic;
@@ -91,7 +91,7 @@ public class LMSFacade {
         return null;
     }
 
-    public ArrayList<CourseProgress> getCourseProgress() {
+    public ArrayList<StudentProgress> getCourseProgress() {
         return null;
     }
 
@@ -99,11 +99,11 @@ public class LMSFacade {
         return null;
     }
 
-    public CourseProgress getCourseProgressByKeyword(String keyword) {
+    public StudentProgress getCourseProgressByKeyword(String keyword) {
         return null;
     }
 
-    public ArrayList<CourseProgress> getAllCourseProgress() {
+    public ArrayList<StudentProgress> getAllCourseProgress() {
         return null;
     }
 
