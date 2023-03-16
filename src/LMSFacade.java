@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class LMSFacade {
-    private User user;
+    private User user; // use this user for information (user.<blank>)
     private Course currentCourse;
     private Lesson currentLesson;
     private Topic currentTopic;

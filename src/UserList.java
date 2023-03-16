@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 import java.time.LocalDate;
 
 public class UserList {
@@ -19,6 +20,15 @@ public class UserList {
     public User getUser(String userName) {
         for (User user : users) {
             if (user.getUserName().equals(userName)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public User getUserByUUID(UUID id) {
+        for (User user : users) {
+            if (user.getId().equals(id)) {
                 return user;
             }
         }
