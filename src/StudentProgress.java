@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class StudentProgress {
     private Student student;
     private double[] quizGrades;
@@ -34,6 +36,11 @@ public class StudentProgress {
         this.currentTopicIndex = currentTopicIndex;
     }
 
+    @Override
+    public String toString() {
+        return "StudentProgress [student=" + student + ", quizGrades=" + Arrays.toString(quizGrades)
+                + ", currentTopicIndex=" + currentTopicIndex + "]";
+    }
 
     //OTHER METHODS
     public void createCertificate() {
