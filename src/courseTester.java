@@ -3,19 +3,6 @@ import java.time.LocalDate;
 
 public class courseTester {
     public static void main(String args[])  {  
-        /*System.out.println("Testing DataLoader");
-
-        System.out.println("--------------------------------------------------------------------\n");
-        UserList us = UserList.getInstance();
-        printUsers(us.getUsers());
-        
-        System.out.println("--------------------------------------------------------------------\n");
-        LocalDate date = LocalDate.of(2020, 1, 8);
-        us.addUser("admin", "bob", "jones", "bj32", "bj@gmail.com", date, "5892759fshkag");
-        printUsers(us.getUsers());
-        
-        //us.saveUsers(); */
-
         // Create Quiz with Questions
         Question question1 = new Question("What is the color of the sky", new String[] {"blue", "green"}, 0);
         ArrayList<Question> questions = new ArrayList<Question>();
