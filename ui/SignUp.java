@@ -46,7 +46,7 @@ public class SignUp {
     textField = new JTextField();
     passwordField = new JPasswordField();
 
-    l.setText("Log in to continue");
+    l.setText("Sign up to continue");
     fieldLabel1.setText("Username:");
     fieldLabel2.setText("First Name:");
     fieldLabel3.setText("Last Name:");
