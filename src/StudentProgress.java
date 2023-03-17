@@ -1,11 +1,12 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StudentProgress {
     private Student student;
-    private double[] quizGrades;
+    private ArrayList<Double> quizGrades;
     private int currentTopicIndex;
 
-    public StudentProgress(Student student, double[] quizGrades, int currentTopicIndex) {
+    public StudentProgress(Student student, ArrayList<Double> quizGrades, int currentTopicIndex) {
         this.student = student;
         this.quizGrades = quizGrades;
         this.currentTopicIndex = currentTopicIndex;
@@ -20,11 +21,11 @@ public class StudentProgress {
         this.student = student;
     }
 
-    public double[] getQuizGrades() {
+    public ArrayList<Double> getQuizGrades() {
         return quizGrades;
     }
 
-    public void setQuizGrades(double[] quizGrades) {
+    public void setQuizGrades(ArrayList<Double> quizGrades) {
         this.quizGrades = quizGrades;
     }
 
@@ -38,8 +39,8 @@ public class StudentProgress {
 
     @Override
     public String toString() {
-        return "StudentProgress [student=" + student + ", quizGrades=" + Arrays.toString(quizGrades)
-                + ", currentTopicIndex=" + currentTopicIndex + "]";
+        return "StudentProgress [student=" + student + ", quizGrades=" + quizGrades + ", currentTopicIndex="
+                + currentTopicIndex + "]";
     }
 
     //OTHER METHODS
