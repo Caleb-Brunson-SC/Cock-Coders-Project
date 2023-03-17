@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.time.LocalDate;
 
-public class tester {
+public class courseTester {
     public static void main(String args[])  {  
         /*System.out.println("Testing DataLoader");
 
@@ -59,9 +59,4 @@ public class tester {
 
     }
 
-    public static void printUsers(ArrayList<User> users) {
-        for (int i = 0; i < users.size(); i++) {
-            System.out.println("***" + users.get(i));
-        }
-    }
 }
