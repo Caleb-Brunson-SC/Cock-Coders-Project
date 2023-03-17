@@ -37,7 +37,7 @@ public class DataWriter extends DataConstants {
         return userDetails;
     }
 
-    public void saveCourses() {
+    public static void saveCourses() {
 
     }
 
