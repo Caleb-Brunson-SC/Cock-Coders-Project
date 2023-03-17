@@ -113,6 +113,14 @@ public class Course {
         this.studentProgresses = studentProgresses;
     }
 
+    @Override
+    public String toString() {
+        return "Course [id=" + id + ", title=" + title + ", language=" + language + ", description=" + description
+                + ", teacher=" + teacher + ", topics=" + topics + ", reviews=" + reviews + ", comments=" + comments
+                + ", studentProgresses=" + studentProgresses + "]";
+    }
+
+    
     
 
     /* This might need to go in Teacher class
