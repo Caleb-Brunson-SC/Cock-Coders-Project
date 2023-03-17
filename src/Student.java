@@ -37,4 +37,8 @@ public class Student extends User {
     public void deleteReview(Review review) {
 
     }
+
+    public String getName() {
+        return getFirstName() + " " + getLastName();
+    }
 }
