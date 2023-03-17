@@ -141,9 +141,10 @@ public abstract class User {
         return null;
     }
 
+    @Override
     public String toString() {
-        return "ID: " + id + "; FIRST NAME: " + firstName + "; LAST NAME " + 
-        lastName + "; USERNAME: " + userName + "; EMAIL: " + email + "; DATE OF BIRTH: " + 
-        dateOfBirth + "; PASSWORD: " + password;
+        return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
+                + ", email=" + email + ", dateOfBirth=" + dateOfBirth + ", password=" + password + "]";
     }
+
 }
