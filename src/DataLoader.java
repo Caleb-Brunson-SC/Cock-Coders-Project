@@ -79,12 +79,14 @@ public class DataLoader extends DataConstants {
                     JSONObject studentProgressJSON = (JSONObject) s;
                     UUID studentID = UUID.fromString((String)studentProgressJSON.get(COURSE_STUDENT_ID));
                     Student student = (Student) users.getUserByUUID(studentID);
-                    double[] quizGrades = (double[])studentProgressJSON.get(COURSE_QUIZ_GRADES);
-                    int currentTopicIndex = (int)studentProgressJSON.get(COURSE_CURRENT_TOPIC_INDEX);
+                    ArrayList<Double> quizGrades = (ArrayList<Double>) studentProgressJSON.get(COURSE_QUIZ_GRADES);
+                    Number currentTopicIndexNum = (Number)studentProgressJSON.get(COURSE_CURRENT_TOPIC_INDEX);
+                    int currentTopicIndex = currentTopicIndexNum.intValue();
 
                     studentProgresses.add(new StudentProgress(student, quizGrades, currentTopicIndex));
                 }
 
+                /*
                 JSONArray topicsJSON = (JSONArray)courseJSON.get(COURSE_TOPICS);
                 for (Object t : topicsJSON) {
 
@@ -94,6 +96,7 @@ public class DataLoader extends DataConstants {
                 for (Object c : commentsJSON) {
 
                 }
+                */
 
                 JSONArray reviewsJSON = (JSONArray)courseJSON.get(COURSE_REVIEWS);
                 for (Object r : reviewsJSON) {
@@ -102,7 +105,8 @@ public class DataLoader extends DataConstants {
                     UUID studentID = UUID.fromString((String)reviewJSON.get(COURSE_STUDENT_ID));
                     Student student = (Student)users.getUserByUUID(studentID);
                     LocalDate date = LocalDate.parse((String)reviewJSON.get(COURSE_DATE));
-                    int rating = (int)reviewJSON.get(COURSE_RATING);
+                    Number ratingNum = (Number)reviewJSON.get(COURSE_RATING);
+                    int rating = ratingNum.intValue();
                     String content = (String)reviewJSON.get(COURSE_CONTENT);
 
                     reviews.add(new Review(reviewID, student, date, rating, content));
