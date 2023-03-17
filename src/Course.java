@@ -40,6 +40,43 @@ public class Course {
             this.studentProgresses = studentProgresses;
     }
 
+    // getElementByUUID methods
+    public Topic getTopicByUUID(UUID id) {
+        for (Topic topic : topics) {
+            if (topic.getId().equals(id)) {
+                return topic;
+            }
+        }
+        return null;
+    }
+
+    public Review getReviewByUUID(UUID id) {
+        for (Review review : reviews) {
+            if (review.getId().equals(id)) {
+                return review;
+            }
+        }
+        return null;
+    }
+
+    public Comment getCommentByUUID(UUID id) {
+        for (Comment comment : comments) {
+            if (comment.getId().equals(id)) {
+                return comment;
+            }
+        }
+        return null;
+    }
+
+    public StudentProgress getStudentProgressByStudentUUID(UUID id) {
+        for (StudentProgress sp : studentProgresses) {
+            if (sp.getStudent().getId().equals(id)) {
+                return sp;
+            }
+        }
+        return null;
+    }
+
     // GETTERS AND SETTERS
     public UUID getId() {
         return id;
