@@ -48,4 +48,12 @@ public class Quiz {
     public Question next() {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Quiz [title=" + title + ", description=" + description + ", questions=" + questions + "]";
+    }
+
+    
+
 }
