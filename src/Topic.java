@@ -78,6 +78,13 @@ public class Topic {
         this.comments = comments;
     }
 
+    @Override
+    public String toString() {
+        return "Topic [id=" + id + ", title=" + title + ", description=" + description + ", quiz=" + quiz + ", lessons="
+                + lessons + ", comments=" + comments + "]";
+    }
+
+    
     
 
     /* May need to go in Teacher class
