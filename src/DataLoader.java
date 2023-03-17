@@ -46,7 +46,7 @@ public class DataLoader extends DataConstants {
     }
 
     public static ArrayList<Course> getCourses() {
-        
+        ArrayList<Course> courses = new ArrayList<Course>();
 
 
         return null;
