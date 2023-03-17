@@ -53,5 +53,11 @@ public class Lesson {
         this.content = content;
     }
 
+    @Override
+    public String toString() {
+        return "Lesson [id=" + id + ", title=" + title + ", description=" + description + ", content=" + content + "]";
+    }
+
+    
     
 }
