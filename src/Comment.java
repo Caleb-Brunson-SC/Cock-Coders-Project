@@ -66,5 +66,12 @@ public class Comment {
         this.replys = replys;
     }
 
+    @Override
+    public String toString() {
+        return "Comment [id=" + id + ", user=" + user + ", date=" + date + ", content=" + content + ", replys=" + replys
+                + "]";
+    }
+
+    
     
 }
