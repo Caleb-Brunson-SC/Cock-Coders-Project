@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.UUID;
 
 public class Question {
@@ -53,5 +54,12 @@ public class Question {
         this.correctAnswerIndex = correctAnswerIndex;
     }
 
+    @Override
+    public String toString() {
+        return "Question [id=" + id + ", question=" + question + ", choices=" + Arrays.toString(choices)
+                + ", correctAnswerIndex=" + correctAnswerIndex + "]";
+    }
+
+    
 
 }
