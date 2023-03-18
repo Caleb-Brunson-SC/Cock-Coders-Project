@@ -93,21 +93,9 @@ public class DataLoader extends DataConstants {
                 }
                 */
 
+                // Comments here
                 JSONArray commentsJSON = (JSONArray)courseJSON.get(COURSE_COMMENTS);
-                for (Object c : commentsJSON) {
-                    JSONObject commentJSON = (JSONObject) c;
-                    UUID commentID = UUID.fromString((String)commentJSON.get(COURSE_ID));
-                    UUID userID = UUID.fromString((String)commentJSON.get(COURSE_USER_ID));
-                    User user = (User)users.getUserByUUID(userID);
-                    LocalDate date = LocalDate.parse((String)commentJSON.get(COURSE_DATE));
-                    String commentContent = (String)commentJSON.get(COURSE_CONTENT);
-                    ArrayList<Comment> replys = new ArrayList<Comment>();
-                    
-                    JSONArray replysJSON = (JSONArray)commentJSON.get(COURSE_REPLYS);
-                    replyRecursiveJSON(replysJSON, replys);
-
-                    comments.add(new Comment(commentID, user, date, commentContent, replys));
-                }
+                commentRecursionJSON(commentsJSON, comments);
 
                 JSONArray reviewsJSON = (JSONArray)courseJSON.get(COURSE_REVIEWS);
                 for (Object r : reviewsJSON) {
@@ -135,15 +123,32 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    public static void replyRecursiveJSON(JSONArray replysJSON, ArrayList<Comment> replys) {
+    public static void commentRecursionJSON(JSONArray commentsJSON, ArrayList<Comment> comments) {
         try {
-            for (Object r : replysJSON) {
-                JSONObject replyJSON = (JSONObject) r;
-                boolean hasSubArray = false;
-                JSONArray subArray = null;
+            // UserList to get Users by thier UUIDs
+            UserList users = UserList.getInstance();
+
+            for (Object c : commentsJSON) {
+                JSONObject commentJSON = (JSONObject) c;
+                UUID reviewID = UUID.fromString((String)commentJSON.get(COURSE_ID));
+                UUID userID = UUID.fromString((String)commentJSON.get(COURSE_USER_ID));
+                User user = (User)users.getUserByUUID(userID);
+                LocalDate date = LocalDate.parse((String)commentJSON.get(COURSE_DATE));
+                String content = (String)commentJSON.get(COURSE_CONTENT);
+
+                ArrayList<Comment> replys = new ArrayList<Comment>();
+                JSONArray replysJSON = (JSONArray)commentJSON.get(COURSE_REPLYS);
+
+                if (!replysJSON.isEmpty()) {
+                    commentRecursionJSON(replysJSON, replys);
+                    comments.add(new Comment(reviewID, user, date, content, replys));
+                } else {
+                    comments.add(new Comment(reviewID, user, date, content, null));
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    
 }
