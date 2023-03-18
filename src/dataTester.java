@@ -9,7 +9,10 @@ public class dataTester {
         //UserList us = UserList.getInstance();
         //printUsers(us.getUsers());
         CourseList cs = CourseList.getInstance();
-        printCourses(cs.getCourses());
+        ArrayList<Course> courses = cs.getCourses();
+        printCourses(courses);
+        System.out.println("\n \n");
+        System.out.println(courses.get(0).getComments());
         
         /*
         System.out.println("--------------------------------------------------------------------\n");
