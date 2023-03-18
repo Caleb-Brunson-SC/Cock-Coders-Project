@@ -1,6 +1,8 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class LMSFacade {
+    private UserList userList;
     private User user; // use this user for information (user.<blank>)
     private Course currentCourse;
     private Lesson currentLesson;
@@ -8,14 +10,15 @@ public class LMSFacade {
     private Quiz currentQuiz;
 
     public User login(String username, String password) {
-        return null;
+        return user = userList.login(username, password);
     }
 
-    public User signUp(String firstName, String lastName, String username, String email, String dateOfBirth, String password) {
-        return null;
+    public User signUp(String type, String firstName, String lastName, String username, String email, LocalDate dateOfBirth, String password) {
+        return user = userList.signUp(type, firstName, lastName, username, email, dateOfBirth, password);
     }
 
-    public void signOut() {
+    public void signOut(User user) {
+        userList.signOut(user);
 
     }
 
