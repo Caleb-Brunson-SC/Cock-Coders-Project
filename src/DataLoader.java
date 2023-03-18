@@ -122,7 +122,12 @@ public class DataLoader extends DataConstants {
                         JSONObject questionJSON = (JSONObject) qs;
                         UUID questionID = UUID.fromString((String)questionJSON.get(COURSE_ID));
                         String question = (String)questionJSON.get(COURSE_QUESTION);
-                        
+                        ArrayList<String> choices = (ArrayList<String>)questionJSON.get(COURSE_CHOICES);
+                        Number correctAnswerIndexNum = (Number)questionJSON.get(COURSE_CORRECT_ANSWER_INDEX);
+                        int correctAnswerIndex = correctAnswerIndexNum.intValue();
+
+                        Question quizQuestion = new Question(questionID, question, choices, correctAnswerIndex);
+                        quizQuestions.add(quizQuestion);
                     }
 
                     Quiz quiz = new Quiz(quizTitle, quizDescription, quizQuestions);
