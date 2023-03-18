@@ -1,20 +1,20 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Question {
     private UUID id;
     private String question;
-    private String[] choices;
+    private ArrayList<String> choices;
     private int correctAnswerIndex;
 
-    public Question(String question, String[] choices, int correctAnswerIndex) {
+    public Question(String question, ArrayList<String> choices, int correctAnswerIndex) {
         this.id = UUID.randomUUID();
         this.question = question;
         this.choices = choices;
         this.correctAnswerIndex = correctAnswerIndex;
     }
 
-    public Question(UUID id, String question, String[] choices, int correctAnswerIndex) {
+    public Question(UUID id, String question, ArrayList<String> choices, int correctAnswerIndex) {
         this.id = id;
         this.question = question;
         this.choices = choices;
@@ -38,11 +38,11 @@ public class Question {
         this.question = question;
     }
 
-    public String[] getChoices() {
+    public ArrayList<String> getChoices() {
         return choices;
     }
 
-    public void setChoices(String[] choices) {
+    public void setChoices(ArrayList<String> choices) {
         this.choices = choices;
     }
 
@@ -56,8 +56,8 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question [id=" + id + ", question=" + question + ", choices=" + Arrays.toString(choices)
-                + ", correctAnswerIndex=" + correctAnswerIndex + "]";
+        return "Question [id=" + id + ", question=" + question + ", choices=" + choices + ", correctAnswerIndex="
+                + correctAnswerIndex + "]";
     }
 
     

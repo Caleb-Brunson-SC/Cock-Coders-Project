@@ -114,13 +114,25 @@ public class DataLoader extends DataConstants {
 
                     // Topic -> Quiz JSON
                     JSONObject quizJSON = (JSONObject)topicJSON.get(COURSE_QUIZ);
-                    
+                    String quizTitle = (String)quizJSON.get(COURSE_TITLE);
+                    String quizDescription = (String)quizJSON.get(COURSE_DESCRIPTION);
+                    ArrayList<Question> quizQuestions = new ArrayList<Question>();
+                    JSONArray questionsJSON = (JSONArray)quizJSON.get(COURSE_QUESTIONS);
+                    for (Object qs : questionsJSON) {
+                        JSONObject questionJSON = (JSONObject) qs;
+                        UUID questionID = UUID.fromString((String)questionJSON.get(COURSE_ID));
+                        String question = (String)questionJSON.get(COURSE_QUESTION);
+                        
+                    }
+
+                    Quiz quiz = new Quiz(quizTitle, quizDescription, quizQuestions);
 
                     // Topic -> Comment JSON
                     ArrayList<Comment> topicComments = new ArrayList<Comment>();
                     JSONArray topicCommentsJSON = (JSONArray)topicJSON.get(COURSE_COMMENTS);
+                    commentRecursionJSON(topicCommentsJSON, topicComments);
 
-                    topics.add(new Topic(topicID, topicTitle, topicDescription, null, lessons, topicComments));
+                    topics.add(new Topic(topicID, topicTitle, topicDescription, quiz, lessons, topicComments));
                 }
 
                 // Comment JSON
