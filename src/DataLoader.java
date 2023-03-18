@@ -65,7 +65,7 @@ public class DataLoader extends DataConstants {
                 ArrayList<Comment> comments = new ArrayList<Comment>();
                 ArrayList<StudentProgress> studentProgresses = new ArrayList<StudentProgress>();
 
-                // JSON course object
+                // Course JSON
                 JSONObject courseJSON = (JSONObject) o;
                 UUID id = UUID.fromString((String)courseJSON.get(USER_ID));
                 String title = (String)courseJSON.get(COURSE_TITLE);
@@ -74,6 +74,7 @@ public class DataLoader extends DataConstants {
                 UUID teacherID = UUID.fromString((String)courseJSON.get(COURSE_TEACHER_ID));
                 teacher = (Teacher) users.getUserByUUID(teacherID);
 
+                // StudentProgress JSON
                 JSONArray studentProgressesJSON = (JSONArray)courseJSON.get(COURSE_STUDENTS);
                 for (Object s : studentProgressesJSON) {
                     JSONObject studentProgressJSON = (JSONObject) s;
@@ -85,18 +86,48 @@ public class DataLoader extends DataConstants {
 
                     studentProgresses.add(new StudentProgress(student, quizGrades, currentTopicIndex));
                 }
-
-                /*
+                
+                // Topic JSON
                 JSONArray topicsJSON = (JSONArray)courseJSON.get(COURSE_TOPICS);
                 for (Object t : topicsJSON) {
+                    JSONObject topicJSON = (JSONObject) t;
+                    UUID topicID = UUID.fromString((String)topicJSON.get(COURSE_ID));
+                    String topicTitle = (String)topicJSON.get(COURSE_TITLE);
+                    String topicDescription = (String)topicJSON.get(COURSE_DESCRIPTION);
 
+                    // Topic -> Lesson JSON
+                    ArrayList<Lesson> lessons = new ArrayList<Lesson>();
+                    JSONArray lessonsJSON = (JSONArray)topicJSON.get(COURSE_LESSONS);
+                    for (Object l : lessonsJSON) {
+                        JSONObject lessonJSON = (JSONObject) l;
+                        UUID lessonID = UUID.fromString((String)lessonJSON.get(COURSE_ID));
+                        String lessonTitle = (String)lessonJSON.get(COURSE_TITLE);
+                        String lessonContent = (String)lessonJSON.get(COURSE_CONTENT);
+
+                        // Lesson -> Comments JSON
+                        ArrayList<Comment> lessonComments = new ArrayList<Comment>();
+                        JSONArray lessonCommentsJSON = (JSONArray)lessonJSON.get(COURSE_COMMENTS);
+                        commentRecursionJSON(lessonCommentsJSON, lessonComments);
+
+                        lessons.add(new Lesson(lessonID, lessonTitle, lessonContent, lessonComments));
+                    }
+
+                    // Topic -> Quiz JSON
+                    JSONObject quizJSON = (JSONObject)topicJSON.get(COURSE_QUIZ);
+                    
+
+                    // Topic -> Comment JSON
+                    ArrayList<Comment> topicComments = new ArrayList<Comment>();
+                    JSONArray topicCommentsJSON = (JSONArray)topicJSON.get(COURSE_COMMENTS);
+
+                    topics.add(new Topic(topicID, topicTitle, topicDescription, null, lessons, topicComments));
                 }
-                */
 
-                // Comments here
+                // Comment JSON
                 JSONArray commentsJSON = (JSONArray)courseJSON.get(COURSE_COMMENTS);
                 commentRecursionJSON(commentsJSON, comments);
 
+                // Review JSON
                 JSONArray reviewsJSON = (JSONArray)courseJSON.get(COURSE_REVIEWS);
                 for (Object r : reviewsJSON) {
                     JSONObject reviewJSON = (JSONObject) r;
@@ -111,6 +142,7 @@ public class DataLoader extends DataConstants {
                     reviews.add(new Review(reviewID, student, date, rating, content));
                 }
 
+                // Add a new Course object to the list
                 courses.add(new Course(id, title, language, description, teacher, topics, reviews, comments, studentProgresses));
             }
 

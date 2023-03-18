@@ -96,7 +96,16 @@
                             "correctAnswerIndex": 2
                         }
                     ]
-                }
+                },
+                "comments": [
+                    {
+                        "id": "ad3b3f07-3e0b-4fbc-b82c-0edd6518d65b",
+                        "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                        "date": "2023-03-12",
+                        "content": "This was a cool topic",
+                        "replys": []
+                    }
+                ]
             }
         ],
         "comments": [
