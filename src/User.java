@@ -4,12 +4,12 @@ import java.util.UUID;
 
 public abstract class User {
     private UUID id;
-    protected String firstName;
-    protected String lastName;
-    protected String userName;
-    protected String email;
-    protected LocalDate dateOfBirth;
-    protected String password;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String email;
+    private LocalDate dateOfBirth;
+    private String password;
 
     public User(String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
         this.id = UUID.randomUUID();

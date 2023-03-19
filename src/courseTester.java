@@ -4,14 +4,16 @@ import java.time.LocalDate;
 public class courseTester {
     public static void main(String args[])  {  
         // Create Quiz with Questions
-        Question question1 = new Question("What is the color of the sky", new String[] {"blue", "green"}, 0);
+        ArrayList<String> choices = new ArrayList<String>();
+        choices.add("bob");
+        Question question1 = new Question("Why?", choices, 0);
         ArrayList<Question> questions = new ArrayList<Question>();
         questions.add(question1);
         Quiz quiz1 = new Quiz("Sky Quiz", "This will test you.", questions);
 
         // Create Lessons
         ArrayList<Lesson> lessons = new ArrayList<Lesson>();
-        Lesson lesson1 = new Lesson("Sky Lesson", "Will teach you.", "The sky is blue!!! Not any other color.");
+        Lesson lesson1 = new Lesson("bob", "jane", null);
         lessons.add(lesson1);
 
         // Create User (Student) and Comments
@@ -29,7 +31,9 @@ public class courseTester {
 
         // Create StudentProgress
         ArrayList<StudentProgress> progressList = new ArrayList<StudentProgress>();
-        StudentProgress student1Progress = new StudentProgress(student1, new double[] {85.0}, 0);
+        ArrayList<Double> grades = new ArrayList<Double>();
+        grades.add(100.0);
+        StudentProgress student1Progress = new StudentProgress(student1, grades, 0);
         progressList.add(student1Progress);
 
         // Create Reviews
