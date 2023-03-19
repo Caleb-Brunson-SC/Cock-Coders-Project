@@ -88,19 +88,6 @@ public abstract class User {
         this.password = password;
     }
 
-    //OTHER METHODS
-    public User login(String username, String password) {
-        return null;
-    }
-
-    public User signUp(String firstName, String lastName, String username, String email, String dateOfBirth, String password) {
-        return null;
-    }
-
-    public void signOut() {
-
-    }
-
     public void viewCourse() {
 
     }
