@@ -67,13 +67,18 @@ public class DataWriter extends DataConstants {
         courseDetails.put(COURSE_DESCRIPTION, course.getDescription());
         courseDetails.put(COURSE_TEACHER_ID, course.getTeacher().getId().toString());
 
-        List<HashMap<String, String>> listOfMaps = new ArrayList<HashMap<String, String>>();
+        // Students: studentProgress
+        JSONArray studentsArray = new JSONArray();
         for (StudentProgress sp : course.getStudentProgresses()) {
-            HashMap<String, String> students = new HashMap<String, String>();
-            students.put(COURSE_STUDENT_ID, sp.getStudent().getId().toString());
-            listOfMaps.add(students);
+            JSONObject studentsDetails = new JSONObject();
+            studentsDetails.put(COURSE_STUDENT_ID, sp.getStudent().getId().toString());
+            studentsDetails.put(COURSE_QUIZ_GRADES, sp.getQuizGrades());
+            studentsDetails.put(COURSE_CURRENT_TOPIC_INDEX, sp.getCurrentTopicIndex());
+            studentsArray.add(studentsDetails);
         }
-        courseDetails.put(COURSE_STUDENTS, listOfMaps);
+        courseDetails.put(COURSE_STUDENTS, studentsArray);
+
+        // Topics
 
         return courseDetails;
     }

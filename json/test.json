@@ -1,1 +1,19 @@
-[{"teacherID":"8d8595fa-ad78-42a3-bfa8-4b57b7d68740","description":"The world's most versatile programming language.","students":[{"studentID":"d6577ddf-067a-4d1c-a4d1-c50222ae6a71"},{"studentID":"6b40acbe-c101-4701-8123-343a071c460c"}],"language":"PYTHON","id":"8bd1c8c2-2240-45a7-9884-25d033514e76","title":"Python"}]
+[
+    {
+        "teacherID":"8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
+        "description":"The world's most versatile programming language.",
+        "students":[
+            {
+                "studentID":"d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                "quizGrades":[85,70],
+                "currentTopicIndex":0
+            },
+            {
+                "studentID":"6b40acbe-c101-4701-8123-343a071c460c",
+                "quizGrades":[75,70],
+                "currentTopicIndex":0
+            }
+        ],
+        "language":"PYTHON",
+        "id":"8bd1c8c2-2240-45a7-9884-25d033514e76",
+        "title":"Python"}]
