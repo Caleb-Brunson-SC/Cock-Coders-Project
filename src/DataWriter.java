@@ -1,6 +1,9 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap; // test
+import java.util.List; // test
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -63,6 +66,15 @@ public class DataWriter extends DataConstants {
         courseDetails.put(COURSE_LANGUAGE, course.getLanguage().toString());
         courseDetails.put(COURSE_DESCRIPTION, course.getDescription());
         courseDetails.put(COURSE_TEACHER_ID, course.getTeacher().getId().toString());
+
+        List<HashMap<String, String>> listOfMaps = new ArrayList<HashMap<String, String>>();
+        for (StudentProgress sp : course.getStudentProgresses()) {
+            HashMap<String, String> students = new HashMap<String, String>();
+            students.put(COURSE_STUDENT_ID, sp.getStudent().getId().toString());
+            listOfMaps.add(students);
+        }
+        courseDetails.put(COURSE_STUDENTS, listOfMaps);
+
         return courseDetails;
     }
 
