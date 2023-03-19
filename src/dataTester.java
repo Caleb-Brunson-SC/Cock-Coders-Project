@@ -12,7 +12,7 @@ public class dataTester {
         ArrayList<Course> courses = cs.getCourses();
         printCourses(courses);
         System.out.println("\n \n");
-        System.out.println(courses.get(0).getComments());
+        //System.out.println(courses.get(0).getTopics());
         
         /*
         System.out.println("--------------------------------------------------------------------\n");
