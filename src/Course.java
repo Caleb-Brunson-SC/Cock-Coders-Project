@@ -29,7 +29,7 @@ public class Course {
     public Course(UUID id, String title, Language language, String description, 
         Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
         ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
-            this.id = UUID.randomUUID();
+            this.id = id;
             this.title = title;
             this.language = language;
             this.description = description;
