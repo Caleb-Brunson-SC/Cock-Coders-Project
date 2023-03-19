@@ -88,20 +88,22 @@ public abstract class User {
         this.password = password;
     }
 
-    public void viewCourse() {
-
+    public Course viewCourse(UUID courseID) {
+        CourseList courseList = CourseList.getInstance();
+        return courseList.getCourseByUUID(courseID);
     }
 
-    public void viewTopic() {
-
+    public Topic viewTopic(UUID courseID, UUID topicID) {
+        CourseList courseList = CourseList.getInstance();
+        return courseList.getCourseByUUID(courseID).getTopicByUUID(courseID);
     }
 
-    public void viewLesson() {
-
+    public Lesson viewLesson(UUID courseID, UUID topicID, UUID lessonID) {
+        CourseList courseList = CourseList.getInstance();
+        return courseList.getCourseByUUID(courseID).getTopicByUUID(topicID).getLessonByUUID(lessonID);
     }
 
     public void viewDashboard() {
-
     }
 
     public void viewSettings() {
