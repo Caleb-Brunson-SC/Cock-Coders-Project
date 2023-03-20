@@ -1,6 +1,6 @@
 package ui;
 import javax.swing.*;
-
+// There is NO data being passed into this file. 
 public class SignUp {
   JFrame frame1;
   JLabel l;
@@ -73,7 +73,7 @@ public class SignUp {
     DOBField.setBounds(250, 200, 100, 20);
     passwordField.setBounds(250, 230, 100, 20);
     confirmPasswordField.setBounds(250, 260, 100, 20);
-
+    
     button1.setBounds(250, 290, 100, 20);
   
     frame1.add(l);

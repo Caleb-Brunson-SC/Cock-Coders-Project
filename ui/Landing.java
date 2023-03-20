@@ -1,6 +1,6 @@
 package ui;
 import javax.swing.*;
-
+// There is NO data being passed into this file. 
 public class Landing {
   JFrame frame1;
   JLabel l;
