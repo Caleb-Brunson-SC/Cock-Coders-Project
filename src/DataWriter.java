@@ -95,15 +95,8 @@ public class DataWriter extends DataConstants {
 
                 // Comments
                 JSONArray commentsArray = new JSONArray();
-                for (Comment c : l.getComments()) {
-                    JSONObject commentsDetails = new JSONObject();
-                    commentsDetails.put(COURSE_ID, c.getId().toString());
-                    commentsDetails.put(COURSE_USER_ID, c.getUser().getId().toString());
-                    commentsDetails.put(COURSE_DATE, c.getDate().toString());
-                    commentsDetails.put(COURSE_CONTENT, c.getContent());
-                    // recursive comment algo
-                    commentsArray.add(commentsDetails);
-                }
+                ArrayList<Comment> comments = l.getComments();
+                commentRecursionJSON(commentsArray, comments);
                 lessonsDetails.put(COURSE_COMMENTS, commentsArray);
                 lessonsArray.add(lessonsDetails);
             }
@@ -125,6 +118,20 @@ public class DataWriter extends DataConstants {
 
         return courseDetails;
     }
+
+    public static void commentRecursionJSON(JSONArray commentsArray, ArrayList<Comment> comments) {
+        for (Comment c : comments) {
+            JSONObject commentsDetails = new JSONObject();
+            commentsDetails.put(COURSE_ID, c.getId().toString());
+            commentsDetails.put(COURSE_USER_ID, c.getUser().getId().toString());
+            commentsDetails.put(COURSE_DATE, c.getDate().toString());
+            commentsDetails.put(COURSE_CONTENT, c.getContent());
+
+            commentsArray.add(commentsDetails);
+        }
+    }
+
+    
 
     public static void main(String args[])  {  
         //Test
