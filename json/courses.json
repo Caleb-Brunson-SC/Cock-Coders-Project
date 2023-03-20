@@ -8,34 +8,34 @@
         "students": [
             {
                 "studentID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
-                "quizGrades": [85],
+                "quizGrades": [85, 70],
                 "currentTopicIndex": 0
             },
             {
                 "studentID": "6b40acbe-c101-4701-8123-343a071c460c",
-                "quizGrades": [75],
+                "quizGrades": [75, 70],
                 "currentTopicIndex": 0
             }
         ],
         "topics": [
             {
-                "id": "",
+                "id": "a72de088-23e1-4da3-a38f-5f3750c047fa",
                 "title": "Loops",
                 "description": "For Loops, While Loops, Do-While Loops.",
                 "lessons": [
                     {
-                        "id": "",
+                        "id": "d02b57d4-f752-4bbf-91f4-9ac18251a0b2",
                         "title": "For Loops",
                         "content": "...For Content...",
                         "comments": [
                             {
-                                "id": "",
+                                "id": "5f12bb5e-0c64-4e23-9df7-b20afe9edd26",
                                 "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
                                 "date": "2023-03-12",
                                 "content": "How do I fix my For Loop?",
                                 "replys": [
                                     {
-                                        "id": "",
+                                        "id": "4bfc257f-0c60-4252-8f3a-36179375bb52",
                                         "userID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
                                         "date": "2023-03-12",
                                         "content": "Here is how you fix it ...",
@@ -44,7 +44,7 @@
                                 ]
                             },
                             {
-                                "id": "",
+                                "id": "d23ec792-0e9f-4ccc-a41f-0e865b947f1b",
                                 "userID": "6b40acbe-c101-4701-8123-343a071c460c",
                                 "date": "2023-03-12",
                                 "content": "How do I make a For Loop?",
@@ -61,13 +61,13 @@
                         ]
                     },
                     {
-                        "id": "",
+                        "id": "8e1a5676-e2ee-4114-94be-25c23ac27fcc",
                         "title": "While Loops",
                         "content": "...While content...",
                         "comments": []
                     },
                     {
-                        "id": "",
+                        "id": "790625a4-6645-45bb-8020-92be099108fc",
                         "title": "Do-While Loops",
                         "content": "...Do-While content...",
                         "comments": []
@@ -78,36 +78,45 @@
                     "description": "For Loops, While Loops, Do-While Loops.",
                     "questions": [
                         {
-                            "id": "",
+                            "id": "cbbaaabf-07c0-44be-bd0a-3c5c0283d46b",
                             "question": "When do you use For Loops",
                             "choices": ["Always", "Sometimes", "Never"],
                             "correctAnswerIndex": 0
                         },
                         {
-                            "id": "",
+                            "id": "a7399aea-08cd-4491-b210-a2a54c6af12e",
                             "question": "When do you use While Loops",
                             "choices": ["Always", "Sometimes", "Never"],
                             "correctAnswerIndex": 1
                         },
                         {
-                            "id": "",
+                            "id": "673aed6b-bcef-46e0-8fd7-7aa07903b02f",
                             "question": "When do you use Do-While Loops",
                             "choices": ["Always", "Sometimes", "Never"],
                             "correctAnswerIndex": 2
                         }
                     ]
-                }
+                },
+                "comments": [
+                    {
+                        "id": "ad3b3f07-3e0b-4fbc-b82c-0edd6518d65b",
+                        "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                        "date": "2023-03-12",
+                        "content": "This was a cool topic",
+                        "replys": []
+                    }
+                ]
             }
         ],
         "comments": [
             {
-                "id": "",
+                "id": "7d4a9634-264c-4306-a938-253ce6ae8163",
                 "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
                 "date": "2023-03-12",
                 "content": "Why should I even care about loops?",
                 "replys": [
                     {
-                        "id": "",
+                        "id": "527b2950-fe65-43ae-accf-6f04276c5ea4",
                         "userID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
                         "date": "2023-03-12",
                         "content": "Because they are cool, duh.",
@@ -118,7 +127,7 @@
         ],
         "reviews": [
             {
-                "id": "",
+                "id": "2c426945-544f-4925-b7b0-32ec75c5047d",
                 "studentID": "6b40acbe-c101-4701-8123-343a071c460c",
                 "date": "2023-03-12",
                 "rating": 5,

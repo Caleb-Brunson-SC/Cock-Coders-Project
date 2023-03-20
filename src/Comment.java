@@ -25,6 +25,16 @@ public class Comment {
         this.replys = replys;
     }
 
+    // getElementByUUID methods
+    public Comment getReplyByUUID(UUID id) {
+        for (Comment reply : replys) {
+            if (reply.getId().equals(id)) {
+                return reply;
+            }
+        }
+        return null;
+    }
+
     //GETTERS AND SETTERS
     public UUID getId() {
         return id;
@@ -66,5 +76,12 @@ public class Comment {
         this.replys = replys;
     }
 
+    @Override
+    public String toString() {
+        return "Comment [id=" + id + ", user=" + user + ", date=" + date + ", content=" + content + ", replys=" + replys
+                + "]";
+    }
+
+    
     
 }

@@ -1,44 +1,63 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class CourseList {
-    private CourseList courseList;
-    private ArrayList<StudentProgress> courses;
+    private ArrayList<Course> courses;
+    private static CourseList courseList;
     
     private CourseList() {
-        courses = new ArrayList<>();
+        courses = DataLoader.getCourses();
     }
 
-    public void addCourseList(StudentProgress course) {
-        courses.add(course);
-    }
-
-    public void deleteCourseList(StudentProgress course) {
-        courses.remove(course);
-    }
-
-    public void editCourseList(StudentProgress course) {
-        for(int i = 0; i <= courses.size(); i++) {
-            if(courses.get(i).equals(course)) {
-                courses.set(i, course);
-                break;
-            }
-        }
-    }
-
-    public CourseList getInstance() {
+    public static CourseList getInstance() {
         if(courseList == null) {
             courseList = new CourseList();
         }
         return courseList;
     }
 
-    public ArrayList<StudentProgress> getCourses(String keyword) {
-        ArrayList<StudentProgress> match = new ArrayList<>();
-        for(StudentProgress course : courses) {
-            if(course.getStudent().getAllCourses().contains(keyword.toLowerCase())) {
-                match.add(course);
+    public Course getCourseByUUID(UUID id) {
+        for (Course course : courses) {
+            if (course.getId().equals(id)) {
+                return course;
             }
         }
-        return match;
+        return null;
     }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public boolean haveCourse(UUID id) {
+        for (Course course : courses) {
+            if (course.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // HERE ADD: public boolean addCourse method
+
+    public void saveCourses() {
+        DataWriter.saveCourses();
+    }
+
+    //OTHER METHODS may change or delete
+    /*
+    public UserList addCourseList(UserList userList) {
+        return null;
+    }
+
+    public void deleteCourseList(UserList userList) {
+
+    }
+
+    public void editCourseList(UserList userList) {
+
+    }
+    */
+
+    
 }

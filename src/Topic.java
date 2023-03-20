@@ -29,6 +29,25 @@ public class Topic {
         this.comments = comments;
     }
 
+    // getElementByUUID methods
+    public Lesson getLessonByUUID(UUID id) {
+        for (Lesson lesson : lessons) {
+            if (lesson.getId().equals(id)) {
+                return lesson;
+            }
+        }
+        return null;
+    }
+
+    public Comment getCommentByUUID(UUID id) {
+        for (Comment comment : comments) {
+            if (comment.getId().equals(id)) {
+                return comment;
+            }
+        }
+        return null;
+    } 
+
     //GETTERS AND SETTERS
     public UUID getId() {
         return id;
@@ -78,6 +97,13 @@ public class Topic {
         this.comments = comments;
     }
 
+    @Override
+    public String toString() {
+        return "Topic [id=" + id + ", title=" + title + ", description=" + description + ", quiz=" + quiz + ", lessons="
+                + lessons + ", comments=" + comments + "]";
+    }
+
+    
     
 
     /* May need to go in Teacher class

@@ -4,12 +4,12 @@ import java.util.UUID;
 
 public abstract class User {
     private UUID id;
-    protected String firstName;
-    protected String lastName;
-    protected String userName;
-    protected String email;
-    protected LocalDate dateOfBirth;
-    protected String password;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String email;
+    private LocalDate dateOfBirth;
+    private String password;
 
     public User(String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
         this.id = UUID.randomUUID();
@@ -88,33 +88,22 @@ public abstract class User {
         this.password = password;
     }
 
-    //OTHER METHODS
-    public User login(String username, String password) {
-        return null;
+    public Course viewCourse(UUID courseID) {
+        CourseList courseList = CourseList.getInstance();
+        return courseList.getCourseByUUID(courseID);
     }
 
-    public User signUp(String firstName, String lastName, String username, String email, String dateOfBirth, String password) {
-        return null;
+    public Topic viewTopic(UUID courseID, UUID topicID) {
+        CourseList courseList = CourseList.getInstance();
+        return courseList.getCourseByUUID(courseID).getTopicByUUID(courseID);
     }
 
-    public void signOut() {
-
-    }
-
-    public void viewCourse() {
-
-    }
-
-    public void viewTopic() {
-
-    }
-
-    public void viewLesson() {
-
+    public Lesson viewLesson(UUID courseID, UUID topicID, UUID lessonID) {
+        CourseList courseList = CourseList.getInstance();
+        return courseList.getCourseByUUID(courseID).getTopicByUUID(topicID).getLessonByUUID(lessonID);
     }
 
     public void viewDashboard() {
-
     }
 
     public void viewSettings() {
@@ -141,9 +130,10 @@ public abstract class User {
         return null;
     }
 
+    @Override
     public String toString() {
-        return "ID: " + id + "; FIRST NAME: " + firstName + "; LAST NAME " + 
-        lastName + "; USERNAME: " + userName + "; EMAIL: " + email + "; DATE OF BIRTH: " + 
-        dateOfBirth + "; PASSWORD: " + password;
+        return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
+                + ", email=" + email + ", dateOfBirth=" + dateOfBirth + ", password=" + password + "]";
     }
+
 }

@@ -64,6 +64,13 @@ public class Review {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
+    @Override
+    public String toString() {
+        return "Review [id=" + id + ", reviewer=" + reviewer + ", date=" + date + ", rating=" + rating + ", comment="
+                + comment + "]";
+    }
+    
     
 
 }

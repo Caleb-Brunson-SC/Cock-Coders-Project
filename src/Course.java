@@ -29,7 +29,7 @@ public class Course {
     public Course(UUID id, String title, Language language, String description, 
         Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
         ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
-            this.id = UUID.randomUUID();
+            this.id = id;
             this.title = title;
             this.language = language;
             this.description = description;
@@ -38,6 +38,43 @@ public class Course {
             this.reviews = reviews;
             this.comments = comments;
             this.studentProgresses = studentProgresses;
+    }
+
+    // getElementByUUID methods
+    public Topic getTopicByUUID(UUID id) {
+        for (Topic topic : topics) {
+            if (topic.getId().equals(id)) {
+                return topic;
+            }
+        }
+        return null;
+    }
+
+    public Review getReviewByUUID(UUID id) {
+        for (Review review : reviews) {
+            if (review.getId().equals(id)) {
+                return review;
+            }
+        }
+        return null;
+    }
+
+    public Comment getCommentByUUID(UUID id) {
+        for (Comment comment : comments) {
+            if (comment.getId().equals(id)) {
+                return comment;
+            }
+        }
+        return null;
+    }
+
+    public StudentProgress getStudentProgressByStudentUUID(UUID id) {
+        for (StudentProgress sp : studentProgresses) {
+            if (sp.getStudent().getId().equals(id)) {
+                return sp;
+            }
+        }
+        return null;
     }
 
     // GETTERS AND SETTERS
@@ -113,6 +150,14 @@ public class Course {
         this.studentProgresses = studentProgresses;
     }
 
+    @Override
+    public String toString() {
+        return "Course [id=" + id + ", title=" + title + ", language=" + language + ", description=" + description
+                + ", teacher=" + teacher + ", topics=" + topics + ", reviews=" + reviews + ", comments=" + comments
+                + ", studentProgresses=" + studentProgresses + "]";
+    }
+
+    
     
 
     /* This might need to go in Teacher class

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Quiz {
     protected String title;
@@ -9,6 +10,16 @@ public class Quiz {
         this.title = title;
         this.description = description;
         this.questions = questions;
+    }
+
+    // getElementByUUID methods
+    public Question getQuestionByUUID(UUID id) {
+        for (Question question : questions) {
+            if (question.getId().equals(id)) {
+                return question;
+            }
+        }
+        return null;
     }
 
     //GETTERS AND SETTERS
@@ -48,4 +59,12 @@ public class Quiz {
     public Question next() {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Quiz [title=" + title + ", description=" + description + ", questions=" + questions + "]";
+    }
+
+    
+
 }
