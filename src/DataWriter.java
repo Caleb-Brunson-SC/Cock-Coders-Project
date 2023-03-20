@@ -103,7 +103,21 @@ public class DataWriter extends DataConstants {
             topicsDetails.put(COURSE_LESSONS, lessonsArray);
             // Quiz
             JSONObject quizDetails = new JSONObject();
-            quizDetails.put(COURSE_TITLE, t.getQuiz().getTitle());
+            Quiz quiz = t.getQuiz();
+            quizDetails.put(COURSE_TITLE, quiz.getTitle());
+            quizDetails.put(COURSE_DESCRIPTION, quiz.getDescription());
+            // Quiz Questions
+            JSONArray questionsArray = new JSONArray();
+            ArrayList<Question> questions = quiz.getQuestions();
+            for (Question q : questions) {
+                JSONObject questionDetails = new JSONObject();
+                questionDetails.put(COURSE_ID, q.getId().toString());
+                questionDetails.put(COURSE_QUESTION, q.getQuestion());
+                questionDetails.put(COURSE_CHOICES, q.getChoices());
+                questionDetails.put(COURSE_CORRECT_ANSWER_INDEX, q.getCorrectAnswerIndex());
+                questionsArray.add(questionDetails);
+            }
+            quizDetails.put(COURSE_QUESTIONS, questionsArray);
             topicsDetails.put(COURSE_QUIZ, quizDetails);
             
             topicsArray.add(topicsDetails);
