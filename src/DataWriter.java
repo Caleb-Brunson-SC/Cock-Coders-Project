@@ -79,6 +79,49 @@ public class DataWriter extends DataConstants {
         courseDetails.put(COURSE_STUDENTS, studentsArray);
 
         // Topics
+        JSONArray topicsArray = new JSONArray();
+        for (Topic t : course.getTopics()) {
+            JSONObject topicsDetails = new JSONObject();
+            topicsDetails.put(COURSE_ID, t.getId().toString());
+            topicsDetails.put(COURSE_TITLE, t.getTitle());
+            topicsDetails.put(COURSE_DESCRIPTION, t.getDescription());
+            // Lessons
+            JSONArray lessonsArray = new JSONArray();
+            for (Lesson l : t.getLessons()) {
+                JSONObject lessonsDetails = new JSONObject();
+                lessonsDetails.put(COURSE_ID, l.getId().toString());
+                lessonsDetails.put(COURSE_TITLE, l.getTitle());
+                lessonsDetails.put(COURSE_CONTENT, l.getContent());
+
+                // Comments
+                JSONArray commentsArray = new JSONArray();
+                for (Comment c : l.getComments()) {
+                    JSONObject commentsDetails = new JSONObject();
+                    commentsDetails.put(COURSE_ID, c.getId().toString());
+                    commentsDetails.put(COURSE_USER_ID, c.getUser().getId().toString());
+                    commentsDetails.put(COURSE_DATE, c.getDate().toString());
+                    commentsDetails.put(COURSE_CONTENT, c.getContent());
+                    // recursive comment algo
+                    commentsArray.add(commentsDetails);
+                }
+                lessonsDetails.put(COURSE_COMMENTS, commentsArray);
+                lessonsArray.add(lessonsDetails);
+            }
+            topicsDetails.put(COURSE_LESSONS, lessonsArray);
+            topicsArray.add(topicsDetails);
+        }
+        courseDetails.put(COURSE_TOPICS, topicsArray);
+
+        // Comments
+        
+
+        // Reviews
+        //JSONArray reviewsArray = new JSONArray();
+        //for (Review r : course.getReviews()) {
+            //JSONObject reviewsDetails = new JSONObject();
+            //reviewsArray.add(reviewsDetails);
+        //}
+        //courseDetails.put(COURSE_REVIEWS, reviewsArray);
 
         return courseDetails;
     }
