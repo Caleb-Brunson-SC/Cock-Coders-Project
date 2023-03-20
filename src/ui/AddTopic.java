@@ -6,7 +6,7 @@ import backEnd.Quiz;
 import backEnd.Topic;
 
 //language.java is enum for all languages
-public class CreateCourse {
+public class AddTopic {
   JFrame frame1;
   JLabel l1;
   JLabel l2;
@@ -25,7 +25,7 @@ public class CreateCourse {
 
   String languages[] = {"Python", "JavaScript", "Java", "C#", "PHP", "C++", "C", "R", "Swift", "Objective C", "Kotlin"};
 
-  CreateCourse(){
+  AddTopic(){
     // create new displayed objects
     
     frame1 = new JFrame();
