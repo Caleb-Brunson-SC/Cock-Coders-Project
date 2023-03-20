@@ -192,7 +192,7 @@ public class DataLoader extends DataConstants {
                     commentRecursionJSON(replysJSON, replys);
                     comments.add(new Comment(reviewID, user, date, content, replys));
                 } else {
-                    comments.add(new Comment(reviewID, user, date, content, null));
+                    comments.add(new Comment(reviewID, user, date, content, new ArrayList<Comment>()));
                 }
             }
         } catch (Exception e) {

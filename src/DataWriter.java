@@ -127,6 +127,16 @@ public class DataWriter extends DataConstants {
             commentsDetails.put(COURSE_DATE, c.getDate().toString());
             commentsDetails.put(COURSE_CONTENT, c.getContent());
 
+            JSONArray repliesArray = new JSONArray();
+            ArrayList<Comment> replies = c.getReplys();
+
+            if (!replies.isEmpty()) {
+                commentRecursionJSON(repliesArray, replies);
+                commentsDetails.put(COURSE_REPLYS, repliesArray);
+            } else {
+                commentsDetails.put(COURSE_REPLYS, new ArrayList<Comment>());
+            }
+
             commentsArray.add(commentsDetails);
         }
     }
