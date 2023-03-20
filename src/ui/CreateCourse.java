@@ -46,12 +46,6 @@ public class CreateCourse {
     topicList= new ArrayList<Topic>();
     addTopic = new JButton();
 
-// <<<<<<< HEAD
-// =======
-    // lessonList.add("POOP");
-    // lessonList.add("SHIT");
-    // lessonList.add("WEINER");
-// >>>>>>> a1e4a4196a9044eb6ec99155e5c0209368d5b468
     // set text for all prompts
     l1.setText("Create Course");
     courseTitleLabel.setText("Course title:");
@@ -83,32 +77,19 @@ public class CreateCourse {
 
     int topicCounter = 0;
     while(topicCounter < topicList.size()){
-      JLabel lessonName = new JLabel();
+      JLabel topicName = new JLabel();
       JButton editButton = new JButton();
 
       // lessonName.setText(lessonList.get(topicCounter));
-      lessonName.setText(topicList.get(topicCounter).getTitle());
+      topicName.setText(topicList.get(topicCounter).getTitle());
       editButton.setText("Edit Lesson");
-      lessonName.setBounds(100, 200 + (30 * topicCounter), 150, 30);
+      topicName.setBounds(100, 200 + (30 * topicCounter), 150, 30);
       editButton.setBounds(300, 200 + (30 * topicCounter), 100, 30);
 
-      frame1.add(lessonName);
+      frame1.add(topicName);
       frame1.add(editButton);
       topicCounter++;
     }
-    // for(int i = 0; i < lessonList.size() ; i++){
-    //   JLabel lessonName = new JLabel();
-    //   JButton editButton = new JButton();
-
-    //   lessonName.setText(lessonList.get(i));
-    //   // lessonName.setText(lessonList.get(i).getTitle());
-    //   editButton.setText("Edit Lesson");
-    //   lessonName.setBounds(100, 200 + (30 * i), 150, 20);
-    //   editButton.setBounds(250, 200 + (30 * i), 150, 20);
-
-    //   frame1.add(lessonName);
-    //   frame1.add(editButton);
-    // }
 
     addTopic.setBounds(300, 200 + (30 * topicCounter), 100, 30);
 
