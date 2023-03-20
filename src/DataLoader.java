@@ -53,7 +53,7 @@ public class DataLoader extends DataConstants {
             UserList users = UserList.getInstance();
 
             // JSON FILE
-            FileReader reader = new FileReader(COURSE_FILE_NAME);
+            FileReader reader = new FileReader(COURSE_FILE_NAME); // COURSE_FILE_NAME
             JSONParser parser = new JSONParser();
             JSONArray coursesJSON = (JSONArray)new JSONParser().parse(reader);
 

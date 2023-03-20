@@ -101,20 +101,33 @@ public class DataWriter extends DataConstants {
                 lessonsArray.add(lessonsDetails);
             }
             topicsDetails.put(COURSE_LESSONS, lessonsArray);
+            // Quiz
+            JSONObject quizDetails = new JSONObject();
+            quizDetails.put(COURSE_TITLE, t.getQuiz().getTitle());
+            topicsDetails.put(COURSE_QUIZ, quizDetails);
+            
             topicsArray.add(topicsDetails);
         }
         courseDetails.put(COURSE_TOPICS, topicsArray);
 
         // Comments
-        
+        JSONArray courseCommentsArray = new JSONArray();
+        ArrayList<Comment> courseComments = course.getComments();
+        commentRecursionJSON(courseCommentsArray, courseComments);
+        courseDetails.put(COURSE_COMMENTS, courseCommentsArray);
 
         // Reviews
-        //JSONArray reviewsArray = new JSONArray();
-        //for (Review r : course.getReviews()) {
-            //JSONObject reviewsDetails = new JSONObject();
-            //reviewsArray.add(reviewsDetails);
-        //}
-        //courseDetails.put(COURSE_REVIEWS, reviewsArray);
+        JSONArray reviewsArray = new JSONArray();
+        for (Review r : course.getReviews()) {
+            JSONObject reviewsDetails = new JSONObject();
+            reviewsDetails.put(COURSE_ID, r.getId().toString());
+            reviewsDetails.put(COURSE_STUDENT_ID, r.getReviewer().getId().toString());
+            reviewsDetails.put(COURSE_DATE, r.getDate().toString());
+            reviewsDetails.put(COURSE_RATING, r.getRating());
+            reviewsDetails.put(COURSE_CONTENT, r.getComment());
+            reviewsArray.add(reviewsDetails);
+        }
+        courseDetails.put(COURSE_REVIEWS, reviewsArray);
 
         return courseDetails;
     }
