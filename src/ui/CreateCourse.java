@@ -2,6 +2,7 @@ package ui;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.awt.*;
+import backEnd.*;
 
 public class CreateCourse {
   JFrame frame1;
@@ -49,7 +50,7 @@ public class CreateCourse {
     addQuiz = new JButton();
 
     lessonList.add("POOP");
-    // lessonList.add("SHIT");
+    lessonList.add("SHIT");
     // lessonList.add("WEINER");
     // set text for all prompts
     l1.setText("Create Course");
