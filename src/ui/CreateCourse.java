@@ -1,8 +1,6 @@
 package ui;
 import javax.swing.*;
 import java.util.ArrayList;
-import src.Lesson;
-import src.Quiz;
 import java.awt.*;
 
 public class CreateCourse {

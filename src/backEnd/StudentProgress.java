@@ -1,4 +1,4 @@
-package src;
+package backEnd;
 import java.util.ArrayList;
 
 public class StudentProgress {
