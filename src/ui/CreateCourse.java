@@ -2,8 +2,7 @@ package ui;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.awt.*;
-import backEnd.Quiz;
-import backEnd.Topic;
+import backEnd.*;
 
 //language.java is enum for all languages
 public class CreateCourse {
@@ -47,6 +46,12 @@ public class CreateCourse {
     topicList= new ArrayList<Topic>();
     addTopic = new JButton();
 
+// <<<<<<< HEAD
+// =======
+    // lessonList.add("POOP");
+    // lessonList.add("SHIT");
+    // lessonList.add("WEINER");
+// >>>>>>> a1e4a4196a9044eb6ec99155e5c0209368d5b468
     // set text for all prompts
     l1.setText("Create Course");
     courseTitleLabel.setText("Course title:");
