@@ -1,7 +1,8 @@
 package ui;
 import javax.swing.*;
+import java.awt.event.*;
 // There is NO data being passed into this file. 
-public class Landing {
+public class Landing implements ActionListener{
   JFrame frame1;
   JLabel l;
   JButton button1;
@@ -24,9 +25,23 @@ public class Landing {
     frame1.add(l);
     frame1.add(button1);
     frame1.add(button2);
+
+    button1.addActionListener(this);
+    button2.addActionListener(this);
   
     frame1.setSize(500, 300) ;
     frame1.setLayout(null);
     frame1.setVisible(true);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    if (e.getSource() == button1) {
+      frame1.setVisible(false);
+      new SignUp();
+      
+    } else if (e.getSource() == button2) { 
+      frame1.setVisible(false);
+      new LogIn();
+    }
   }
 }
