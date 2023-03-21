@@ -24,9 +24,7 @@ public class LMSFacade {
     }
 
     public Course createCourse(Course course) {
-        if(course != null) {
-            
-        }
+        return null;
     }
 
     public void deleteCourse(Course course) {
