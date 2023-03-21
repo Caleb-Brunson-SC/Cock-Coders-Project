@@ -173,12 +173,5 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    
-
-    public static void main(String args[])  {  
-        //Test
-        CourseList cs = CourseList.getInstance();
-        cs.saveCourses();
-    }
 
 }
