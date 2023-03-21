@@ -12,6 +12,8 @@ public class dataTester {
         CourseList cs = CourseList.getInstance();
         ArrayList<Course> courses = cs.getCourses();
         Course course = courses.get(0);
+
+        
         //System.out.println(course.getId());
         
         printCourses(courses);

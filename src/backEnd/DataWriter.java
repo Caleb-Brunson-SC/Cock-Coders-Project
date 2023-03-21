@@ -50,7 +50,7 @@ public class DataWriter extends DataConstants {
 		}
 
         // Write the JSON file
-        try (FileWriter file = new FileWriter("json/test.json")) { // Change this to COURSE_FILE_NAME
+        try (FileWriter file = new FileWriter(COURSE_FILE_NAME)) { 
             file.write(jsonCourses.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -119,6 +119,12 @@ public class DataWriter extends DataConstants {
             quizDetails.put(COURSE_QUESTIONS, questionsArray);
             topicsDetails.put(COURSE_QUIZ, quizDetails);
             
+            // Topic comments
+            JSONArray topicCommentsArray = new JSONArray();
+            ArrayList<Comment> topicComments = t.getComments();
+            commentRecursionJSON(topicCommentsArray, topicComments);
+            topicsDetails.put(COURSE_COMMENTS, topicCommentsArray);
+
             topicsArray.add(topicsDetails);
         }
         courseDetails.put(COURSE_TOPICS, topicsArray);
