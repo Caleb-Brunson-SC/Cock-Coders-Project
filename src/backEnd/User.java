@@ -89,19 +89,16 @@ public abstract class User {
         this.password = password;
     }
 
-    public Course viewCourse(UUID courseID) {
-        CourseList courseList = CourseList.getInstance();
-        return courseList.getCourseByUUID(courseID);
+    public Course viewCourse(Course currentCourse) {
+        return currentCourse;
     }
 
-    public Topic viewTopic(UUID courseID, UUID topicID) {
-        CourseList courseList = CourseList.getInstance();
-        return courseList.getCourseByUUID(courseID).getTopicByUUID(courseID);
+    public Topic viewTopic(Topic currentTopic) {
+        return currentTopic;
     }
 
-    public Lesson viewLesson(UUID courseID, UUID topicID, UUID lessonID) {
-        CourseList courseList = CourseList.getInstance();
-        return courseList.getCourseByUUID(courseID).getTopicByUUID(topicID).getLessonByUUID(lessonID);
+    public Lesson viewLesson(Lesson currentLesson) {
+        return currentLesson;
     }
 
     public void viewDashboard() {

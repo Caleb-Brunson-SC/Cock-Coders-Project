@@ -24,17 +24,15 @@ public class LMSFacade {
     }
 
     public Course createCourse(Course course) {
-        if(course != null) {
-            
-        }
+        return null;
     }
 
     public void deleteCourse(Course course) {
 
     }
 
-    public void viewCourse(Course course) {
-
+    public Course viewCourse(Course course) {
+        return currentCourse;
     }
 
     public Topic createTopic(Topic topic) {
@@ -45,8 +43,8 @@ public class LMSFacade {
 
     }
 
-    public void viewTopic(Topic topic) {
-
+    public Topic viewTopic(Topic topic) {
+        return currentTopic;
     }
 
     public Lesson createLesson(Lesson lesson) {
@@ -57,8 +55,8 @@ public class LMSFacade {
 
     }
 
-    public void viewLesson(Lesson lesson) {
-
+    public Lesson viewLesson(Lesson lesson) {
+        return currentLesson;
     }
 
     public Topic createQuiz(Quiz quiz) {
