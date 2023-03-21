@@ -24,7 +24,9 @@ public class LMSFacade {
     }
 
     public Course createCourse(Course course) {
-        return null;
+        if(course != null) {
+            
+        }
     }
 
     public void deleteCourse(Course course) {
@@ -68,7 +70,9 @@ public class LMSFacade {
     }
 
     public void takeQuiz(Quiz quiz) {
+        if(quiz != null) {
 
+        }
     }
 
     public boolean completedQuiz(Quiz quiz) {
