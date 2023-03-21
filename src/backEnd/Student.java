@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Student extends User {
-    private StudentProgress student;
     private ArrayList<StudentProgress> coursesEnrolled;
     private ArrayList<StudentProgress> coursesCompleted;
 

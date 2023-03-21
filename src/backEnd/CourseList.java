@@ -5,6 +5,7 @@ import java.util.UUID;
 public class CourseList {
     private ArrayList<Course> courses;
     private static CourseList courseList;
+    private Review review_;
     
     private CourseList() {
         courses = DataLoader.getCourses();
@@ -60,5 +61,32 @@ public class CourseList {
     }
     */
 
-    
+    public boolean completedQuiz() {
+        // something
+        return true;
+    }
+
+    public ArrayList<Course> getCourseProgressByKeyword(String keyword) {
+        for(Course course : courses) {
+            if(course.getTitle().equals(keyword)) {
+                courses.add(course);
+            }
+        }
+        return courses;
+    }
+
+    public ArrayList<StudentProgress> getAllCourseProgress() {
+        return null;
+    }
+
+    public Review createReview(Review review) {
+        if(review == null) {
+            review_ = new Review();
+        }
+        return review_;
+    }
+
+    public void deleteReview(Review review) {
+
+    }
 }

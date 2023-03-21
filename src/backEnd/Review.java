@@ -9,6 +9,10 @@ public class Review {
     private int rating;
     private String comment;
 
+    public Review() {
+        
+    }
+
     public Review(Student reviewer, LocalDate date, int rating, String comment) {
         this.id = UUID.randomUUID();
         this.reviewer = reviewer;
