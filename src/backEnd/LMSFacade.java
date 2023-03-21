@@ -92,7 +92,7 @@ public class LMSFacade {
 
     }
 
-    public Course getCourseByKeyword(String keyword) {
+    public ArrayList<Course> getCourseByKeyword(String keyword) {
         return null;
     }
 

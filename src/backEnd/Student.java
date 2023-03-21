@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Student extends User {
-    private StudentProgress student;
     private ArrayList<StudentProgress> coursesEnrolled;
     private ArrayList<StudentProgress> coursesCompleted;
 
@@ -16,35 +15,4 @@ public class Student extends User {
         super(firstName, lastName, userName, email, dateOfBirth, password);
     }
 
-    public void Quiz() {
-
-    }
-
-    public boolean completedQuiz() {
-        if((student.getQuizGrades()) != null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public StudentProgress getCourseProgressByKeyword(String keyword) {
-        return null;
-    }
-
-    public ArrayList<StudentProgress> getAllCourseProgress() {
-        return null;
-    }
-
-    public Review createReview(Review review) {
-        return null;
-    }
-
-    public void deleteReview(Review review) {
-
-    }
-
-    public String getName() {
-        return getFirstName() + " " + getLastName();
-    }
 }
