@@ -101,7 +101,7 @@ public class CourseList {
 
     public void deleteReview(Review review) {
         if(review != null) {
-            reviews.remove(review);
+            //reviews.remove(review); error
         }
     }
 }
