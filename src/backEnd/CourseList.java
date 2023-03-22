@@ -5,7 +5,6 @@ import java.util.UUID;
 public class CourseList {
     private ArrayList<Course> courses;
     private static CourseList courseList;
-    private Review review_;
     
     private CourseList() {
         courses = DataLoader.getCourses();
@@ -81,12 +80,14 @@ public class CourseList {
 
     public Review createReview(Review review) {
         if(review == null) {
-            review_ = new Review();
+            review = new Review();
         }
-        return review_;
+        return review;
     }
 
     public void deleteReview(Review review) {
-
+        if(review != null) {
+            reviews.remove(review);
+        }
     }
 }
