@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class LMSFacade {
     private UserList userList;
+    private CourseList courseList;
     private User user; // use this user for information (user.<blank>)
     private Course currentCourse;
     private Lesson currentLesson;
@@ -23,8 +24,14 @@ public class LMSFacade {
 
     }
 
-    public Course createCourse(Course course) {
-        return null;
+    public void createCourse(String title, Language language, String description, 
+    Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
+    ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
+        if(courseList.addCourse(title, language, description, teacher, topics, reviews, comments, studentProgresses)) {
+            System.out.println("Course Successfully added!");
+        } else {
+            System.out.println("Failed to add class.");
+        }
     }
 
     public void deleteCourse(Course course) {
