@@ -1,7 +1,9 @@
 package ui;
 import javax.swing.*;
+import java.awt.event.*;
+import backEnd.*;
 // There is NO data being passed into this file. 
-public class LogIn {
+public class LogIn implements ActionListener{
   JFrame frame1;
   JLabel l;
   JButton button1; 
@@ -36,7 +38,6 @@ public class LogIn {
     button1.setBounds(220, 140, 80, 30);
   
     frame1.add(l);
-    frame1.add(textField);
     frame1.add(button1);
     frame1.add(fieldLabel1);
     frame1.add(fieldLabel2);
@@ -47,5 +48,19 @@ public class LogIn {
     frame1.setSize(500, 300) ;
     frame1.setLayout(null);
     frame1.setVisible(true);
+  }
+  public void actionPerformed(ActionEvent e) {
+    LMSFacade facade = new LMSFacade();
+    if (e.getSource() == button1) {
+      String username = textField.getText();
+      String password = passwordField.getText();
+      User validUser = facade.login(username, password);
+      if (validUser != null) {
+        frame1.setVisible(false);
+
+      } else {
+      JOptionPane wrongPass = new JOptionPane("Incorrect password");
+      }
+    }
   }
 }

@@ -12,23 +12,21 @@ public abstract class User {
     private LocalDate dateOfBirth;
     private String password;
 
-    public User(String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
+    public User(String firstName, String lastName, String userName, String email, String password) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
-        this.dateOfBirth = dateOfBirth;
         this.password = password;
     }
 
-    public User(UUID id, String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
+    public User(UUID id, String firstName, String lastName, String userName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
-        this.dateOfBirth = dateOfBirth;
         this.password = password;
     }
 

@@ -1,5 +1,7 @@
 package ui;
 import javax.swing.*;
+import java.awt.event.*;
+import backEnd.*;
 // There is NO data being passed into this file. 
 public class SignUp {
   JFrame frame1;
@@ -13,14 +15,17 @@ public class SignUp {
   JLabel fieldLabel5;
   JLabel fieldLabel6;
   JLabel fieldLabel7;
+  JLabel fieldLabel8;
   JTextField usernameField;
   JTextField firstField;
   JTextField lastField;
   JTextField emailField;
   JTextField DOBField;
+  JComboBox accountTypeField;
   JPasswordField passwordField;
   JPasswordField confirmPasswordField;
 
+  String accTypes[] = {"Student", "Teacher", "Admin"};
 
   SignUp() {
     // creates a JFrame
@@ -32,16 +37,17 @@ public class SignUp {
     fieldLabel2 = new JLabel();
     fieldLabel3 = new JLabel();
     fieldLabel4 = new JLabel();
-    fieldLabel5 = new JLabel();
     fieldLabel6 = new JLabel();
     fieldLabel7 = new JLabel();
+    fieldLabel8 = new JLabel();
+
     usernameField = new JTextField();
     firstField = new JTextField();
     lastField = new JTextField();
     emailField = new JTextField();
-    DOBField = new JTextField();
     passwordField = new JPasswordField(); 
     confirmPasswordField = new JPasswordField();
+    accountTypeField = new  JComboBox(accTypes);
 
     textField = new JTextField();
     passwordField = new JPasswordField();
@@ -51,9 +57,10 @@ public class SignUp {
     fieldLabel2.setText("First Name:");
     fieldLabel3.setText("Last Name:");
     fieldLabel4.setText("Email:");
-    fieldLabel5.setText("Date of Birth:");
+
     fieldLabel6.setText("Password:");
     fieldLabel7.setText("Confirm Password:");
+    fieldLabel8.setText("Account Type:");
 
 
     // x axis, y axis, width, height
@@ -62,7 +69,8 @@ public class SignUp {
     fieldLabel2.setBounds(100, 110, 150, 20);
     fieldLabel3.setBounds(100, 140, 150, 20);
     fieldLabel4.setBounds(100,170, 150, 20);
-    fieldLabel5.setBounds(100, 200, 150, 20);
+
+    fieldLabel8.setBounds(100, 200, 150, 20);
     fieldLabel6.setBounds(100, 230, 150, 20);
     fieldLabel7.setBounds(100, 260, 150, 20);
 
@@ -70,7 +78,7 @@ public class SignUp {
     firstField.setBounds(250, 110, 100, 20);
     lastField.setBounds(250, 140, 100, 20);
     emailField.setBounds(250,170, 100, 20);
-    DOBField.setBounds(250, 200, 100, 20);
+    accountTypeField.setBounds(250, 200, 100, 20);
     passwordField.setBounds(250, 230, 100, 20);
     confirmPasswordField.setBounds(250, 260, 100, 20);
     
@@ -82,14 +90,14 @@ public class SignUp {
     frame1.add(fieldLabel2);
     frame1.add(fieldLabel3);
     frame1.add(fieldLabel4);
-    frame1.add(fieldLabel5);
     frame1.add(fieldLabel6);
     frame1.add(fieldLabel7);
+    frame1.add(fieldLabel8);
     frame1.add(usernameField);
     frame1.add(firstField);
     frame1.add(lastField);
     frame1.add(emailField);
-    frame1.add(DOBField);
+    frame1.add(accountTypeField);
     frame1.add(passwordField);
     frame1.add(confirmPasswordField);
 
@@ -98,5 +106,24 @@ public class SignUp {
     frame1.setSize(500, 500) ;
     frame1.setLayout(null);
     frame1.setVisible(true);
+  }
+  public void actionPerformed(ActionEvent e) {
+    LMSFacade facade = new LMSFacade();
+    if (e.getSource() == button1) {
+      String type = accTypes[accountTypeField.getSelectedIndex()];
+      String username = textField.getText();
+      String password = passwordField.getText();
+      String firstName = firstField.getText();
+      String lastName = lastField.getText();
+      String email = emailField.getText();      
+
+      User validUser = facade.signUp(type, firstName, lastName, username, email, password);
+      // if (validUser != null) {
+      //   frame1.setVisible(false);
+
+      // } else {
+      // JOptionPane wrongPass = new JOptionPane("Incorrect password");
+      // }
+    }
   }
 }

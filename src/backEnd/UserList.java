@@ -49,17 +49,17 @@ public class UserList {
         return false;
     }
 
-    public boolean addUser(String type, String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
+    public boolean addUser(String type, String firstName, String lastName, String userName, String email, String password) {
         if (haveUser(userName)) {
             return false;
         }
 
         if (type.equalsIgnoreCase("admin")) {
-            users.add(new Admin(firstName, lastName, userName, email, dateOfBirth, password));
+            users.add(new Admin(firstName, lastName, userName, email, password));
         } else if (type.equalsIgnoreCase("teacher")) {
-            users.add(new Teacher(firstName, lastName, userName, email, dateOfBirth, password));
+            users.add(new Teacher(firstName, lastName, userName, email, password));
         } else if (type.equalsIgnoreCase("student")) {
-            users.add(new Student(firstName, lastName, userName, email, dateOfBirth, password));
+            users.add(new Student(firstName, lastName, userName, email, password));
         }
         return true;
     }
@@ -77,9 +77,9 @@ public class UserList {
         return null;
     }
 
-    public User signUp(String type, String firstName, String lastName, String username, String email, LocalDate dateOfBirth, String password) {
+    public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
         // UserList user = UserList.getInstance();
-        if(userList.addUser(type, firstName, lastName, username, email, dateOfBirth, password)) {
+        if(userList.addUser(type, firstName, lastName, username, email, password)) {
             // User successfully added to db
            return userList.getUser(username);
         }
