@@ -25,7 +25,6 @@ public class DataLoader extends DataConstants {
                 String lastName = (String)userJSON.get(USER_LAST_NAME);
                 String userName = (String)userJSON.get(USER_USER_NAME);
                 String email = (String)userJSON.get(USER_EMAIL);
-                LocalDate dateOfBirth = LocalDate.parse((String)userJSON.get(USER_DATE_OF_BIRTH)); // must be ISO_LOCAL_DATE format of (YYYY-MM-DD)
                 String password = (String)userJSON.get(USER_PASSWORD);
 
                 if (type.equalsIgnoreCase("admin")) {

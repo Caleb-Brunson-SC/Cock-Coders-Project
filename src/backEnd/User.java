@@ -9,7 +9,6 @@ public abstract class User {
     private String lastName;
     private String userName;
     private String email;
-    private LocalDate dateOfBirth;
     private String password;
 
     public User(String firstName, String lastName, String userName, String email, String password) {
@@ -71,14 +70,6 @@ public abstract class User {
         this.email = email;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -129,7 +120,7 @@ public abstract class User {
     @Override
     public String toString() {
         return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
-                + ", email=" + email + ", dateOfBirth=" + dateOfBirth + ", password=" + password + "]";
+                + ", email=" + email + ", password=" + password + "]";
     }
 
 }
