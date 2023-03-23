@@ -54,11 +54,11 @@ public class UserList {
         }
 
         if (type.equalsIgnoreCase("admin")) {
-            users.add(new Admin(firstName, lastName, userName, email, password));
+            users.add(new Admin(type, firstName, lastName, userName, email, password));
         } else if (type.equalsIgnoreCase("teacher")) {
-            users.add(new Teacher(firstName, lastName, userName, email, password));
+            users.add(new Teacher(type, firstName, lastName, userName, email, password));
         } else if (type.equalsIgnoreCase("student")) {
-            users.add(new Student(firstName, lastName, userName, email, password));
+            users.add(new Student(type, firstName, lastName, userName, email, password));
         }
         userList.saveUsers();
         return true;

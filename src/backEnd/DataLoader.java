@@ -26,13 +26,13 @@ public class DataLoader extends DataConstants {
                 String userName = (String)userJSON.get(USER_USER_NAME);
                 String email = (String)userJSON.get(USER_EMAIL);
                 String password = (String)userJSON.get(USER_PASSWORD);
-
+                
                 if (type.equalsIgnoreCase("admin")) {
-                    users.add(new Admin(id, firstName, lastName, userName, email, password));
+                    users.add(new Admin(id, type, firstName, lastName, userName, email, password));
                 } else if (type.equalsIgnoreCase("teacher")) {
-                    users.add(new Teacher(id, firstName, lastName, userName, email, password));
+                    users.add(new Teacher(id, type, firstName, lastName, userName, email, password));
                 } else if (type.equalsIgnoreCase("student")) {
-                    users.add(new Student(id, firstName, lastName, userName, email, password));
+                    users.add(new Student(id, type, firstName, lastName, userName, email, password));
                 }
             }
 

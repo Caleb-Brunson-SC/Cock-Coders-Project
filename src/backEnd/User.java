@@ -5,14 +5,16 @@ import java.util.UUID;
 
 public abstract class User {
     private UUID id;
+    private String type;
     private String firstName;
     private String lastName;
     private String userName;
     private String email;
     private String password;
 
-    public User(String firstName, String lastName, String userName, String email, String password) {
+    public User(String type, String firstName, String lastName, String userName, String email, String password) {
         this.id = UUID.randomUUID();
+        this.type = type;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -20,8 +22,9 @@ public abstract class User {
         this.password = password;
     }
 
-    public User(UUID id, String firstName, String lastName, String userName, String email, String password) {
+    public User(UUID id, String type, String firstName, String lastName, String userName, String email, String password) {
         this.id = id;
+        this.type = type;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -36,6 +39,14 @@ public abstract class User {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getFirstName() {
@@ -119,8 +130,12 @@ public abstract class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
-                + ", email=" + email + ", password=" + password + "]";
+        return "User [id=" + id + ", type=" + type + ", firstName=" + firstName + ", lastName=" + lastName
+                + ", userName=" + userName + ", email=" + email + ", password=" + password + "]";
     }
+
+    
+
+    
 
 }

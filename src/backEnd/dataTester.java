@@ -1,19 +1,26 @@
 package backEnd;
 import java.util.ArrayList;
-import java.time.LocalDate;
 
 public class dataTester {
     public static void main(String args[])  {  
         System.out.println("Testing DataLoader");
 
         System.out.println("--------------------------------------------------------------------\n");
-        //UserList us = UserList.getInstance();
-        //printUsers(us.getUsers());
+        UserList us = UserList.getInstance();
+        printUsers(us.getUsers());
+
+        // Add a User
+        //us.addUser("admin", "bob", "jones", "bj32", "bj@gmail.com", "5892759fshkag");
+
+        UserList us2 = UserList.getInstance();
+        //printUsers(us2.getUsers());
+
+        /*
         CourseList cs = CourseList.getInstance();
         ArrayList<Course> courses = cs.getCourses();
         printCourses(courses);
         System.out.println("\n \n");
-
+        */
         
 
 
@@ -22,14 +29,12 @@ public class dataTester {
         
         //System.out.println(courses.get(0).getTopics());
         
-        /*
-        System.out.println("--------------------------------------------------------------------\n");
-        LocalDate date = LocalDate.of(2020, 1, 8);
-        us.addUser("admin", "bob", "jones", "bj32", "bj@gmail.com", date, "5892759fshkag");
-        printUsers(us.getUsers());
         
+        System.out.println("--------------------------------------------------------------------\n");
+        //us.addUser("admin", "bob", "jones", "bj32", "bj@gmail.com", "5892759fshkag");
+        //printUsers(us.getUsers());
         //us.saveUsers();
-        */
+        
     }
 
     public static void printUsers(ArrayList<User> users) {
