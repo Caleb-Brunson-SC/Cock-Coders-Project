@@ -87,17 +87,17 @@ public abstract class User {
         this.password = password;
     }
 
-    public Course viewCourse(Course currentCourse) {
-        return currentCourse;
-    }
+    // public Course viewCourse(Course currentCourse) {
+    //     return currentCourse;
+    // }
 
-    public Topic viewTopic(Topic currentTopic) {
-        return currentTopic;
-    }
+    // public Topic viewTopic(Topic currentTopic) {
+    //     return currentTopic;
+    // }
 
-    public Lesson viewLesson(Lesson currentLesson) {
-        return currentLesson;
-    }
+    // public Lesson viewLesson(Lesson currentLesson) {
+    //     return currentLesson;
+    // }
 
     public void viewDashboard() {
     }

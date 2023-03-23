@@ -14,19 +14,4 @@ public class Teacher extends User {
         super(firstName, lastName, userName, email, password);
     }
 
-    public void removeStudent(Student student) {
-
-    }
-
-    public Topic createTopic() {
-        return null;
-    }
-
-    public Quiz createQuiz() {
-        return null;
-    }
-
-    public void delteComment() {
-        
-    }
 }

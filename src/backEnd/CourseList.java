@@ -30,19 +30,33 @@ public class CourseList {
         return courses;
     }
 
-    public boolean haveCourse(UUID id) {
-        for (Course course : courses) {
-            if (course.getId().equals(id)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // public boolean haveCourse(UUID id) {
+    //     for (Course course : courses) {
+    //         if (course.getId().equals(id)) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 
     // HERE ADD: public boolean addCourse method
 
     public void saveCourses() {
         DataWriter.saveCourses();
+    }
+
+    public boolean addCourse(String title, Language language, String description, 
+    Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
+    ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
+        // create instance of a course with params and UUID.rando()
+        Course findCourse = new Course(title, language, description, teacher, topics, reviews, comments, studentProgresses);
+        courses.add(findCourse);
+        
+        if(findCourse.getId() != null) {
+            courseList.saveCourses();
+            return true;
+        }
+        return false;
     }
 
     //OTHER METHODS may change or delete
@@ -60,5 +74,34 @@ public class CourseList {
     }
     */
 
-    
+    public boolean completedQuiz() {
+        // something
+        return true;
+    }
+
+    public ArrayList<Course> getCourseProgressByKeyword(String keyword) {
+        for(Course course : courses) {
+            if(course.getTitle().equals(keyword)) {
+                courses.add(course);
+            }
+        }
+        return courses;
+    }
+
+    public ArrayList<StudentProgress> getAllCourseProgress() {
+        return null;
+    }
+
+    public Review createReview(Review review) {
+        if(review == null) {
+            review = new Review();
+        }
+        return review;
+    }
+
+    public void deleteReview(Review review) {
+        if(review != null) {
+            //reviews.remove(review); error
+        }
+    }
 }

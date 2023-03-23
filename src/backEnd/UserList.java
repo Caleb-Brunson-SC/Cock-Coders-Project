@@ -48,9 +48,8 @@ public class UserList {
         }
         return false;
     }
-
     public boolean addUser(String type, String firstName, String lastName, String userName, String email, String password) {
-        if (haveUser(userName)) {
+        if (haveUser(userName)|| haveUser(email)) {
             return false;
         }
 
@@ -61,7 +60,16 @@ public class UserList {
         } else if (type.equalsIgnoreCase("student")) {
             users.add(new Student(firstName, lastName, userName, email, password));
         }
+        userList.saveUsers();
         return true;
+    }
+    public boolean haveEmail(String email) {
+        for (User user : users) {
+            if (user.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void saveUsers() {

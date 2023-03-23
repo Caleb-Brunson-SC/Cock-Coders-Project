@@ -16,7 +16,4 @@ public class Student extends User {
         super(firstName, lastName, userName, email, password);
     }
 
-    public String getName() {
-        return getFirstName() + " " + getLastName();
-    }
 }
