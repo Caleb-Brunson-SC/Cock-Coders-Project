@@ -1,5 +1,4 @@
 package backEnd;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class LMSFacade {
@@ -11,6 +10,7 @@ public class LMSFacade {
     private Topic currentTopic;
     private Quiz currentQuiz;
 
+    // USER RELATED METHODS (userList)
     public User login(String username, String password) {
         return user = userList.login(username, password);
     }
@@ -24,6 +24,27 @@ public class LMSFacade {
 
     }
 
+    public void addTeacher(Teacher teacher) {
+
+    }
+
+    public void removeTeacher(Teacher teacher) {
+
+    }
+
+    public void viewDashboard() {
+
+    }
+
+    public void viewSettings() {
+
+    }
+
+    public void viewProfile() {
+
+    }
+
+    // COURSE RELATED METHODS (courseList)
     public void createCourse(String title, Language language, String description, 
     Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
     ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
@@ -84,13 +105,6 @@ public class LMSFacade {
         return true;
     } 
 
-    public void addTeacher(Teacher teacher) {
-
-    }
-
-    public void removeTeacher(Teacher teacher) {
-
-    }
 
     public ArrayList<Course> getCourseByKeyword(String keyword) {
         return null;
@@ -118,18 +132,6 @@ public class LMSFacade {
 
     public ArrayList<StudentProgress> getAllCourseProgress() {
         return null;
-    }
-
-    public void viewDashboard() {
-
-    }
-
-    public void viewSettings() {
-
-    }
-
-    public void viewProfile() {
-
     }
 
     public Comment createComment() {

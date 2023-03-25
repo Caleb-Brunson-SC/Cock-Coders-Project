@@ -1,7 +1,6 @@
 package backEnd;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.time.LocalDate;
 
 public class UserList {
     private ArrayList<User> users;
@@ -105,7 +104,6 @@ public class UserList {
         return false;
     }
 
-    //public void deleteUserList(UserList userList) {} may remove or edit this
 
-    //public void editUserList(UserList userList) {} may remove or edit this
+
 }
