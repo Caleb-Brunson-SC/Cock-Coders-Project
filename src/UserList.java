@@ -1,4 +1,3 @@
-package backEnd;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.time.LocalDate;
@@ -49,28 +48,18 @@ public class UserList {
         return false;
     }
 
-    public boolean haveEmail(String email) {
-        for (User user : users) {
-            if (user.getEmail().equals(email)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean addUser(String type, String firstName, String lastName, String userName, String email, String password) {
-        if (haveUser(userName) || haveUser(email)) {
+    public boolean addUser(String type, String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
+        if (haveUser(userName)) {
             return false;
         }
 
         if (type.equalsIgnoreCase("admin")) {
-            users.add(new Admin(firstName, lastName, userName, email, password));
+            users.add(new Admin(firstName, lastName, userName, email, dateOfBirth, password));
         } else if (type.equalsIgnoreCase("teacher")) {
-            users.add(new Teacher(firstName, lastName, userName, email, password));
+            users.add(new Teacher(firstName, lastName, userName, email, dateOfBirth, password));
         } else if (type.equalsIgnoreCase("student")) {
-            users.add(new Student(firstName, lastName, userName, email, password));
+            users.add(new Student(firstName, lastName, userName, email, dateOfBirth, password));
         }
-        userList.saveUsers();
         return true;
     }
 
@@ -87,9 +76,9 @@ public class UserList {
         return null;
     }
 
-    public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
+    public User signUp(String type, String firstName, String lastName, String username, String email, LocalDate dateOfBirth, String password) {
         // UserList user = UserList.getInstance();
-        if(userList.addUser(type, firstName, lastName, username, email, password)) {
+        if(userList.addUser(type, firstName, lastName, username, email, dateOfBirth, password)) {
             // User successfully added to db
            return userList.getUser(username);
         }

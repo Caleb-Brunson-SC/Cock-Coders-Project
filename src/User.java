@@ -1,31 +1,33 @@
-package backEnd;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
 public abstract class User {
     private UUID id;
-    private String firstName;
-    private String lastName;
-    private String userName;
-    private String email;
-    private String password;
+    protected String firstName;
+    protected String lastName;
+    protected String userName;
+    protected String email;
+    protected LocalDate dateOfBirth;
+    protected String password;
 
-    public User(String firstName, String lastName, String userName, String email, String password) {
+    public User(String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
+        this.dateOfBirth = dateOfBirth;
         this.password = password;
     }
 
-    public User(UUID id, String firstName, String lastName, String userName, String email, String password) {
+    public User(UUID id, String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
+        this.dateOfBirth = dateOfBirth;
         this.password = password;
     }
 
@@ -70,6 +72,14 @@ public abstract class User {
         this.email = email;
     }
 
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -78,17 +88,20 @@ public abstract class User {
         this.password = password;
     }
 
-    // public Course viewCourse(Course currentCourse) {
-    //     return currentCourse;
-    // }
+    public Course viewCourse(UUID courseID) {
+        CourseList courseList = CourseList.getInstance();
+        return courseList.getCourseByUUID(courseID);
+    }
 
-    // public Topic viewTopic(Topic currentTopic) {
-    //     return currentTopic;
-    // }
+    public Topic viewTopic(UUID courseID, UUID topicID) {
+        CourseList courseList = CourseList.getInstance();
+        return courseList.getCourseByUUID(courseID).getTopicByUUID(courseID);
+    }
 
-    // public Lesson viewLesson(Lesson currentLesson) {
-    //     return currentLesson;
-    // }
+    public Lesson viewLesson(UUID courseID, UUID topicID, UUID lessonID) {
+        CourseList courseList = CourseList.getInstance();
+        return courseList.getCourseByUUID(courseID).getTopicByUUID(topicID).getLessonByUUID(lessonID);
+    }
 
     public void viewDashboard() {
     }
@@ -120,7 +133,7 @@ public abstract class User {
     @Override
     public String toString() {
         return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
-                + ", email=" + email + ", dateOfBirth=" + ", password=" + password + "]";
+                + ", email=" + email + ", dateOfBirth=" + dateOfBirth + ", password=" + password + "]";
     }
 
 }

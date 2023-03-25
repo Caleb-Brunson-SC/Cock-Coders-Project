@@ -1,10 +1,8 @@
-package backEnd;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class LMSFacade {
     private UserList userList;
-    private CourseList courseList;
     private User user; // use this user for information (user.<blank>)
     private Course currentCourse;
     private Lesson currentLesson;
@@ -24,58 +22,40 @@ public class LMSFacade {
 
     }
 
-    public void createCourse(String title, Language language, String description, 
-    Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
-    ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
-        if(courseList.addCourse(title, language, description, teacher, topics, reviews, comments, studentProgresses)) {
-            System.out.println("Course Successfully added!");
-        } else {
-            System.out.println("Failed to add class.");
-        }
+    public Course createCourse(Course course) {
+        return null;
     }
 
     public void deleteCourse(Course course) {
 
     }
 
-    public Course viewCourse(Course course) {
-        currentCourse = course;
-        return currentCourse;
+    public void viewCourse(Course course) {
+
     }
 
-    public boolean createTopic(String title, String description, Quiz quiz, 
-    ArrayList<Lesson> lessons) {
-        currentTopic = currentCourse.createTopic(title, description, quiz, lessons);
-        if(currentTopic !=  null) {
-            return true;
-        }
-        return false;
+    public Topic createTopic(Topic topic) {
+        return null;
     }
 
     public void deleteTopic(Topic topic) {
 
     }
 
-    public Topic viewTopic(Topic topic) {
-        currentTopic = topic;
-        return currentTopic;
+    public void viewTopic(Topic topic) {
+
     }
 
-    public boolean createLesson(String title, String content) {
-        currentLesson = currentTopic.createLesson(title, content);
-        if(currentTopic != null) {
-            return true;
-        }
-        return false;
+    public Lesson createLesson(Lesson lesson) {
+        return null;
     }
 
     public void deleteLesson(Lesson lesson) {
 
     }
 
-    public Lesson viewLesson(Lesson lesson) {
-        currentLesson = lesson;
-        return currentLesson;
+    public void viewLesson(Lesson lesson) {
+
     }
 
     public Topic createQuiz(Quiz quiz) {
@@ -87,9 +67,7 @@ public class LMSFacade {
     }
 
     public void takeQuiz(Quiz quiz) {
-        if(quiz != null) {
 
-        }
     }
 
     public boolean completedQuiz(Quiz quiz) {
@@ -104,7 +82,7 @@ public class LMSFacade {
 
     }
 
-    public ArrayList<Course> getCourseByKeyword(String keyword) {
+    public Course getCourseByKeyword(String keyword) {
         return null;
     }
 

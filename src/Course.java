@@ -1,4 +1,3 @@
-package backEnd;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -30,7 +29,7 @@ public class Course {
     public Course(UUID id, String title, Language language, String description, 
         Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
         ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
-            this.id = id;
+            this.id = UUID.randomUUID();
             this.title = title;
             this.language = language;
             this.description = description;
@@ -117,14 +116,6 @@ public class Course {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
-    }
-
-    public Topic createTopic(String title, String description, Quiz quiz, 
-    ArrayList<Lesson> lessons) {
-        Topic newTopic = new Topic(title, description, quiz, lessons);
-        topics.add(newTopic);
-        return newTopic;
-        
     }
 
     public ArrayList<Topic> getTopics() {

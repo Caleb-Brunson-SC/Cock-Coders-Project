@@ -1,4 +1,3 @@
-package backEnd;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -13,13 +12,6 @@ public class Lesson {
         this.title = title;
         this.content = content;
         this.comments = comments;
-    }
-
-    public Lesson(String title, String content) {
-        this.id = UUID.randomUUID();
-        this.title = title;
-        this.content = content;
-        this.comments = null;
     }
 
     public Lesson(UUID id, String title, String content, ArrayList<Comment> comments) {

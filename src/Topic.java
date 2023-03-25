@@ -1,4 +1,3 @@
-package backEnd;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -18,17 +17,6 @@ public class Topic {
         this.quiz = quiz;
         this.lessons = lessons;
         this.comments = comments;
-    }
-
-    //Topic constructor that initializes Comments to null
-    public Topic(String title, String description, Quiz quiz, 
-        ArrayList<Lesson> lessons) {
-        this.id = UUID.randomUUID();
-        this.title = title;
-        this.description = description;
-        this.quiz = quiz;
-        this.lessons = lessons;
-        this.comments = null;
     }
 
     public Topic(UUID id, String title, String description, Quiz quiz, 
@@ -91,12 +79,6 @@ public class Topic {
 
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
-    }
-
-    public Lesson createLesson(String title, String content) {
-        Lesson newLesson = new Lesson(title, content);
-        lessons.add(newLesson);
-        return newLesson;
     }
 
     public ArrayList<Lesson> getLessons() {
