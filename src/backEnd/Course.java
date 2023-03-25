@@ -158,27 +158,4 @@ public class Course {
                 + ", studentProgresses=" + studentProgresses + "]";
     }
 
-    
-    
-
-    /* This might need to go in Teacher class
-    public void addTopic(Topic topic) {
-        if(topic != null) {
-            topics.add(topic);
-        }
-    }
-
-    public void removeTopic(Topic topic) {
-        if(topic != null) {
-            topics.remove(topic);
-        }
-    }
-
-    public ArrayList<Review> updateReviews(Review review) {
-        if(review != null) {
-            reviews.addAll(reviews);
-        }
-        return reviews;
-    }
-    */
 }
