@@ -82,7 +82,4 @@ public class Comment {
         return "Comment [id=" + id + ", user=" + user + ", date=" + date + ", content=" + content + ", replys=" + replys
                 + "]";
     }
-
-    
-    
 }

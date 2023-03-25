@@ -133,9 +133,4 @@ public abstract class User {
         return "User [id=" + id + ", type=" + type + ", firstName=" + firstName + ", lastName=" + lastName
                 + ", userName=" + userName + ", email=" + email + ", password=" + password + "]";
     }
-
-    
-
-    
-
 }
