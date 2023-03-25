@@ -62,6 +62,7 @@ public class UserList {
         userList.saveUsers();
         return true;
     }
+    
     public boolean haveEmail(String email) {
         for (User user : users) {
             if (user.getEmail().equals(email)) {
@@ -103,7 +104,6 @@ public class UserList {
         }
         return false;
     }
-
 
 
 }

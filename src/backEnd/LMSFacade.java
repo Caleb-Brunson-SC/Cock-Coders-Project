@@ -140,7 +140,7 @@ public class LMSFacade {
     }
 
     public void editReview(Review review) {
-        
+
     }
 
     public ArrayList<Course> getAllCourses() {
@@ -159,7 +159,7 @@ public class LMSFacade {
         return null;
     }
 
-    public ArrayList<StudentProgress> getStudentProgress() {
+    public ArrayList<StudentProgress> getStudentProgresses() {
         return null;
     }
 

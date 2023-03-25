@@ -30,16 +30,14 @@ public class CourseList {
         return courses;
     }
 
-    // public boolean haveCourse(UUID id) {
-    //     for (Course course : courses) {
-    //         if (course.getId().equals(id)) {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-
-    // HERE ADD: public boolean addCourse method
+    public boolean haveCourse(UUID id) {
+        for (Course course : courses) {
+            if (course.getId().equals(id)) {
+                return true;
+            }
+         }
+        return false;
+    }
 
     public void saveCourses() {
         DataWriter.saveCourses();
@@ -59,49 +57,8 @@ public class CourseList {
         return false;
     }
 
-    //OTHER METHODS may change or delete
-    /*
-    public UserList addCourseList(UserList userList) {
-        return null;
-    }
+    
 
-    public void deleteCourseList(UserList userList) {
 
-    }
-
-    public void editCourseList(UserList userList) {
-
-    }
-    */
-
-    public boolean completedQuiz() {
-        // something
-        return true;
-    }
-
-    public ArrayList<Course> getCourseProgressByKeyword(String keyword) {
-        for(Course course : courses) {
-            if(course.getTitle().equals(keyword)) {
-                courses.add(course);
-            }
-        }
-        return courses;
-    }
-
-    public ArrayList<StudentProgress> getAllCourseProgress() {
-        return null;
-    }
-
-    public Review createReview(Review review) {
-        if(review == null) {
-            review = new Review();
-        }
-        return review;
-    }
-
-    public void deleteReview(Review review) {
-        if(review != null) {
-            //reviews.remove(review); error
-        }
-    }
+    
 }
