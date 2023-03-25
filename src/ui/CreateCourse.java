@@ -22,7 +22,7 @@ public class CreateCourse {
 
   JButton addTopic;
 
-  String languages[] = {"Python", "JavaScript", "Java", "C#", "PHP", "C++", "C", "R", "Swift", "Objective C", "Kotlin"};
+  String languages[] = {"C#", "CPP", "C", "Java", "JavaScript", "Python", "HTML", "CSS"};
 
   CreateCourse(){
     // create new displayed objects

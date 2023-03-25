@@ -1,7 +1,6 @@
 package backEnd;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.time.LocalDate;
 
 public class UserList {
     private ArrayList<User> users;
@@ -48,7 +47,22 @@ public class UserList {
         }
         return false;
     }
+    public boolean addUser(String type, String firstName, String lastName, String userName, String email, String password) {
+        if (haveUser(userName)|| haveUser(email)) {
+            return false;
+        }
 
+        if (type.equalsIgnoreCase("admin")) {
+            users.add(new Admin(type, firstName, lastName, userName, email, password));
+        } else if (type.equalsIgnoreCase("teacher")) {
+            users.add(new Teacher(type, firstName, lastName, userName, email, password));
+        } else if (type.equalsIgnoreCase("student")) {
+            users.add(new Student(type, firstName, lastName, userName, email, password));
+        }
+        userList.saveUsers();
+        return true;
+    }
+    
     public boolean haveEmail(String email) {
         for (User user : users) {
             if (user.getEmail().equals(email)) {
@@ -56,22 +70,6 @@ public class UserList {
             }
         }
         return false;
-    }
-
-    public boolean addUser(String type, String firstName, String lastName, String userName, String email, LocalDate dateOfBirth, String password) {
-        if (haveUser(userName) || haveUser(email)) {
-            return false;
-        }
-
-        if (type.equalsIgnoreCase("admin")) {
-            users.add(new Admin(firstName, lastName, userName, email, dateOfBirth, password));
-        } else if (type.equalsIgnoreCase("teacher")) {
-            users.add(new Teacher(firstName, lastName, userName, email, dateOfBirth, password));
-        } else if (type.equalsIgnoreCase("student")) {
-            users.add(new Student(firstName, lastName, userName, email, dateOfBirth, password));
-        }
-        userList.saveUsers();
-        return true;
     }
 
     public void saveUsers() {
@@ -87,9 +85,9 @@ public class UserList {
         return null;
     }
 
-    public User signUp(String type, String firstName, String lastName, String username, String email, LocalDate dateOfBirth, String password) {
+    public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
         // UserList user = UserList.getInstance();
-        if(userList.addUser(type, firstName, lastName, username, email, dateOfBirth, password)) {
+        if(userList.addUser(type, firstName, lastName, username, email, password)) {
             // User successfully added to db
            return userList.getUser(username);
         }
@@ -107,7 +105,5 @@ public class UserList {
         return false;
     }
 
-    //public void deleteUserList(UserList userList) {} may remove or edit this
 
-    //public void editUserList(UserList userList) {} may remove or edit this
 }

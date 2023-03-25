@@ -1,5 +1,4 @@
 package backEnd;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class LMSFacade {
@@ -11,12 +10,13 @@ public class LMSFacade {
     private Topic currentTopic;
     private Quiz currentQuiz;
 
+    // USER RELATED METHODS (userList)
     public User login(String username, String password) {
         return user = userList.login(username, password);
     }
 
-    public User signUp(String type, String firstName, String lastName, String username, String email, LocalDate dateOfBirth, String password) {
-        return user = userList.signUp(type, firstName, lastName, username, email, dateOfBirth, password);
+    public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
+        return user = userList.signUp(type, firstName, lastName, username, email, password);
     }
 
     public void signOut(User user) {
@@ -24,6 +24,27 @@ public class LMSFacade {
 
     }
 
+    public void addTeacher(Teacher teacher) {
+
+    }
+
+    public void removeTeacher(Teacher teacher) {
+
+    }
+
+    public void viewDashboard() {
+
+    }
+
+    public void viewSettings() {
+
+    }
+
+    public void viewProfile() {
+
+    }
+
+    // COURSE RELATED METHODS (courseList)
     public void createCourse(String title, Language language, String description, 
     Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
     ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
@@ -38,8 +59,12 @@ public class LMSFacade {
 
     }
 
-    public Course viewCourse(Course course) {
-        return currentCourse;
+    public void editCourse(Course course) {
+        
+    }
+
+    public Course viewCourse() { // Not sure what arguments this should take
+        return null; // not sure what this should return
     }
 
     public Topic createTopic(Topic topic) {
@@ -47,6 +72,10 @@ public class LMSFacade {
     }
 
     public void deleteTopic(Topic topic) {
+
+    }
+
+    public void editTopic(Topic topic) {
 
     }
 
@@ -62,6 +91,10 @@ public class LMSFacade {
 
     }
 
+    public void editLesson(Lesson lesson) {
+
+    }
+
     public Lesson viewLesson(Lesson lesson) {
         return currentLesson;
     }
@@ -74,63 +107,17 @@ public class LMSFacade {
 
     }
 
-    public void takeQuiz(Quiz quiz) {
-        if(quiz != null) {
+    public void editQuiz(Quiz quiz) {
 
-        }
+    }
+
+    public void takeQuiz(Quiz quiz) {
+        
     }
 
     public boolean completedQuiz(Quiz quiz) {
         return true;
     } 
-
-    public void addTeacher(Teacher teacher) {
-
-    }
-
-    public void removeTeacher(Teacher teacher) {
-
-    }
-
-    public ArrayList<Course> getCourseByKeyword(String keyword) {
-        return null;
-    }
-
-    public Course getCourseByTeacher(String teacherName) {
-        return null;
-    }
-
-    public Course getCourseByRating(int rating) {
-        return null;
-    }
-
-    public ArrayList<StudentProgress> getCourseProgress() {
-        return null;
-    }
-
-    public ArrayList<Course> getAllCourses() {
-        return null;
-    }
-
-    public StudentProgress getCourseProgressByKeyword(String keyword) {
-        return null;
-    }
-
-    public ArrayList<StudentProgress> getAllCourseProgress() {
-        return null;
-    }
-
-    public void viewDashboard() {
-
-    }
-
-    public void viewSettings() {
-
-    }
-
-    public void viewProfile() {
-
-    }
 
     public Comment createComment() {
         return null;
@@ -151,4 +138,38 @@ public class LMSFacade {
     public void deleteReview(Review review) {
         
     }
+
+    public void editReview(Review review) {
+
+    }
+
+    public ArrayList<Course> getAllCourses() {
+        return null;
+    }
+
+    public ArrayList<Course> getCourseByKeyword(String keyword) {
+        return null;
+    }
+
+    public Course getCourseByTeacher(String teacherName) {
+        return null;
+    }
+
+    public Course getCourseByRating(int rating) { // 1, 2, 3, 4, or 5 "star" ratings
+        return null;
+    }
+
+    public ArrayList<StudentProgress> getStudentProgresses() {
+        return null;
+    }
+
+    public StudentProgress getStudentProgressByStudent(Student student) {
+        return null;
+    }
+
+    public ArrayList<StudentProgress> getAllCourseProgress() {
+        return null;
+    }
+
+    
 }
