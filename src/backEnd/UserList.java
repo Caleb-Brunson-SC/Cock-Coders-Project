@@ -105,5 +105,35 @@ public class UserList {
         return false;
     }
 
+    public void viewDashboard() {
+        System.out.println("***********************************************");
+        System.out.println("Welcome " + firstName + " " + lastName + "!");
+        System.out.println("You are currently enrolled in ");
+
+    }
+
+    public void viewSettings() {
+
+    }
+
+    public void viewProfile() {
+
+    }
+
+    public Course getCourseByKeyword(String keyword) {
+        return null;
+    }
+
+    public Course getCourseByTeacher(String teacherName) {
+        return null;
+    }
+
+    public Course getCourseByRating(int rating) {
+        return null;
+    }
+
+    public ArrayList<Course> getAllCourses() {
+        return null;
+    }
 
 }

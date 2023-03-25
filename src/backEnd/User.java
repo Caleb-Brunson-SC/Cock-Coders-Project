@@ -101,33 +101,6 @@ public abstract class User {
     //     return currentLesson;
     // }
 
-    public void viewDashboard() {
-    }
-
-    public void viewSettings() {
-
-    }
-
-    public void viewProfile() {
-
-    }
-
-    public Course getCourseByKeyword(String keyword) {
-        return null;
-    }
-
-    public Course getCourseByTeacher(String teacherName) {
-        return null;
-    }
-
-    public Course getCourseByRating(int rating) {
-        return null;
-    }
-
-    public ArrayList<Course> getAllCourses() {
-        return null;
-    }
-
     @Override
     public String toString() {
         return "User [id=" + id + ", type=" + type + ", firstName=" + firstName + ", lastName=" + lastName
