@@ -13,18 +13,16 @@ public class Review {
         
     }
 
-    public Review(Student reviewer, LocalDate date, int rating, String comment) {
+    public Review(Student reviewer, int rating, String comment) {
         this.id = UUID.randomUUID();
         this.reviewer = reviewer;
-        this.date = date;
         this.rating = rating;
         this.comment = comment;
     }
 
-    public Review(UUID id, Student reviewer, LocalDate date, int rating, String comment) {
+    public Review(UUID id, Student reviewer, int rating, String comment) {
         this.id = id;
         this.reviewer = reviewer;
-        this.date = date;
         this.rating = rating;
         this.comment = comment;
     }

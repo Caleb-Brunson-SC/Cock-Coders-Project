@@ -25,15 +25,15 @@ public class DataLoader extends DataConstants {
                 String lastName = (String)userJSON.get(USER_LAST_NAME);
                 String userName = (String)userJSON.get(USER_USER_NAME);
                 String email = (String)userJSON.get(USER_EMAIL);
-                LocalDate dateOfBirth = LocalDate.parse((String)userJSON.get(USER_DATE_OF_BIRTH)); // must be ISO_LOCAL_DATE format of (YYYY-MM-DD)
+               // LocalDate dateOfBirth = LocalDate.parse((String)userJSON.get(USER_DATE_OF_BIRTH)); // must be ISO_LOCAL_DATE format of (YYYY-MM-DD)
                 String password = (String)userJSON.get(USER_PASSWORD);
 
                 if (type.equalsIgnoreCase("admin")) {
-                    users.add(new Admin(id, firstName, lastName, userName, email, dateOfBirth, password));
+                    users.add(new Admin(id, firstName, lastName, userName, email, password));
                 } else if (type.equalsIgnoreCase("teacher")) {
-                    users.add(new Teacher(id, firstName, lastName, userName, email, dateOfBirth, password));
+                    users.add(new Teacher(id, firstName, lastName, userName, email, password));
                 } else if (type.equalsIgnoreCase("student")) {
-                    users.add(new Student(id, firstName, lastName, userName, email, dateOfBirth, password));
+                    users.add(new Student(id, firstName, lastName, userName, email, password));
                 }
             }
 
@@ -152,12 +152,12 @@ public class DataLoader extends DataConstants {
                     UUID reviewID = UUID.fromString((String)reviewJSON.get(COURSE_ID));
                     UUID studentID = UUID.fromString((String)reviewJSON.get(COURSE_STUDENT_ID));
                     Student student = (Student)users.getUserByUUID(studentID);
-                    LocalDate date = LocalDate.parse((String)reviewJSON.get(COURSE_DATE));
+                    //LocalDate date = LocalDate.parse((String)reviewJSON.get(COURSE_DATE));
                     Number ratingNum = (Number)reviewJSON.get(COURSE_RATING);
                     int rating = ratingNum.intValue();
                     String content = (String)reviewJSON.get(COURSE_CONTENT);
 
-                    reviews.add(new Review(reviewID, student, date, rating, content));
+                    reviews.add(new Review(reviewID, student, rating, content));
                 }
 
                 // Add a new Course object to the list
@@ -183,7 +183,7 @@ public class DataLoader extends DataConstants {
                 UUID reviewID = UUID.fromString((String)commentJSON.get(COURSE_ID));
                 UUID userID = UUID.fromString((String)commentJSON.get(COURSE_USER_ID));
                 User user = (User)users.getUserByUUID(userID);
-                LocalDate date = LocalDate.parse((String)commentJSON.get(COURSE_DATE));
+                //LocalDate date = LocalDate.parse((String)commentJSON.get(COURSE_DATE));
                 String content = (String)commentJSON.get(COURSE_CONTENT);
 
                 ArrayList<Comment> replys = new ArrayList<Comment>();
@@ -191,9 +191,9 @@ public class DataLoader extends DataConstants {
 
                 if (!replysJSON.isEmpty()) {
                     commentRecursionJSON(replysJSON, replys);
-                    comments.add(new Comment(reviewID, user, date, content, replys));
+                    comments.add(new Comment(reviewID, user, content, replys));
                 } else {
-                    comments.add(new Comment(reviewID, user, date, content, new ArrayList<Comment>()));
+                    comments.add(new Comment(reviewID, user, content, new ArrayList<Comment>()));
                 }
             }
         } catch (Exception e) {

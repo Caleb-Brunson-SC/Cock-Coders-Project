@@ -15,8 +15,8 @@ public class LMSFacade {
         return user = userList.login(username, password);
     }
 
-    public User signUp(String type, String firstName, String lastName, String username, String email, LocalDate dateOfBirth, String password) {
-        return user = userList.signUp(type, firstName, lastName, username, email, dateOfBirth, password);
+    public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
+        return user = userList.signUp(type, firstName, lastName, username, email, password);
     }
 
     public void signOut(User user) {

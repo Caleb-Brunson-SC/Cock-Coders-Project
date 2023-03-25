@@ -33,7 +33,7 @@ public class DataWriter extends DataConstants {
         userDetails.put(USER_LAST_NAME, user.getLastName());
         userDetails.put(USER_USER_NAME, user.getUserName());
         userDetails.put(USER_EMAIL, user.getEmail());
-        userDetails.put(USER_DATE_OF_BIRTH, user.getDateOfBirth().toString());
+        //userDetails.put(USER_DATE_OF_BIRTH, user.getDateOfBirth().toString());
         userDetails.put(USER_PASSWORD, user.getPassword());
 
         return userDetails;
@@ -156,7 +156,7 @@ public class DataWriter extends DataConstants {
             JSONObject commentsDetails = new JSONObject();
             commentsDetails.put(COURSE_ID, c.getId().toString());
             commentsDetails.put(COURSE_USER_ID, c.getUser().getId().toString());
-            commentsDetails.put(COURSE_DATE, c.getDate().toString());
+            //commentsDetails.put(COURSE_DATE, c.getDate().toString());
             commentsDetails.put(COURSE_CONTENT, c.getContent());
 
             JSONArray repliesArray = new JSONArray();
