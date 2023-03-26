@@ -57,20 +57,24 @@ public class UserList {
         return false;
     }
 
-    public boolean addUser(String type, String firstName, String lastName, String userName, String email, String password) {
+    public boolean addUser(String type, String firstName, String lastName, String userName, String email, String password,
+    UUID currentCourseID, UUID currentTopicID, UUID currentLessonID) {
         if (haveUser(userName) || haveUser(email)) {
             return false;
         }
 
         if (type.equalsIgnoreCase("admin")) {
             System.out.println("Input Admin");
-            users.add(new Admin(type, firstName, lastName, userName, email, password));
+            users.add(new Admin(type, firstName, lastName, userName, email, password,
+            currentCourseID, currentTopicID, currentLessonID));
         } else if (type.equalsIgnoreCase("teacher")) {
             System.out.println("Input Teacher");
-            users.add(new Teacher(type, firstName, lastName, userName, email, password));
+            users.add(new Teacher(type, firstName, lastName, userName, email, password,
+            currentCourseID, currentTopicID, currentLessonID));
         } else if (type.equalsIgnoreCase("student")) {
             System.out.println("Input Student");
-            users.add(new Student(type, firstName, lastName, userName, email, password));
+            users.add(new Student(type, firstName, lastName, userName, email, password,
+            currentCourseID, currentTopicID, currentLessonID));
         }
         userList.saveUsers();
         return true;

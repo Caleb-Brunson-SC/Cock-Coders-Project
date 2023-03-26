@@ -26,13 +26,19 @@ public class DataLoader extends DataConstants {
                 String userName = (String)userJSON.get(USER_USER_NAME);
                 String email = (String)userJSON.get(USER_EMAIL);
                 String password = (String)userJSON.get(USER_PASSWORD);
+                UUID currentCourseID = UUID.fromString((String)userJSON.get(USER_CURRENT_COURSE_ID));
+                UUID currentTopicID = UUID.fromString((String)userJSON.get(USER_CURRENT_TOPIC_ID));
+                UUID currentLessonID = UUID.fromString((String)userJSON.get(USER_CURRENT_LESSON_ID));
                 
                 if (type.equalsIgnoreCase("admin")) {
-                    users.add(new Admin(id, type, firstName, lastName, userName, email, password));
+                    users.add(new Admin(id, type, firstName, lastName, userName, email, password, 
+                    currentCourseID, currentTopicID, currentLessonID));
                 } else if (type.equalsIgnoreCase("teacher")) {
-                    users.add(new Teacher(id, type, firstName, lastName, userName, email, password));
+                    users.add(new Teacher(id, type, firstName, lastName, userName, email, password,
+                    currentCourseID, currentTopicID, currentLessonID));
                 } else if (type.equalsIgnoreCase("student")) {
-                    users.add(new Student(id, type, firstName, lastName, userName, email, password));
+                    users.add(new Student(id, type, firstName, lastName, userName, email, password,
+                    currentCourseID, currentTopicID, currentLessonID));
                 }
             }
 
