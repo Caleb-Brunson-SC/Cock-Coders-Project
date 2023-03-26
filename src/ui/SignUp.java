@@ -123,7 +123,7 @@ public class SignUp implements ActionListener {
       // System.out.println(username);
       // System.out.println(email);
       // System.out.println(password);
-
+      
       User validUser = facade.signUp(type, firstName, lastName, username, email, password);
       if (validUser != null) {
         frame1.setVisible(false);

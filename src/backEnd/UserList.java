@@ -1,7 +1,6 @@
 package backEnd;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.time.LocalDate;
 
 public class UserList {
     private ArrayList<User> users;
