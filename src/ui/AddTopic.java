@@ -2,15 +2,18 @@ package ui;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.awt.*;
+import java.awt.event.*;
 import backEnd.Quiz;
 import backEnd.Topic;
+import backEnd.*;
 
 //language.java is enum for all languages
-public class AddTopic {
+public class AddTopic implements ActionListener{
   JFrame frame1;
   JLabel l1;
   JLabel l2;
   JLabel l3;
+  JButton button1;
 
   JLabel topicTitleLabel;
   JLabel descriptionLabel;
@@ -44,6 +47,7 @@ public class AddTopic {
     topicList= new ArrayList<Topic>();
     addLesson = new JButton();
     addQuiz = new JButton();
+    button1 = new JButton();
 
     // set text for all prompts
     l1.setText("Create Topic");
@@ -56,6 +60,7 @@ public class AddTopic {
 
     l3.setText("Quizes");
     addQuiz.setText("Add Quiz");
+    button1.setText("Submit");
   
     // sets bounds for all objects
     l1.setBounds(100, 50, 300, 15);
@@ -103,6 +108,8 @@ public class AddTopic {
     }
 
     addQuiz.setBounds(300, 230 + (30 * lessonCounter) + (30 * quizCounter), 100, 30);
+    button1.setBounds(300, 260 + (30 * lessonCounter) + (30 * quizCounter), 100, 30);
+
 
     // adds all ojects
     frame1.add(l1);
@@ -118,6 +125,7 @@ public class AddTopic {
 
     frame1.add(addLesson);
     frame1.add(addQuiz);
+    frame1.add(button1);
 
     // frame1.add(l3);
 
@@ -127,5 +135,15 @@ public class AddTopic {
     frame1.setLayout(null);
     frame1.setVisible(true);
 
+  }
+  public void actionPerformed(ActionEvent e) {
+    LMSFacade facade = new LMSFacade();
+    if (e.getSource() == button1) {
+      String topic = topicTitleField.getText();
+      String description = descriptionField.getText();
+
+      System.out.println(topic);
+      System.out.println(description);
+    }
   }
 }
