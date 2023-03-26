@@ -18,6 +18,7 @@ public class LogIn implements ActionListener{
     frame1 = new JFrame();
     l = new JLabel();
     button1 = new JButton("Submit");
+    button1.addActionListener(this);
 
     fieldLabel1 = new JLabel();
     fieldLabel2 = new JLabel();
@@ -57,9 +58,8 @@ public class LogIn implements ActionListener{
       User validUser = facade.login(username, password);
       if (validUser != null) {
         frame1.setVisible(false);
-
       } else {
-      JOptionPane wrongPass = new JOptionPane("Incorrect password");
+        JOptionPane wrongPass = new JOptionPane("Incorrect password");
       }
     }
   }

@@ -16,12 +16,12 @@ public class LMSFacade {
     }
 
     public User login(String username, String password) {
-        return user = users.login(username, password);
+        User user = users.login(username, password);
+        return user;
     }
 
     public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
         User user = users.signUp(type, firstName, lastName, username, email, password);
-        System.out.println(user);
         return user;
     }
 
