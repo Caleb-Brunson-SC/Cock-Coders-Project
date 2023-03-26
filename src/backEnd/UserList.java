@@ -1,11 +1,11 @@
 package backEnd;
 import java.util.ArrayList;
 import java.util.UUID;
+import java.time.LocalDate;
 
 public class UserList {
     private ArrayList<User> users;
     private static UserList userList;
-    private User currentUser;
 
     private UserList() {
         users = DataLoader.getUsers();
@@ -40,14 +40,6 @@ public class UserList {
         return users;
     }
 
-    public void setCurrentUser(User user) {
-        this.currentUser = user;
-    }
-
-    public User getCurrentUser() {
-        return this.currentUser;
-    }
-
     public boolean haveUser(String userName) {
         for (User user : users) {
             if (user.getUserName().equals(userName)) {
@@ -56,22 +48,7 @@ public class UserList {
         }
         return false;
     }
-    public boolean addUser(String type, String firstName, String lastName, String userName, String email, String password) {
-        if (haveUser(userName)|| haveUser(email)) {
-            return false;
-        }
 
-        if (type.equalsIgnoreCase("admin")) {
-            users.add(new Admin(type, firstName, lastName, userName, email, password));
-        } else if (type.equalsIgnoreCase("teacher")) {
-            users.add(new Teacher(type, firstName, lastName, userName, email, password));
-        } else if (type.equalsIgnoreCase("student")) {
-            users.add(new Student(type, firstName, lastName, userName, email, password));
-        }
-        userList.saveUsers();
-        return true;
-    }
-    
     public boolean haveEmail(String email) {
         for (User user : users) {
             if (user.getEmail().equals(email)) {
@@ -79,6 +56,25 @@ public class UserList {
             }
         }
         return false;
+    }
+
+    public boolean addUser(String type, String firstName, String lastName, String userName, String email, String password) {
+        if (haveUser(userName) || haveUser(email)) {
+            return false;
+        }
+
+        if (type.equalsIgnoreCase("admin")) {
+            System.out.println("Input Admin");
+            users.add(new Admin(type, firstName, lastName, userName, email, password));
+        } else if (type.equalsIgnoreCase("teacher")) {
+            System.out.println("Input Teacher");
+            users.add(new Teacher(type, firstName, lastName, userName, email, password));
+        } else if (type.equalsIgnoreCase("student")) {
+            System.out.println("Input Student");
+            users.add(new Student(type, firstName, lastName, userName, email, password));
+        }
+        userList.saveUsers();
+        return true;
     }
 
     public void saveUsers() {
@@ -114,35 +110,7 @@ public class UserList {
         return false;
     }
 
-    public void viewDashboard() {
-        System.out.println("***********************************************");
-        System.out.println("Welcome " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
-        System.out.println("You are currently enrolled in ");
+    //public void deleteUserList(UserList userList) {} may remove or edit this
 
-    }
-
-    public void viewSettings() {
-
-    }
-
-    public void viewProfile() {
-
-    }
-
-    public Course getCourseByKeyword(String keyword) {
-        return null;
-    }
-
-    public Course getCourseByTeacher(String teacherName) {
-        return null;
-    }
-
-    public Course getCourseByRating(int rating) {
-        return null;
-    }
-
-    public ArrayList<Course> getAllCourses() {
-        return null;
-    }
-
+    //public void editUserList(UserList userList) {} may remove or edit this
 }

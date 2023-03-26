@@ -15,6 +15,13 @@ public class Lesson {
         this.comments = comments;
     }
 
+    public Lesson(String title, String content) {
+        this.id = UUID.randomUUID();
+        this.title = title;
+        this.content = content;
+        this.comments = null;
+    }
+
     public Lesson(UUID id, String title, String content, ArrayList<Comment> comments) {
         this.id = id;
         this.title = title;
