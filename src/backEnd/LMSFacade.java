@@ -1,33 +1,33 @@
 package backEnd;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class LMSFacade {
-    private UserList userList;
-    private CourseList courseList;
-    private User user; // use this user for information (user.<blank>)
+    private UserList users =  UserList.getInstance();
+    private CourseList courses = CourseList.getInstance();
+    private User user;
     private Course currentCourse;
     private Lesson currentLesson;
     private Topic currentTopic;
     private Quiz currentQuiz;
 
     public User login(String username, String password) {
-        return user = userList.login(username, password);
+        return user = users.login(username, password);
     }
 
     public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
-        return user = userList.signUp(type, firstName, lastName, username, email, password);
+        User user = users.signUp(type, firstName, lastName, username, email, password);
+        return user;
     }
 
     public void signOut(User user) {
-        userList.signOut(user);
+        users.signOut(user);
 
     }
 
     public void createCourse(String title, Language language, String description, 
     Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
     ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
-        if(courseList.addCourse(title, language, description, teacher, topics, reviews, comments, studentProgresses)) {
+        if(courses.addCourse(title, language, description, teacher, topics, reviews, comments, studentProgresses)) {
             System.out.println("Course Successfully added!");
         } else {
             System.out.println("Failed to add class.");
