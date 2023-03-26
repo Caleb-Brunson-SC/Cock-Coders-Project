@@ -95,7 +95,7 @@ public class UserList {
 
     public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
         // UserList user = UserList.getInstance();
-        if(userList.addUser(type, firstName, lastName, username, email, password)) {
+        if(userList.addUser(type, firstName, lastName, username, email, password, null, null, null)) {
             // User successfully added to db
            return userList.getUser(username);
         }
