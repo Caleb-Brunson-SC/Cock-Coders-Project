@@ -2,13 +2,18 @@ package backEnd;
 import java.util.ArrayList;
 
 public class LMSFacade {
-    private UserList users =  UserList.getInstance();
-    private CourseList courses = CourseList.getInstance();
+    private UserList users;
+    private CourseList courses;
     private User user;
     private Course currentCourse;
     private Lesson currentLesson;
     private Topic currentTopic;
     private Quiz currentQuiz;
+
+    public LMSFacade() {
+        this.users =  UserList.getInstance();
+        this.courses = CourseList.getInstance();
+    }
 
     public User login(String username, String password) {
         return user = users.login(username, password);
@@ -16,12 +21,12 @@ public class LMSFacade {
 
     public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
         User user = users.signUp(type, firstName, lastName, username, email, password);
+        System.out.println(user);
         return user;
     }
 
     public void signOut(User user) {
         users.signOut(user);
-
     }
 
     public void createCourse(String title, Language language, String description, 
