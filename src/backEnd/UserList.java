@@ -5,6 +5,7 @@ import java.util.UUID;
 public class UserList {
     private ArrayList<User> users;
     private static UserList userList;
+    private User currentUser;
 
     private UserList() {
         users = DataLoader.getUsers();
@@ -37,6 +38,14 @@ public class UserList {
 
     public ArrayList<User> getUsers() {
         return users;
+    }
+
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
+
+    public User getCurrentUser() {
+        return this.currentUser;
     }
 
     public boolean haveUser(String userName) {
@@ -107,7 +116,7 @@ public class UserList {
 
     public void viewDashboard() {
         System.out.println("***********************************************");
-        System.out.println("Welcome " + firstName + " " + lastName + "!");
+        System.out.println("Welcome " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
         System.out.println("You are currently enrolled in ");
 
     }
