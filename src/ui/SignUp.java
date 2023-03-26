@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import backEnd.*;
 // There is NO data being passed into this file. 
-public class SignUp {
+public class SignUp implements ActionListener {
   JFrame frame1;
   JLabel l;
   JButton button1; 
@@ -32,6 +32,7 @@ public class SignUp {
     frame1 = new JFrame();
     l = new JLabel();
     button1 = new JButton("Submit");
+    button1.addActionListener(this);
 
     fieldLabel1 = new JLabel();
     fieldLabel2 = new JLabel();
@@ -111,19 +112,25 @@ public class SignUp {
     LMSFacade facade = new LMSFacade();
     if (e.getSource() == button1) {
       String type = accTypes[accountTypeField.getSelectedIndex()];
-      String username = textField.getText();
-      String password = passwordField.getText();
+      String username = usernameField.getText();
+      String password = new String(passwordField.getPassword());
       String firstName = firstField.getText();
       String lastName = lastField.getText();
-      String email = emailField.getText();      
+      String email = emailField.getText();
+      // System.out.println(type);
+      // System.out.println(firstName);
+      // System.out.println(lastName);
+      // System.out.println(username);
+      // System.out.println(email);
+      // System.out.println(password);
 
       User validUser = facade.signUp(type, firstName, lastName, username, email, password);
-      // if (validUser != null) {
-      //   frame1.setVisible(false);
-
-      // } else {
-      // JOptionPane wrongPass = new JOptionPane("Incorrect password");
-      // }
+      if (validUser != null) {
+        frame1.setVisible(false);
+      } else {
+        System.out.println("FUCK");
+        JOptionPane wrongPass = new JOptionPane("Incorrect password");
+      }
     }
   }
 }
