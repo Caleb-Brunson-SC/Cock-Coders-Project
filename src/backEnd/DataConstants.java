@@ -9,6 +9,9 @@ public abstract class DataConstants {
     protected static final String USER_EMAIL = "email";
     protected static final String USER_DATE_OF_BIRTH = "dateOfBirth";
     protected static final String USER_PASSWORD = "password";
+    protected static final String USER_CURRENT_COURSE_ID = "currentCourseID";
+    protected static final String USER_CURRENT_TOPIC_ID = "currentTopicID";
+    protected static final String USER_CURRENT_LESSON_ID = "currentLessonID";
 
     protected static final String COURSE_FILE_NAME = "json/courses.json";
     protected static final String COURSE_ID = "id";

@@ -1,6 +1,4 @@
 package backEnd;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.UUID;
 
 public abstract class User {
@@ -11,8 +9,12 @@ public abstract class User {
     private String userName;
     private String email;
     private String password;
+    private UUID currentCourseID;
+    private UUID currentTopicID;
+    private UUID currentLessonID;
 
-    public User(String type, String firstName, String lastName, String userName, String email, String password) {
+    public User(String type, String firstName, String lastName, String userName, String email, 
+    String password, UUID currentCourseID, UUID currentTopicID, UUID currentLessonID) {
         this.id = UUID.randomUUID();
         this.type = type;
         this.firstName = firstName;
@@ -20,9 +22,13 @@ public abstract class User {
         this.userName = userName;
         this.email = email;
         this.password = password;
+        this.currentCourseID = currentCourseID;
+        this.currentTopicID = currentTopicID;
+        this.currentLessonID = currentLessonID;
     }
 
-    public User(UUID id, String type, String firstName, String lastName, String userName, String email, String password) {
+    public User(UUID id, String type, String firstName, String lastName, String userName, String email, 
+    String password, UUID currentCourseID, UUID currentTopicID, UUID currentLessonID) {
         this.id = id;
         this.type = type;
         this.firstName = firstName;
@@ -30,6 +36,9 @@ public abstract class User {
         this.userName = userName;
         this.email = email;
         this.password = password;
+        this.currentCourseID = currentCourseID;
+        this.currentTopicID = currentTopicID;
+        this.currentLessonID = currentLessonID;
     }
 
     //GETTERS AND SETTERS
@@ -89,21 +98,35 @@ public abstract class User {
         this.password = password;
     }
 
-    // public Course viewCourse(Course currentCourse) {
-    //     return currentCourse;
-    // }
+    public UUID getCurrentCourseID() {
+        return currentCourseID;
+    }
 
-    // public Topic viewTopic(Topic currentTopic) {
-    //     return currentTopic;
-    // }
+    public void setCurrentCourseID(UUID currentCourseID) {
+        this.currentCourseID = currentCourseID;
+    }
 
-    // public Lesson viewLesson(Lesson currentLesson) {
-    //     return currentLesson;
-    // }
+    public UUID getCurrentTopicID() {
+        return currentTopicID;
+    }
+
+    public void setCurrentTopicID(UUID currentTopicID) {
+        this.currentTopicID = currentTopicID;
+    }
+
+    public UUID getCurrentLessonID() {
+        return currentLessonID;
+    }
+
+    public void setCurrentLessonID(UUID currentLessonID) {
+        this.currentLessonID = currentLessonID;
+    }
 
     @Override
     public String toString() {
         return "User [id=" + id + ", type=" + type + ", firstName=" + firstName + ", lastName=" + lastName
-                + ", userName=" + userName + ", email=" + email + ", password=" + password + "]";
+                + ", userName=" + userName + ", email=" + email + ", password=" + password + ", currentCourseID="
+                + currentCourseID + ", currentTopicID=" + currentTopicID + ", currentLessonID=" + currentLessonID + "]";
     }
+
 }
