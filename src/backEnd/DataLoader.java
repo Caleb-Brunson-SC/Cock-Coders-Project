@@ -81,10 +81,8 @@ public class DataLoader extends DataConstants {
                     UUID studentID = UUID.fromString((String)studentProgressJSON.get(COURSE_STUDENT_ID));
                     Student student = (Student) users.getUserByUUID(studentID);
                     ArrayList<Double> quizGrades = (ArrayList<Double>) studentProgressJSON.get(COURSE_QUIZ_GRADES);
-                    Number currentTopicIndexNum = (Number)studentProgressJSON.get(COURSE_CURRENT_TOPIC_INDEX);
-                    int currentTopicIndex = currentTopicIndexNum.intValue();
 
-                    studentProgresses.add(new StudentProgress(student, quizGrades, currentTopicIndex));
+                    studentProgresses.add(new StudentProgress(student, quizGrades));
                 }
                 
                 // Topic JSON

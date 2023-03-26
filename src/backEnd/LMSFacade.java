@@ -6,13 +6,16 @@ public class LMSFacade {
     private CourseList courses;
     private User user;
     private Course currentCourse;
-    private Lesson currentLesson;
     private Topic currentTopic;
-    private Quiz currentQuiz;
+    private Lesson currentLesson;
 
     public LMSFacade() {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
+        this.user = null;
+        this.currentCourse = null;
+        this.currentTopic = null;
+        this.currentLesson = null;
     }
 
     public User login(String username, String password) {

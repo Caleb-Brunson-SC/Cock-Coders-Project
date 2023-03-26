@@ -4,12 +4,10 @@ import java.util.ArrayList;
 public class StudentProgress {
     private Student student;
     private ArrayList<Double> quizGrades;
-    private int currentTopicIndex;
 
-    public StudentProgress(Student student, ArrayList<Double> quizGrades, int currentTopicIndex) {
+    public StudentProgress(Student student, ArrayList<Double> quizGrades) {
         this.student = student;
         this.quizGrades = quizGrades;
-        this.currentTopicIndex = currentTopicIndex;
     }
 
     //GETTERS AND SETTERS
@@ -29,18 +27,9 @@ public class StudentProgress {
         this.quizGrades = quizGrades;
     }
 
-    public int getCurrentTopicIndex() {
-        return currentTopicIndex;
-    }
-
-    public void setCurrentTopicIndex(int currentTopicIndex) {
-        this.currentTopicIndex = currentTopicIndex;
-    }
-
     @Override
     public String toString() {
-        return "StudentProgress [student=" + student + ", quizGrades=" + quizGrades + ", currentTopicIndex="
-                + currentTopicIndex + "]";
+        return "StudentProgress [student=" + student + ", quizGrades=" + quizGrades + "]";
     }
 
     //OTHER METHODS

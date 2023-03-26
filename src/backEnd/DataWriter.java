@@ -72,7 +72,6 @@ public class DataWriter extends DataConstants {
             JSONObject studentsDetails = new JSONObject();
             studentsDetails.put(COURSE_STUDENT_ID, sp.getStudent().getId().toString());
             studentsDetails.put(COURSE_QUIZ_GRADES, sp.getQuizGrades());
-            studentsDetails.put(COURSE_CURRENT_TOPIC_INDEX, sp.getCurrentTopicIndex());
             studentsArray.add(studentsDetails);
         }
         courseDetails.put(COURSE_STUDENTS, studentsArray);

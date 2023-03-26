@@ -34,7 +34,7 @@ public class courseTester {
         ArrayList<StudentProgress> progressList = new ArrayList<StudentProgress>();
         ArrayList<Double> grades = new ArrayList<Double>();
         grades.add(100.0);
-        StudentProgress student1Progress = new StudentProgress(student1, grades, 0);
+        StudentProgress student1Progress = new StudentProgress(student1, grades);
         progressList.add(student1Progress);
 
         // Create Reviews
