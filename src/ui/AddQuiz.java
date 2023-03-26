@@ -12,120 +12,99 @@ public class AddQuiz implements ActionListener {
   JFrame frame1;
   JLabel l1;
   JLabel l2;
-  JLabel l3;
+  JButton button1;
 
-  JLabel topicTitleLabel;
+  JLabel titleLabel;
   JLabel descriptionLabel;
-  JTextField topicTitleField;
+
+  JTextField titleField;
   JTextField descriptionField;
 
-  ArrayList<Topic> topicList;
+  ArrayList<Question> questionList;
 
-  JButton addLesson;
-  JButton addQuiz;
-
-  String languages[] = {"Python", "JavaScript", "Java", "C#", "PHP", "C++", "C", "R", "Swift", "Objective C", "Kotlin"};
+  JButton addQuestion;
 
   AddQuiz(){
     // create new displayed objects
-    
     frame1 = new JFrame();
     l1 = new JLabel();
     l2 = new JLabel();
-    l3 = new JLabel();
-    l1.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
-    l2.setFont(new Font(l2.getFont().getName(), Font.BOLD, l2.getFont().getSize()));
-    l3.setFont(new Font(l3.getFont().getName(), Font.BOLD, l3.getFont().getSize()));
+    button1 = new JButton();
 
-    topicTitleLabel = new JLabel(); 
+    titleLabel = new JLabel();
     descriptionLabel = new JLabel();
-
-    topicTitleField = new JTextField();
+    
+    titleField = new JTextField();
     descriptionField = new JTextField();
 
-    topicList= new ArrayList<Topic>();
-    addLesson = new JButton();
-    addQuiz = new JButton();
+    l1.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
+    l2.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
+
+    titleLabel = new JLabel(); 
+    descriptionLabel = new JLabel();
+
+    titleField = new JTextField();
+    descriptionField = new JTextField();
+
+    questionList= new ArrayList<Question>();
+    addQuestion = new JButton();
 
     // set text for all prompts
-    l1.setText("Create Topic");
-    topicTitleLabel.setText("Topic Title:");
-    descriptionLabel.setText("Topic Description:");
-
-    l2.setText("Lessons");
-
-    addLesson.setText("Add Lesson");
-
-    l3.setText("Quizes");
-    addQuiz.setText("Add Quiz");
+    l1.setText("Create Quiz");
+    titleLabel.setText("Quiz Title:");
+    descriptionLabel.setText("Quiz Description:");
+    l2.setText("Questions");
+    addQuestion.setText("Add Question");
+    button1.setText("Submit");
   
     // sets bounds for all objects
     l1.setBounds(100, 50, 300, 15);
-    topicTitleLabel.setBounds(100, 80, 150, 20);
+    titleLabel.setBounds(100, 80, 150, 20);
     descriptionLabel.setBounds(100, 110, 150, 20);
 
-    topicTitleField.setBounds(250, 80, 150, 20);
+    titleField.setBounds(250, 80, 150, 20);
     descriptionField.setBounds(250, 110, 150, 20);
 
     l2.setBounds(100, 140, 300, 15);
 
-    int lessonCounter = 0;
-    while(lessonCounter < topicList.size()){
-      JLabel lessonName = new JLabel();
+    int questionCounter = 0;
+    while(questionCounter < questionList.size()){
+      JLabel questionName = new JLabel();
       JButton editButton = new JButton();
 
-      // lessonName.setText(lessonList.get(topicCounter));
-      lessonName.setText(topicList.get(lessonCounter).getTitle());
-      editButton.setText("Edit Lesson");
-      lessonName.setBounds(100, 170 + (30 * lessonCounter), 150, 30);
-      editButton.setBounds(300, 170 + (30 * lessonCounter), 100, 30);
+      questionName.setText(questionList.get(questionCounter).getQuestion());
+      editButton.setText("Edit Question");
+      questionName.setBounds(100, 170 + (30 * questionCounter), 150, 30);
+      editButton.setBounds(300, 170 + (30 * questionCounter), 100, 30);
 
-      frame1.add(lessonName);
+      frame1.add(questionName);
       frame1.add(editButton);
-      lessonCounter++;
+      questionCounter++;
     }
 
-    addLesson.setBounds(300, 170 + (30 * lessonCounter), 100, 30);
-    l3.setBounds(100, 200 + (30 * lessonCounter), 300, 15);
-
-    int quizCounter = 0;
-    while(quizCounter < topicList.size()){
-      JLabel lessonName = new JLabel();
-      JButton editButton = new JButton();
-
-      // lessonName.setText(lessonList.get(topicCounter));
-      lessonName.setText(topicList.get(quizCounter).getTitle());
-      editButton.setText("Edit Lesson");
-      lessonName.setBounds(100, 170 + (30 * quizCounter), 150, 30);
-      editButton.setBounds(300, 170 + (30 * quizCounter), 100, 30);
-
-      frame1.add(lessonName);
-      frame1.add(editButton);
-      quizCounter++;
-    }
-
-    addQuiz.setBounds(300, 230 + (30 * lessonCounter) + (30 * quizCounter), 100, 30);
+    addQuestion.setBounds(275, 170 + (30 * questionCounter), 125, 30);
+    button1.setBounds(275, 200 + (30 * questionCounter), 125,30);
 
     // adds all ojects
     frame1.add(l1);
 
-    frame1.add(topicTitleLabel);
+    frame1.add(titleLabel);
     frame1.add(descriptionLabel);
 
-    frame1.add(topicTitleField);
+    frame1.add(titleField);
     frame1.add(descriptionField);
 
     frame1.add(l2);
-    frame1.add(l3);
+    frame1.add(l1);
 
-    frame1.add(addLesson);
-    frame1.add(addQuiz);
+    frame1.add(addQuestion);
+    frame1.add(button1);
 
     // frame1.add(l3);
 
     // frame1.add(addQuiz);
     // creates frame
-    frame1.setSize(500, 350 + (30 * lessonCounter) + (30 * quizCounter));
+    frame1.setSize(500, 350 + (30 * questionCounter));
     frame1.setLayout(null);
     frame1.setVisible(true);
 

@@ -36,6 +36,7 @@ public class AddLesson implements ActionListener{
     nameLabel.setText("Lesson Name: ");
     contentLabel.setText("Lesson Content:");
     button1.setText("Submit");
+    button1.addActionListener(this);
 
     l1.setBounds(100, 50, 300, 15);
 
@@ -45,6 +46,7 @@ public class AddLesson implements ActionListener{
     scroll.setBounds(100, 140, 300, 200);
     button1.setBounds(300, 350, 100, 30);
     scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+    button1.setBounds(300, 350, 100, 30);
 
     frame1.add(l1);
 
@@ -61,12 +63,12 @@ public class AddLesson implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     LMSFacade facade = new LMSFacade();
-    // if (e.getSource() == button1) {
-    //   String topic = topicTitleField.getText();
-    //   String description = descriptionField.getText();
+    if (e.getSource() == button1) {
+      String name = nameField.getText();
+      String content = contentField.getText();
 
-    //   System.out.println(topic);
-    //   System.out.println(description);
-    // }
+      System.out.println(name);
+      System.out.println(content);
+    }
   }
 }
