@@ -60,6 +60,7 @@ public class LogIn implements ActionListener{
         frame1.setVisible(false);
       } else {
         JOptionPane wrongPass = new JOptionPane("Incorrect password");
+        // NEED TO IMPLEMENT INCORRECT PASSWORD MESSAGE
       }
     }
   }
