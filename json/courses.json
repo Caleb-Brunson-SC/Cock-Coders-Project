@@ -8,13 +8,11 @@
         "students": [
             {
                 "studentID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
-                "quizGrades": [85, 70],
-                "currentTopicIndex": 0
+                "quizGrades": [85, 70]
             },
             {
                 "studentID": "6b40acbe-c101-4701-8123-343a071c460c",
-                "quizGrades": [75, 70],
-                "currentTopicIndex": 0
+                "quizGrades": [75, 70]
             }
         ],
         "topics": [
