@@ -1,15 +1,17 @@
 package ui;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.awt.event.*;
 import java.awt.*;
 import backEnd.*;
 
 //language.java is enum for all languages
-public class CreateCourse {
+public class CreateCourse implements ActionListener{
   JFrame frame1;
   JLabel l1;
   JLabel l2;
   JLabel l3;
+  JButton button1;
 
   JLabel courseTitleLabel;
   JLabel languageLabel;
@@ -31,6 +33,8 @@ public class CreateCourse {
     l1 = new JLabel();
     l2 = new JLabel();
     l3 = new JLabel();
+    button1 = new JButton();
+
     l1.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
     l2.setFont(new Font(l2.getFont().getName(), Font.BOLD, l2.getFont().getSize()));
     l3.setFont(new Font(l3.getFont().getName(), Font.BOLD, l3.getFont().getSize()));
@@ -51,19 +55,14 @@ public class CreateCourse {
     courseTitleLabel.setText("Course title:");
     languageLabel.setText("Select Language:");
     descriptionLabel.setText("Course Description:");
+    button1.setText("Submit");
+
+    button1.addActionListener(this);
 
     l2.setText("Topics");
 
     addTopic.setText("Add Topic");
-
-    // l2.setText("Lessons");
-
-    // addLesson.setText("Add Lesson");
-
-    // l3.setText("Quizes");
-    // addQuiz.setText("Add Quiz");
-  
-    // sets bounds for all objects
+    // Sets bounds of all elements
     l1.setBounds(100, 50, 300, 15);
     courseTitleLabel.setBounds(100, 80, 150, 20);
     languageLabel.setBounds(100, 110, 150, 20);
@@ -92,28 +91,7 @@ public class CreateCourse {
     }
 
     addTopic.setBounds(300, 200 + (30 * topicCounter), 100, 30);
-
-    // l3.setBounds(100, 230 + (30 * lessonCounter), 300, 15);
-
-    // int quizCounter = 0;
-    // //this will need to change 
-    // while(quizCounter < lessonList.size()){
-    //   JLabel quizName = new JLabel();
-    //   JButton editButton = new JButton();
-
-    //   quizName.setText(lessonList.get(quizCounter));
-    //   // lessonName.setText(lessonList.get(lessonCounter).getTitle());
-    //   editButton.setText("Edit Quiz");
-    //   quizName.setBounds(100, 260 + (30 * lessonCounter) + (30 * quizCounter), 150, 30);
-    //   editButton.setBounds(300, 260 + (30 * lessonCounter) + ( 30 * quizCounter), 100, 30);
-
-    //   frame1.add(quizName);
-    //   frame1.add(editButton);
-    //   quizCounter++;
-    // }
-
-    // addQuiz.setBounds(300, 260 + (30 * topicCounter), 100, 30);
-
+    button1.setBounds(300, 230 + (30 * topicCounter), 100, 30);
 
     // adds all ojects
     frame1.add(l1);
@@ -129,6 +107,7 @@ public class CreateCourse {
     frame1.add(l2);
 
     frame1.add(addTopic);
+    frame1.add(button1);
 
     // frame1.add(l3);
 
@@ -138,5 +117,17 @@ public class CreateCourse {
     frame1.setLayout(null);
     frame1.setVisible(true);
 
+    
+  }
+  public void actionPerformed(ActionEvent e) {
+    LMSFacade facade = new LMSFacade();
+    if (e.getSource() == button1) {
+      String language = languages[languageField.getSelectedIndex()];
+      String title = courseTitleField.getText();
+      String description = descriptionField.getText();
+      System.out.println(language);
+      System.out.println(title);
+      System.out.println(description);
+    }
   }
 }
