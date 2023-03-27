@@ -1,9 +1,12 @@
 package backEnd;
 import java.util.UUID;
 import java.util.ArrayList;
+import javax.swing.*;  
+import java.awt.event.*;  
 
 public class LMSFacade {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
+    JFrame frame1;
     private UserList users;
     private CourseList courses;
     private User user; // the current user
@@ -18,6 +21,10 @@ public class LMSFacade {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
         this.user = null;
+        this.topics = null;
+        this.lessons = null;
+        this.quiz = null;
+        this.choices = null;
     }
 
     public User getUser() {
@@ -54,6 +61,17 @@ public class LMSFacade {
             return true;
         } else {
             // Print out message errors
+            frame1 = new JFrame();
+            if (topics == null) {
+                JOptionPane.showMessageDialog(frame1,"Topics are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+            } else if (lessons == null) {
+                JOptionPane.showMessageDialog(frame1,"Lessons are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+            } else if (quiz == null) {
+                JOptionPane.showMessageDialog(frame1,"Quiz is incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+            } else if (choices == null) {
+                JOptionPane.showMessageDialog(frame1,"Questions are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+            }
+            // Return boolean value
             return false;
         }
     }
