@@ -7,22 +7,21 @@ public class LMSFacade {
     private UserList users;
     private CourseList courses;
     private User user; // the current user
-    private Course courseCreated; // the course being created
+    // Objects for creating a course
+    private ArrayList<Topic> topics;
+    private ArrayList<Lesson> lessons;
+    private Quiz quiz;
+    private ArrayList<String> choices;
+
 
     public LMSFacade() {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
         this.user = null;
-        this.courseCreated = new Course(null, null, null, null, 
-        null, null, null, null);
     }
 
     public User getUser() {
         return user;
-    }
-
-    public Course getCourseCreated() {
-        return courseCreated;
     }
 
     public boolean login(String username, String password) {
@@ -51,10 +50,10 @@ public class LMSFacade {
 
     // COURSE CREATION, EDITING, DELETION
     public boolean createCourse(String title, Language language, String description) {
-        
-        if (courses.addCourse(title, language, description, null, null, null, null, null)) {
+        if (courses.addCourse(title, language, description, (Teacher)user, topics, null, null, null)) {
             return true;
         } else {
+            // Print out message errors
             return false;
         }
     }
