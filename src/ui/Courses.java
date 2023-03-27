@@ -40,9 +40,17 @@ public class Courses implements ActionListener{
 
       courseName.setFont(new Font(courseName.getFont().getName(), Font.BOLD, courseName.getFont().getSize()));
 
+      courseName.setBounds(100, 100, 300, 20);
+      authorName.setBounds(100, 140, 300, 20);
+      courseDescription.setBounds(100, 180, 300, 20);
+      lessonLabel.setBounds(100, 220, 300, 20);
+      quizLabel.setBounds(100, 260, 300, 20);
 
-
-
+      p1.add(courseName);
+      p1.add(authorName);
+      p1.add(courseDescription);
+      p1.add(lessonLabel);
+      p1.add(quizLabel);
       // tabbedPane.add(workingCourse.getTitle() , p1);
 
     }
