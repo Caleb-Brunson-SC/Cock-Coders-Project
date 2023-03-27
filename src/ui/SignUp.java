@@ -117,19 +117,14 @@ public class SignUp implements ActionListener {
       String firstName = firstField.getText();
       String lastName = lastField.getText();
       String email = emailField.getText();
-      // System.out.println(type);
-      // System.out.println(firstName);
-      // System.out.println(lastName);
-      // System.out.println(username);
-      // System.out.println(email);
-      // System.out.println(password);
       
-      User validUser = facade.signUp(type, firstName, lastName, username, email, password);
-      if (validUser != null) {
+      boolean validAuth = facade.signUp(type, firstName, lastName, username, email, password);
+      if (validAuth) { // sign up was successful
         frame1.setVisible(false);
         new HomePage();
       } else {
-        JOptionPane wrongPass = new JOptionPane("Incorrect password");
+        frame1 = new JFrame();
+        JOptionPane.showMessageDialog(frame1,"Username or Email is already taken.","Alert",JOptionPane.WARNING_MESSAGE);
       }
     }
   }

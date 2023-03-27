@@ -55,14 +55,16 @@ public class LogIn implements ActionListener{
     if (e.getSource() == button1) {
       String username = textField.getText();
       String password = passwordField.getText();
-      User validUser = facade.login(username, password);
-      if (validUser != null) {
+      boolean validAuth = facade.login(username, password);
+
+      if (validAuth) { // log in was successful
         new HomePage();
         frame1.setVisible(false);
       } else {
-        JOptionPane wrongPass = new JOptionPane("Incorrect password");
-        // NEED TO IMPLEMENT INCORRECT PASSWORD MESSAGE
+        frame1 = new JFrame();
+        JOptionPane.showMessageDialog(frame1,"Incorrect Password or Username.","Alert",JOptionPane.WARNING_MESSAGE);
       }
+
     }
   }
 }

@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
-    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private ArrayList<User> users;
     private static UserList userList;
 
@@ -86,27 +85,6 @@ public class UserList {
     }
 
     //OTHER METHODS
-    public User login(String username, String password) {
-        User loggedInUser = userList.getUser(username);
-        if(authUser(loggedInUser, password)) {
-            return loggedInUser;
-        }
-        return null;
-    }
-
-    public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
-        // UserList user = UserList.getInstance();
-        if(userList.addUser(type, firstName, lastName, username, email, password, NIL_UUID, NIL_UUID, NIL_UUID)) {
-            // User successfully added to db
-           return userList.getUser(username);
-        }
-        return null;
-    }
-
-    public void signOut(User user) {
-        user = null;
-    }
-
     public boolean authUser(User user, String password) {
         if (user.getPassword().equals(password)) {
             return true;

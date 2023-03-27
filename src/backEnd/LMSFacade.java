@@ -1,38 +1,45 @@
 package backEnd;
+import java.util.UUID;
 import java.util.ArrayList;
 
 public class LMSFacade {
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UserList users;
     private CourseList courses;
     private User user;
-    private Course currentCourse;
-    private Topic currentTopic;
-    private Lesson currentLesson;
 
     public LMSFacade() {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
         this.user = null;
-        this.currentCourse = null;
-        this.currentTopic = null;
-        this.currentLesson = null;
     }
 
-    public User login(String username, String password) {
-        User user = users.login(username, password);
-        // System.out.println(user); // test purposes
+    public User getUser() {
         return user;
     }
 
-    public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
-        User user = users.signUp(type, firstName, lastName, username, email, password);
-        // System.out.println(user); // test purposes
-        return user;
+    public boolean login(String username, String password) {
+        User loggedInUser = users.getUser(username);
+        if (users.authUser(loggedInUser, password)) {
+            this.user = loggedInUser;
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void signOut(User user) {
-        users.signOut(user);
-        // System.out.println(user); // test purposes
+    public boolean signUp(String type, String firstName, String lastName, String username, String email, String password) {
+        if(users.addUser(type, firstName, lastName, username, email, password, NIL_UUID, NIL_UUID, NIL_UUID)) {
+            // User successfully added to db
+           this.user = users.getUser(username);
+           return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void signOut() {
+        this.user = null;
     }
 
     public void createCourse(String title, Language language, String description, 
@@ -50,16 +57,11 @@ public class LMSFacade {
     }
 
     public Course viewCourse(Course course) {
-        currentCourse = course;
-        return currentCourse;
+        return null;
     }
 
     public boolean createTopic(String title, String description, Quiz quiz, 
     ArrayList<Lesson> lessons) {
-        currentTopic = currentCourse.createTopic(title, description, quiz, lessons);
-        if(currentTopic !=  null) {
-            return true;
-        }
         return false;
     }
 
@@ -68,15 +70,10 @@ public class LMSFacade {
     }
 
     public Topic viewTopic(Topic topic) {
-        currentTopic = topic;
-        return currentTopic;
+        return null;
     }
 
     public boolean createLesson(String title, String content) {
-        currentLesson = currentTopic.createLesson(title, content);
-        if(currentTopic != null) {
-            return true;
-        }
         return false;
     }
 
@@ -85,8 +82,7 @@ public class LMSFacade {
     }
 
     public Lesson viewLesson(Lesson lesson) {
-        currentLesson = lesson;
-        return currentLesson;
+        return null;
     }
 
     public Topic createQuiz(Quiz quiz) {
