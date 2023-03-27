@@ -20,16 +20,19 @@ public class LMSFacade {
 
     public User login(String username, String password) {
         User user = users.login(username, password);
+        // System.out.println(user); // test purposes
         return user;
     }
 
     public User signUp(String type, String firstName, String lastName, String username, String email, String password) {
         User user = users.signUp(type, firstName, lastName, username, email, password);
+        // System.out.println(user); // test purposes
         return user;
     }
 
     public void signOut(User user) {
         users.signOut(user);
+        // System.out.println(user); // test purposes
     }
 
     public void createCourse(String title, Language language, String description, 
