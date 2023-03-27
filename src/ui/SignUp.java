@@ -127,8 +127,8 @@ public class SignUp implements ActionListener {
       User validUser = facade.signUp(type, firstName, lastName, username, email, password);
       if (validUser != null) {
         frame1.setVisible(false);
+        new HomePage();
       } else {
-        System.out.println("FUCK");
         JOptionPane wrongPass = new JOptionPane("Incorrect password");
       }
     }

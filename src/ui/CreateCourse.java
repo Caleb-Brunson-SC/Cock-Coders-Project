@@ -129,6 +129,9 @@ public class CreateCourse implements ActionListener{
       System.out.println(language);
       System.out.println(title);
       System.out.println(description);
+    } else if (e.getSource() == addTopic) {
+      // frame1.setVisible(false);
+      new AddTopic();
     }
   }
 }

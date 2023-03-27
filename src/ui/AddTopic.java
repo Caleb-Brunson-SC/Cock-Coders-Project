@@ -145,6 +145,13 @@ public class AddTopic implements ActionListener{
 
       System.out.println(topic);
       System.out.println(description);
+
+      frame1.setVisible(false);
+
+    } else if (e.getSource() == addLesson) {
+      new AddLesson();
+    } else if (e.getSource() == addQuiz) {
+      new AddQuiz();
     }
   }
 }

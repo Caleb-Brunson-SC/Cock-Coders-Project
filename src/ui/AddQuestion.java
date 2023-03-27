@@ -123,6 +123,8 @@ public class AddQuestion implements ActionListener {
       System.out.println(ans4);
       System.out.println(ansIndex);
 
+      frame1.setVisible(false);
+
     }
   }
 }

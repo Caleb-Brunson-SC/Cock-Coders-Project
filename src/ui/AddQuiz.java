@@ -115,6 +115,10 @@ public class AddQuiz implements ActionListener {
 
       System.out.println(title);
       System.out.println(description);
+
+      frame1.setVisible(false);
+    } else if (e.getSource() == addQuestion) {
+      new AddQuestion();
     }
   }
 }

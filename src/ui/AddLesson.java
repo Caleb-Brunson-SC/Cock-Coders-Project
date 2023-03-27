@@ -69,6 +69,8 @@ public class AddLesson implements ActionListener{
 
       System.out.println(name);
       System.out.println(content);
+
+      frame1.setVisible(false);
     }
   }
 }

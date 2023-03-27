@@ -57,6 +57,7 @@ public class LogIn implements ActionListener{
       String password = passwordField.getText();
       User validUser = facade.login(username, password);
       if (validUser != null) {
+        new HomePage();
         frame1.setVisible(false);
       } else {
         JOptionPane wrongPass = new JOptionPane("Incorrect password");
