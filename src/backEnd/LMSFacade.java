@@ -22,7 +22,6 @@ public class LMSFacade {
         User loggedInUser = users.getUser(username);
         if (users.authUser(loggedInUser, password)) {
             this.user = loggedInUser;
-            System.out.println(user);
             return true;
         } else {
             return false;
@@ -33,7 +32,6 @@ public class LMSFacade {
         if(users.addUser(type, firstName, lastName, username, email, password, NIL_UUID, NIL_UUID, NIL_UUID)) {
             // User successfully added to db
             this.user = users.getUser(username);
-            System.out.println(user);
             return true;
         } else {
             return false;
