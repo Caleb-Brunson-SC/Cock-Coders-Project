@@ -34,6 +34,7 @@ public class CreateCourse implements ActionListener{
     l2 = new JLabel();
     l3 = new JLabel();
     button1 = new JButton();
+    button1.addActionListener(this);
 
     l1.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
     l2.setFont(new Font(l2.getFont().getName(), Font.BOLD, l2.getFont().getSize()));

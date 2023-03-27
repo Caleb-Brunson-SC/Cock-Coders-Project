@@ -30,6 +30,7 @@ public class AddQuiz implements ActionListener {
     l1 = new JLabel();
     l2 = new JLabel();
     button1 = new JButton();
+    button1.addActionListener(this);
 
     titleLabel = new JLabel();
     descriptionLabel = new JLabel();
@@ -100,9 +101,6 @@ public class AddQuiz implements ActionListener {
     frame1.add(addQuestion);
     frame1.add(button1);
 
-    // frame1.add(l3);
-
-    // frame1.add(addQuiz);
     // creates frame
     frame1.setSize(500, 350 + (30 * questionCounter));
     frame1.setLayout(null);
@@ -111,12 +109,12 @@ public class AddQuiz implements ActionListener {
   }
   public void actionPerformed(ActionEvent e) {
     LMSFacade facade = new LMSFacade();
-    // if (e.getSource() == button1) {
-    //   String topic = topicTitleField.getText();
-    //   String description = descriptionField.getText();
+    if (e.getSource() == button1) {
+      String title = titleField.getText();
+      String description = descriptionField.getText();
 
-    //   System.out.println(topic);
-    //   System.out.println(description);
-    // }
+      System.out.println(title);
+      System.out.println(description);
+    }
   }
 }

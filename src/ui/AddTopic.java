@@ -48,6 +48,7 @@ public class AddTopic implements ActionListener{
     addLesson = new JButton();
     addQuiz = new JButton();
     button1 = new JButton();
+    button1.addActionListener(this);
 
     // set text for all prompts
     l1.setText("Create Topic");
