@@ -11,7 +11,7 @@ public class LMSFacade {
     public LMSFacade() {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
-        this.user = null;
+        //this.user = null;
     }
 
     public User getUser() {
@@ -22,6 +22,7 @@ public class LMSFacade {
         User loggedInUser = users.getUser(username);
         if (users.authUser(loggedInUser, password)) {
             this.user = loggedInUser;
+            System.out.println(user);
             return true;
         } else {
             return false;
@@ -31,8 +32,9 @@ public class LMSFacade {
     public boolean signUp(String type, String firstName, String lastName, String username, String email, String password) {
         if(users.addUser(type, firstName, lastName, username, email, password, NIL_UUID, NIL_UUID, NIL_UUID)) {
             // User successfully added to db
-           this.user = users.getUser(username);
-           return true;
+            this.user = users.getUser(username);
+            System.out.println(user);
+            return true;
         } else {
             return false;
         }

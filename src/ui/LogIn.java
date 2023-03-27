@@ -4,6 +4,7 @@ import java.awt.event.*;
 import backEnd.*;
 // There is NO data being passed into this file. 
 public class LogIn implements ActionListener{
+  private final LMSFacade facade = new LMSFacade();
   JFrame frame1;
   JLabel l;
   JButton button1; 
@@ -51,14 +52,13 @@ public class LogIn implements ActionListener{
     frame1.setVisible(true);
   }
   public void actionPerformed(ActionEvent e) {
-    LMSFacade facade = new LMSFacade();
     if (e.getSource() == button1) {
       String username = textField.getText();
       String password = passwordField.getText();
       boolean validAuth = facade.login(username, password);
 
       if (validAuth) { // log in was successful
-        new HomePage();
+        new HomePage(facade);
         frame1.setVisible(false);
       } else {
         frame1 = new JFrame();
