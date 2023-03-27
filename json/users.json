@@ -6,7 +6,10 @@
         "lastName": "Brunson",
         "username": "calebrb03",
         "email": "calebrb@bbc.com",
-        "password": "y[&&p9n]$Z/+G!$<"
+        "password": "y[&&p9n]$Z/+G!$<",
+        "currentCourseID": "8bd1c8c2-2240-45a7-9884-25d033514e76",
+        "currentTopicID": "a72de088-23e1-4da3-a38f-5f3750c047fa",
+        "currentLessonID": "d02b57d4-f752-4bbf-91f4-9ac18251a0b2"
     },
     {
         "id": "6b40acbe-c101-4701-8123-343a071c460c",
@@ -15,7 +18,10 @@
         "lastName": "Bueno",
         "username": "abdullahbueno53",
         "email": "abdullah@bigtech.com",
-        "password": "9m9,mkZnsjT@$BCS"
+        "password": "9m9,mkZnsjT@$BCS",
+        "currentCourseID": "8bd1c8c2-2240-45a7-9884-25d033514e76",
+        "currentTopicID": "a72de088-23e1-4da3-a38f-5f3750c047fa",
+        "currentLessonID": "d02b57d4-f752-4bbf-91f4-9ac18251a0b2"
     },
     {
         "id": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
@@ -24,7 +30,10 @@
         "lastName": "Wood",
         "username": "jordanw420",
         "email": "jordanw@bbc.com",
-        "password": "(76aB3fND2<rlC,P"
+        "password": "(76aB3fND2<rlC,P",
+        "currentCourseID": "8bd1c8c2-2240-45a7-9884-25d033514e76",
+        "currentTopicID": "a72de088-23e1-4da3-a38f-5f3750c047fa",
+        "currentLessonID": "d02b57d4-f752-4bbf-91f4-9ac18251a0b2"
     },
     {
         "id": "62e22f7d-e7da-4835-85f1-b9dc5036e752",
@@ -33,6 +42,9 @@
         "lastName": "Reiss",
         "username": "coler360",
         "email": "coleriess@gmail.com",
-        "password": "Tr:eSp8)4KG?b'GC"
+        "password": "Tr:eSp8)4KG?b'GC",
+        "currentCourseID": "8bd1c8c2-2240-45a7-9884-25d033514e76",
+        "currentTopicID": "a72de088-23e1-4da3-a38f-5f3750c047fa",
+        "currentLessonID": "d02b57d4-f752-4bbf-91f4-9ac18251a0b2"
     }
 ]
