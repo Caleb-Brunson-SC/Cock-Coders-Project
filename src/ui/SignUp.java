@@ -4,6 +4,7 @@ import java.awt.event.*;
 import backEnd.*;
 // There is NO data being passed into this file. 
 public class SignUp implements ActionListener {
+  private final LMSFacade facade = new LMSFacade();
   JFrame frame1;
   JLabel l;
   JButton button1; 
@@ -109,7 +110,6 @@ public class SignUp implements ActionListener {
     frame1.setVisible(true);
   }
   public void actionPerformed(ActionEvent e) {
-    LMSFacade facade = new LMSFacade();
     if (e.getSource() == button1) {
       String type = accTypes[accountTypeField.getSelectedIndex()];
       String username = usernameField.getText();
@@ -121,7 +121,7 @@ public class SignUp implements ActionListener {
       boolean validAuth = facade.signUp(type, firstName, lastName, username, email, password);
       if (validAuth) { // sign up was successful
         frame1.setVisible(false);
-        new HomePage();
+        new HomePage(facade);
       } else {
         frame1 = new JFrame();
         JOptionPane.showMessageDialog(frame1,"Username or Email is already taken.","Alert",JOptionPane.WARNING_MESSAGE);

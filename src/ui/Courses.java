@@ -9,11 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 public class Courses implements ActionListener{
+  private final LMSFacade facade;
   JFrame frame1;
   ArrayList<Course> courses;
   JTabbedPane tabbedPane;
 
-  Courses(){
+  Courses(LMSFacade facade){
+    this.facade = facade;
+    
     frame1 = new JFrame();
     tabbedPane = new JTabbedPane();
 

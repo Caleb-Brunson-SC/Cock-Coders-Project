@@ -8,7 +8,7 @@ import backEnd.Quiz;
 import backEnd.Topic;
 import backEnd.*;
 public class HomePage implements ActionListener {
-
+  private final LMSFacade facade;
   JLabel l1; 
   JFrame frame1;
   JButton coursesButton;
@@ -18,7 +18,10 @@ public class HomePage implements ActionListener {
   JButton createCourseButton;
 
 
-  HomePage() {
+  HomePage(LMSFacade facade) {
+    // Initalize facade
+    this.facade = facade;
+
     // create new displayed objects
     frame1 = new JFrame();
     l1 = new JLabel();
@@ -38,7 +41,7 @@ public class HomePage implements ActionListener {
     l1.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
     
     // set text for all prompts
-    l1.setText("Welcome to our learning management system, GET FIRSTNAME");
+    l1.setText("Welcome to our learning management system, " + facade.getUser().getFirstName());
     coursesButton.setText("Courses");
     searchButton.setText("Search");
     dashboardButton.setText("Dashboard");
@@ -72,7 +75,6 @@ public class HomePage implements ActionListener {
     
   }
   public void actionPerformed(ActionEvent e) {
-    LMSFacade facade = new LMSFacade();
     if (e.getSource() == coursesButton) {
 
     } else if (e.getSource() == searchButton) {
@@ -81,9 +83,11 @@ public class HomePage implements ActionListener {
 
     } else if (e.getSource() == createCourseButton) {
       frame1.setVisible(false);
-      new CreateCourse();
+      new CreateCourse(facade);
     } else if (e.getSource() == signOutButton) {
-      
+      facade.signOut();
+      frame1.setVisible(false);
+      new Landing();
     }
   }
 }

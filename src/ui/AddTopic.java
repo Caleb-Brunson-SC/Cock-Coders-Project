@@ -9,6 +9,7 @@ import backEnd.*;
 
 //language.java is enum for all languages
 public class AddTopic implements ActionListener{
+  private final LMSFacade facade;
   JFrame frame1;
   JLabel l1;
   JLabel l2;
@@ -27,7 +28,8 @@ public class AddTopic implements ActionListener{
 
   String languages[] = {"Python", "JavaScript", "Java", "C#", "PHP", "C++", "C", "R", "Swift", "Objective C", "Kotlin"};
 
-  AddTopic(){
+  AddTopic(LMSFacade facade){
+    this.facade = facade;
     // create new displayed objects
     
     frame1 = new JFrame();
@@ -138,7 +140,6 @@ public class AddTopic implements ActionListener{
 
   }
   public void actionPerformed(ActionEvent e) {
-    LMSFacade facade = new LMSFacade();
     if (e.getSource() == button1) {
       String topic = topicTitleField.getText();
       String description = descriptionField.getText();
@@ -149,9 +150,9 @@ public class AddTopic implements ActionListener{
       frame1.setVisible(false);
 
     } else if (e.getSource() == addLesson) {
-      new AddLesson();
+      new AddLesson(facade);
     } else if (e.getSource() == addQuiz) {
-      new AddQuiz();
+      new AddQuiz(facade);
     }
   }
 }

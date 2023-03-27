@@ -7,6 +7,7 @@ import backEnd.*;
 
 //language.java is enum for all languages
 public class CreateCourse implements ActionListener{
+  private final LMSFacade facade;
   JFrame frame1;
   JLabel l1;
   JLabel l2;
@@ -26,7 +27,8 @@ public class CreateCourse implements ActionListener{
 
   String languages[] = {"C#", "CPP", "C", "Java", "JavaScript", "Python", "HTML", "CSS"};
 
-  CreateCourse(){
+  CreateCourse(LMSFacade facade){
+    this.facade = facade;
     // create new displayed objects
     
     frame1 = new JFrame();
@@ -121,7 +123,6 @@ public class CreateCourse implements ActionListener{
     
   }
   public void actionPerformed(ActionEvent e) {
-    LMSFacade facade = new LMSFacade();
     if (e.getSource() == button1) {
       String language = languages[languageField.getSelectedIndex()];
       String title = courseTitleField.getText();
@@ -131,7 +132,7 @@ public class CreateCourse implements ActionListener{
       System.out.println(description);
     } else if (e.getSource() == addTopic) {
       // frame1.setVisible(false);
-      new AddTopic();
+      new AddTopic(facade);
     }
   }
 }

@@ -9,6 +9,7 @@ import backEnd.*;
 
 //language.java is enum for all languages
 public class AddQuiz implements ActionListener {
+  private final LMSFacade facade;
   JFrame frame1;
   JLabel l1;
   JLabel l2;
@@ -24,7 +25,8 @@ public class AddQuiz implements ActionListener {
 
   JButton addQuestion;
 
-  AddQuiz(){
+  AddQuiz(LMSFacade facade){
+    this.facade = facade;
     // create new displayed objects
     frame1 = new JFrame();
     l1 = new JLabel();
@@ -108,7 +110,6 @@ public class AddQuiz implements ActionListener {
 
   }
   public void actionPerformed(ActionEvent e) {
-    LMSFacade facade = new LMSFacade();
     if (e.getSource() == button1) {
       String title = titleField.getText();
       String description = descriptionField.getText();
@@ -118,7 +119,7 @@ public class AddQuiz implements ActionListener {
 
       frame1.setVisible(false);
     } else if (e.getSource() == addQuestion) {
-      new AddQuestion();
+      new AddQuestion(facade);
     }
   }
 }
