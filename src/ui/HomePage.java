@@ -30,13 +30,11 @@ public class HomePage implements ActionListener {
     searchButton = new JButton();
     signOutButton = new JButton();
     dashboardButton = new JButton();
-    createCourseButton = new JButton();
 
     coursesButton.addActionListener(this);
     signOutButton.addActionListener(this);
     dashboardButton.addActionListener(this);
     searchButton.addActionListener(this);
-    createCourseButton.addActionListener(this);
 
     l1.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
     
@@ -45,7 +43,6 @@ public class HomePage implements ActionListener {
     coursesButton.setText("Courses");
     searchButton.setText("Search");
     dashboardButton.setText("Dashboard");
-    createCourseButton.setText("Create Course");
     signOutButton.setText("Sign Out");
 
 
@@ -55,7 +52,6 @@ public class HomePage implements ActionListener {
     coursesButton.setBounds(175, 80, 150, 30);
     searchButton.setBounds(175, 110, 150, 30);
     dashboardButton.setBounds(175, 140, 150, 30);
-    createCourseButton.setBounds(175, 170, 150, 30);
     signOutButton.setBounds(175, 200, 150, 30);
     
 
@@ -64,8 +60,16 @@ public class HomePage implements ActionListener {
     frame1.add(coursesButton);
     frame1.add(searchButton);
     frame1.add(dashboardButton);
-    frame1.add(createCourseButton);
     frame1.add(signOutButton);
+
+    // Add createCourseButton if user is a Teacher
+    if (facade.getUser().getType().equalsIgnoreCase("teacher")) {
+      createCourseButton = new JButton();
+      createCourseButton.addActionListener(this);
+      createCourseButton.setText("Create Course");
+      createCourseButton.setBounds(175, 170, 150, 30);
+      frame1.add(createCourseButton);
+    }
   
     // creates frame
     frame1.setSize(500, 500);

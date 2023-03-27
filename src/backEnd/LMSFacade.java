@@ -42,75 +42,51 @@ public class LMSFacade {
         this.user = null;
     }
 
-    public void createCourse(String title, Language language, String description, 
-    Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
-    ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
-        if(courses.addCourse(title, language, description, teacher, topics, reviews, comments, studentProgresses)) {
-            System.out.println("Course Successfully added!");
-        } else {
-            System.out.println("Failed to add class.");
-        }
+    // COURSE CREATION, EDITING, DELETION
+    public boolean createCourse() {
+        return false;
     }
 
-    public void deleteCourse(Course course) {
-
-    }
-
-    public Course viewCourse(Course course) {
-        return null;
-    }
+    public void deleteCourse(Course course) {}
 
     public boolean createTopic(String title, String description, Quiz quiz, 
     ArrayList<Lesson> lessons) {
         return false;
     }
 
-    public void deleteTopic(Topic topic) {
+    public void deleteTopic(Topic topic) {}
 
-    }
-
-    public Topic viewTopic(Topic topic) {
-        return null;
-    }
 
     public boolean createLesson(String title, String content) {
         return false;
     }
 
-    public void deleteLesson(Lesson lesson) {
+    public void deleteLesson(Lesson lesson) {}
 
-    }
-
-    public Lesson viewLesson(Lesson lesson) {
-        return null;
-    }
 
     public Topic createQuiz(Quiz quiz) {
         return null;
     }
 
-    public void deleteQuiz(Quiz quiz) {
+    public void deleteQuiz(Quiz quiz) {}
 
+    public Comment createComment() {
+        return null;
     }
 
-    public void takeQuiz(Quiz quiz) {
-        if(quiz != null) {
+    public void deleteComment() {}
 
-        }
+    public void editComment() {}
+
+    public Review createReview(Review review) {
+        return null;
     }
 
-    public boolean completedQuiz(Quiz quiz) {
-        return true;
-    } 
+    public void deleteReview(Review review) {}
 
-    public void addTeacher(Teacher teacher) {
+    public void editReview(Review review) {}
 
-    }
-
-    public void removeTeacher(Teacher teacher) {
-
-    }
-
+    // SEARCHING FUNCTIONALITY
     public ArrayList<Course> getCourseByKeyword(String keyword) {
         return null;
     }
@@ -139,35 +115,42 @@ public class LMSFacade {
         return null;
     }
 
-    public void viewDashboard() {
-
-    }
-
-    public void viewSettings() {
-
-    }
-
-    public void viewProfile() {
-
-    }
-
-    public Comment createComment() {
+    // NAVIGATION
+    public Course viewCourse() {
         return null;
     }
 
-    public void deleteComment() {
-
-    }
-
-    public void editComment() {
-
-    }
-
-    public Review createReview(Review review) {
+    public Topic viewTopic() {
         return null;
     }
 
-    public void deleteReview(Review review) {
-        
+    public Lesson viewLesson() {
+        return null;
     }
+
+    public Lesson viewQuiz() {
+        return null;
+    }
+
+    public void viewDashboard() {}
+
+    public void viewSettings() {}
+
+    public void viewProfile() {}
+
+    // QUIZ TAKING AND GRADING
+    public void takeQuiz() {}
+
+    public boolean completedQuiz(Quiz quiz) {
+        return true;
+    }
+
+    // ADMIN PRIVLEDGES OVER TEACHERS
+    public void addTeacher(Teacher teacher) {}
+
+    public void removeTeacher(Teacher teacher) {}
+
+
+
+    
 }
