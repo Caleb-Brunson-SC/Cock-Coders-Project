@@ -51,6 +51,7 @@ public class AddQuiz implements ActionListener {
 
     questionList= new ArrayList<Question>();
     addQuestion = new JButton();
+    addQuestion.addActionListener(this);
 
     // set text for all prompts
     l1.setText("Create Quiz");

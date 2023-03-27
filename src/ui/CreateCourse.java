@@ -1,6 +1,7 @@
 package ui;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.awt.event.*;
 import java.awt.*;
 import backEnd.*;
@@ -13,19 +14,16 @@ public class CreateCourse implements ActionListener{
   JLabel l2;
   JLabel l3;
   JButton button1;
-
   JLabel courseTitleLabel;
   JLabel languageLabel;
   JLabel descriptionLabel;
   JTextField courseTitleField;
   JComboBox languageField;
   JTextField descriptionField;
-
   ArrayList<Topic> topicList;
-
   JButton addTopic;
-
-  String languages[] = {"C#", "CPP", "C", "Java", "JavaScript", "Python", "HTML", "CSS"};
+  HashMap<String, Language> langaugeMap = Language.getLanguageMap();
+  String[] languageKeyArray = langaugeMap.keySet().toArray(new String[0]);
 
   CreateCourse(LMSFacade facade){
     this.facade = facade;
@@ -47,7 +45,7 @@ public class CreateCourse implements ActionListener{
     descriptionLabel = new JLabel();
 
     courseTitleField = new JTextField();
-    languageField = new JComboBox(languages);
+    languageField = new JComboBox(languageKeyArray);
     descriptionField = new JTextField();
 
     topicList= new ArrayList<Topic>();
@@ -59,12 +57,12 @@ public class CreateCourse implements ActionListener{
     languageLabel.setText("Select Language:");
     descriptionLabel.setText("Course Description:");
     button1.setText("Submit");
-
     button1.addActionListener(this);
 
     l2.setText("Topics");
 
     addTopic.setText("Add Topic");
+    addTopic.addActionListener(this);
     // Sets bounds of all elements
     l1.setBounds(100, 50, 300, 15);
     courseTitleLabel.setBounds(100, 80, 150, 20);
@@ -124,12 +122,14 @@ public class CreateCourse implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == button1) {
-      String language = languages[languageField.getSelectedIndex()];
+      String languageKey = languageKeyArray[languageField.getSelectedIndex()];
+      Language language = Enum.valueOf(Language.class, languageKey);
       String title = courseTitleField.getText();
       String description = descriptionField.getText();
-      System.out.println(language);
-      System.out.println(title);
-      System.out.println(description);
+
+      // Create the course
+      facade.createCourse(title, language, description);
+
     } else if (e.getSource() == addTopic) {
       // frame1.setVisible(false);
       new AddTopic(facade);

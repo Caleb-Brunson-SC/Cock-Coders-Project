@@ -48,7 +48,9 @@ public class AddTopic implements ActionListener{
 
     topicList= new ArrayList<Topic>();
     addLesson = new JButton();
+    addLesson.addActionListener(this);
     addQuiz = new JButton();
+    addQuiz.addActionListener(this);
     button1 = new JButton();
     button1.addActionListener(this);
 

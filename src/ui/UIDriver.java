@@ -1,11 +1,12 @@
 package ui;
+import java.util.HashMap; // test
 import javax.swing.*;
+import backEnd.*;
 
 public class UIDriver {
-    // There is NO data being passed into this file. 
     public static void main(String[] args) {
-        new Courses(null);
-        
+
+        new Landing();
 
     }
 }

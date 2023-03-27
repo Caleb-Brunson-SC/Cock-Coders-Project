@@ -6,16 +6,23 @@ public class LMSFacade {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UserList users;
     private CourseList courses;
-    private User user;
+    private User user; // the current user
+    private Course courseCreated; // the course being created
 
     public LMSFacade() {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
-        //this.user = null;
+        this.user = null;
+        this.courseCreated = new Course(null, null, null, null, 
+        null, null, null, null);
     }
 
     public User getUser() {
         return user;
+    }
+
+    public Course getCourseCreated() {
+        return courseCreated;
     }
 
     public boolean login(String username, String password) {
@@ -43,8 +50,13 @@ public class LMSFacade {
     }
 
     // COURSE CREATION, EDITING, DELETION
-    public boolean createCourse() {
-        return false;
+    public boolean createCourse(String title, Language language, String description) {
+        
+        if (courses.addCourse(title, language, description, null, null, null, null, null)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void deleteCourse(Course course) {}
