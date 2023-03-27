@@ -6,6 +6,7 @@ import backEnd.*;
 
 
 public class AddLesson implements ActionListener{
+  private final LMSFacade facade;
   JFrame frame1;
   JLabel l1;
   JButton button1;
@@ -16,7 +17,8 @@ public class AddLesson implements ActionListener{
   JTextArea contentField;
   JScrollPane scroll;
 
-  AddLesson(){
+  AddLesson(LMSFacade facade){
+    this.facade = facade;
 
     frame1 = new JFrame();
     l1 = new JLabel();
@@ -62,7 +64,6 @@ public class AddLesson implements ActionListener{
     frame1.setResizable(false);
   }
   public void actionPerformed(ActionEvent e) {
-    LMSFacade facade = new LMSFacade();
     if (e.getSource() == button1) {
       String name = nameField.getText();
       String content = contentField.getText();

@@ -83,7 +83,7 @@ public class HomePage implements ActionListener {
 
     } else if (e.getSource() == createCourseButton) {
       frame1.setVisible(false);
-      new CreateCourse();
+      new CreateCourse(facade);
     } else if (e.getSource() == signOutButton) {
       facade.signOut();
       frame1.setVisible(false);
