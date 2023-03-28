@@ -15,6 +15,9 @@ public class LMSFacade {
     private ArrayList<Lesson> lessons;
     private Quiz quiz;
     private ArrayList<String> choices;
+    private ArrayList<Comment> courseComments;
+    private ArrayList<Comment> lessonComments;
+    private ArrayList<StudentProgress> studentProgresses;
 
 
     public LMSFacade() {
