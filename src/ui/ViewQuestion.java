@@ -9,43 +9,53 @@ public class ViewQuestion implements ActionListener {
     private final LMSFacade facade;
     JFrame frame1;
     JLabel l1;
-    JRadioButton r1;
-    JRadioButton r2;
-    JRadioButton r3;
-    JRadioButton r4;
-
+    ArrayList<JPanel> pages;
+    JTabbedPane tabbedPane;
 
     ViewQuestion(LMSFacade facade) {
         this.facade = facade;
         frame1 = new JFrame();
         l1 = new JLabel();
-        l1.setText("Question: ");
-        l1.setBounds(100,50,300,30);
+        pages = new ArrayList<JPanel>();
+        tabbedPane = new JTabbedPane();
 
-        r1 = new JRadioButton("A) ");
-        r2 = new JRadioButton("B) ");
-        r3 = new JRadioButton("C) ");
-        r4 = new JRadioButton("D) ");
-        r1.setBounds(100,100,100,30);    
-        r2.setBounds(100,130,100,30);
-        r3.setBounds(100,160,100,30);
-        r4.setBounds(100,190,100,30);
+        for (int i = 1; i <= 5; i++) { // 5 for now
+            JPanel page = new JPanel();
+            JLabel question = new JLabel();
+            JRadioButton a1 = new JRadioButton();
+            JRadioButton a2 = new JRadioButton();
+            JRadioButton a3 = new JRadioButton();
+            JRadioButton a4 = new JRadioButton();
+            question.setText("Question " + i + ": ");
+            a1.setText("A) ");
+            a2.setText("B) ");
+            a3.setText("C) ");
+            a4.setText("D) ");
+            ButtonGroup bg = new ButtonGroup();
+            bg.add(a1);
+            bg.add(a2);
+            bg.add(a3);
+            bg.add(a4);
+            page.setLayout(null);
+            question.setBounds(100, 50, 300, 30);
+            a1.setBounds(100, 100, 300, 30);
+            a2.setBounds(100, 130, 300, 30);
+            a3.setBounds(100, 160, 300, 30);
+            a4.setBounds(100, 190, 300, 30);
+            page.add(question);
+            page.add(a1);
+            page.add(a2);
+            page.add(a3);
+            page.add(a4);
+            pages.add(page);
+            tabbedPane.add("Question " + i, page);
+        }
+        tabbedPane.setBounds(0, 0, 500, 500);
+        frame1.add(tabbedPane);
 
-        ButtonGroup bg = new ButtonGroup();
-        bg.add(r1);
-        bg.add(r2);
-        bg.add(r3);
-        bg.add(r4);
-
-        frame1.add(l1);
-        frame1.add(r1);
-        frame1.add(r2);
-        frame1.add(r3);
-        frame1.add(r4);
-
-        frame1.setSize(500,500);
-        frame1.setLayout(null);    
-        frame1.setVisible(true);  
+        frame1.setSize(500, 500);
+        frame1.setLayout(null);
+        frame1.setVisible(true); 
     } 
 
     public void actionPerformed(ActionEvent e) {
