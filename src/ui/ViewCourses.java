@@ -8,13 +8,13 @@ import java.awt.event.*;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-public class Courses implements ActionListener{
+public class ViewCourses implements ActionListener{
   private final LMSFacade facade;
   JFrame frame1;
   ArrayList<Course> courses;
   JTabbedPane tabbedPane;
 
-  Courses(LMSFacade facade){
+  ViewCourses(LMSFacade facade){
     this.facade = facade;
     
     frame1 = new JFrame();
@@ -54,8 +54,17 @@ public class Courses implements ActionListener{
       p1.add(courseDescription);
       p1.add(topicLabel);
       // tabbedPane.add(workingCourse.getTitle() , p1);
-
-
+      // should parse through all topics in course
+      for (int k = 0; k < 5; k++) {
+        JLabel topicName = new JLabel();
+        JButton viewTopic = new JButton();
+        topicName.setText("topicName");
+        viewTopic.setText("viewTopic");
+        topicName.setBounds(150, 160 + (k * 30), 100, 20);
+        viewTopic.setBounds(250, 160 + (k * 30), 100, 20);
+        p1.add(topicName);
+        p1.add(viewTopic);
+      }
     }
     tabbedPane.setBounds(0,0,500,500);
     
@@ -63,9 +72,8 @@ public class Courses implements ActionListener{
     frame1.setSize(500, 500);
 
     frame1.add(tabbedPane);
-
   }
-
   public void actionPerformed(ActionEvent e) {
+    
   }
 }

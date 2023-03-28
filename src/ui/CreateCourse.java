@@ -34,7 +34,6 @@ public class CreateCourse implements ActionListener{
     l2 = new JLabel();
     l3 = new JLabel();
     button1 = new JButton();
-    button1.addActionListener(this);
 
     l1.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
     l2.setFont(new Font(l2.getFont().getName(), Font.BOLD, l2.getFont().getSize()));
@@ -123,12 +122,18 @@ public class CreateCourse implements ActionListener{
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == button1) {
       String languageKey = languageKeyArray[languageField.getSelectedIndex()];
-      Language language = Enum.valueOf(Language.class, languageKey);
+      Language language = langaugeMap.get(languageKey);
       String title = courseTitleField.getText();
       String description = descriptionField.getText();
 
-      // Create the course
-      facade.createCourse(title, language, description);
+      System.out.println(title);
+
+      if (title.isBlank() || language == null || description.isBlank()) {
+        JOptionPane.showMessageDialog(frame1,"Title, Language, or Description are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        // Create the course
+        facade.createCourse(title, language, description);
+      }
 
     } else if (e.getSource() == addTopic) {
       // frame1.setVisible(false);
