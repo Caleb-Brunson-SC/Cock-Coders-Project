@@ -44,7 +44,7 @@ public class AddQuestion implements ActionListener {
     ans3Label = new JLabel();
     ans4Label = new JLabel();
     ansIndex = new JLabel();
-
+    
     questionField = new JTextField();
     ans1Field = new JTextField();
     ans2Field = new JTextField();
