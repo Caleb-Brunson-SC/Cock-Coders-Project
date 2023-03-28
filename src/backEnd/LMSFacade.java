@@ -15,6 +15,10 @@ public class LMSFacade {
     private ArrayList<Lesson> lessons;
     private Quiz quiz;
     private ArrayList<String> choices;
+    private ArrayList<Comment> courseComments;
+    private ArrayList<Comment> lessonComments;
+    private ArrayList<Review> reviews;
+    private ArrayList<StudentProgress> studentProgresses;
 
 
     public LMSFacade() {
@@ -57,7 +61,7 @@ public class LMSFacade {
 
     // COURSE CREATION, EDITING, DELETION
     public boolean createCourse(String title, Language language, String description) {
-        if (courses.addCourse(title, language, description, (Teacher)user, topics, null, null, null)) {
+        if (courses.addCourse(title, language, description, (Teacher)user, topics, reviews, courseComments, studentProgresses)) {
             return true;
         } else {
             // Print out message errors
