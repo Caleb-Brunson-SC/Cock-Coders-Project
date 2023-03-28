@@ -6,7 +6,7 @@ import backEnd.*;
 public class UIDriver {
     public static void main(String[] args) {
 
-        new CreateCourse(null);
+        new ViewCourses(null);
 
     }
 }
