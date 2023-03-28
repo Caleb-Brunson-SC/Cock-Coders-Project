@@ -53,7 +53,7 @@ public class ViewQuestion implements ActionListener {
             a2.setBounds(100, 130, 300, 30);
             a3.setBounds(100, 160, 300, 30);
             a4.setBounds(100, 190, 300, 30);
-            
+
             page.add(question);
             page.add(a1);
             page.add(a2);
@@ -78,7 +78,7 @@ public class ViewQuestion implements ActionListener {
     } 
 
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == submitButton) {
+        if (e.getSource() == submitButton) { // this is wrong just needed something here
             if (a1.isSelected()) {
                 incorrectAnswers.add(a1.getText());
             } else if (a2.isSelected()) {
