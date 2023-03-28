@@ -123,12 +123,18 @@ public class CreateCourse implements ActionListener{
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == button1) {
       String languageKey = languageKeyArray[languageField.getSelectedIndex()];
-      Language language = Enum.valueOf(Language.class, languageKey);
+      Language language = langaugeMap.get(languageKey);
       String title = courseTitleField.getText();
       String description = descriptionField.getText();
 
-      // Create the course
-      facade.createCourse(title, language, description);
+      System.out.println(title);
+
+      if (title.isBlank() || language == null || description.isBlank()) {
+        JOptionPane.showMessageDialog(frame1,"Title, Language, or Description are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        // Create the course
+        facade.createCourse(title, language, description);
+      }
 
     } else if (e.getSource() == addTopic) {
       // frame1.setVisible(false);
