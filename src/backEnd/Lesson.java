@@ -65,10 +65,5 @@ public class Lesson {
     @Override
     public String toString() {
         return "Lesson [id=" + id + ", title=" + title + ", content=" + content + ", comments=" + comments + "]";
-    }
-
-    
-
-    
-    
+    } 
 }

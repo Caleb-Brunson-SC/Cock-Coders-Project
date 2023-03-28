@@ -15,5 +15,4 @@ public class Student extends User {
     String email, String password, UUID currentCourseID, UUID currentTopicID, UUID currentLessonID) {
         super(type, firstName, lastName, userName, email, password, currentCourseID, currentTopicID, currentLessonID);
     }
-
 }

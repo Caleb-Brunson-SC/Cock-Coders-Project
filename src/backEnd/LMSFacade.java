@@ -179,7 +179,4 @@ public class LMSFacade {
 
     public void removeTeacher(Teacher teacher) {}
 
-
-
-    
 }

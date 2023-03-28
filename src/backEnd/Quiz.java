@@ -66,7 +66,4 @@ public class Quiz {
     public String toString() {
         return "Quiz [title=" + title + ", description=" + description + ", questions=" + questions + "]";
     }
-
-    
-
 }

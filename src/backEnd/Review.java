@@ -75,7 +75,4 @@ public class Review {
         return "Review [id=" + id + ", reviewer=" + reviewer + ", date=" + date + ", rating=" + rating + ", comment="
                 + comment + "]";
     }
-    
-    
-
 }
