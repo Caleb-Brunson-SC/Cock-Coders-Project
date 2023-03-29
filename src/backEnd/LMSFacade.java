@@ -12,13 +12,21 @@ public class LMSFacade {
     private User user; // the current user
     // Objects for creating a course
     private Course courseCreated;
+    private boolean createdTopic;
+    private boolean createdLesson;
+    private boolean createdQuiz;
+    private boolean createdQuestion;
 
 
     public LMSFacade() {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
         this.user = null;
-        this.courseCreated = null; //new Course();
+        this.courseCreated = new Course(); //new Course();
+        this.createdTopic = false;
+        this.createdLesson = false;
+        this.createdQuiz = false;
+        this.createdQuestion = false;
     }
 
     public User getUser() {
@@ -50,20 +58,28 @@ public class LMSFacade {
     }
 
     // COURSE CREATION, EDITING, DELETION
+    public void printCourseCreated() {
+        System.out.println(courseCreated);
+    }
+
     public boolean createCourse(String title, Language language, String description) {
+        courseCreated.setId(UUID.randomUUID());
         courseCreated.setTitle(title);
         courseCreated.setLanguage(language);
         courseCreated.setDescription(description);
+        courseCreated.setTeacher(user);
+
+        System.out.println(courseCreated); // testing
 
         if (user == null) {
             JOptionPane.showMessageDialog(frame1,"User is not logged in.","Alert",JOptionPane.WARNING_MESSAGE);
-        } else if (courseCreated.getTopics() == null) {
+        } else if (!createdTopic) {
             JOptionPane.showMessageDialog(frame1,"Topics are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
         } else {
             if (courses.addCourse(courseCreated)) {
                 return true;
             } else {
-                JOptionPane.showMessageDialog(frame1,"Topics are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(frame1,"Failed to add course.","Alert",JOptionPane.WARNING_MESSAGE);
             }
         }
         return false;
