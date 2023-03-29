@@ -4,7 +4,6 @@ import javax.swing.*;
 
 public class UIDriver {
     public static void main(String[] args) {
-        new AddQuestion(null);
+        new ViewTopic(null);
     }
-
 }
