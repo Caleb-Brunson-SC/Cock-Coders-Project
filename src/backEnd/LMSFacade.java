@@ -11,24 +11,14 @@ public class LMSFacade {
     private CourseList courses;
     private User user; // the current user
     // Objects for creating a course
-    private ArrayList<Topic> topics;
-    private ArrayList<Lesson> lessons;
-    private Quiz quiz;
-    private ArrayList<String> choices;
-    private ArrayList<Comment> courseComments;
-    private ArrayList<Comment> lessonComments;
-    private ArrayList<Review> reviews;
-    private ArrayList<StudentProgress> studentProgresses;
+    private Course courseCreated;
 
 
     public LMSFacade() {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
         this.user = null;
-        this.topics = null;
-        this.lessons = null;
-        this.quiz = null;
-        this.choices = null;
+        this.courseCreated = new Course();
     }
 
     public User getUser() {
@@ -61,6 +51,25 @@ public class LMSFacade {
 
     // COURSE CREATION, EDITING, DELETION
     public boolean createCourse(String title, Language language, String description) {
+        courseCreated.setTitle(title);
+        courseCreated.setLanguage(language);
+        courseCreated.setDescription(description);
+
+        if (user == null) {
+            JOptionPane.showMessageDialog(frame1,"User is not logged in.","Alert",JOptionPane.WARNING_MESSAGE);
+        } else if (courseCreated.getTopics() == null) {
+            JOptionPane.showMessageDialog(frame1,"Topics are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (courses.addCourse(courseCreated)) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(frame1,"Topics are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        return false;
+
+
+        /*
         if (courses.addCourse(title, language, description, (Teacher)user, topics, reviews, courseComments, studentProgresses)) {
             return true;
         } else {
@@ -78,6 +87,7 @@ public class LMSFacade {
             // Return boolean value
             return false;
         }
+        */
     }
 
     public void deleteCourse(Course course) {}

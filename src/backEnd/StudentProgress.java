@@ -5,6 +5,11 @@ public class StudentProgress {
     private Student student;
     private ArrayList<Double> quizGrades;
 
+    public StudentProgress() {
+        this.student = null;
+        this.quizGrades = null;
+    }
+
     public StudentProgress(Student student, ArrayList<Double> quizGrades) {
         this.student = student;
         this.quizGrades = quizGrades;

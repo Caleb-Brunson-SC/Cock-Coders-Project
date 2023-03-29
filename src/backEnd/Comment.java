@@ -4,11 +4,20 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Comment {
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UUID id;
     private User user;
     private LocalDate date;
     private String content;
     private ArrayList<Comment> replys;
+
+    public Comment() {
+        this.id = NIL_UUID;
+        this.user = null;
+        this.date = null;
+        this.content = null;
+        this.replys = null;
+    }
     
     public Comment(User user, LocalDate date, String content, ArrayList<Comment> replys) {
         this.id = UUID.randomUUID();

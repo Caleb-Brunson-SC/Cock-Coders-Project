@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public class Review {
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UUID id;
     private Student reviewer;
     private LocalDate date;
@@ -10,7 +11,11 @@ public class Review {
     private String comment;
 
     public Review() {
-        
+        this.id = NIL_UUID;
+        this.reviewer = null;
+        this.date = null;
+        this.rating = -1;
+        this.comment = null;
     }
 
     public Review(Student reviewer, LocalDate date, int rating, String comment) {

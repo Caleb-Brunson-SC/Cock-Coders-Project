@@ -126,8 +126,6 @@ public class CreateCourse implements ActionListener{
       String title = courseTitleField.getText();
       String description = descriptionField.getText();
 
-      System.out.println(title);
-
       if (title.isBlank() || language == null || description.isBlank()) {
         JOptionPane.showMessageDialog(frame1,"Title, Language, or Description are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
       } else {

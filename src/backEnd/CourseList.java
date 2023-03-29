@@ -57,6 +57,15 @@ public class CourseList {
         return false;
     }
 
+    public boolean addCourse(Course course) {
+        courses.add(course);
+
+        if(course.getId() != null) {
+            courseList.saveCourses();
+            return true;
+        }
+        return false;
+    }
     
 
 
