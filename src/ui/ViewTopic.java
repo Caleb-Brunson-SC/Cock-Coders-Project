@@ -24,6 +24,8 @@ public class ViewTopic implements ActionListener{
     // for statement should populate string J with the title of the topic for
     // each topic in the course. Should iterate once for each 
     // topic in topics array. 
+    int saveK = 0;
+    int saveW = 0;
     for (int i = 0; i < 7; i++) {
       JPanel p1 = new JPanel();
       p1.setLayout(null);
@@ -89,7 +91,7 @@ public class ViewTopic implements ActionListener{
       frame1.setSize(500, 450 + (k * 30));
   
       frame1.add(tabbedPane);
-    }
+  }
   }
   public void actionPerformed(ActionEvent e) {
 

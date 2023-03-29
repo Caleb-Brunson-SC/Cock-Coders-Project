@@ -4,6 +4,6 @@ import javax.swing.*;
 
 public class UIDriver {
     public static void main(String[] args) {
-        new ViewTopic(null);
+        new ViewLesson(null);
     }
 }
