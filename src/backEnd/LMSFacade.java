@@ -12,21 +12,16 @@ public class LMSFacade {
     private User user; // the current user
     // Objects for creating a course
     private Course courseCreated;
-    private boolean createdTopic;
-    private boolean createdLesson;
-    private boolean createdQuiz;
-    private boolean createdQuestion;
-
+    private ArrayList<Lesson> lessonsCreated;
+    private ArrayList<Question> questionsCreated;
 
     public LMSFacade() {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
         this.user = null;
         this.courseCreated = new Course(); //new Course();
-        this.createdTopic = false;
-        this.createdLesson = false;
-        this.createdQuiz = false;
-        this.createdQuestion = false;
+        this.lessonsCreated = new ArrayList<Lesson>();
+        this.questionsCreated = new ArrayList<Question>();
     }
 
     public User getUser() {
@@ -73,7 +68,7 @@ public class LMSFacade {
 
         if (user == null) {
             JOptionPane.showMessageDialog(frame1,"User is not logged in.","Alert",JOptionPane.WARNING_MESSAGE);
-        } else if (!createdTopic) {
+        } else if (courseCreated.getTopics().isEmpty()) {
             JOptionPane.showMessageDialog(frame1,"Topics are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
         } else {
             if (courses.addCourse(courseCreated)) {
