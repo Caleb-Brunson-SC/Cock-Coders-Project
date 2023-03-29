@@ -20,7 +20,7 @@ public class courseTester {
         // Create User (Student) and Comments
         LocalDate student1DOB = LocalDate.of(2002, 3, 12);
         LocalDate comment1Date = LocalDate.of(2023, 3, 17);
-        User student1 = new Student("student", "caleb", "brunson", "crb", "crb@email.com", "pass123", null, null, null);
+        User student1 = new Student("caleb", "brunson", "crb", "crb@email.com", "pass123", null, null, null);
         ArrayList<Comment> comments = new ArrayList<Comment>();
         Comment comment1 = new Comment(student1, comment1Date, "Why is the sky blue?", null);
         comments.add(comment1);
@@ -44,7 +44,7 @@ public class courseTester {
 
         // Create Teacher and Course
         LocalDate teacher1DOB = LocalDate.of(1994, 6, 17);
-        User teacher1 = new Teacher("teacher", "bob", "jones", "bj36", "bobj@email.com", "scooby420", null, null, null);
+        User teacher1 = new Teacher("bob", "jones", "bj36", "bobj@email.com", "scooby420", null, null, null);
         Course course1 = new Course("Sky Course", Language.C, "Learn about Sky", teacher1, topics, reviews, comments, progressList);
 
         System.out.println(teacher1);

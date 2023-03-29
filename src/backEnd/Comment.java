@@ -13,7 +13,7 @@ public class Comment {
 
     public Comment() {
         this.id = NIL_UUID;
-        this.user = null;
+        this.user = new Student(); // default User
         this.date = LocalDate.now();
         this.content = "none";
         this.replys = new ArrayList<Comment>();
