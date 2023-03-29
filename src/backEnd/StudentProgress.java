@@ -2,21 +2,21 @@ package backEnd;
 import java.util.ArrayList;
 
 public class StudentProgress {
-    private Student student;
+    private User student;
     private ArrayList<Double> quizGrades;
 
     public StudentProgress() {
-        this.student = null;
-        this.quizGrades = null;
+        this.student = new Student();
+        this.quizGrades = new ArrayList<Double>();
     }
 
-    public StudentProgress(Student student, ArrayList<Double> quizGrades) {
+    public StudentProgress(User student, ArrayList<Double> quizGrades) {
         this.student = student;
         this.quizGrades = quizGrades;
     }
 
     //GETTERS AND SETTERS
-    public Student getStudent() {
+    public User getStudent() {
         return student;
     }
 

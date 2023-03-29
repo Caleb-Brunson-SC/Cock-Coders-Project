@@ -31,13 +31,13 @@ public class DataLoader extends DataConstants {
                 UUID currentLessonID = UUID.fromString((String)userJSON.get(USER_CURRENT_LESSON_ID));
                 
                 if (type.equalsIgnoreCase("admin")) {
-                    users.add(new Admin(id, type, firstName, lastName, userName, email, password, 
+                    users.add(new Admin(id, firstName, lastName, userName, email, password, 
                     currentCourseID, currentTopicID, currentLessonID));
                 } else if (type.equalsIgnoreCase("teacher")) {
-                    users.add(new Teacher(id, type, firstName, lastName, userName, email, password,
+                    users.add(new Teacher(id, firstName, lastName, userName, email, password,
                     currentCourseID, currentTopicID, currentLessonID));
                 } else if (type.equalsIgnoreCase("student")) {
-                    users.add(new Student(id, type, firstName, lastName, userName, email, password,
+                    users.add(new Student(id, firstName, lastName, userName, email, password,
                     currentCourseID, currentTopicID, currentLessonID));
                 }
             }

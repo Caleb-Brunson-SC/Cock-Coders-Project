@@ -3,18 +3,31 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Course {
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UUID id;
     private String title;
     private Language language;
     private String description;
-    private Teacher teacher;
+    private User teacher;
     private ArrayList<Topic> topics;
     private ArrayList<Review> reviews;
     private ArrayList<Comment> comments;
     private ArrayList<StudentProgress> studentProgresses;
 
+    public Course() {
+        this.id = NIL_UUID;
+        this.title = "none";
+        this.language = Language.NONE;
+        this.description = "none";
+        this.teacher = new Teacher();
+        this.topics = new ArrayList<Topic>();
+        this.reviews = new ArrayList<Review>();
+        this.comments = new ArrayList<Comment>();
+        this.studentProgresses = new ArrayList<StudentProgress>();
+    }
+
     public Course(String title, Language language, String description, 
-        Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
+        User teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
         ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
         this.id = UUID.randomUUID();
         this.title = title;
@@ -28,7 +41,7 @@ public class Course {
     }
 
     public Course(UUID id, String title, Language language, String description, 
-        Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
+        User teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
         ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
             this.id = id;
             this.title = title;
@@ -111,11 +124,11 @@ public class Course {
         this.description = description;
     }
 
-    public Teacher getTeacher() {
+    public User getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(Teacher teacher) {
+    public void setTeacher(User teacher) {
         this.teacher = teacher;
     }
 
@@ -166,27 +179,4 @@ public class Course {
                 + ", studentProgresses=" + studentProgresses + "]";
     }
 
-    
-    
-
-    /* This might need to go in Teacher class
-    public void addTopic(Topic topic) {
-        if(topic != null) {
-            topics.add(topic);
-        }
-    }
-
-    public void removeTopic(Topic topic) {
-        if(topic != null) {
-            topics.remove(topic);
-        }
-    }
-
-    public ArrayList<Review> updateReviews(Review review) {
-        if(review != null) {
-            reviews.addAll(reviews);
-        }
-        return reviews;
-    }
-    */
 }

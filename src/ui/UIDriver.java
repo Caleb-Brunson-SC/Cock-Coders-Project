@@ -4,6 +4,9 @@ import javax.swing.*;
 
 public class UIDriver {
     public static void main(String[] args) {
-        new ViewLesson(null);
+        // teacher login
+        // username: jordanw420
+        // password: jw
+        new Landing();
     }
 }

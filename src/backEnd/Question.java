@@ -3,10 +3,18 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Question {
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UUID id;
     private String question;
     private ArrayList<String> choices;
     private int correctAnswerIndex;
+
+    public Question() {
+        this.id = NIL_UUID;
+        this.question = "none";
+        this.choices = new ArrayList<String>();
+        this.correctAnswerIndex = -1;
+    }
 
     public Question(String question, ArrayList<String> choices, int correctAnswerIndex) {
         this.id = UUID.randomUUID();

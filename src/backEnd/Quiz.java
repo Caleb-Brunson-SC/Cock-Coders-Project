@@ -8,6 +8,12 @@ public class Quiz {
     protected String description;
     protected ArrayList<Question> questions;
 
+    public Quiz() {
+        this.title = "none";
+        this.description = "none";
+        this.questions = new ArrayList<Question>();
+    }
+
     public Quiz(String title, String description, ArrayList<Question> questions) {
         this.title = title;
         this.description = description;

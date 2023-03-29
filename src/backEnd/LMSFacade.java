@@ -18,7 +18,7 @@ public class LMSFacade {
         this.users =  UserList.getInstance();
         this.courses = CourseList.getInstance();
         this.user = null;
-        this.courseCreated = new Course();
+        this.courseCreated = null; //new Course();
     }
 
     public User getUser() {

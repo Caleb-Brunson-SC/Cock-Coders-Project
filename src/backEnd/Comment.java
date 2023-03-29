@@ -14,9 +14,9 @@ public class Comment {
     public Comment() {
         this.id = NIL_UUID;
         this.user = null;
-        this.date = null;
-        this.content = null;
-        this.replys = null;
+        this.date = LocalDate.now();
+        this.content = "none";
+        this.replys = new ArrayList<Comment>();
     }
     
     public Comment(User user, LocalDate date, String content, ArrayList<Comment> replys) {
