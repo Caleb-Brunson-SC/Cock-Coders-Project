@@ -83,27 +83,6 @@ public class LMSFacade {
             }
         }
         return false;
-
-
-        /*
-        if (courses.addCourse(title, language, description, (Teacher)user, topics, reviews, courseComments, studentProgresses)) {
-            return true;
-        } else {
-            // Print out message errors
-            frame1 = new JFrame();
-            if (topics == null) {
-                JOptionPane.showMessageDialog(frame1,"Topics are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
-            } else if (lessons == null) {
-                JOptionPane.showMessageDialog(frame1,"Lessons are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
-            } else if (quiz == null) {
-                JOptionPane.showMessageDialog(frame1,"Quiz is incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
-            } else if (choices == null) {
-                JOptionPane.showMessageDialog(frame1,"Questions are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
-            }
-            // Return boolean value
-            return false;
-        }
-        */
     }
 
     public void deleteCourse(Course course) {}
