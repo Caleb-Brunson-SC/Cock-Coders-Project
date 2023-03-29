@@ -143,11 +143,17 @@ public class AddTopic implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == button1) {
-      String topic = topicTitleField.getText();
+      String title = topicTitleField.getText();
       String description = descriptionField.getText();
 
-      System.out.println(topic);
+      System.out.println(title);
       System.out.println(description);
+
+      if (title.isBlank() || description.isBlank()) {
+        JOptionPane.showMessageDialog(frame1,"Title or Description are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        facade.createTopic(title, description);
+      }
 
       frame1.setVisible(false);
 

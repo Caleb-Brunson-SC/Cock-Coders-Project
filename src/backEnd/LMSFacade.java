@@ -57,7 +57,7 @@ public class LMSFacade {
         System.out.println(courseCreated);
     }
 
-    public boolean createCourse(String title, Language language, String description) {
+    public void createCourse(String title, Language language, String description) {
         courseCreated.setId(UUID.randomUUID());
         courseCreated.setTitle(title);
         courseCreated.setLanguage(language);
@@ -72,33 +72,30 @@ public class LMSFacade {
             JOptionPane.showMessageDialog(frame1,"Topics are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
         } else {
             if (courses.addCourse(courseCreated)) {
-                return true;
             } else {
                 JOptionPane.showMessageDialog(frame1,"Failed to add course.","Alert",JOptionPane.WARNING_MESSAGE);
             }
         }
-        return false;
     }
 
     public void deleteCourse(Course course) {}
 
-    public boolean createTopic(String title, String description, Quiz quiz, 
-    ArrayList<Lesson> lessons) {
-        return false;
+    public void createTopic(String title, String description) {
+        
     }
 
     public void deleteTopic(Topic topic) {}
 
 
-    public boolean createLesson(String title, String content) {
-        return false;
+    public void createLesson(String title, String content) {
+        
     }
 
     public void deleteLesson(Lesson lesson) {}
 
 
-    public Topic createQuiz(Quiz quiz) {
-        return null;
+    public void createQuiz(Quiz quiz) {
+
     }
 
     public void deleteQuiz(Quiz quiz) {}
