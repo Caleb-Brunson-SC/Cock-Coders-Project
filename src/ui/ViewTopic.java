@@ -111,8 +111,12 @@ public class ViewTopic implements ActionListener{
     if (lessonBtnIndex <= lessons.size() - 1) {
       new ViewLesson(facade, lessons.get(lessonBtnIndex));
     } else {
-      if (facade.hasCompletedQuiz(workingCourse.getId(), workingQuiz)) {
-        JOptionPane.showMessageDialog(frame1,"This quiz has already been completed.","Alert",JOptionPane.WARNING_MESSAGE);
+      if(facade.getUser().getType().equalsIgnoreCase("student")) {
+        if (facade.hasCompletedQuiz(workingCourse.getId(), workingQuiz)) {
+          JOptionPane.showMessageDialog(frame1,"This quiz has already been completed.","Alert",JOptionPane.WARNING_MESSAGE);
+        } else {
+          new ViewQuestion(facade, workingCourse, workingQuiz);
+        }
       } else {
         new ViewQuestion(facade, workingCourse, workingQuiz);
       }
