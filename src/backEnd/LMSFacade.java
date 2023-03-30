@@ -139,6 +139,10 @@ public class LMSFacade {
             // Reset lessons and questions array lists for the next topic
             lessonsCreated = new ArrayList<Lesson>();
             questionsCreated = new ArrayList<Question>();
+            // Reset counts except for topic count
+            lessonCount = 0;
+            quizCount = 0;
+            questionCount = 0;
         }
     }
 
