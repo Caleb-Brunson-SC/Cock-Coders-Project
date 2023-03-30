@@ -11,6 +11,7 @@ import javax.swing.JTabbedPane;
 public class ViewTopic implements ActionListener{
   private final LMSFacade facade;
   Topic workingTopic;
+  ArrayList<Lesson> lessons;
   Quiz workingQuiz;
   int lessonIndex = 0;
   JFrame frame1;
@@ -21,6 +22,7 @@ public class ViewTopic implements ActionListener{
   ViewTopic(LMSFacade facade, Topic workingTopic){
     this.facade = facade;
     this.workingTopic = workingTopic;
+    this.lessons = workingTopic.getLessons();
     this.workingQuiz = workingTopic.getQuiz();
     
     frame1 = new JFrame();
@@ -59,8 +61,8 @@ public class ViewTopic implements ActionListener{
       tabbedPane.add(workingTopic.getTitle() , p1);
       // should parse through all lessons in topic
       int k = 0;
-      while (k < workingTopic.getLessons().size()) {
-        Lesson workingLesson = workingTopic.getLessons().get(k);
+      while (k < lessons.size()) {
+        Lesson workingLesson = lessons.get(k);
         JLabel lessonName = new JLabel();
         viewLesson = new JButton();
         viewLesson.addActionListener(this);
@@ -105,12 +107,11 @@ public class ViewTopic implements ActionListener{
     int lessonBtnIndex = Integer.parseInt(btn.getName());
     System.out.println(lessonBtnIndex);
 
-    if (lessonBtnIndex <= workingTopic.getLessons().size() - 1) {
-      System.out.println("view lesson");
+    if (lessonBtnIndex <= lessons.size() - 1) {
+      new ViewLesson(facade, lessons.get(lessonBtnIndex));
     } else {
       System.out.println("view quiz");
     }
-
     
   }
 }
