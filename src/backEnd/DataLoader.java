@@ -8,7 +8,16 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * The DataLoader class loads the data from the JSON files and converts them into
+ * corresponding objects (User, Course, etc.).
+ */
 public class DataLoader extends DataConstants {
+    
+    /**
+     * Loads the users from the JSON file and returns an ArrayList of User objects.
+     * @return An ArrayList of User objects loaded from the JSON file.
+     */
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         
@@ -51,6 +60,10 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+    * Loads the courses from the JSON file and returns an ArrayList of Course objects.
+    * @return An ArrayList of Course objects loaded from the JSON file.
+    */
     public static ArrayList<Course> getCourses() {
         ArrayList<Course> courses = new ArrayList<Course>();
         
@@ -188,6 +201,11 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    /**
+     * Recursively parses a JSONArray of comment JSONObjects and populates an ArrayList of Comment objects.
+     * @param commentsJSON the JSONArray of comment JSONObjects to parse
+     * @param comments the ArrayList of Comment objects to populate
+     */
     public static void commentRecursionJSON(JSONArray commentsJSON, ArrayList<Comment> comments) {
         try {
             // UserList to get Users by thier UUIDs
@@ -215,5 +233,4 @@ public class DataLoader extends DataConstants {
             e.printStackTrace();
         }
     }
-    
 }
