@@ -11,12 +11,16 @@ import javax.swing.JTabbedPane;
 public class ViewCourses implements ActionListener{
   private final LMSFacade facade;
   JFrame frame1;
+  JButton viewTopic;
   ArrayList<Course> courses;
+  ArrayList<Topic> buttonTopics;
+  int topicIndex = 0;
   JTabbedPane tabbedPane;
 
   ViewCourses(LMSFacade facade){
     this.facade = facade;
     this.courses = facade.getCourseList().getCourses();
+    this.buttonTopics = new ArrayList<Topic>();
     
     frame1 = new JFrame();
     tabbedPane = new JTabbedPane();
@@ -60,10 +64,14 @@ public class ViewCourses implements ActionListener{
       ArrayList<Topic> topics = courses.get(i).getTopics();
       for (int k = 0; k < topics.size(); k++) {
         Topic workingTopic = topics.get(k);
+        buttonTopics.add(workingTopic);
         JLabel topicName = new JLabel();
-        JButton viewTopic = new JButton();
+        viewTopic = new JButton(); // Initalize viewTopic JBUTTON
+        viewTopic.addActionListener(this);
         topicName.setText(workingTopic.getTitle()); // title/name of the topic
         viewTopic.setText("View Topic");
+        viewTopic.setName(Integer.toString(topicIndex));
+        topicIndex = topicIndex + 1;
         topicName.setBounds(150, 160 + (k * 30), 100, 20);
         viewTopic.setBounds(250, 160 + (k * 30), 100, 20);
         p1.add(topicName);
@@ -78,6 +86,9 @@ public class ViewCourses implements ActionListener{
     frame1.add(tabbedPane);
   }
   public void actionPerformed(ActionEvent e) {
-    
+    JButton btn = (JButton)e.getSource();
+    System.out.println(btn.getName());
+    int topicIndex = Integer.parseInt(btn.getName());
+    System.out.println(buttonTopics.get(topicIndex));
   }
 }
