@@ -260,25 +260,10 @@ public class LMSFacade {
 
     // QUIZ TAKING AND GRADING
     public void updateStudentProgress(UUID courseID, Quiz completedQuiz, double grade) {
-        Course course = courseList.getCourseByUUID(courseID);
-        if (course.getStudentProgresses().isEmpty()) {
-            ArrayList<Double> grades = new ArrayList<Double>();
-            grades.add(grade);
-            StudentProgress newSP = new StudentProgress(user, grades);
-            course.getStudentProgresses().add(newSP);
-            completedQuizzes.add(completedQuiz);
-            courseList.saveCourses();
-        } else if (course.getStudentProgresses()) {
-
-        }
+        
     }
 
     public boolean hasCompletedQuiz(Quiz quiz) {
-        for (Quiz completedQuiz : completedQuizzes) {
-            if (completedQuiz.equals(quiz)) {
-                return true;
-            }
-        }
         return false;
     }
 
