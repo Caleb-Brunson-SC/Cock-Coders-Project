@@ -33,6 +33,7 @@ public class ViewQuestion implements ActionListener {
         tabbedPane = new JTabbedPane();
 
         for (int i = 0; i < questions.size(); i++) { // 5 for now
+            Question workingQuestion = questions.get(i);
             JPanel page = new JPanel();
             JLabel question = new JLabel();
             a1 = new JRadioButton();
@@ -40,8 +41,8 @@ public class ViewQuestion implements ActionListener {
             a3 = new JRadioButton();
             a4 = new JRadioButton();
 
-            ArrayList<String> choices = questions.get(i).getChoices();
-            question.setText("Question " + (i + 1) + ": ");
+            question.setText("Question " + (i + 1) + ": " + workingQuestion.getQuestion());
+            ArrayList<String> choices = workingQuestion.getChoices();
             a1.setText("A) " + choices.get(0));
             a2.setText("B) " + choices.get(1));
             a3.setText("C) " + choices.get(2));
@@ -87,6 +88,7 @@ public class ViewQuestion implements ActionListener {
         if (e.getSource() == submitButton) { // this is wrong just needed something here
             System.out.println("submit");
             if (a1.isSelected()) {
+                System.out.println("a1");
                 incorrectAnswers.add(a1.getText());
             } else if (a2.isSelected()) {
                 correctAnswers.add(a2.getText());
