@@ -25,6 +25,9 @@ public class LMSFacade {
     private int lessonCount;
     private int questionCount;
 
+    /**
+     * default constructor of the facade
+     */
     public LMSFacade() {
         this.userList =  UserList.getInstance();
         this.courseList = CourseList.getInstance();
@@ -41,36 +44,59 @@ public class LMSFacade {
 
     
     /** 
-     * @return UserList
+     * @return current user list
      */
     public UserList getUserList() {
         return userList;
     }
 
+    /**
+     * @return current course list
+     */
     public CourseList getCourseList() {
         return courseList;
     }
 
+    /**
+     * @return current user logged in
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     * @return check if current quiz ammount has reached the quiz limit
+     */
     public boolean reachedQuizLimit() {
         return quizCount == QUIZ_LIMIT;
     }
 
+    /**
+     * @return check if topic ammount has reached the topic limit
+     */
     public boolean reachedTopicLimit() {
         return topicCount == TOPIC_LIMIT;
     }
 
+    /**
+     * @return check if lesson ammount has reached the lesson limit
+     */
     public boolean reachedLessonLimit() {
         return lessonCount == LESSON_LIMIT;
     }
 
+    /**
+     * @return check if question ammount has reached the question limit
+     */
     public boolean reachedQuestionLimit() {
         return questionCount == QUESTION_LIMIT;
     }
 
+    /**
+     * @param username username of user
+     * @param password password of user
+     * @return true if the user entered correct credentials that matches user account
+     */
     public boolean login(String username, String password) {
         User loggedInUser = userList.getUser(username);
         if (userList.authUser(loggedInUser, password)) {
@@ -81,6 +107,15 @@ public class LMSFacade {
         }
     }
 
+    /**
+     * @param type the type of user (Admin, Teacher, Student)
+     * @param firstName first name of a user
+     * @param lastName last name of a user
+     * @param username username of a user
+     * @param email email of a user
+     * @param password password of a user
+     * @return true of the user was successfully create
+     */
     public boolean signUp(String type, String firstName, String lastName, String username, String email, String password) {
         if(userList.addUser(type, firstName, lastName, username, email, password, NIL_UUID, NIL_UUID, NIL_UUID)) {
             // User successfully added to db
@@ -91,15 +126,28 @@ public class LMSFacade {
         }
     }
 
+    /**
+     * signout the user (set current user to null)
+     */
     public void signOut() {
         this.user = null;
     }
 
     // COURSE CREATION, EDITING, DELETION
+
+    /**
+     * print the course that was created
+     */
     public void printCourseCreated() {
         System.out.println(courseCreated);
     }
 
+    /**
+     * @param title title of a course
+     * @param language programming language of a course
+     * @param description description of a course
+     * create a course which will set input to current course being created
+     */
     public void createCourse(String title, Language language, String description) {
         courseCreated.setId(UUID.randomUUID());
         courseCreated.setTitle(title);
@@ -121,6 +169,11 @@ public class LMSFacade {
 
     public void deleteCourse(Course course) {}
 
+    /**
+     * @param title the title of a topic
+     * @param description the description of a topic
+     * create a topic which will set input to current topic being created
+     */
     public void createTopic(String title, String description) {
         Topic topic = new Topic();
         topic.setId(UUID.randomUUID());
@@ -149,6 +202,11 @@ public class LMSFacade {
     public void deleteTopic(Topic topic) {}
 
 
+    /**
+     * @param title the title of a lesson
+     * @param content the content of a lesson
+     * create a lesson which will set input to current lesson being created
+     */
     public void createLesson(String title, String content) {
         Lesson lesson = new Lesson();
         lesson.setId(UUID.randomUUID());
@@ -162,6 +220,11 @@ public class LMSFacade {
     public void deleteLesson(Lesson lesson) {}
 
 
+    /**
+     * @param title the title of a quiz
+     * @param description the description of a quiz
+     * create a quiz which will set input to current quiz being created
+     */
     public void createQuiz(String title, String description) {
         quizCreated = new Quiz();
         quizCreated.setId(UUID.randomUUID());
@@ -178,6 +241,12 @@ public class LMSFacade {
 
     public void deleteQuiz(Quiz quiz) {}
 
+    /**
+     * @param questionString the question being asked
+     * @param choices a list of answer choice
+     * @param correctAnswerIndex the index of the correct answer
+     * create a question which will set input to a current question being created
+     */
     public void createQuestion(String questionString, ArrayList<String> choices, int correctAnswerIndex) {
         Question question = new Question();
         question.setId(UUID.randomUUID());
@@ -262,6 +331,13 @@ public class LMSFacade {
     public void viewProfile() {}
 
     // QUIZ TAKING AND GRADING
+
+    /**
+     * @param courseID current course ID
+     * @param quiz a quiz
+     * @param gradePercentage the student's grade
+     * update all relavent student progress with grade
+     */
     public void updateStudentProgress(UUID courseID, Quiz quiz, double gradePercentage) {
         Course course = courseList.getCourseByUUID(courseID);
         UUID userID = user.getId();
@@ -284,6 +360,11 @@ public class LMSFacade {
         courseList.saveCourses();
     }
 
+    /**
+     * @param courseID ID of a course
+     * @param quiz quiz related to course
+     * @return true if the quiz was completed
+     */
     public boolean hasCompletedQuiz(UUID courseID, Quiz quiz) {
         Course course = courseList.getCourseByUUID(courseID);
         UUID userId = user.getId();

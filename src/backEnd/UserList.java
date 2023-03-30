@@ -6,10 +6,16 @@ public class UserList {
     private ArrayList<User> users;
     private static UserList userList;
 
+    /**
+     * default constructor for userlist
+     */
     private UserList() {
         users = DataLoader.getUsers();
     }
 
+    /**
+     * @return the current instance of user list
+     */
     public static UserList getInstance() {
         if (userList == null) {
             userList = new UserList();
@@ -17,6 +23,11 @@ public class UserList {
         return userList;
     }
 
+    /**
+     * @param userName username of a user
+     * search through all users for user matching the username
+     * @return the user found
+     */
     public User getUser(String userName) {
         for (User user : users) {
             if (user.getUserName().equals(userName)) {
@@ -26,6 +37,11 @@ public class UserList {
         return null;
     }
 
+    /**
+     * @param id UUID of a user
+     * search through all users for user matching the id
+     * @return the user found
+     */
     public User getUserByUUID(UUID id) {
         for (User user : users) {
             if (user.getId().equals(id)) {
@@ -39,6 +55,11 @@ public class UserList {
         return users;
     }
 
+    /**
+     * @param userName username of a user
+     * check if user with the username already exists
+     * @return false if user does not exist
+     */
     public boolean haveUser(String userName) {
         for (User user : users) {
             if (user.getUserName().equals(userName)) {
@@ -48,6 +69,11 @@ public class UserList {
         return false;
     }
 
+    /**
+     * @param email email of a user
+     * check if user with the email already exists
+     * @return false if user does not exist
+     */
     public boolean haveEmail(String email) {
         for (User user : users) {
             if (user.getEmail().equals(email)) {
@@ -57,6 +83,19 @@ public class UserList {
         return false;
     }
 
+    /**
+     * @param type the type of users (Admin, Teacher, Student)
+     * @param firstName first name of the user
+     * @param lastName last name of the user
+     * @param userName username of the user
+     * @param email email of the user
+     * @param password password of the user
+     * @param currentCourseID current course ID
+     * @param currentTopicID current topic ID
+     * @param currentLessonID current lesson ID
+     * check if the user's username or email exists in database, if not create the user with it's type and add it to the user array list and database
+     * @return true on successfully database addition
+     */
     public boolean addUser(String type, String firstName, String lastName, String userName, String email, String password,
     UUID currentCourseID, UUID currentTopicID, UUID currentLessonID) {
         if (haveUser(userName) || haveUser(email)) {
@@ -84,7 +123,11 @@ public class UserList {
         DataWriter.saveUsers();
     }
 
-    //OTHER METHODS
+    /**
+     * @param user user attemption to login
+     * @param password password entered
+     * @return true if user password matches user information
+     */
     public boolean authUser(User user, String password) {
         if (user.getPassword().equals(password)) {
             return true;

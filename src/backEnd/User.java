@@ -13,6 +13,17 @@ public abstract class User {
     private UUID currentTopicID;
     private UUID currentLessonID;
 
+    /**
+     * @param type the type of user (Admin, Teacher, Student)
+     * @param firstName first name of user
+     * @param lastName last name of user
+     * @param userName username of user
+     * @param email email of user
+     * @param password password of user
+     * @param currentCourseID current course ID
+     * @param currentTopicID current topic ID
+     * @param currentLessonID current lesson ID
+     */
     public User(String type, String firstName, String lastName, String userName, String email, 
     String password, UUID currentCourseID, UUID currentTopicID, UUID currentLessonID) {
         this.id = UUID.randomUUID();
@@ -27,6 +38,18 @@ public abstract class User {
         this.currentLessonID = currentLessonID;
     }
 
+    /**
+     * @param id randomly generally ID
+     * @param type the type of user (Admin, Teacher, Student)
+     * @param firstName first name of user
+     * @param lastName last name of user
+     * @param userName username of user
+     * @param email email of user
+     * @param password password of user
+     * @param currentCourseID current course ID
+     * @param currentTopicID current topic ID
+     * @param currentLessonID current lesson ID
+     */
     public User(UUID id, String type, String firstName, String lastName, String userName, String email, 
     String password, UUID currentCourseID, UUID currentTopicID, UUID currentLessonID) {
         this.id = id;

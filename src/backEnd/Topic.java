@@ -11,6 +11,9 @@ public class Topic {
     private ArrayList<Lesson> lessons;
     private ArrayList<Comment> comments;
 
+    /**
+     * Default constructor for creating a topic
+     */
     public Topic() {
         this.id = NIL_UUID;
         this.title = "none";
@@ -20,6 +23,14 @@ public class Topic {
         this.comments = new ArrayList<Comment>();
     }
 
+    /**
+     * @param title the title of the topic
+     * @param description the description of the topic
+     * @param quiz the quiz of the topic
+     * @param lessons a list of lessons related to the topic
+     * @param comments a list of comments
+     * Creates a topic with parameters passed for all variables without UUID
+     */
     public Topic(String title, String description, Quiz quiz, 
         ArrayList<Lesson> lessons, ArrayList<Comment> comments) {
         this.id = UUID.randomUUID();
@@ -30,7 +41,13 @@ public class Topic {
         this.comments = comments;
     }
 
-    //Topic constructor that initializes Comments to null
+    /**
+     * @param title the title of the topic
+     * @param description the description of the topic
+     * @param quiz the quiz of the topic
+     * @param lessons a list of lessons related to the topic
+     * Creates a topic with parameters except comments and UUID
+     */
     public Topic(String title, String description, Quiz quiz, 
         ArrayList<Lesson> lessons) {
         this.id = UUID.randomUUID();
@@ -41,6 +58,15 @@ public class Topic {
         this.comments = null;
     }
 
+    /**
+     * @param id the id of the topic
+     * @param title the title of the topic
+     * @param description the description of the topic
+     * @param quiz the quiz of the topic
+     * @param lessons a list of lessons related to the topic
+     * @param comments a list of comments
+     * Creates a topic with parameters passed variables with UUID
+     */
     public Topic(UUID id, String title, String description, Quiz quiz, 
         ArrayList<Lesson> lessons, ArrayList<Comment> comments) {
         this.id = id;
@@ -51,7 +77,11 @@ public class Topic {
         this.comments = comments;
     }
 
-    // getElementByUUID methods
+    /**
+     * @param id the lessonID of a lesson
+     * search the array list of lessons for a specific lesson by UUID
+     * @return the lesson is returned if it exist in the list
+     */
     public Lesson getLessonByUUID(UUID id) {
         for (Lesson lesson : lessons) {
             if (lesson.getId().equals(id)) {
@@ -61,6 +91,11 @@ public class Topic {
         return null;
     }
 
+    /**
+     * @param id the commentID of a comment
+     * search the array list of comments for a specific comment by UUID
+     * @return the comment is returned if it exist in the list
+     */
     public Comment getCommentByUUID(UUID id) {
         for (Comment comment : comments) {
             if (comment.getId().equals(id)) {
@@ -68,7 +103,19 @@ public class Topic {
             }
         }
         return null;
-    } 
+    }
+    
+    /**
+     * @param title the title of a lesson
+     * @param content the content of a lesson
+     * after creating the new lesson it is added to the list of lessons for the course
+     * @return the lesson is returned from this function
+     */
+    public Lesson createLesson(String title, String content) {
+        Lesson newLesson = new Lesson(title, content);
+        lessons.add(newLesson);
+        return newLesson;
+    }
 
     //GETTERS AND SETTERS
     public UUID getId() {
@@ -101,12 +148,6 @@ public class Topic {
 
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
-    }
-
-    public Lesson createLesson(String title, String content) {
-        Lesson newLesson = new Lesson(title, content);
-        lessons.add(newLesson);
-        return newLesson;
     }
 
     public ArrayList<Lesson> getLessons() {

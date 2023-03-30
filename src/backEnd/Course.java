@@ -142,6 +142,23 @@ public class Course {
         return null;
     }
 
+    /**
+     * 
+     * @param title the title of the topic
+     * @param description the description of the topic
+     * @param quiz the quiz of the topic
+     * @param lessons a list of lessons related to the topic
+     * after creating the new topic it is added to the list of topics for the course
+     * @return the topic is returned from this function
+     */
+    public Topic createTopic(String title, String description, Quiz quiz, 
+    ArrayList<Lesson> lessons) {
+        Topic newTopic = new Topic(title, description, quiz, lessons);
+        topics.add(newTopic);
+        return newTopic;
+        
+    }
+
     // GETTERS AND SETTERS
     public UUID getId() {
         return id;
@@ -181,14 +198,6 @@ public class Course {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
-    }
-
-    public Topic createTopic(String title, String description, Quiz quiz, 
-    ArrayList<Lesson> lessons) {
-        Topic newTopic = new Topic(title, description, quiz, lessons);
-        topics.add(newTopic);
-        return newTopic;
-        
     }
 
     public ArrayList<Topic> getTopics() {
