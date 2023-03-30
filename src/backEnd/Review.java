@@ -47,7 +47,7 @@ public class Review {
         return reviewer;
     }
 
-    public void setReviewer(Student reviewer) {
+    public void setReviewer(User reviewer) {
         this.reviewer = reviewer;
     }
 
