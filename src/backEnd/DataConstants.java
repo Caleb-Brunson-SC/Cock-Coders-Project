@@ -1,5 +1,10 @@
 package backEnd;
+
+/**
+ * This abstract class contains constants used for JSON file names and property keys.
+ */
 public abstract class DataConstants {
+    // User JSON file
     protected static final String USER_FILE_NAME = "json/users.json";
     protected static final String USER_ID = "id";
     protected static final String USER_TYPE = "type";
@@ -13,6 +18,7 @@ public abstract class DataConstants {
     protected static final String USER_CURRENT_TOPIC_ID = "currentTopicID";
     protected static final String USER_CURRENT_LESSON_ID = "currentLessonID";
 
+    // Course JSON file
     protected static final String COURSE_FILE_NAME = "json/courses.json";
     protected static final String COURSE_ID = "id";
     protected static final String COURSE_TITLE = "title";
