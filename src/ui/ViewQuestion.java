@@ -103,39 +103,35 @@ public class ViewQuestion implements ActionListener {
     } 
 
     public void actionPerformed(ActionEvent e) {
-        if (facade.hasCompletedQuiz(workingQuiz)) {
-            JOptionPane.showMessageDialog(frame1,"This quiz has already been completed.","Alert",JOptionPane.WARNING_MESSAGE);
-        } else {
-            System.out.println("submit");
-            JButton btn = (JButton)e.getSource();
-            int questionBtnIndex = Integer.parseInt(btn.getName());
-            System.out.println(questionBtnIndex);
+        System.out.println("submit");
+        JButton btn = (JButton)e.getSource();
+        int questionBtnIndex = Integer.parseInt(btn.getName());
+        System.out.println(questionBtnIndex);
 
-            int correctAnswerIndex = correctAnswerIndices.get(questionBtnIndex);
-            System.out.println(correctAnswerIndex);
+        int correctAnswerIndex = correctAnswerIndices.get(questionBtnIndex);
+        System.out.println(correctAnswerIndex);
 
-            ButtonGroup bg = buttonGroups.get(questionBtnIndex);
-            int buttonIndex = 0;
-            for (Enumeration<AbstractButton> buttons = bg.getElements(); buttons.hasMoreElements();) {
-                AbstractButton button = buttons.nextElement();
+        ButtonGroup bg = buttonGroups.get(questionBtnIndex);
+        int buttonIndex = 0;
+        for (Enumeration<AbstractButton> buttons = bg.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
 
-                if (button.isSelected() && buttonIndex == correctAnswerIndex) {
-                    System.out.println(button.getText());
-                    numCorrectChoices++;
-                }
-
-                buttonIndex++;
+            if (button.isSelected() && buttonIndex == correctAnswerIndex) {
+                System.out.println(button.getText());
+                numCorrectChoices++;
             }
-            numChoices++;
-            btn.setVisible(false);
 
-            if (numChoices == questions.size()) {
-                double grade = 100 * (double) numCorrectChoices / numChoices;
-                grade = Math.ceil(grade);
-                JOptionPane.showMessageDialog(frame1,"Your grade is " + grade + "%.","Quiz Result",JOptionPane.INFORMATION_MESSAGE);
+            buttonIndex++;
+        }
+        numChoices++;
+        btn.setVisible(false);
 
-                facade.updateStudentProgress(workingCourse, workingQuiz, grade);
-            }
+        if (numChoices == questions.size()) {
+            double grade = 100 * (double) numCorrectChoices / numChoices;
+            grade = Math.ceil(grade);
+            JOptionPane.showMessageDialog(frame1,"Your grade is " + grade + "%.","Quiz Result",JOptionPane.INFORMATION_MESSAGE);
+
+            facade.updateStudentProgress(workingCourse.getId(), workingQuiz, grade);
         }
     }
 }

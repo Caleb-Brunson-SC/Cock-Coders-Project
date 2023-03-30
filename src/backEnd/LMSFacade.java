@@ -259,21 +259,35 @@ public class LMSFacade {
     public void viewProfile() {}
 
     // QUIZ TAKING AND GRADING
-    public void updateStudentProgress(Course course, Quiz completedQuiz, double grade) {
+    public void updateStudentProgress(UUID courseID, Quiz quiz, double gradePercentage) {
+        Course course = courseList.getCourseByUUID(courseID);
         ArrayList<StudentProgress> studentProgresses = course.getStudentProgresses();
-        //1. sp is empty
-        //2. sp is not empty and has user
-        //3. sp is not empty and does not have user
-        if (studentProgresses.isEmpty()) {
-            System.out.println("case 1");
-        } else if (studentProgresses.contains(course.getStudentProgressByStudentUUID(user.getId()))) {
-            System.out.println("case 2");
+        if (studentProgresses.isEmpty()) { 
+            //1. sp is empty
+            ArrayList<Grade> grades = new ArrayList<Grade>();
+            grades.add(new Grade(quiz.getId(), gradePercentage));
+            StudentProgress sp = new StudentProgress(user, grades);
+            studentProgresses.add(sp);
+            completedQuizzes.add(quiz);
+        } else if (studentProgresses.contains(course.getStudentProgressByStudentUUID(user.getId()))) { 
+            //2. sp is not empty and has user
+
         } else {
-            System.out.println("case 3");
+            //3. sp is not empty and does not have user
+
         }
+        courseList.saveCourses();
     }
 
-    public boolean hasCompletedQuiz(Quiz quiz) {
+    public boolean hasCompletedQuiz(UUID courseID, Quiz quiz) {
+        Course course = courseList.getCourseByUUID(courseID);
+        StudentProgress studentProgress = course.getStudentProgressByStudentUUID(user.getId());
+        ArrayList<Grade> grades = studentProgress.getGrades();
+        for (Grade g : grades) {
+            if (g.getQuizID().equals(quiz.getId())) {
+                return true;
+            }
+        }
         return false;
     }
 

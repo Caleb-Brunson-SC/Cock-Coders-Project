@@ -135,7 +135,18 @@
             }
         ],
         "description": "The world's most versatile programming language.",
-        "students": [],
+        "students": [
+            {
+                "studentID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                "grades": [
+                    {
+                        "quizID": "01e2cb1b-e539-4593-be87-07f645bdb8c7",
+                        "id": "7bce8156-7d55-44b4-87b3-8ad62976054a",
+                        "gradePercentage": 100.0
+                    }
+                ]
+            }
+        ],
         "language": "PYTHON",
         "id": "8bd1c8c2-2240-45a7-9884-25d033514e76",
         "title": "Python"
