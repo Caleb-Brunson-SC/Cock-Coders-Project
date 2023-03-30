@@ -3,17 +3,22 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public class Review {
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UUID id;
-    private Student reviewer;
+    private User reviewer;
     private LocalDate date;
     private int rating;
     private String comment;
 
     public Review() {
-        
+        this.id = NIL_UUID;
+        this.reviewer = new Student();
+        this.date = LocalDate.now();
+        this.rating = -1;
+        this.comment = "none";
     }
 
-    public Review(Student reviewer, LocalDate date, int rating, String comment) {
+    public Review(User reviewer, LocalDate date, int rating, String comment) {
         this.id = UUID.randomUUID();
         this.reviewer = reviewer;
         this.date = date;
@@ -21,7 +26,7 @@ public class Review {
         this.comment = comment;
     }
 
-    public Review(UUID id, Student reviewer, LocalDate date, int rating, String comment) {
+    public Review(UUID id, User reviewer, LocalDate date, int rating, String comment) {
         this.id = id;
         this.reviewer = reviewer;
         this.date = date;
@@ -38,7 +43,7 @@ public class Review {
         this.id = id;
     }
 
-    public Student getReviewer() {
+    public User getReviewer() {
         return reviewer;
     }
 

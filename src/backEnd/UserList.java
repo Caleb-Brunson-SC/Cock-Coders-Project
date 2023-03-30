@@ -65,15 +65,15 @@ public class UserList {
 
         if (type.equalsIgnoreCase("admin")) {
             System.out.println("Input Admin");
-            users.add(new Admin(type, firstName, lastName, userName, email, password,
+            users.add(new Admin(firstName, lastName, userName, email, password,
             currentCourseID, currentTopicID, currentLessonID));
         } else if (type.equalsIgnoreCase("teacher")) {
             System.out.println("Input Teacher");
-            users.add(new Teacher(type, firstName, lastName, userName, email, password,
+            users.add(new Teacher(firstName, lastName, userName, email, password,
             currentCourseID, currentTopicID, currentLessonID));
         } else if (type.equalsIgnoreCase("student")) {
             System.out.println("Input Student");
-            users.add(new Student(type, firstName, lastName, userName, email, password,
+            users.add(new Student(firstName, lastName, userName, email, password,
             currentCourseID, currentTopicID, currentLessonID));
         }
         userList.saveUsers();

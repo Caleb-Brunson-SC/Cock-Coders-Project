@@ -20,7 +20,7 @@ public class courseTester {
         // Create User (Student) and Comments
         LocalDate student1DOB = LocalDate.of(2002, 3, 12);
         LocalDate comment1Date = LocalDate.of(2023, 3, 17);
-        Student student1 = new Student("student", "caleb", "brunson", "crb", "crb@email.com", "pass123", null, null, null);
+        User student1 = new Student("caleb", "brunson", "crb", "crb@email.com", "pass123", null, null, null);
         ArrayList<Comment> comments = new ArrayList<Comment>();
         Comment comment1 = new Comment(student1, comment1Date, "Why is the sky blue?", null);
         comments.add(comment1);
@@ -34,20 +34,20 @@ public class courseTester {
         ArrayList<StudentProgress> progressList = new ArrayList<StudentProgress>();
         ArrayList<Double> grades = new ArrayList<Double>();
         grades.add(100.0);
-        StudentProgress student1Progress = new StudentProgress(student1, grades);
-        progressList.add(student1Progress);
+        //StudentProgress student1Progress = new StudentProgress(student1, grades);
+        //progressList.add(student1Progress);
 
         // Create Reviews
         ArrayList<Review> reviews = new ArrayList<Review>();
-        Review review1 = new Review(student1, comment1Date, 5, "Great course!!!");
-        reviews.add(review1);
+        //Review review1 = new Review(student1, comment1Date, 5, "Great course!!!");
+        //reviews.add(review1);
 
         // Create Teacher and Course
         LocalDate teacher1DOB = LocalDate.of(1994, 6, 17);
-        Teacher teacher1 = new Teacher("teacher", "bob", "jones", "bj36", "bobj@email.com", "scooby420", null, null, null);
-        Course course1 = new Course("Sky Course", Language.C, "Learn about Sky", teacher1, topics, reviews, comments, progressList);
+        User teacher1 = new Teacher("bob", "jones", "bj36", "bobj@email.com", "scooby420", null, null, null);
+        Course course1 = new Course("Sky Course", Language.C, "Learn about Sky", (Teacher)teacher1, topics, reviews, comments, progressList);
 
-        System.out.println(course1);
+        System.out.println(teacher1);
 
     }
 

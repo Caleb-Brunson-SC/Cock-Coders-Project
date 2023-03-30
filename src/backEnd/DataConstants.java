@@ -21,7 +21,9 @@ public abstract class DataConstants {
     protected static final String COURSE_TEACHER_ID = "teacherID";
     protected static final String COURSE_STUDENTS = "students";
     protected static final String COURSE_STUDENT_ID = "studentID";
-    protected static final String COURSE_QUIZ_GRADES = "quizGrades";
+    protected static final String COURSE_GRADES = "grades";
+    protected static final String COURSE_QUIZ_ID = "quizID";
+    protected static final String COURSE_GRADE_PERCENTAGE = "gradePercentage";
     protected static final String COURSE_TOPICS = "topics";
     protected static final String COURSE_LESSONS = "lessons";
     protected static final String COURSE_CONTENT = "content";

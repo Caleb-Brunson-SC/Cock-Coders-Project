@@ -3,6 +3,7 @@ package backEnd;
 import java.util.HashMap;
 
 public enum Language {
+    NONE,
     CSHARP,
     CPP,
     C,
@@ -14,6 +15,7 @@ public enum Language {
 
     public static HashMap<String, Language> getLanguageMap() {
         HashMap<String, Language> langaugeMap = new HashMap<String, Language>();
+        langaugeMap.put("None", Language.NONE);
         langaugeMap.put("C#", Language.CSHARP);
         langaugeMap.put("C++", Language.CPP);
         langaugeMap.put("C", Language.C);

@@ -3,12 +3,22 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Topic {
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UUID id;
     private String title;
     private String description;
     private Quiz quiz;
     private ArrayList<Lesson> lessons;
     private ArrayList<Comment> comments;
+
+    public Topic() {
+        this.id = NIL_UUID;
+        this.title = "none";
+        this.description = "none";
+        this.quiz = new Quiz();
+        this.lessons = new ArrayList<Lesson>();
+        this.comments = new ArrayList<Comment>();
+    }
 
     public Topic(String title, String description, Quiz quiz, 
         ArrayList<Lesson> lessons, ArrayList<Comment> comments) {

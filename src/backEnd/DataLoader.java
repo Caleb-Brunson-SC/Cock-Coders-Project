@@ -31,13 +31,13 @@ public class DataLoader extends DataConstants {
                 UUID currentLessonID = UUID.fromString((String)userJSON.get(USER_CURRENT_LESSON_ID));
                 
                 if (type.equalsIgnoreCase("admin")) {
-                    users.add(new Admin(id, type, firstName, lastName, userName, email, password, 
+                    users.add(new Admin(id, firstName, lastName, userName, email, password, 
                     currentCourseID, currentTopicID, currentLessonID));
                 } else if (type.equalsIgnoreCase("teacher")) {
-                    users.add(new Teacher(id, type, firstName, lastName, userName, email, password,
+                    users.add(new Teacher(id, firstName, lastName, userName, email, password,
                     currentCourseID, currentTopicID, currentLessonID));
                 } else if (type.equalsIgnoreCase("student")) {
-                    users.add(new Student(id, type, firstName, lastName, userName, email, password,
+                    users.add(new Student(id, firstName, lastName, userName, email, password,
                     currentCourseID, currentTopicID, currentLessonID));
                 }
             }
@@ -86,9 +86,20 @@ public class DataLoader extends DataConstants {
                     JSONObject studentProgressJSON = (JSONObject) s;
                     UUID studentID = UUID.fromString((String)studentProgressJSON.get(COURSE_STUDENT_ID));
                     Student student = (Student) users.getUserByUUID(studentID);
-                    ArrayList<Double> quizGrades = (ArrayList<Double>) studentProgressJSON.get(COURSE_QUIZ_GRADES);
 
-                    studentProgresses.add(new StudentProgress(student, quizGrades));
+                    // Grades JSON
+                    ArrayList<Grade> grades = new ArrayList<Grade>();
+                    JSONArray gradesJSON = (JSONArray)studentProgressJSON.get(COURSE_GRADES);
+                    for (Object g : gradesJSON) {
+                        JSONObject gradeJSON = (JSONObject) g;
+                        UUID gradeID = UUID.fromString((String)gradeJSON.get(COURSE_ID));
+                        UUID quizID = UUID.fromString((String)gradeJSON.get(COURSE_QUIZ_ID));
+                        Number gradePercentageNumber = (Number)gradeJSON.get(COURSE_GRADE_PERCENTAGE);
+                        double gradePercentage = gradePercentageNumber.doubleValue();
+                        grades.add(new Grade(gradeID, quizID, gradePercentage));
+                    }
+
+                    studentProgresses.add(new StudentProgress(student, grades));
                 }
                 
                 // Topic JSON
@@ -118,6 +129,7 @@ public class DataLoader extends DataConstants {
 
                     // Topic -> Quiz JSON
                     JSONObject quizJSON = (JSONObject)topicJSON.get(COURSE_QUIZ);
+                    UUID quizID = UUID.fromString((String)quizJSON.get(COURSE_ID));
                     String quizTitle = (String)quizJSON.get(COURSE_TITLE);
                     String quizDescription = (String)quizJSON.get(COURSE_DESCRIPTION);
                     ArrayList<Question> quizQuestions = new ArrayList<Question>();
@@ -134,7 +146,7 @@ public class DataLoader extends DataConstants {
                         quizQuestions.add(quizQuestion);
                     }
 
-                    Quiz quiz = new Quiz(quizTitle, quizDescription, quizQuestions);
+                    Quiz quiz = new Quiz(quizID, quizTitle, quizDescription, quizQuestions);
 
                     // Topic -> Comment JSON
                     ArrayList<Comment> topicComments = new ArrayList<Comment>();

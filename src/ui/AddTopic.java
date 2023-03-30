@@ -143,18 +143,32 @@ public class AddTopic implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == button1) {
-      String topic = topicTitleField.getText();
+      String title = topicTitleField.getText();
       String description = descriptionField.getText();
 
-      System.out.println(topic);
+      System.out.println(title);
       System.out.println(description);
+
+      if (title.isBlank() || description.isBlank()) {
+        JOptionPane.showMessageDialog(frame1,"Title or Description are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        facade.createTopic(title, description);
+      }
 
       frame1.setVisible(false);
 
     } else if (e.getSource() == addLesson) {
-      new AddLesson(facade);
+      if (facade.reachedLessonLimit()) {
+        JOptionPane.showMessageDialog(frame1,"Only " + LMSFacade.LESSON_LIMIT + " lessons are allowed.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        new AddLesson(facade);
+      }
     } else if (e.getSource() == addQuiz) {
-      new AddQuiz(facade);
+      if (facade.reachedQuizLimit()) {
+        JOptionPane.showMessageDialog(frame1,"Only " + LMSFacade.QUIZ_LIMIT + " quiz is allowed.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        new AddQuiz(facade);
+      }
     }
   }
 }

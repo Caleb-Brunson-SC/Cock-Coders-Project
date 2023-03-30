@@ -71,6 +71,12 @@ public class AddLesson implements ActionListener{
       System.out.println(name);
       System.out.println(content);
 
+      if (name.isBlank() || content.isBlank()) {
+        JOptionPane.showMessageDialog(frame1,"Name or content are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        facade.createLesson(name, content);
+      }
+
       frame1.setVisible(false);
     }
   }
