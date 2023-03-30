@@ -106,10 +106,6 @@ public class LMSFacade {
         courseCreated.setLanguage(language);
         courseCreated.setDescription(description);
         courseCreated.setTeacher((Teacher)user);
-
-        System.out.println(courseCreated); // testing
-        System.out.println(courseCreated.getTeacher().getId().toString());
-
         
         if (user == null) {
             JOptionPane.showMessageDialog(frame1,"User is not logged in.","Alert",JOptionPane.WARNING_MESSAGE);
