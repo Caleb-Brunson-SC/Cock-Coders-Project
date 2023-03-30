@@ -10,9 +10,5 @@ public class UIDriver {
         // password: jw
         new Landing();
         
-<<<<<<< HEAD
-        new Landing();
-=======
->>>>>>> 1aed948d51ac513ac4087f64dce11b9a02b2466e
     }
 }
