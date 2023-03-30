@@ -2,7 +2,7 @@
     {
         "firstName": "Caleb",
         "lastName": "Brunson",
-        "password": "y[&&p9n]$Zd/+G!$<",
+        "password": "y[&&p9n]$Zd\/+G!$<",
         "currentCourseID": "00000000-0000-0000-0000-000000000000",
         "currentTopicID": "00000000-0000-0000-0000-000000000000",
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
@@ -46,17 +46,5 @@
         "type": "admin",
         "email": "coleriess@gmail.com",
         "username": "coler360"
-    },
-    {
-        "firstName": "b",
-        "lastName": "j",
-        "password": "bj",
-        "currentCourseID": "00000000-0000-0000-0000-000000000000",
-        "currentTopicID": "00000000-0000-0000-0000-000000000000",
-        "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "2efecba4-203f-495e-b1e7-f3f3d0096316",
-        "type": "student",
-        "email": "bj@gmail.com",
-        "username": "bj"
     }
 ]
