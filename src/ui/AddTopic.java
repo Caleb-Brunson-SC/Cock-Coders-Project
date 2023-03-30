@@ -158,9 +158,17 @@ public class AddTopic implements ActionListener{
       frame1.setVisible(false);
 
     } else if (e.getSource() == addLesson) {
-      new AddLesson(facade);
+      if (facade.reachedLessonLimit()) {
+        JOptionPane.showMessageDialog(frame1,"Only " + LMSFacade.LESSON_LIMIT + " lessons are allowed.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        new AddLesson(facade);
+      }
     } else if (e.getSource() == addQuiz) {
-      new AddQuiz(facade);
+      if (facade.reachedQuizLimit()) {
+        JOptionPane.showMessageDialog(frame1,"Only " + LMSFacade.QUIZ_LIMIT + " quiz is allowed.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        new AddQuiz(facade);
+      }
     }
   }
 }

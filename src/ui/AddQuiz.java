@@ -126,7 +126,11 @@ public class AddQuiz implements ActionListener {
 
       frame1.setVisible(false);
     } else if (e.getSource() == addQuestion) {
-      new AddQuestion(facade);
+      if (facade.reachedQuestionLimit()) {
+        JOptionPane.showMessageDialog(frame1,"Only " + LMSFacade.QUESTION_LIMIT + " questions are allowed.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        new AddQuestion(facade);
+      }
     }
   }
 }

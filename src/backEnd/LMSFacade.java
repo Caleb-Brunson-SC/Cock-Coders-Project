@@ -6,6 +6,10 @@ import java.awt.event.*;
 
 public class LMSFacade {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
+    public static final int QUIZ_LIMIT = 1;
+    public static final int TOPIC_LIMIT = 10; 
+    public static final int LESSON_LIMIT = 10;
+    public static final int QUESTION_LIMIT = 1;
     JFrame frame1;
     private UserList userList;
     private CourseList courseList;
@@ -15,6 +19,11 @@ public class LMSFacade {
     private ArrayList<Lesson> lessonsCreated;
     private Quiz quizCreated;
     private ArrayList<Question> questionsCreated;
+    // Booleans to check if limits were reached
+    private int quizCount;
+    private int topicCount;
+    private int lessonCount;
+    private int questionCount;
 
     public LMSFacade() {
         this.userList =  UserList.getInstance();
@@ -24,6 +33,10 @@ public class LMSFacade {
         this.lessonsCreated = new ArrayList<Lesson>();
         this.quizCreated = null;
         this.questionsCreated = new ArrayList<Question>();
+        this.quizCount = 0;
+        this.topicCount = 0;
+        this.lessonCount = 0;
+        this.questionCount = 0;
     }
 
     public UserList getUserList() {
@@ -36,6 +49,22 @@ public class LMSFacade {
 
     public User getUser() {
         return user;
+    }
+
+    public boolean reachedQuizLimit() {
+        return quizCount == QUIZ_LIMIT;
+    }
+
+    public boolean reachedTopicLimit() {
+        return topicCount == TOPIC_LIMIT;
+    }
+
+    public boolean reachedLessonLimit() {
+        return lessonCount == LESSON_LIMIT;
+    }
+
+    public boolean reachedQuestionLimit() {
+        return questionCount == QUESTION_LIMIT;
     }
 
     public boolean login(String username, String password) {
@@ -106,6 +135,7 @@ public class LMSFacade {
             JOptionPane.showMessageDialog(frame1,"Quiz is incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
         } else {
             courseCreated.getTopics().add(topic);
+            topicCount++;
             // Reset lessons and questions array lists for the next topic
             lessonsCreated = new ArrayList<Lesson>();
             questionsCreated = new ArrayList<Question>();
@@ -122,6 +152,7 @@ public class LMSFacade {
         lesson.setContent(content);
 
         lessonsCreated.add(lesson);
+        lessonCount++;
     }
 
     public void deleteLesson(Lesson lesson) {}
@@ -136,6 +167,7 @@ public class LMSFacade {
             JOptionPane.showMessageDialog(frame1,"Questions are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
         } else {
             quizCreated.setQuestions(questionsCreated);
+            quizCount++;
         }
     }
 
@@ -149,6 +181,7 @@ public class LMSFacade {
         question.setCorrectAnswerIndex(correctAnswerIndex);
 
         questionsCreated.add(question);
+        questionCount++;
     }
     
     public void deleteQuestion() {

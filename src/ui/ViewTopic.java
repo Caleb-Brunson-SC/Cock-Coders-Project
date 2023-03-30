@@ -52,9 +52,9 @@ public class ViewTopic implements ActionListener{
       p1.add(topicDescription);
       p1.add(lessonLabel);
       tabbedPane.add(workingTopic.getTitle() , p1);
-      // should parse through all topics in course
+      // should parse through all lessons in topic
       int k = 0;
-      while (k < 5) {
+      while (k < workingTopic.getLessons().size()) {
         JLabel lessonName = new JLabel();
         JButton viewLesson = new JButton();
         lessonName.setText("lessonName");
@@ -68,18 +68,14 @@ public class ViewTopic implements ActionListener{
 
       quizLabel.setBounds(50, 160 + (k * 30), 300, 20);
       p1.add(quizLabel);
-      int w = 0;
-      while(w < 5) {
-        JLabel quizName = new JLabel();
-        JButton viewQuiz = new JButton();
-        quizName.setText("quizName");
-        viewQuiz.setText("viewQuiz");
-        quizName.setBounds(150, 190 + (k * 30) + (w * 30), 100, 20);
-        viewQuiz.setBounds(250, 190 + (k * 30) + (w * 30), 100, 20);
-        p1.add(quizName);
-        p1.add(viewQuiz);
-        w++;
-      }
+      JLabel quizName = new JLabel();
+      JButton viewQuiz = new JButton();
+      quizName.setText("quizName");
+      viewQuiz.setText("viewQuiz");
+      quizName.setBounds(150, 190 + (k * 30) + (0 * 30), 100, 20);
+      viewQuiz.setBounds(250, 190 + (k * 30) + (0 * 30), 100, 20);
+      p1.add(quizName);
+      p1.add(viewQuiz);
 
       
       
