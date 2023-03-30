@@ -2,61 +2,37 @@
     {
         "firstName": "Caleb",
         "lastName": "Brunson",
-        "password": "y[&&p9n]$Zd/+G!$<",
+        "password": "cword123",
         "currentCourseID": "00000000-0000-0000-0000-000000000000",
         "currentTopicID": "00000000-0000-0000-0000-000000000000",
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
         "id": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
-        "type": "student",
-        "email": "calebrb@bbc.com",
-        "username": "calebrb03"
-    },
-    {
-        "firstName": "Abdullah",
-        "lastName": "Bueno",
-        "password": "9m9,mkZnsjT@$BCS",
-        "currentCourseID": "00000000-0000-0000-0000-000000000000",
-        "currentTopicID": "00000000-0000-0000-0000-000000000000",
-        "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "6b40acbe-c101-4701-8123-343a071c460c",
-        "type": "student",
-        "email": "abdullah@bigtech.com",
-        "username": "abdullahbueno53"
-    },
-    {
-        "firstName": "Jordan",
-        "lastName": "Wood",
-        "password": "jw",
-        "currentCourseID": "00000000-0000-0000-0000-000000000000",
-        "currentTopicID": "00000000-0000-0000-0000-000000000000",
-        "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
         "type": "teacher",
-        "email": "jordanw@bbc.com",
-        "username": "jordanw420"
+        "email": "calebrb@email.sc.edu",
+        "username": "calebrb"
     },
     {
-        "firstName": "Cole",
-        "lastName": "Reiss",
-        "password": "Tr:eSp8)4KG?b'GC",
+        "firstName": "John",
+        "lastName": "Wisdom",
+        "password": "jword123",
         "currentCourseID": "00000000-0000-0000-0000-000000000000",
         "currentTopicID": "00000000-0000-0000-0000-000000000000",
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "62e22f7d-e7da-4835-85f1-b9dc5036e752",
-        "type": "admin",
-        "email": "coleriess@gmail.com",
-        "username": "coler360"
+        "id": "68aa2143-d719-4b26-9b49-261874d5b4c8",
+        "type": "teacher",
+        "email": "john_w@gmail.com",
+        "username": "john_w"
     },
     {
-        "firstName": "b",
-        "lastName": "j",
-        "password": "bj",
+        "firstName": "Scout",
+        "lastName": "Solace",
+        "password": "sword123",
         "currentCourseID": "00000000-0000-0000-0000-000000000000",
         "currentTopicID": "00000000-0000-0000-0000-000000000000",
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "2efecba4-203f-495e-b1e7-f3f3d0096316",
+        "id": "0c9c939a-c580-4318-842c-055aa74ff4b9",
         "type": "student",
-        "email": "bj@gmail.com",
-        "username": "bj"
+        "email": "scout_s@gmail.com",
+        "username": "scout_s"
     }
 ]

@@ -7,9 +7,9 @@ import java.awt.event.*;
 public class LMSFacade {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     public static final int QUIZ_LIMIT = 1;
-    public static final int TOPIC_LIMIT = 10; 
-    public static final int LESSON_LIMIT = 10;
-    public static final int QUESTION_LIMIT = 10;
+    public static final int TOPIC_LIMIT = 15; 
+    public static final int LESSON_LIMIT = 15;
+    public static final int QUESTION_LIMIT = 15;
     JFrame frame1;
     private UserList userList;
     private CourseList courseList;
@@ -168,6 +168,7 @@ public class LMSFacade {
 
     public void createQuiz(String title, String description) {
         quizCreated = new Quiz();
+        quizCreated.setId(UUID.randomUUID());
         quizCreated.setTitle(title);
         quizCreated.setDescription(description);
 
