@@ -131,26 +131,4 @@ public class Topic {
                 + lessons + ", comments=" + comments + "]";
     }
 
-    
-    
-
-    /* May need to go in Teacher class
-    public void addLesson(Lesson lesson) {
-        if(lesson != null) {
-            lessons.addAll(Arrays.asList(lesson));
-        }
-    }
-
-    public void removeLesson(Lesson lesson) {
-        
-    }
-
-    public void addQuiz(Quiz quiz) {
-        this.quiz = quiz;
-    }
-
-    public void removeQuiz(Quiz quiz) {
-        
-    }
-    */
 }
