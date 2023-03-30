@@ -2,6 +2,9 @@ package backEnd;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * This class represents a Lesson object
+ */
 public class Lesson {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UUID id;
@@ -9,6 +12,9 @@ public class Lesson {
     private String content;
     private ArrayList<Comment> comments;
 
+    /**
+     * Constructs a new Lesson object with default values.
+     */
     public Lesson() {
         this.id = NIL_UUID;
         this.title = "none";
@@ -16,6 +22,12 @@ public class Lesson {
         this.comments = new ArrayList<Comment>();
     }
 
+    /**
+     * Constructs a new Lesson object with the given values.
+     * @param title the title of the lesson
+     * @param content the content of the lesson
+     * @param comments the comments associated with the lesson
+     */
     public Lesson(String title, String content, ArrayList<Comment> comments) {
         this.id = UUID.randomUUID();
         this.title = title;
@@ -23,6 +35,11 @@ public class Lesson {
         this.comments = comments;
     }
 
+    /**
+     * Constructs a new Lesson object with the given title and content.
+     * @param title the title of the lesson
+     * @param content the content of the lesson
+     */
     public Lesson(String title, String content) {
         this.id = UUID.randomUUID();
         this.title = title;
@@ -30,6 +47,13 @@ public class Lesson {
         this.comments = null;
     }
 
+    /**
+     * Constructs a new Lesson object with the given values.
+     * @param id the unique identifier for the lesson
+     * @param title the title of the lesson
+     * @param content the content of the lesson
+     * @param comments the comments associated with the lesson
+     */
     public Lesson(UUID id, String title, String content, ArrayList<Comment> comments) {
         this.id = id;
         this.title = title;
@@ -70,6 +94,10 @@ public class Lesson {
         this.comments = comments;
     }
 
+    /**
+     * Returns a string representation of the Lesson object.
+     * @return a string representation of the Lesson object
+     */
     @Override
     public String toString() {
         return "Lesson [id=" + id + ", title=" + title + ", content=" + content + ", comments=" + comments + "]";
