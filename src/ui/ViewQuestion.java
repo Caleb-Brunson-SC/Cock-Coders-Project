@@ -12,8 +12,9 @@ public class ViewQuestion implements ActionListener {
     Quiz workingQuiz;
     ArrayList<Question> questions;
     int questionIndex = 0; // keep track of submitButton
-    int numberOfCorrectChoices = 0; // keep track of number of correct choices user makes
-    ArrayList<String> correctAnswers;
+    int numCorrectChoices = 0; // keep track of number of correct choices user makes
+    int numChoices = 0;
+    ArrayList<Integer> correctAnswerIndices;
     ArrayList<ButtonGroup> buttonGroups;
     JFrame frame1;
     JLabel l1;
@@ -30,7 +31,7 @@ public class ViewQuestion implements ActionListener {
         this.facade = facade;
         this.workingQuiz = workingQuiz;
         this.questions = workingQuiz.getQuestions();
-        this.correctAnswers = new ArrayList<String>();
+        this.correctAnswerIndices = new ArrayList<Integer>();
         this.buttonGroups = new ArrayList<ButtonGroup>();
 
         frame1 = new JFrame();
@@ -55,8 +56,7 @@ public class ViewQuestion implements ActionListener {
             a2.setText("C) " + choices.get(2));
             a3.setText("D) " + choices.get(3));
 
-            String workingCorrectAnswer = choices.get(workingQuestion.getCorrectAnswerIndex());
-            correctAnswers.add(workingCorrectAnswer);
+            correctAnswerIndices.add(workingQuestion.getCorrectAnswerIndex());
 
             ButtonGroup bg = new ButtonGroup();
             bg.add(a0);
@@ -80,15 +80,17 @@ public class ViewQuestion implements ActionListener {
             page.add(a3);
             pages.add(page);
 
-             // Add a submit button to the page
-             submitButton = new JButton("Submit");
-             submitButton.setBounds(350, 190, 100, 30);
-             submitButton.addActionListener(this);
-             submitButton.setName(Integer.toString(questionIndex));
-             questionIndex = questionIndex + 1;
-             page.add(submitButton);
+            if (facade.getUser().getType().equalsIgnoreCase("student")) {
+                // Add a submit button to the page
+                submitButton = new JButton("Submit");
+                submitButton.setBounds(350, 190, 100, 30);
+                submitButton.addActionListener(this);
+                submitButton.setName(Integer.toString(questionIndex));
+                questionIndex = questionIndex + 1;
+                page.add(submitButton);
+            }
  
-             tabbedPane.add("Question " + (i + 1), page);
+            tabbedPane.add("Question " + (i + 1), page);
         }
         tabbedPane.setBounds(0, 0, 500, 500);
         frame1.add(tabbedPane);
@@ -104,16 +106,28 @@ public class ViewQuestion implements ActionListener {
         int questionBtnIndex = Integer.parseInt(btn.getName());
         System.out.println(questionBtnIndex);
 
-        String correctAnswer = correctAnswers.get(questionBtnIndex);
-        System.out.println(correctAnswer);
+        int correctAnswerIndex = correctAnswerIndices.get(questionBtnIndex);
+        System.out.println(correctAnswerIndex);
 
         ButtonGroup bg = buttonGroups.get(questionBtnIndex);
+        int buttonIndex = 0;
         for (Enumeration<AbstractButton> buttons = bg.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
 
-            if (button.isSelected()) {
+            if (button.isSelected() && buttonIndex == correctAnswerIndex) {
                 System.out.println(button.getText());
+                numCorrectChoices++;
             }
+
+            buttonIndex++;
+        }
+        numChoices++;
+        btn.setVisible(false);
+
+        if (numChoices == questions.size()) {
+            double grade = 100 * (double) numCorrectChoices / numChoices;
+            grade = Math.ceil(grade);
+            JOptionPane.showMessageDialog(frame1,"Your grade is " + grade + "%.","Quiz Result",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }
