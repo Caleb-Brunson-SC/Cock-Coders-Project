@@ -153,6 +153,11 @@
                         "quizID": "01e2cb1b-e539-4593-be87-07f645bdb8c7",
                         "id": "a47a648e-9475-47b7-87d7-d2266f744afe",
                         "gradePercentage": 100.0
+                    },
+                    {
+                        "quizID": "01e2cb1b-e539-4593-be87-07f645bdb8c7",
+                        "id": "b80986d7-1b2a-4cb3-9d05-4b3839a07c8a",
+                        "gradePercentage": 34.0
                     }
                 ]
             }
