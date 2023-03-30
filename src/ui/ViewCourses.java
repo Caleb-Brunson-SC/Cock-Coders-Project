@@ -68,7 +68,7 @@ public class ViewCourses implements ActionListener{
         viewTopic = new JButton(); // Initalize viewTopic JBUTTON
         viewTopic.addActionListener(this);
         topicName.setText(workingTopic.getTitle()); // title/name of the topic
-        viewTopic.setText("View Topic");
+        viewTopic.setText("View");
         viewTopic.setName(Integer.toString(topicIndex));
         topicIndex = topicIndex + 1;
         topicName.setBounds(150, 160 + (k * 30), 100, 20);
@@ -86,8 +86,7 @@ public class ViewCourses implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     JButton btn = (JButton)e.getSource();
-    int topicIndex = Integer.parseInt(btn.getName());
-
-    new ViewTopic(facade, buttonTopics.get(topicIndex));
+    int topicBtnIndex = Integer.parseInt(btn.getName());
+    new ViewTopic(facade, buttonTopics.get(topicBtnIndex));
   }
 }

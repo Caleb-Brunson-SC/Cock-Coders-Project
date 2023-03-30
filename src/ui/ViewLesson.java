@@ -15,7 +15,7 @@ public class ViewLesson implements ActionListener{
   JTabbedPane tabbedPane;
   JScrollPane scroll;
 
-  ViewLesson(LMSFacade facade){
+  ViewLesson(LMSFacade facade, Lesson workingLesson){
     this.facade = facade;
     
     frame1 = new JFrame();

@@ -10,11 +10,18 @@ import javax.swing.JTabbedPane;
 
 public class ViewTopic implements ActionListener{
   private final LMSFacade facade;
+  Topic workingTopic;
+  Quiz workingQuiz;
+  int lessonIndex = 0;
   JFrame frame1;
   JTabbedPane tabbedPane;
+  JButton viewLesson;
+  JButton viewQuiz;
 
   ViewTopic(LMSFacade facade, Topic workingTopic){
     this.facade = facade;
+    this.workingTopic = workingTopic;
+    this.workingQuiz = workingTopic.getQuiz();
     
     frame1 = new JFrame();
     tabbedPane = new JTabbedPane();
@@ -23,8 +30,6 @@ public class ViewTopic implements ActionListener{
     // for statement should populate string J with the title of the topic for
     // each topic in the course. Should iterate once for each 
     // topic in topics array. 
-    int saveK = 0;
-    int saveW = 0;
     for (int i = 0; i < 1; i++) {
       JPanel p1 = new JPanel();
       p1.setLayout(null);
@@ -36,7 +41,7 @@ public class ViewTopic implements ActionListener{
       JLabel quizLabel = new JLabel();
 
       topicName.setText("Title: " + workingTopic.getTitle());
-      topicDescription.setText("Topic Description");
+      topicDescription.setText("Description: " + workingTopic.getDescription());
       lessonLabel.setText("Lessons: ");
       quizLabel.setText("Quiz:");
 
@@ -55,10 +60,15 @@ public class ViewTopic implements ActionListener{
       // should parse through all lessons in topic
       int k = 0;
       while (k < workingTopic.getLessons().size()) {
+        Lesson workingLesson = workingTopic.getLessons().get(k);
         JLabel lessonName = new JLabel();
-        JButton viewLesson = new JButton();
-        lessonName.setText("lessonName");
-        viewLesson.setText("viewLesson");
+        viewLesson = new JButton();
+        viewLesson.addActionListener(this);
+        lessonName.setText(workingLesson.getTitle());
+        viewLesson.setText("View");
+        viewLesson.setName(Integer.toString(lessonIndex));
+        System.out.println(viewLesson.getName()); // TEST
+        lessonIndex = lessonIndex + 1;
         lessonName.setBounds(150, 160 + (k * 30), 100, 20);
         viewLesson.setBounds(250, 160 + (k * 30), 100, 20);
         p1.add(lessonName);
@@ -66,17 +76,19 @@ public class ViewTopic implements ActionListener{
         k++;
       }
 
+      // Set Quiz info
       quizLabel.setBounds(50, 160 + (k * 30), 300, 20);
       p1.add(quizLabel);
       JLabel quizName = new JLabel();
-      JButton viewQuiz = new JButton();
-      quizName.setText("quizName");
-      viewQuiz.setText("viewQuiz");
+      viewQuiz = new JButton();
+      viewQuiz.addActionListener(this);
+      quizName.setText(workingQuiz.getTitle());
+      viewQuiz.setText("View");
+      viewQuiz.setName(Integer.toString(lessonIndex));
       quizName.setBounds(150, 190 + (k * 30) + (0 * 30), 100, 20);
       viewQuiz.setBounds(250, 190 + (k * 30) + (0 * 30), 100, 20);
       p1.add(quizName);
       p1.add(viewQuiz);
-
       
       
       tabbedPane.setBounds(0,0,500,500);
@@ -89,6 +101,16 @@ public class ViewTopic implements ActionListener{
   }
   }
   public void actionPerformed(ActionEvent e) {
+    JButton btn = (JButton)e.getSource();
+    int lessonBtnIndex = Integer.parseInt(btn.getName());
+    System.out.println(lessonBtnIndex);
 
+    if (lessonBtnIndex <= workingTopic.getLessons().size() - 1) {
+      System.out.println("view lesson");
+    } else {
+      System.out.println("view quiz");
+    }
+
+    
   }
 }
