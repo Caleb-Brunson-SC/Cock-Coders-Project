@@ -160,38 +160,86 @@
                 "quiz": {
                     "questions": [
                         {
-                            "question": "j",
-                            "id": "a067d6f3-4683-49ee-82e7-e36ece61a5b0",
+                            "question": "What keyword is used in the for loop?",
+                            "id": "3a1b748a-46d7-42c5-8d31-9232677a7f8c",
                             "choices": [
-                                "j",
-                                "j",
-                                "j",
-                                "j"
+                                "for",
+                                "while",
+                                "do-while",
+                                "none"
+                            ],
+                            "correctAnswerIndex": 0
+                        },
+                        {
+                            "question": "What keyword is used in the while loop?",
+                            "id": "a9a84983-08a5-4476-ab88-2eed9441ecdd",
+                            "choices": [
+                                "for",
+                                "while",
+                                "do-while",
+                                "none"
+                            ],
+                            "correctAnswerIndex": 1
+                        }
+                    ],
+                    "description": "Loops in java quiz",
+                    "title": "Loops"
+                },
+                "comments": [],
+                "description": "Learn loops in Java",
+                "id": "48b1f3e2-7b96-4c6e-aad0-7af23f812bfa",
+                "title": "Loops",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "c0f7b9b4-0c9c-44de-906d-841297333d16",
+                        "title": "For Loops",
+                        "content": "use the for keyword."
+                    },
+                    {
+                        "comments": [],
+                        "id": "aa9bd56a-c9a8-4570-b0a5-4b8e1cc373b6",
+                        "title": "While loops",
+                        "content": "use the while keyword."
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "Why use printing",
+                            "id": "d76d5b62-447f-4969-96d0-51a84995e8c4",
+                            "choices": [
+                                "its cool",
+                                "why not",
+                                "bob jones",
+                                "e"
                             ],
                             "correctAnswerIndex": 0
                         }
                     ],
-                    "description": "j",
-                    "title": "j"
+                    "description": "practice",
+                    "title": "Printing quiz"
                 },
                 "comments": [],
-                "description": "j",
-                "id": "4d453fa5-b0d5-4141-a33d-db97cb16f964",
-                "title": "j",
+                "description": "Learn to print in java",
+                "id": "90837c5c-fe37-4f48-8fe0-33048457d8f7",
+                "title": "Printing",
                 "lessons": [
                     {
                         "comments": [],
-                        "id": "79f150c8-7a34-400c-89a7-799070483c8d",
-                        "title": "j",
-                        "content": "j"
+                        "id": "05fc206b-cbef-4838-a1fe-52fc7680068f",
+                        "title": "Printing CLI",
+                        "content": "Use System.out.println() to print text "
                     }
                 ]
             }
         ],
-        "description": "j",
+        "description": "Learn how to use the best language!",
         "students": [],
-        "language": "CSHARP",
-        "id": "eb631d77-e362-438b-80f7-999d7e971ebf",
-        "title": "bob"
+        "language": "JAVA",
+        "id": "7d494729-2a51-49e3-b24f-7815924b4f81",
+        "title": "Intro to Java"
     }
 ]
