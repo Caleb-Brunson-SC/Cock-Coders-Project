@@ -259,8 +259,18 @@ public class LMSFacade {
     public void viewProfile() {}
 
     // QUIZ TAKING AND GRADING
-    public void updateStudentProgress(UUID courseID, Quiz completedQuiz, double grade) {
-        
+    public void updateStudentProgress(Course course, Quiz completedQuiz, double grade) {
+        ArrayList<StudentProgress> studentProgresses = course.getStudentProgresses();
+        //1. sp is empty
+        //2. sp is not empty and has user
+        //3. sp is not empty and does not have user
+        if (studentProgresses.isEmpty()) {
+            System.out.println("case 1");
+        } else if (studentProgresses.contains(course.getStudentProgressByStudentUUID(user.getId()))) {
+            System.out.println("case 2");
+        } else {
+            System.out.println("case 3");
+        }
     }
 
     public boolean hasCompletedQuiz(Quiz quiz) {

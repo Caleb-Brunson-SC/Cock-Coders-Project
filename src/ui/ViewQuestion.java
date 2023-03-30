@@ -134,7 +134,7 @@ public class ViewQuestion implements ActionListener {
                 grade = Math.ceil(grade);
                 JOptionPane.showMessageDialog(frame1,"Your grade is " + grade + "%.","Quiz Result",JOptionPane.INFORMATION_MESSAGE);
 
-                facade.updateStudentProgress(workingCourse.getId(), workingQuiz, grade);
+                facade.updateStudentProgress(workingCourse, workingQuiz, grade);
             }
         }
     }
