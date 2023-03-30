@@ -4,17 +4,28 @@ import java.util.UUID;
 
 
 public class Quiz {
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
+    protected UUID id;
     protected String title;
     protected String description;
     protected ArrayList<Question> questions;
 
     public Quiz() {
+        this.id = NIL_UUID;
         this.title = "none";
         this.description = "none";
         this.questions = new ArrayList<Question>();
     }
 
+    public Quiz(UUID id, String title, String description, ArrayList<Question> questions) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.questions = questions;
+    }
+
     public Quiz(String title, String description, ArrayList<Question> questions) {
+        this.id = UUID.randomUUID();
         this.title = title;
         this.description = description;
         this.questions = questions;
@@ -31,6 +42,14 @@ public class Quiz {
     }
 
     //GETTERS AND SETTERS
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -55,21 +74,10 @@ public class Quiz {
         this.questions = questions;
     }
 
-    //OTHER METHODS
-    public double grade() {
-        return 0;
-    }
-
-    public boolean hasNext() {
-        return true;
-    }
-
-    public Question next() {
-        return null;
-    }
-
     @Override
     public String toString() {
-        return "Quiz [title=" + title + ", description=" + description + ", questions=" + questions + "]";
+        return "Quiz [id=" + id + ", title=" + title + ", description=" + description + ", questions=" + questions
+                + "]";
     }
+    
 }
