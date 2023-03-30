@@ -6,7 +6,19 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * This class is responsible for writing the data to JSON files. 
+ * It has two methods, one to save the list of users to a 
+ * JSON file and one to save the list of courses to a JSON file. 
+ * It uses the org.json.simple library to create the JSON objects
+ * and arrays that will be written to the files.
+@author Caleb Brunson
+ */
 public class DataWriter extends DataConstants {
+
+    /**
+     * Saves the list of users to a JSON file.
+     */
     public static void saveUsers() {
         UserList users = UserList.getInstance();
         ArrayList<User> userList = users.getUsers();
@@ -26,6 +38,12 @@ public class DataWriter extends DataConstants {
         }
     }
     
+    /**
+     * Creates a JSONObject from the given User object.
+     *
+     * @param user the User object to create the JSONObject from
+     * @return the JSONObject created from the User object
+     */
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(USER_ID, user.getId().toString());
@@ -42,6 +60,9 @@ public class DataWriter extends DataConstants {
         return userDetails;
     }
 
+    /**
+     * Saves the list of courses to a JSON file.
+     */
     public static void saveCourses() {
         CourseList courses = CourseList.getInstance();
         ArrayList<Course> courseList = courses.getCourses();
@@ -61,6 +82,12 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    /**
+     * Creates a JSONObject from the given Course object.
+     *
+     * @param course the Course object to create the JSONObject from
+     * @return the JSONObject created from the Course object
+     */
     public static JSONObject getCourseJSON(Course course) {
         JSONObject courseDetails = new JSONObject();
         courseDetails.put(COURSE_ID, course.getId().toString());
@@ -167,6 +194,12 @@ public class DataWriter extends DataConstants {
         return courseDetails;
     }
 
+    /**
+     * Recursively converts a list of Comment objects into a JSONArray of JSONObjects, 
+     * where each JSONObject represents a Comment and its details, including any replies it may have.
+     * @param commentsArray The JSONArray to which the converted JSONObjects will be added.
+     * @param comments The list of Comment objects to be converted.
+     */
     public static void commentRecursionJSON(JSONArray commentsArray, ArrayList<Comment> comments) {
         for (Comment c : comments) {
             JSONObject commentsDetails = new JSONObject();
@@ -188,6 +221,4 @@ public class DataWriter extends DataConstants {
             commentsArray.add(commentsDetails);
         }
     }
-
-
 }
