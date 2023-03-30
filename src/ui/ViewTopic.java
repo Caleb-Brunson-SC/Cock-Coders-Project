@@ -10,6 +10,7 @@ import javax.swing.JTabbedPane;
 
 public class ViewTopic implements ActionListener{
   private final LMSFacade facade;
+  Course workingCourse;
   Topic workingTopic;
   ArrayList<Lesson> lessons;
   Quiz workingQuiz;
@@ -19,8 +20,9 @@ public class ViewTopic implements ActionListener{
   JButton viewLesson;
   JButton viewQuiz;
 
-  ViewTopic(LMSFacade facade, Topic workingTopic){
+  ViewTopic(LMSFacade facade, Course workingCourse, Topic workingTopic){
     this.facade = facade;
+    this.workingCourse = workingCourse;
     this.workingTopic = workingTopic;
     this.lessons = workingTopic.getLessons();
     this.workingQuiz = workingTopic.getQuiz();
@@ -111,7 +113,7 @@ public class ViewTopic implements ActionListener{
       new ViewLesson(facade, lessons.get(lessonBtnIndex));
     } else {
       System.out.println("view quiz");
-      new ViewQuestion(facade, workingQuiz);
+      new ViewQuestion(facade, workingCourse, workingQuiz);
     }
     
   }

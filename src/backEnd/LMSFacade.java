@@ -14,6 +14,7 @@ public class LMSFacade {
     private UserList userList;
     private CourseList courseList;
     private User user; // the current user
+    private ArrayList<Quiz> completedQuizzes;
     // Objects for creating a course
     private Course courseCreated;
     private ArrayList<Lesson> lessonsCreated;
@@ -29,6 +30,7 @@ public class LMSFacade {
         this.userList =  UserList.getInstance();
         this.courseList = CourseList.getInstance();
         this.user = null;
+        this.completedQuizzes = new ArrayList<Quiz>();
         this.courseCreated = new Course(); //new Course();
         this.lessonsCreated = new ArrayList<Lesson>();
         this.quizCreated = null;
@@ -257,10 +259,27 @@ public class LMSFacade {
     public void viewProfile() {}
 
     // QUIZ TAKING AND GRADING
-    public void takeQuiz() {}
+    public void updateStudentProgress(UUID courseID, Quiz completedQuiz, double grade) {
+        Course course = courseList.getCourseByUUID(courseID);
+        if (course.getStudentProgresses().isEmpty()) {
+            ArrayList<Double> grades = new ArrayList<Double>();
+            grades.add(grade);
+            StudentProgress newSP = new StudentProgress(user, grades);
+            course.getStudentProgresses().add(newSP);
+            completedQuizzes.add(completedQuiz);
+            courseList.saveCourses();
+        } else if (course.getStudentProgresses()) {
 
-    public boolean completedQuiz(Quiz quiz) {
-        return true;
+        }
+    }
+
+    public boolean hasCompletedQuiz(Quiz quiz) {
+        for (Quiz completedQuiz : completedQuizzes) {
+            if (completedQuiz.equals(quiz)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // ADMIN PRIVLEDGES OVER TEACHERS

@@ -15,6 +15,7 @@ public class ViewCourses implements ActionListener{
   ArrayList<Course> courses;
   ArrayList<Topic> buttonTopics;
   int topicIndex = 0;
+  int courseIndex = 0;
   JTabbedPane tabbedPane;
 
   ViewCourses(LMSFacade facade){
@@ -69,13 +70,14 @@ public class ViewCourses implements ActionListener{
         viewTopic.addActionListener(this);
         topicName.setText(workingTopic.getTitle()); // title/name of the topic
         viewTopic.setText("View");
-        viewTopic.setName(Integer.toString(topicIndex));
-        topicIndex = topicIndex + 1;
+        viewTopic.setName(Integer.toString(courseIndex) + " " + Integer.toString(topicIndex));
+        topicIndex++;
         topicName.setBounds(150, 160 + (k * 30), 100, 20);
         viewTopic.setBounds(250, 160 + (k * 30), 100, 20);
         p1.add(topicName);
         p1.add(viewTopic);
       }
+      courseIndex++;
     }
     tabbedPane.setBounds(0,0,500,500);
     
@@ -86,7 +88,12 @@ public class ViewCourses implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     JButton btn = (JButton)e.getSource();
-    int topicBtnIndex = Integer.parseInt(btn.getName());
-    new ViewTopic(facade, buttonTopics.get(topicBtnIndex));
+    String[] splitArray = btn.getName().split("\\s+");
+    int courseBtnIndex = Integer.parseInt(splitArray[0]);
+    int topicBtnIndex = Integer.parseInt(splitArray[1]);
+
+    System.out.println(courseBtnIndex);
+    System.out.println(topicBtnIndex);
+    new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
   }
 }
