@@ -99,7 +99,7 @@ public class ViewTopic implements ActionListener{
     
       frame1.setVisible(true);
   
-      frame1.setSize(500, 450 + (k * 30));
+      frame1.setSize(500, 600 + (k * 30));
   
       frame1.add(tabbedPane);
   }

@@ -84,7 +84,7 @@ public class ViewCourses implements ActionListener{
     tabbedPane.setBounds(0,0,500,500);
     
     frame1.setVisible(true);
-    frame1.setSize(500, 500);
+    frame1.setSize(500, 600);
 
     frame1.add(tabbedPane);
   }
