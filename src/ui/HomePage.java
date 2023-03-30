@@ -80,7 +80,8 @@ public class HomePage implements ActionListener {
   }
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == coursesButton) {
-
+      frame1.setVisible(false);
+      new ViewCourses(facade);
     } else if (e.getSource() == searchButton) {
 
     } else if (e.getSource() == dashboardButton) {

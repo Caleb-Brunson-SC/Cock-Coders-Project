@@ -16,6 +16,7 @@ public class ViewCourses implements ActionListener{
 
   ViewCourses(LMSFacade facade){
     this.facade = facade;
+    this.courses = facade.getCourseList().getCourses();
     
     frame1 = new JFrame();
     tabbedPane = new JTabbedPane();
@@ -24,9 +25,10 @@ public class ViewCourses implements ActionListener{
     // for statement should populate string J with the title of the course for
     // each course the student is enrolled in. Should iterate once for each 
     // course in courses array. 
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < courses.size(); i++) {
     // for (int i = 0; i < courses.size(); i++) {
       // Course workingCourse = courses.get(i);
+      Course workingCourse = courses.get(i);
       JPanel p1 = new JPanel();
       p1.setLayout(null);
       String j = i + " ";
@@ -36,9 +38,9 @@ public class ViewCourses implements ActionListener{
       JLabel courseDescription = new JLabel();
       JLabel topicLabel = new JLabel();
 
-      courseName.setText("Course Name");
-      authorName.setText("Author Name");
-      courseDescription.setText("Course Description");
+      courseName.setText("Title: " + workingCourse.getTitle()); // Course name
+      authorName.setText("Teacher: " + workingCourse.getTeacher().getFullName()); // Teacher name
+      courseDescription.setText("Description: " + workingCourse.getDescription()); // Course description
       topicLabel.setText("Topics: ");
 
       courseName.setFont(new Font(courseName.getFont().getName(), Font.BOLD, courseName.getFont().getSize()));
@@ -55,11 +57,13 @@ public class ViewCourses implements ActionListener{
       p1.add(topicLabel);
       // tabbedPane.add(workingCourse.getTitle() , p1);
       // should parse through all topics in course
-      for (int k = 0; k < 5; k++) {
+      ArrayList<Topic> topics = courses.get(i).getTopics();
+      for (int k = 0; k < topics.size(); k++) {
+        Topic workingTopic = topics.get(k);
         JLabel topicName = new JLabel();
         JButton viewTopic = new JButton();
-        topicName.setText("topicName");
-        viewTopic.setText("viewTopic");
+        topicName.setText(workingTopic.getTitle()); // title/name of the topic
+        viewTopic.setText("View Topic");
         topicName.setBounds(150, 160 + (k * 30), 100, 20);
         viewTopic.setBounds(250, 160 + (k * 30), 100, 20);
         p1.add(topicName);

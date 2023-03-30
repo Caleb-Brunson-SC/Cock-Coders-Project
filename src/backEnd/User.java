@@ -122,6 +122,10 @@ public abstract class User {
         this.currentLessonID = currentLessonID;
     }
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
     @Override
     public String toString() {
         return "User [id=" + id + ", type=" + type + ", firstName=" + firstName + ", lastName=" + lastName

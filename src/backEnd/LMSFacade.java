@@ -7,8 +7,8 @@ import java.awt.event.*;
 public class LMSFacade {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     JFrame frame1;
-    private UserList users;
-    private CourseList courses;
+    private UserList userList;
+    private CourseList courseList;
     private User user; // the current user
     // Objects for creating a course
     private Course courseCreated;
@@ -17,8 +17,8 @@ public class LMSFacade {
     private ArrayList<Question> questionsCreated;
 
     public LMSFacade() {
-        this.users =  UserList.getInstance();
-        this.courses = CourseList.getInstance();
+        this.userList =  UserList.getInstance();
+        this.courseList = CourseList.getInstance();
         this.user = null;
         this.courseCreated = new Course(); //new Course();
         this.lessonsCreated = new ArrayList<Lesson>();
@@ -26,13 +26,21 @@ public class LMSFacade {
         this.questionsCreated = new ArrayList<Question>();
     }
 
+    public UserList getUserList() {
+        return userList;
+    }
+
+    public CourseList getCourseList() {
+        return courseList;
+    }
+
     public User getUser() {
         return user;
     }
 
     public boolean login(String username, String password) {
-        User loggedInUser = users.getUser(username);
-        if (users.authUser(loggedInUser, password)) {
+        User loggedInUser = userList.getUser(username);
+        if (userList.authUser(loggedInUser, password)) {
             this.user = loggedInUser;
             return true;
         } else {
@@ -41,9 +49,9 @@ public class LMSFacade {
     }
 
     public boolean signUp(String type, String firstName, String lastName, String username, String email, String password) {
-        if(users.addUser(type, firstName, lastName, username, email, password, NIL_UUID, NIL_UUID, NIL_UUID)) {
+        if(userList.addUser(type, firstName, lastName, username, email, password, NIL_UUID, NIL_UUID, NIL_UUID)) {
             // User successfully added to db
-            this.user = users.getUser(username);
+            this.user = userList.getUser(username);
             return true;
         } else {
             return false;
@@ -75,7 +83,7 @@ public class LMSFacade {
         } else if (courseCreated.getTopics().isEmpty()) {
             JOptionPane.showMessageDialog(frame1,"Topics are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
         } else {
-            if (courses.addCourse(courseCreated)) {
+            if (courseList.addCourse(courseCreated)) {
             } else {
                 JOptionPane.showMessageDialog(frame1,"Failed to add course.","Alert",JOptionPane.WARNING_MESSAGE);
             }
