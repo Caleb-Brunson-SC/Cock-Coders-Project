@@ -3,16 +3,16 @@ import java.util.ArrayList;
 
 public class StudentProgress {
     private User student;
-    private ArrayList<Double> quizGrades;
+    private ArrayList<Grade> grades;
 
     public StudentProgress() {
         this.student = new Student();
-        this.quizGrades = new ArrayList<Double>();
+        this.grades = new ArrayList<Grade>();
     }
 
-    public StudentProgress(User student, ArrayList<Double> quizGrades) {
+    public StudentProgress(User student, ArrayList<Grade> grades) {
         this.student = student;
-        this.quizGrades = quizGrades;
+        this.grades = grades;
     }
 
     //GETTERS AND SETTERS
@@ -23,18 +23,18 @@ public class StudentProgress {
     public void setStudent(Student student) {
         this.student = student;
     }
-
-    public ArrayList<Double> getQuizGrades() {
-        return quizGrades;
+    
+    public ArrayList<Grade> getGrades() {
+        return grades;
     }
 
-    public void setQuizGrades(ArrayList<Double> quizGrades) {
-        this.quizGrades = quizGrades;
+    public void setGrades(ArrayList<Grade> grades) {
+        this.grades = grades;
     }
 
     @Override
     public String toString() {
-        return "StudentProgress [student=" + student + ", quizGrades=" + quizGrades + "]";
+        return "StudentProgress [student=" + student + ", grades=" + grades + "]";
     }
 
     //OTHER METHODS

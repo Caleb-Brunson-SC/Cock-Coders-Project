@@ -137,119 +137,27 @@
         "students": [
             {
                 "studentID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
-                "quizGrades": [
-                    85,
-                    70
+                "grades": [
+                    {
+                        "id": "",
+                        "quizID": "",
+                        "gradePercentage": 54
+                    }
                 ]
             },
             {
                 "studentID": "6b40acbe-c101-4701-8123-343a071c460c",
-                "quizGrades": [
-                    75,
-                    70
+                "grades": [
+                    {
+                        "id": "",
+                        "quizID": "",
+                        "gradePercentage": 69
+                    }
                 ]
             }
         ],
         "language": "PYTHON",
         "id": "8bd1c8c2-2240-45a7-9884-25d033514e76",
         "title": "Python"
-    },
-    {
-        "teacherID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
-        "comments": [],
-        "reviews": [],
-        "topics": [
-            {
-                "quiz": {
-                    "questions": [
-                        {
-                            "question": "What keyword is used in the for loop?",
-                            "id": "3a1b748a-46d7-42c5-8d31-9232677a7f8c",
-                            "choices": [
-                                "for",
-                                "while",
-                                "do-while",
-                                "none"
-                            ],
-                            "correctAnswerIndex": 0
-                        },
-                        {
-                            "question": "What keyword is used in the while loop?",
-                            "id": "a9a84983-08a5-4476-ab88-2eed9441ecdd",
-                            "choices": [
-                                "for",
-                                "while",
-                                "do-while",
-                                "none"
-                            ],
-                            "correctAnswerIndex": 1
-                        }
-                    ],
-                    "description": "Loops in java quiz",
-                    "title": "Loops"
-                },
-                "comments": [],
-                "description": "Learn loops in Java",
-                "id": "48b1f3e2-7b96-4c6e-aad0-7af23f812bfa",
-                "title": "Loops",
-                "lessons": [
-                    {
-                        "comments": [],
-                        "id": "c0f7b9b4-0c9c-44de-906d-841297333d16",
-                        "title": "For Loops",
-                        "content": "use the for keyword."
-                    },
-                    {
-                        "comments": [],
-                        "id": "aa9bd56a-c9a8-4570-b0a5-4b8e1cc373b6",
-                        "title": "While loops",
-                        "content": "use the while keyword."
-                    }
-                ]
-            },
-            {
-                "quiz": {
-                    "questions": [
-                        {
-                            "question": "Why use printing",
-                            "id": "d76d5b62-447f-4969-96d0-51a84995e8c4",
-                            "choices": [
-                                "its cool",
-                                "why not",
-                                "bob jones",
-                                "e"
-                            ],
-                            "correctAnswerIndex": 0
-                        }
-                    ],
-                    "description": "practice",
-                    "title": "Printing quiz"
-                },
-                "comments": [],
-                "description": "Learn to print in java",
-                "id": "90837c5c-fe37-4f48-8fe0-33048457d8f7",
-                "title": "Printing",
-                "lessons": [
-                    {
-                        "comments": [],
-                        "id": "05fc206b-cbef-4838-a1fe-52fc7680068f",
-                        "title": "Printing CLI",
-                        "content": "Use System.out.println() to print text "
-                    }
-                ]
-            }
-        ],
-        "description": "Learn how to use the best language!",
-        "students": [
-            {
-                "studentID": "2efecba4-203f-495e-b1e7-f3f3d0096316",
-                "quizGrades": [
-                    100.0
-                ]
-            }
-        ],
-        "language": "JAVA",
-        "id": "7d494729-2a51-49e3-b24f-7815924b4f81",
-        "title": "Intro to Java"
     }
 ]
