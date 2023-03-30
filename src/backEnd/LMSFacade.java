@@ -271,7 +271,7 @@ public class LMSFacade {
             completedQuizzes.add(quiz);
         } else if (studentProgresses.contains(course.getStudentProgressByStudentUUID(user.getId()))) { 
             //2. sp is not empty and has user
-
+            
         } else {
             //3. sp is not empty and does not have user
 
