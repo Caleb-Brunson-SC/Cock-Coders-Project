@@ -5,24 +5,24 @@ import java.util.UUID;
 public class Grade {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UUID id;
-    private Quiz quiz;
+    private UUID quizID;
     private double gradePercentage;
 
     public Grade() {
         this.id = NIL_UUID;
-        this.quiz = new Quiz();
+        this.quizID = NIL_UUID;
         this.gradePercentage = -1;
     }
 
-    public Grade(UUID id, Quiz quiz, double gradePercentage) {
+    public Grade(UUID id, UUID quizID, double gradePercentage) {
         this.id = id;
-        this.quiz = quiz;
+        this.quizID = quizID;
         this.gradePercentage = gradePercentage;
     }
 
-    public Grade(Quiz quiz, double gradePercentage) {
+    public Grade(UUID quizID, double gradePercentage) {
         this.id = UUID.randomUUID();
-        this.quiz = quiz;
+        this.quizID = quizID;
         this.gradePercentage = gradePercentage;
     }
 
@@ -34,12 +34,12 @@ public class Grade {
         this.id = id;
     }
 
-    public Quiz getQuiz() {
-        return quiz;
+    public UUID getQuizID() {
+        return quizID;
     }
 
-    public void setQuiz(Quiz quiz) {
-        this.quiz = quiz;
+    public void setQuiz(UUID quizID) {
+        this.quizID = quizID;
     }
 
     public double getGradePercentage() {
@@ -52,7 +52,7 @@ public class Grade {
 
     @Override
     public String toString() {
-        return "Grade [id=" + id + ", quiz=" + quiz + ", gradePercentage=" + gradePercentage + "]";
+        return "Grade [id=" + id + ", quizID=" + quizID + ", gradePercentage=" + gradePercentage + "]";
     }
    
 }

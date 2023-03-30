@@ -86,7 +86,18 @@ public class DataLoader extends DataConstants {
                     JSONObject studentProgressJSON = (JSONObject) s;
                     UUID studentID = UUID.fromString((String)studentProgressJSON.get(COURSE_STUDENT_ID));
                     Student student = (Student) users.getUserByUUID(studentID);
-                    ArrayList<Double> quizGrades = (ArrayList<Double>) studentProgressJSON.get(COURSE_QUIZ_GRADES);
+
+                    // Grades JSON
+                    ArrayList<Grade> grades = new ArrayList<Grade>();
+                    JSONArray gradesJSON = (JSONArray)studentProgressJSON.get(COURSE_GRADES);
+                    for (Object g : gradesJSON) {
+                        JSONObject gradeJSON = (JSONObject) g;
+                        UUID gradeID = UUID.fromString((String)gradeJSON.get(COURSE_ID));
+                        UUID quizID = UUID.fromString((String)gradeJSON.get(COURSE_QUIZ_ID));
+                        Number gradePercentageNumber = (Number)gradeJSON.get(COURSE_GRADE_PERCENTAGE);
+                        double gradePercentage = gradePercentageNumber.doubleValue();
+                        grades.add(new Grade());
+                    }
 
                     studentProgresses.add(new StudentProgress(student, quizGrades));
                 }
