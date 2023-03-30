@@ -30,6 +30,7 @@
         "topics": [
             {
                 "quiz": {
+                    "id": "01e2cb1b-e539-4593-be87-07f645bdb8c7",
                     "questions": [
                         {
                             "question": "When do you use For Loops",
@@ -159,48 +160,5 @@
         "language": "PYTHON",
         "id": "8bd1c8c2-2240-45a7-9884-25d033514e76",
         "title": "Python"
-    },
-    {
-        "teacherID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
-        "comments": [],
-        "reviews": [],
-        "topics": [
-            {
-                "quiz": {
-                    "questions": [
-                        {
-                            "question": "l",
-                            "id": "8c50e852-34b2-4d94-88a6-bbefcffc962b",
-                            "choices": [
-                                "l",
-                                "l",
-                                "l",
-                                "l"
-                            ],
-                            "correctAnswerIndex": 0
-                        }
-                    ],
-                    "description": "l",
-                    "title": "l"
-                },
-                "comments": [],
-                "description": "l",
-                "id": "fab79b08-a876-455e-8db5-880cf6de8930",
-                "title": "l",
-                "lessons": [
-                    {
-                        "comments": [],
-                        "id": "00be648d-708e-4731-9768-9263e402f0ef",
-                        "title": "l",
-                        "content": "l"
-                    }
-                ]
-            }
-        ],
-        "description": "l",
-        "students": [],
-        "language": "CSHARP",
-        "id": "d8a55a8d-110d-40ef-bfc5-d1079719cc7b",
-        "title": "l"
     }
 ]
