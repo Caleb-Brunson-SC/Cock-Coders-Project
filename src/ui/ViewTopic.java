@@ -107,12 +107,10 @@ public class ViewTopic implements ActionListener{
   public void actionPerformed(ActionEvent e) {
     JButton btn = (JButton)e.getSource();
     int lessonBtnIndex = Integer.parseInt(btn.getName());
-    System.out.println(lessonBtnIndex);
 
     if (lessonBtnIndex <= lessons.size() - 1) {
       new ViewLesson(facade, lessons.get(lessonBtnIndex));
     } else {
-      System.out.println("view quiz");
       if (facade.hasCompletedQuiz(workingCourse.getId(), workingQuiz)) {
         JOptionPane.showMessageDialog(frame1,"This quiz has already been completed.","Alert",JOptionPane.WARNING_MESSAGE);
       } else {

@@ -92,8 +92,6 @@ public class ViewCourses implements ActionListener{
     int courseBtnIndex = Integer.parseInt(splitArray[0]);
     int topicBtnIndex = Integer.parseInt(splitArray[1]);
 
-    System.out.println(courseBtnIndex);
-    System.out.println(topicBtnIndex);
     new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
   }
 }

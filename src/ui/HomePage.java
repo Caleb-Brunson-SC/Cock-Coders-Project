@@ -80,18 +80,18 @@ public class HomePage implements ActionListener {
   }
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == coursesButton) {
-      frame1.setVisible(false);
+      //frame1.setVisible(false);
       new ViewCourses(facade);
     } else if (e.getSource() == searchButton) {
 
     } else if (e.getSource() == dashboardButton) {
 
     } else if (e.getSource() == createCourseButton) {
-      frame1.setVisible(false);
+      //frame1.setVisible(false);
       new CreateCourse(facade);
     } else if (e.getSource() == signOutButton) {
       facade.signOut();
-      frame1.setVisible(false);
+      //frame1.setVisible(false);
       new Landing();
     }
   }

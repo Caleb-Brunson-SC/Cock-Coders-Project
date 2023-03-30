@@ -106,10 +106,8 @@ public class ViewQuestion implements ActionListener {
         System.out.println("submit");
         JButton btn = (JButton)e.getSource();
         int questionBtnIndex = Integer.parseInt(btn.getName());
-        System.out.println(questionBtnIndex);
 
         int correctAnswerIndex = correctAnswerIndices.get(questionBtnIndex);
-        System.out.println(correctAnswerIndex);
 
         ButtonGroup bg = buttonGroups.get(questionBtnIndex);
         int buttonIndex = 0;
@@ -117,7 +115,6 @@ public class ViewQuestion implements ActionListener {
             AbstractButton button = buttons.nextElement();
 
             if (button.isSelected() && buttonIndex == correctAnswerIndex) {
-                System.out.println(button.getText());
                 numCorrectChoices++;
             }
 
