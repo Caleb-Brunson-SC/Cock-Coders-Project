@@ -2,26 +2,26 @@
     {
         "firstName": "Caleb",
         "lastName": "Brunson",
-        "password": "y[&&p9n]$Zd\/+G!$<",
+        "password": "crb",
         "currentCourseID": "00000000-0000-0000-0000-000000000000",
         "currentTopicID": "00000000-0000-0000-0000-000000000000",
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
         "id": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
         "type": "student",
-        "email": "calebrb@bbc.com",
-        "username": "calebrb03"
+        "email": "calebrb@gmail.com",
+        "username": "crb"
     },
     {
         "firstName": "Abdullah",
         "lastName": "Bueno",
-        "password": "9m9,mkZnsjT@$BCS",
+        "password": "ab",
         "currentCourseID": "00000000-0000-0000-0000-000000000000",
         "currentTopicID": "00000000-0000-0000-0000-000000000000",
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
         "id": "6b40acbe-c101-4701-8123-343a071c460c",
         "type": "student",
         "email": "abdullah@bigtech.com",
-        "username": "abdullahbueno53"
+        "username": "ab"
     },
     {
         "firstName": "Jordan",
@@ -32,19 +32,19 @@
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
         "id": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
         "type": "teacher",
-        "email": "jordanw@bbc.com",
-        "username": "jordanw420"
+        "email": "jordanw@gmail.com",
+        "username": "jw"
     },
     {
         "firstName": "Cole",
         "lastName": "Reiss",
-        "password": "Tr:eSp8)4KG?b'GC",
+        "password": "cr",
         "currentCourseID": "00000000-0000-0000-0000-000000000000",
         "currentTopicID": "00000000-0000-0000-0000-000000000000",
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
         "id": "62e22f7d-e7da-4835-85f1-b9dc5036e752",
         "type": "admin",
         "email": "coleriess@gmail.com",
-        "username": "coler360"
+        "username": "cr"
     }
 ]
