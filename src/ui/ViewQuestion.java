@@ -85,7 +85,7 @@ public class ViewQuestion implements ActionListener {
             if (facade.getUser().getType().equalsIgnoreCase("student")) {
                 // Add a submit button to the page
                 submitButton = new JButton("Submit");
-                submitButton.setBounds(350, 190, 100, 30);
+                submitButton.setBounds(350, 275, 100, 30);
                 submitButton.addActionListener(this);
                 submitButton.setName(Integer.toString(questionIndex));
                 questionIndex = questionIndex + 1;
