@@ -15,12 +15,12 @@ public class dataTester {
         UserList us2 = UserList.getInstance();
         //printUsers(us2.getUsers());
 
-        /*
+        
         CourseList cs = CourseList.getInstance();
         ArrayList<Course> courses = cs.getCourses();
         printCourses(courses);
         System.out.println("\n \n");
-        */
+        
         
 
 

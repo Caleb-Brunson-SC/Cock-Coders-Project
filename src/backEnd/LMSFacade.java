@@ -13,6 +13,7 @@ public class LMSFacade {
     // Objects for creating a course
     private Course courseCreated;
     private ArrayList<Lesson> lessonsCreated;
+    private Quiz quizCreated;
     private ArrayList<Question> questionsCreated;
 
     public LMSFacade() {
@@ -21,6 +22,7 @@ public class LMSFacade {
         this.user = null;
         this.courseCreated = new Course(); //new Course();
         this.lessonsCreated = new ArrayList<Lesson>();
+        this.quizCreated = null;
         this.questionsCreated = new ArrayList<Question>();
     }
 
@@ -62,10 +64,12 @@ public class LMSFacade {
         courseCreated.setTitle(title);
         courseCreated.setLanguage(language);
         courseCreated.setDescription(description);
-        courseCreated.setTeacher(user);
+        courseCreated.setTeacher((Teacher)user);
 
         System.out.println(courseCreated); // testing
+        System.out.println(courseCreated.getTeacher().getId().toString());
 
+        
         if (user == null) {
             JOptionPane.showMessageDialog(frame1,"User is not logged in.","Alert",JOptionPane.WARNING_MESSAGE);
         } else if (courseCreated.getTopics().isEmpty()) {
@@ -81,24 +85,64 @@ public class LMSFacade {
     public void deleteCourse(Course course) {}
 
     public void createTopic(String title, String description) {
-        
+        Topic topic = new Topic();
+        topic.setId(UUID.randomUUID());
+        topic.setTitle(title);
+        topic.setDescription(description);
+        topic.setLessons(lessonsCreated);
+        topic.setQuiz(quizCreated);
+
+        if (lessonsCreated.isEmpty()) {
+            JOptionPane.showMessageDialog(frame1,"Lessons are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+        } else if (quizCreated == null) {
+            JOptionPane.showMessageDialog(frame1,"Quiz is incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+        } else {
+            courseCreated.getTopics().add(topic);
+        }
     }
 
     public void deleteTopic(Topic topic) {}
 
 
     public void createLesson(String title, String content) {
-        
+        Lesson lesson = new Lesson();
+        lesson.setId(UUID.randomUUID());
+        lesson.setTitle(title);
+        lesson.setContent(content);
+
+        lessonsCreated.add(lesson);
     }
 
     public void deleteLesson(Lesson lesson) {}
 
 
-    public void createQuiz(Quiz quiz) {
+    public void createQuiz(String title, String description) {
+        quizCreated = new Quiz();
+        quizCreated.setTitle(title);
+        quizCreated.setDescription(description);
 
+        if (questionsCreated.isEmpty()) {
+            JOptionPane.showMessageDialog(frame1,"Questions are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
+        } else {
+            quizCreated.setQuestions(questionsCreated);
+        }
     }
 
     public void deleteQuiz(Quiz quiz) {}
+
+    public void createQuestion(String questionString, ArrayList<String> choices, int correctAnswerIndex) {
+        Question question = new Question();
+        question.setId(UUID.randomUUID());
+        question.setQuestion(questionString);
+        question.setChoices(choices);
+        question.setCorrectAnswerIndex(correctAnswerIndex);
+
+        questionsCreated.add(question);
+    }
+    
+    public void deleteQuestion() {
+
+    }
 
     public Comment createComment() {
         return null;

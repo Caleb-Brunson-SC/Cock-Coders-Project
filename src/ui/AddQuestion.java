@@ -124,6 +124,17 @@ public class AddQuestion implements ActionListener {
       System.out.println(ans4);
       System.out.println(ansIndex);
 
+      if (question.isBlank() || ans1.isBlank() || ans2.isBlank() || ans3.isBlank() || ans4.isBlank()) {
+        JOptionPane.showMessageDialog(frame1,"Questions or the answers are complete.","Alert",JOptionPane.WARNING_MESSAGE);
+      } else {
+        ArrayList<String> choices = new ArrayList<String>();
+        choices.add(ans1);
+        choices.add(ans2);
+        choices.add(ans3);
+        choices.add(ans4);
+        facade.createQuestion(question, choices, ansIndex);
+      }
+
       frame1.setVisible(false);
 
     }

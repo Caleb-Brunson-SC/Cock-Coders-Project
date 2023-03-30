@@ -45,7 +45,7 @@ public class courseTester {
         // Create Teacher and Course
         LocalDate teacher1DOB = LocalDate.of(1994, 6, 17);
         User teacher1 = new Teacher("bob", "jones", "bj36", "bobj@email.com", "scooby420", null, null, null);
-        Course course1 = new Course("Sky Course", Language.C, "Learn about Sky", teacher1, topics, reviews, comments, progressList);
+        Course course1 = new Course("Sky Course", Language.C, "Learn about Sky", (Teacher)teacher1, topics, reviews, comments, progressList);
 
         System.out.println(teacher1);
 

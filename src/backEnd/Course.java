@@ -8,7 +8,7 @@ public class Course {
     private String title;
     private Language language;
     private String description;
-    private User teacher;
+    private Teacher teacher;
     private ArrayList<Topic> topics;
     private ArrayList<Review> reviews;
     private ArrayList<Comment> comments;
@@ -27,7 +27,7 @@ public class Course {
     }
 
     public Course(String title, Language language, String description, 
-        User teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
+        Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
         ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
         this.id = UUID.randomUUID();
         this.title = title;
@@ -41,7 +41,7 @@ public class Course {
     }
 
     public Course(UUID id, String title, Language language, String description, 
-        User teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
+        Teacher teacher, ArrayList<Topic> topics, ArrayList<Review> reviews, 
         ArrayList<Comment> comments, ArrayList<StudentProgress> studentProgresses) {
             this.id = id;
             this.title = title;
@@ -124,11 +124,11 @@ public class Course {
         this.description = description;
     }
 
-    public User getTeacher() {
+    public Teacher getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(User teacher) {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
 

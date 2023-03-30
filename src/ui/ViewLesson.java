@@ -37,7 +37,7 @@ public class ViewLesson implements ActionListener{
       lessonName.setText("Lesson Name");
 
       lessonContent.setEditable(false);
-      lessonContent.setText("Lesson Contentttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt");
+      lessonContent.setText("Lesson Content");
 
       lessonName.setFont(new Font(lessonName.getFont().getName(), Font.BOLD, lessonName.getFont().getSize()));
   
@@ -58,6 +58,6 @@ public class ViewLesson implements ActionListener{
     }
   }
   public void actionPerformed(ActionEvent e) {
-
+    
   }
 }
