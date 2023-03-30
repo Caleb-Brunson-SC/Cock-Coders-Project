@@ -2,7 +2,7 @@
     {
         "firstName": "Caleb",
         "lastName": "Brunson",
-        "password": "y[&&p9n]$Zd/+G!$<",
+        "password": "cword123",
         "currentCourseID": "00000000-0000-0000-0000-000000000000",
         "currentTopicID": "00000000-0000-0000-0000-000000000000",
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
@@ -10,5 +10,29 @@
         "type": "teacher",
         "email": "calebrb@email.sc.edu",
         "username": "calebrb"
+    },
+    {
+        "firstName": "John",
+        "lastName": "Wisdom",
+        "password": "jword123",
+        "currentCourseID": "00000000-0000-0000-0000-000000000000",
+        "currentTopicID": "00000000-0000-0000-0000-000000000000",
+        "currentLessonID": "00000000-0000-0000-0000-000000000000",
+        "id": "68aa2143-d719-4b26-9b49-261874d5b4c8",
+        "type": "teacher",
+        "email": "john_w@gmail.com",
+        "username": "john_w"
+    },
+    {
+        "firstName": "Scout",
+        "lastName": "Solace",
+        "password": "sword123",
+        "currentCourseID": "00000000-0000-0000-0000-000000000000",
+        "currentTopicID": "00000000-0000-0000-0000-000000000000",
+        "currentLessonID": "00000000-0000-0000-0000-000000000000",
+        "id": "0c9c939a-c580-4318-842c-055aa74ff4b9",
+        "type": "student",
+        "email": "scout_s@gmail.com",
+        "username": "scout_s"
     }
 ]
