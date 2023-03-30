@@ -11,7 +11,6 @@ import javax.swing.JTabbedPane;
 public class ViewTopic implements ActionListener{
   private final LMSFacade facade;
   JFrame frame1;
-  ArrayList<Topic> topics;
   JTabbedPane tabbedPane;
 
   ViewTopic(LMSFacade facade, Topic workingTopic){
@@ -26,7 +25,7 @@ public class ViewTopic implements ActionListener{
     // topic in topics array. 
     int saveK = 0;
     int saveW = 0;
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 1; i++) {
       JPanel p1 = new JPanel();
       p1.setLayout(null);
       String j = i + " ";
@@ -36,7 +35,7 @@ public class ViewTopic implements ActionListener{
       JLabel lessonLabel = new JLabel();
       JLabel quizLabel = new JLabel();
 
-      topicName.setText("Topic Name");
+      topicName.setText("Title: " + workingTopic.getTitle());
       topicDescription.setText("Topic Description");
       lessonLabel.setText("Lessons: ");
       quizLabel.setText("Quiz:");
@@ -52,7 +51,7 @@ public class ViewTopic implements ActionListener{
       p1.add(topicName);
       p1.add(topicDescription);
       p1.add(lessonLabel);
-      // tabbedPane.add(workingCourse.getTitle() , p1);
+      tabbedPane.add(workingTopic.getTitle() , p1);
       // should parse through all topics in course
       int k = 0;
       while (k < 5) {

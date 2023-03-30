@@ -31,7 +31,6 @@ public class ViewCourses implements ActionListener{
     // course in courses array. 
     for (int i = 0; i < courses.size(); i++) {
     // for (int i = 0; i < courses.size(); i++) {
-      // Course workingCourse = courses.get(i);
       Course workingCourse = courses.get(i);
       JPanel p1 = new JPanel();
       p1.setLayout(null);
@@ -59,7 +58,7 @@ public class ViewCourses implements ActionListener{
       p1.add(authorName);
       p1.add(courseDescription);
       p1.add(topicLabel);
-      // tabbedPane.add(workingCourse.getTitle() , p1);
+      tabbedPane.add(workingCourse.getTitle() , p1);
       // should parse through all topics in course
       ArrayList<Topic> topics = courses.get(i).getTopics();
       for (int k = 0; k < topics.size(); k++) {
@@ -89,7 +88,6 @@ public class ViewCourses implements ActionListener{
     JButton btn = (JButton)e.getSource();
     int topicIndex = Integer.parseInt(btn.getName());
 
-    frame1.setVisible(false);
     new ViewTopic(facade, buttonTopics.get(topicIndex));
   }
 }
