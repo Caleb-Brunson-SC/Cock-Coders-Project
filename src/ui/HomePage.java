@@ -91,7 +91,7 @@ public class HomePage implements ActionListener {
       new CreateCourse(facade);
     } else if (e.getSource() == signOutButton) {
       facade.signOut();
-      //frame1.setVisible(false);
+      frame1.setVisible(false);
       new Landing();
     }
   }
