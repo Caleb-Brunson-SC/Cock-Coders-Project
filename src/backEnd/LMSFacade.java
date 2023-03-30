@@ -9,7 +9,7 @@ public class LMSFacade {
     public static final int QUIZ_LIMIT = 1;
     public static final int TOPIC_LIMIT = 10; 
     public static final int LESSON_LIMIT = 10;
-    public static final int QUESTION_LIMIT = 1;
+    public static final int QUESTION_LIMIT = 10;
     JFrame frame1;
     private UserList userList;
     private CourseList courseList;
