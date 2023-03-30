@@ -96,10 +96,10 @@ public class DataLoader extends DataConstants {
                         UUID quizID = UUID.fromString((String)gradeJSON.get(COURSE_QUIZ_ID));
                         Number gradePercentageNumber = (Number)gradeJSON.get(COURSE_GRADE_PERCENTAGE);
                         double gradePercentage = gradePercentageNumber.doubleValue();
-                        grades.add(new Grade());
+                        grades.add(new Grade(gradeID, quizID, gradePercentage));
                     }
 
-                    studentProgresses.add(new StudentProgress(student, quizGrades));
+                    studentProgresses.add(new StudentProgress(student, grades));
                 }
                 
                 // Topic JSON

@@ -74,7 +74,20 @@ public class DataWriter extends DataConstants {
         for (StudentProgress sp : course.getStudentProgresses()) {
             JSONObject studentsDetails = new JSONObject();
             studentsDetails.put(COURSE_STUDENT_ID, sp.getStudent().getId().toString());
-            studentsDetails.put(COURSE_QUIZ_GRADES, sp.getQuizGrades());
+
+            //studentsDetails.put(COURSE_QUIZ_GRADES, sp.getQuizGrades());
+            JSONArray gradesArray = new JSONArray();
+            for (Grade g : sp.getGrades()) {
+                JSONObject gradesDetails = new JSONObject();
+                gradesDetails.put(COURSE_ID, g.getId().toString());
+                gradesDetails.put(COURSE_QUIZ_ID, g.getQuizID().toString());
+                gradesDetails.put(COURSE_GRADE_PERCENTAGE, g.getGradePercentage());
+
+                gradesArray.add(gradesDetails);
+            }
+
+            studentsDetails.put(COURSE_GRADES, gradesArray);
+
             studentsArray.add(studentsDetails);
         }
         courseDetails.put(COURSE_STUDENTS, studentsArray);
