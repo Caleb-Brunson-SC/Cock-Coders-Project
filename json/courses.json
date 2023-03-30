@@ -1,1 +1,355 @@
-[{"teacherID":"68aa2143-d719-4b26-9b49-261874d5b4c8","comments":[],"reviews":[],"topics":[{"quiz":{"questions":[{"question":"1","id":"3c05728e-68a5-4aa1-b9a4-8c777afead72","choices":["1","1","1","1"],"correctAnswerIndex":0}],"description":"1","id":"2e5d2daf-7665-401d-88df-f270e992c1ca","title":"1"},"comments":[],"description":"1","id":"203caa04-9700-422b-a8de-464b3ec38f80","title":"1","lessons":[{"comments":[],"id":"b1a86863-9c3b-4a54-bc2e-8e36d3f13a09","title":"1","content":"1"}]},{"quiz":{"questions":[{"question":"2","id":"341f6fbd-14de-4405-8608-ae79775152df","choices":["2","2","2","2"],"correctAnswerIndex":0}],"description":"2","id":"be8e0f56-25dc-4b2a-811c-712a11d4ef3d","title":"2"},"comments":[],"description":"2","id":"afba329b-0cb7-4f74-b145-704bf404e944","title":"2","lessons":[{"comments":[],"id":"11302ee8-6281-45aa-8427-ee3e38c1d9b6","title":"2","content":"2"}]},{"quiz":{"questions":[{"question":"3","id":"6df9a676-e186-4e66-b312-30e144f0c333","choices":["3","3","3","3"],"correctAnswerIndex":0}],"description":"3","id":"32381c56-5863-46cc-b028-893760cf3cf7","title":"3"},"comments":[],"description":"3","id":"875e612a-c780-4a8b-a0da-e2b838e52f07","title":"3","lessons":[{"comments":[],"id":"a575ac09-9754-485c-822c-449f0cfd30fd","title":"3","content":"3"}]},{"quiz":{"questions":[{"question":"4","id":"3669016e-8b2a-434b-af23-c0a45338f082","choices":["4","4","4","4"],"correctAnswerIndex":0}],"description":"4","id":"d9d09022-11f0-4e81-9884-05992bba8d1c","title":"4"},"comments":[],"description":"4","id":"6d956af9-0fe3-428e-a47a-b6c5838c0bd4","title":"4","lessons":[{"comments":[],"id":"05b7567e-34f0-4905-ab7e-35beb14d4509","title":"4","content":"4"}]},{"quiz":{"questions":[{"question":"5","id":"17dcec12-8932-4f92-aad7-7b83ef310801","choices":["5","5","5","5"],"correctAnswerIndex":0}],"description":"5","id":"33338338-ef87-4532-ad33-f4703344aee8","title":"5"},"comments":[],"description":"5","id":"0e2030ae-abe3-4f8e-bc96-5f4fef8ee5c0","title":"5","lessons":[{"comments":[],"id":"25f8bfd8-f350-4ae9-8fc9-229417e43e8b","title":"5","content":"5"}]},{"quiz":{"questions":[{"question":"6","id":"ceebd998-3306-4851-8b4e-cb21faa51120","choices":["6","6","6","6"],"correctAnswerIndex":0}],"description":"6","id":"0f2ed3f3-6f43-4cf4-ab1a-cf27a76faded","title":"6"},"comments":[],"description":"6","id":"a95e140c-a0fa-4842-a899-d4354fd57119","title":"6","lessons":[{"comments":[],"id":"18c16edc-cc61-4125-a8e8-8d049d1712be","title":"6","content":"6"}]},{"quiz":{"questions":[{"question":"7","id":"c5079943-e6c5-4d64-a04c-ca33635d39fd","choices":["7","7","7","7"],"correctAnswerIndex":0}],"description":"7","id":"1e2d7aac-ef37-4468-9b24-95d0db49b794","title":"7"},"comments":[],"description":"7","id":"915b0eb1-8c67-4fed-af9e-0bd845f80902","title":"7","lessons":[{"comments":[],"id":"447adbfa-0315-4531-891f-d3246643c70e","title":"7","content":"7"}]},{"quiz":{"questions":[{"question":"8","id":"b819f810-960d-4d91-bb12-ce57b2434c9c","choices":["8","8","8","8"],"correctAnswerIndex":0}],"description":"8","id":"7f512c7d-3335-4896-9e8d-f81f5407dddb","title":"8"},"comments":[],"description":"8","id":"9c4974ac-a557-46cd-bfbd-d4508dd61cb1","title":"8","lessons":[{"comments":[],"id":"4959cf73-e51e-404d-acc0-bea1830b759e","title":"8","content":"8"}]},{"quiz":{"questions":[{"question":"9","id":"026ae559-5859-405f-a8f0-00109bf6f0d2","choices":["9","9","9","9"],"correctAnswerIndex":0}],"description":"9","id":"1039f073-bc8d-4bfa-9b2f-6745d27bac4c","title":"9"},"comments":[],"description":"9","id":"10beeb3e-0195-4f87-bcd1-a3b8bb9feb8c","title":"9","lessons":[{"comments":[],"id":"cd3fd53e-cec8-4ffa-9d17-c9bd1673bde2","title":"9","content":"9"}]},{"quiz":{"questions":[{"question":"10","id":"c0e1db8b-b248-4567-9a43-92d2f17e67e2","choices":["10","10","10","10"],"correctAnswerIndex":0}],"description":"10","id":"f3eb0409-de53-4717-bdce-0ef0819d8869","title":"10"},"comments":[],"description":"10","id":"db7cde34-9d5e-4c95-bf24-7a77dfbde217","title":"19","lessons":[{"comments":[],"id":"b899e314-3546-4ab6-916e-80f4081c92c6","title":"10","content":"10"}]}],"description":"Learn all about the most versatile programming language.","students":[{"studentID":"0c9c939a-c580-4318-842c-055aa74ff4b9","grades":[{"quizID":"2e5d2daf-7665-401d-88df-f270e992c1ca","id":"e9854e42-952d-473c-8ae4-3119fd9c7e51","gradePercentage":0.0}]}],"language":"PYTHON","id":"0385b2b5-b5fc-4277-825e-d8680211fdbf","title":"Intro to Python"}]
+[
+    {
+        "teacherID": "68aa2143-d719-4b26-9b49-261874d5b4c8",
+        "comments": [],
+        "reviews": [],
+        "topics": [
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "1",
+                            "id": "3c05728e-68a5-4aa1-b9a4-8c777afead72",
+                            "choices": [
+                                "1",
+                                "1",
+                                "1",
+                                "1"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "1",
+                    "id": "2e5d2daf-7665-401d-88df-f270e992c1ca",
+                    "title": "1"
+                },
+                "comments": [],
+                "description": "1",
+                "id": "203caa04-9700-422b-a8de-464b3ec38f80",
+                "title": "1",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "b1a86863-9c3b-4a54-bc2e-8e36d3f13a09",
+                        "title": "1",
+                        "content": "1"
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "2",
+                            "id": "341f6fbd-14de-4405-8608-ae79775152df",
+                            "choices": [
+                                "2",
+                                "2",
+                                "2",
+                                "2"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "2",
+                    "id": "be8e0f56-25dc-4b2a-811c-712a11d4ef3d",
+                    "title": "2"
+                },
+                "comments": [],
+                "description": "2",
+                "id": "afba329b-0cb7-4f74-b145-704bf404e944",
+                "title": "2",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "11302ee8-6281-45aa-8427-ee3e38c1d9b6",
+                        "title": "2",
+                        "content": "2"
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "3",
+                            "id": "6df9a676-e186-4e66-b312-30e144f0c333",
+                            "choices": [
+                                "3",
+                                "3",
+                                "3",
+                                "3"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "3",
+                    "id": "32381c56-5863-46cc-b028-893760cf3cf7",
+                    "title": "3"
+                },
+                "comments": [],
+                "description": "3",
+                "id": "875e612a-c780-4a8b-a0da-e2b838e52f07",
+                "title": "3",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "a575ac09-9754-485c-822c-449f0cfd30fd",
+                        "title": "3",
+                        "content": "3"
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "4",
+                            "id": "3669016e-8b2a-434b-af23-c0a45338f082",
+                            "choices": [
+                                "4",
+                                "4",
+                                "4",
+                                "4"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "4",
+                    "id": "d9d09022-11f0-4e81-9884-05992bba8d1c",
+                    "title": "4"
+                },
+                "comments": [],
+                "description": "4",
+                "id": "6d956af9-0fe3-428e-a47a-b6c5838c0bd4",
+                "title": "4",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "05b7567e-34f0-4905-ab7e-35beb14d4509",
+                        "title": "4",
+                        "content": "4"
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "5",
+                            "id": "17dcec12-8932-4f92-aad7-7b83ef310801",
+                            "choices": [
+                                "5",
+                                "5",
+                                "5",
+                                "5"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "5",
+                    "id": "33338338-ef87-4532-ad33-f4703344aee8",
+                    "title": "5"
+                },
+                "comments": [],
+                "description": "5",
+                "id": "0e2030ae-abe3-4f8e-bc96-5f4fef8ee5c0",
+                "title": "5",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "25f8bfd8-f350-4ae9-8fc9-229417e43e8b",
+                        "title": "5",
+                        "content": "5"
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "6",
+                            "id": "ceebd998-3306-4851-8b4e-cb21faa51120",
+                            "choices": [
+                                "6",
+                                "6",
+                                "6",
+                                "6"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "6",
+                    "id": "0f2ed3f3-6f43-4cf4-ab1a-cf27a76faded",
+                    "title": "6"
+                },
+                "comments": [],
+                "description": "6",
+                "id": "a95e140c-a0fa-4842-a899-d4354fd57119",
+                "title": "6",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "18c16edc-cc61-4125-a8e8-8d049d1712be",
+                        "title": "6",
+                        "content": "6"
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "7",
+                            "id": "c5079943-e6c5-4d64-a04c-ca33635d39fd",
+                            "choices": [
+                                "7",
+                                "7",
+                                "7",
+                                "7"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "7",
+                    "id": "1e2d7aac-ef37-4468-9b24-95d0db49b794",
+                    "title": "7"
+                },
+                "comments": [],
+                "description": "7",
+                "id": "915b0eb1-8c67-4fed-af9e-0bd845f80902",
+                "title": "7",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "447adbfa-0315-4531-891f-d3246643c70e",
+                        "title": "7",
+                        "content": "7"
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "8",
+                            "id": "b819f810-960d-4d91-bb12-ce57b2434c9c",
+                            "choices": [
+                                "8",
+                                "8",
+                                "8",
+                                "8"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "8",
+                    "id": "7f512c7d-3335-4896-9e8d-f81f5407dddb",
+                    "title": "8"
+                },
+                "comments": [],
+                "description": "8",
+                "id": "9c4974ac-a557-46cd-bfbd-d4508dd61cb1",
+                "title": "8",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "4959cf73-e51e-404d-acc0-bea1830b759e",
+                        "title": "8",
+                        "content": "8"
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "9",
+                            "id": "026ae559-5859-405f-a8f0-00109bf6f0d2",
+                            "choices": [
+                                "9",
+                                "9",
+                                "9",
+                                "9"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "9",
+                    "id": "1039f073-bc8d-4bfa-9b2f-6745d27bac4c",
+                    "title": "9"
+                },
+                "comments": [],
+                "description": "9",
+                "id": "10beeb3e-0195-4f87-bcd1-a3b8bb9feb8c",
+                "title": "9",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "cd3fd53e-cec8-4ffa-9d17-c9bd1673bde2",
+                        "title": "9",
+                        "content": "9"
+                    }
+                ]
+            },
+            {
+                "quiz": {
+                    "questions": [
+                        {
+                            "question": "10",
+                            "id": "c0e1db8b-b248-4567-9a43-92d2f17e67e2",
+                            "choices": [
+                                "10",
+                                "10",
+                                "10",
+                                "10"
+                            ],
+                            "correctAnswerIndex": 0
+                        }
+                    ],
+                    "description": "10",
+                    "id": "f3eb0409-de53-4717-bdce-0ef0819d8869",
+                    "title": "10"
+                },
+                "comments": [],
+                "description": "10",
+                "id": "db7cde34-9d5e-4c95-bf24-7a77dfbde217",
+                "title": "19",
+                "lessons": [
+                    {
+                        "comments": [],
+                        "id": "b899e314-3546-4ab6-916e-80f4081c92c6",
+                        "title": "10",
+                        "content": "10"
+                    }
+                ]
+            }
+        ],
+        "description": "Learn all about the most versatile programming language.",
+        "students": [
+            {
+                "studentID": "0c9c939a-c580-4318-842c-055aa74ff4b9",
+                "grades": [
+                    {
+                        "quizID": "2e5d2daf-7665-401d-88df-f270e992c1ca",
+                        "id": "e9854e42-952d-473c-8ae4-3119fd9c7e51",
+                        "gradePercentage": 0.0
+                    },
+                    {
+                        "quizID": "2e5d2daf-7665-401d-88df-f270e992c1ca",
+                        "id": "6975cc56-0fcd-4290-b17b-b56f21380b04",
+                        "gradePercentage": 0.0
+                    },
+                    {
+                        "quizID": "2e5d2daf-7665-401d-88df-f270e992c1ca",
+                        "id": "cc91f7ee-dae5-4981-b11c-ad0d16db33bd",
+                        "gradePercentage": 0.0
+                    }
+                ]
+            }
+        ],
+        "language": "PYTHON",
+        "id": "0385b2b5-b5fc-4277-825e-d8680211fdbf",
+        "title": "Intro to Python"
+    }
+]
