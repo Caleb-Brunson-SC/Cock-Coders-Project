@@ -7,68 +7,8 @@
         "currentTopicID": "00000000-0000-0000-0000-000000000000",
         "currentLessonID": "00000000-0000-0000-0000-000000000000",
         "id": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
-        "type": "student",
-        "email": "calebrb@bbc.com",
-        "username": "calebrb03"
-    },
-    {
-        "firstName": "Abdullah",
-        "lastName": "Bueno",
-        "password": "9m9,mkZnsjT@$BCS",
-        "currentCourseID": "00000000-0000-0000-0000-000000000000",
-        "currentTopicID": "00000000-0000-0000-0000-000000000000",
-        "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "6b40acbe-c101-4701-8123-343a071c460c",
-        "type": "student",
-        "email": "abdullah@bigtech.com",
-        "username": "abdullahbueno53"
-    },
-    {
-        "firstName": "Jordan",
-        "lastName": "Wood",
-        "password": "jw",
-        "currentCourseID": "00000000-0000-0000-0000-000000000000",
-        "currentTopicID": "00000000-0000-0000-0000-000000000000",
-        "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
         "type": "teacher",
-        "email": "jordanw@bbc.com",
-        "username": "jordanw420"
-    },
-    {
-        "firstName": "Cole",
-        "lastName": "Reiss",
-        "password": "Tr:eSp8)4KG?b'GC",
-        "currentCourseID": "00000000-0000-0000-0000-000000000000",
-        "currentTopicID": "00000000-0000-0000-0000-000000000000",
-        "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "62e22f7d-e7da-4835-85f1-b9dc5036e752",
-        "type": "admin",
-        "email": "coleriess@gmail.com",
-        "username": "coler360"
-    },
-    {
-        "firstName": "b",
-        "lastName": "j",
-        "password": "bj",
-        "currentCourseID": "00000000-0000-0000-0000-000000000000",
-        "currentTopicID": "00000000-0000-0000-0000-000000000000",
-        "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "2efecba4-203f-495e-b1e7-f3f3d0096316",
-        "type": "student",
-        "email": "bj@gmail.com",
-        "username": "bj"
-    },
-    {
-        "firstName": "m",
-        "lastName": "m",
-        "password": "m",
-        "currentCourseID": "00000000-0000-0000-0000-000000000000",
-        "currentTopicID": "00000000-0000-0000-0000-000000000000",
-        "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "804a03da-2005-463b-bc31-2a049684b581",
-        "type": "teacher",
-        "email": "m",
-        "username": "m"
+        "email": "calebrb@email.sc.edu",
+        "username": "calebrb"
     }
 ]
