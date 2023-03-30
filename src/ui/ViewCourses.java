@@ -81,6 +81,11 @@ public class ViewCourses implements ActionListener{
       }
       courseIndex++;
     }
+    JButton viewComments = new JButton();
+    viewComments.setText("View Comments");
+    viewComments.setBounds(350, 500, 150, 30);
+    frame1.add(viewComments);
+
     tabbedPane.setBounds(0,0,500,500);
     
     frame1.setVisible(true);
