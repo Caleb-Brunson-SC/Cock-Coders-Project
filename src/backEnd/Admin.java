@@ -1,12 +1,12 @@
 package backEnd;
 import java.util.UUID;
 
+/**
+ * The Admin class represents an Admin of the LMS
+ */
 public class Admin extends User {
-    /**
-    * The UUID representing a certain value.
-    */
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
-
+    
     /**
      * Creates a new Admin object with appropriate values for all fields.
      */
