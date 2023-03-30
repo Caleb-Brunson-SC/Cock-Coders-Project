@@ -30,7 +30,6 @@
         "topics": [
             {
                 "quiz": {
-                    "id": "01e2cb1b-e539-4593-be87-07f645bdb8c7",
                     "questions": [
                         {
                             "question": "When do you use For Loops",
@@ -67,6 +66,7 @@
                         }
                     ],
                     "description": "For Loops, While Loops, Do-While Loops.",
+                    "id": "01e2cb1b-e539-4593-be87-07f645bdb8c7",
                     "title": "Loops"
                 },
                 "comments": [
