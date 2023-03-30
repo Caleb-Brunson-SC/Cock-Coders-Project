@@ -98,6 +98,9 @@ public class LMSFacade {
             JOptionPane.showMessageDialog(frame1,"Quiz is incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
         } else {
             courseCreated.getTopics().add(topic);
+            // Reset lessons and questions array lists for the next topic
+            lessonsCreated = new ArrayList<Lesson>();
+            questionsCreated = new ArrayList<Question>();
         }
     }
 
