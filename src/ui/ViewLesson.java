@@ -11,12 +11,13 @@ import javax.swing.JTabbedPane;
 public class ViewLesson implements ActionListener{
   private final LMSFacade facade;
   JFrame frame1;
-  ArrayList<Topic> topics;
+  Lesson workingLesson;
   JTabbedPane tabbedPane;
   JScrollPane scroll;
 
   ViewLesson(LMSFacade facade, Lesson workingLesson){
     this.facade = facade;
+    this.workingLesson = workingLesson;
     
     frame1 = new JFrame();
     tabbedPane = new JTabbedPane();
@@ -25,7 +26,7 @@ public class ViewLesson implements ActionListener{
     // for statement should populate string J with the title of the Lesson for
     // each Lesson in the topi. Should iterate once for each lesson in lessons
     // array. 
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 1; i++) {
       JPanel p1 = new JPanel();
       p1.setLayout(null);
       String j = i + " ";
@@ -34,10 +35,10 @@ public class ViewLesson implements ActionListener{
       JTextArea lessonContent = new JTextArea();
       lessonContent.setLineWrap(true);
       scroll = new JScrollPane(lessonContent);
-      lessonName.setText("Lesson Name");
+      lessonName.setText(workingLesson.getTitle()); //Lesson title
 
       lessonContent.setEditable(false);
-      lessonContent.setText("Lesson Content");
+      lessonContent.setText(workingLesson.getContent()); // Lesson content
 
       lessonName.setFont(new Font(lessonName.getFont().getName(), Font.BOLD, lessonName.getFont().getSize()));
   
@@ -47,7 +48,7 @@ public class ViewLesson implements ActionListener{
 
       p1.add(lessonName);
       p1.add(scroll);
-      
+      tabbedPane.add(workingLesson.getTitle() , p1);
 
       tabbedPane.setBounds(0,0,500,500);
     

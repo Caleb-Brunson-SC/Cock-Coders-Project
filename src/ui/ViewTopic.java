@@ -111,6 +111,7 @@ public class ViewTopic implements ActionListener{
       new ViewLesson(facade, lessons.get(lessonBtnIndex));
     } else {
       System.out.println("view quiz");
+      new ViewQuestion(facade, workingQuiz);
     }
     
   }

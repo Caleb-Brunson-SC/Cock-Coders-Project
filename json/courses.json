@@ -37,7 +37,8 @@
                             "choices": [
                                 "Always",
                                 "Sometimes",
-                                "Never"
+                                "Never",
+                                "none"
                             ],
                             "correctAnswerIndex": 0
                         },
@@ -47,7 +48,8 @@
                             "choices": [
                                 "Always",
                                 "Sometimes",
-                                "Never"
+                                "Never",
+                                "none"
                             ],
                             "correctAnswerIndex": 1
                         },
@@ -57,7 +59,8 @@
                             "choices": [
                                 "Always",
                                 "Sometimes",
-                                "Never"
+                                "Never",
+                                "none"
                             ],
                             "correctAnswerIndex": 2
                         }
