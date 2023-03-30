@@ -131,6 +131,7 @@ public class CreateCourse implements ActionListener{
       } else {
         // Create the course
         facade.createCourse(title, language, description);
+        frame1.setVisible(false);
       }
 
     } else if (e.getSource() == addTopic) {
