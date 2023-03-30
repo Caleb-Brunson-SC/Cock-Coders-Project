@@ -87,8 +87,9 @@ public class ViewCourses implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     JButton btn = (JButton)e.getSource();
-    System.out.println(btn.getName());
     int topicIndex = Integer.parseInt(btn.getName());
-    System.out.println(buttonTopics.get(topicIndex));
+
+    frame1.setVisible(false);
+    new ViewTopic(facade, buttonTopics.get(topicIndex));
   }
 }

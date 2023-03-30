@@ -14,7 +14,7 @@ public class ViewTopic implements ActionListener{
   ArrayList<Topic> topics;
   JTabbedPane tabbedPane;
 
-  ViewTopic(LMSFacade facade){
+  ViewTopic(LMSFacade facade, Topic workingTopic){
     this.facade = facade;
     
     frame1 = new JFrame();
