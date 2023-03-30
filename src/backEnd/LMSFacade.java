@@ -164,6 +164,7 @@ public class LMSFacade {
 
     public void createQuiz(String title, String description) {
         quizCreated = new Quiz();
+        quizCreated.setId(UUID.randomUUID());
         quizCreated.setTitle(title);
         quizCreated.setDescription(description);
 
