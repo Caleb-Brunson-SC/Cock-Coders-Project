@@ -39,6 +39,10 @@ public class LMSFacade {
         this.questionCount = 0;
     }
 
+    
+    /** 
+     * @return UserList
+     */
     public UserList getUserList() {
         return userList;
     }
