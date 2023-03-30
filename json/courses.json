@@ -145,10 +145,21 @@
         "quiz": {
           "questions": [
             {
+<<<<<<< HEAD
               "question": "What is boop?",
               "id": "134a7025-74c4-4d61-b03a-113c51d0279a",
               "choices": ["Your mother", "Lol", "Ur father", "Lol xD"],
               "correctAnswerIndex": 0
+=======
+                "studentID": "2efecba4-203f-495e-b1e7-f3f3d0096316",
+                "grades": [
+                    {
+                        "quizID": "01e2cb1b-e539-4593-be87-07f645bdb8c7",
+                        "id": "749db373-c5d2-4ec2-b96e-9fe28cdd49da",
+                        "gradePercentage": 100.0
+                    }
+                ]
+>>>>>>> fe22a002cf6a8f0d3e2a6f316ab77c0141298b3b
             }
           ],
           "description": "Boop",

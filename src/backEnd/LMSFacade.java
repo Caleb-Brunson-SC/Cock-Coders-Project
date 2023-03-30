@@ -14,7 +14,6 @@ public class LMSFacade {
     private UserList userList;
     private CourseList courseList;
     private User user; // the current user
-    private ArrayList<Quiz> completedQuizzes;
     // Objects for creating a course
     private Course courseCreated;
     private ArrayList<Lesson> lessonsCreated;
@@ -30,7 +29,6 @@ public class LMSFacade {
         this.userList =  UserList.getInstance();
         this.courseList = CourseList.getInstance();
         this.user = null;
-        this.completedQuizzes = new ArrayList<Quiz>();
         this.courseCreated = new Course(); //new Course();
         this.lessonsCreated = new ArrayList<Lesson>();
         this.quizCreated = null;
@@ -141,6 +139,10 @@ public class LMSFacade {
             // Reset lessons and questions array lists for the next topic
             lessonsCreated = new ArrayList<Lesson>();
             questionsCreated = new ArrayList<Question>();
+            // Reset counts except for topic count
+            lessonCount = 0;
+            quizCount = 0;
+            questionCount = 0;
         }
     }
 
@@ -261,31 +263,36 @@ public class LMSFacade {
     // QUIZ TAKING AND GRADING
     public void updateStudentProgress(UUID courseID, Quiz quiz, double gradePercentage) {
         Course course = courseList.getCourseByUUID(courseID);
+        UUID userID = user.getId();
         ArrayList<StudentProgress> studentProgresses = course.getStudentProgresses();
-        if (studentProgresses.isEmpty()) { 
-            //1. sp is empty
+
+        if (studentProgresses.contains(course.getStudentProgressByStudentUUID(userID))) { 
+            //1. sp is not empty and has the user
+            StudentProgress sp = course.getStudentProgressByStudentUUID(userID);
+            ArrayList<Grade> grades = sp.getGrades();
+            grades.add(new Grade(quiz.getId(), gradePercentage));
+        } else {
+            //2. sp is not empty and does not have user
+            // or sp is empty and thus does not have the user
             ArrayList<Grade> grades = new ArrayList<Grade>();
             grades.add(new Grade(quiz.getId(), gradePercentage));
             StudentProgress sp = new StudentProgress(user, grades);
             studentProgresses.add(sp);
-            completedQuizzes.add(quiz);
-        } else if (studentProgresses.contains(course.getStudentProgressByStudentUUID(user.getId()))) { 
-            //2. sp is not empty and has user
-            
-        } else {
-            //3. sp is not empty and does not have user
-
         }
+
         courseList.saveCourses();
     }
 
     public boolean hasCompletedQuiz(UUID courseID, Quiz quiz) {
         Course course = courseList.getCourseByUUID(courseID);
-        StudentProgress studentProgress = course.getStudentProgressByStudentUUID(user.getId());
-        ArrayList<Grade> grades = studentProgress.getGrades();
-        for (Grade g : grades) {
-            if (g.getQuizID().equals(quiz.getId())) {
-                return true;
+        UUID userId = user.getId();
+        if (!(course.getStudentProgressByStudentUUID(userId) == null)) {
+            StudentProgress studentProgress = course.getStudentProgressByStudentUUID(userId);
+            ArrayList<Grade> grades = studentProgress.getGrades();
+            for (Grade g : grades) {
+                if (g.getQuizID().equals(quiz.getId())) {
+                    return true;
+                }
             }
         }
         return false;
