@@ -118,6 +118,7 @@ public class DataWriter extends DataConstants {
             // Quiz
             JSONObject quizDetails = new JSONObject();
             Quiz quiz = t.getQuiz();
+            quizDetails.put(COURSE_QUIZ_ID, quiz.getId().toString());
             quizDetails.put(COURSE_TITLE, quiz.getTitle());
             quizDetails.put(COURSE_DESCRIPTION, quiz.getDescription());
             // Quiz Questions
