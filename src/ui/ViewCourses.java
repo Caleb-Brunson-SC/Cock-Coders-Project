@@ -41,6 +41,8 @@ public class ViewCourses implements ActionListener{
       JLabel authorName = new JLabel();
       JLabel courseDescription = new JLabel();
       JLabel topicLabel = new JLabel();
+      // JLabel 
+
 
       courseName.setText("Title: " + workingCourse.getTitle()); // Course name
       authorName.setText("Teacher: " + workingCourse.getTeacher().getFullName()); // Teacher name
