@@ -2,6 +2,9 @@ package backEnd;
 
 import java.util.HashMap;
 
+/**
+ * An enumeration representing the programming languages that can be used for a project.
+ */
 public enum Language {
     NONE,
     CSHARP,
@@ -13,6 +16,10 @@ public enum Language {
     HTML,
     CSS;
 
+    /**
+     * Returns a map of language names to their corresponding Language enum values.
+     * @return a HashMap containing the mapping of language names to their enum values.
+     */
     public static HashMap<String, Language> getLanguageMap() {
         HashMap<String, Language> langaugeMap = new HashMap<String, Language>();
         langaugeMap.put("None", Language.NONE);
