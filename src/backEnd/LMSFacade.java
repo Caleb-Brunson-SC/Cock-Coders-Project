@@ -261,33 +261,15 @@ public class LMSFacade {
         Course course = courseList.getCourseByUUID(courseID);
         UUID userID = user.getId();
         ArrayList<StudentProgress> studentProgresses = course.getStudentProgresses();
-        /*
-        if (studentProgresses.isEmpty()) { 
-            //1. sp is empty
-            ArrayList<Grade> grades = new ArrayList<Grade>();
-            grades.add(new Grade(quiz.getId(), gradePercentage));
-            StudentProgress sp = new StudentProgress(user, grades);
-            studentProgresses.add(sp);
-        } else if (studentProgresses.contains(course.getStudentProgressByStudentUUID(userID))) { 
-            //2. sp is not empty and has the user
-            StudentProgress sp = course.getStudentProgressByStudentUUID(userID);
-            ArrayList<Grade> grades = sp.getGrades();
-            grades.add(new Grade(quiz.getId(), gradePercentage));
-        } else {
-            //3. sp is not empty and does not have user
-            ArrayList<Grade> grades = new ArrayList<Grade>();
-            grades.add(new Grade(quiz.getId(), gradePercentage));
-            StudentProgress sp = new StudentProgress(user, grades);
-            studentProgresses.add(sp);
-        }
-        */
+
         if (studentProgresses.contains(course.getStudentProgressByStudentUUID(userID))) { 
-            //2. sp is not empty and has the user
+            //1. sp is not empty and has the user
             StudentProgress sp = course.getStudentProgressByStudentUUID(userID);
             ArrayList<Grade> grades = sp.getGrades();
             grades.add(new Grade(quiz.getId(), gradePercentage));
         } else {
-            //3. sp is not empty and does not have user
+            //2. sp is not empty and does not have user
+            // or sp is empty and thus does not have the user
             ArrayList<Grade> grades = new ArrayList<Grade>();
             grades.add(new Grade(quiz.getId(), gradePercentage));
             StudentProgress sp = new StudentProgress(user, grades);
