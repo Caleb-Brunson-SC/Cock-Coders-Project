@@ -34,5 +34,17 @@
         "type": "student",
         "email": "scout_s@gmail.com",
         "username": "scout_s"
+    },
+    {
+        "firstName": "Allie",
+        "lastName": "Anderson",
+        "password": "aword123",
+        "currentCourseID": "00000000-0000-0000-0000-000000000000",
+        "currentTopicID": "00000000-0000-0000-0000-000000000000",
+        "currentLessonID": "00000000-0000-0000-0000-000000000000",
+        "id": "45ace0c9-e49a-4592-b5f1-fa77f2275a44",
+        "type": "student",
+        "email": "allie_a@gmail.com",
+        "username": "allie_a"
     }
 ]
