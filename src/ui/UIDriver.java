@@ -6,8 +6,8 @@ import backEnd.LMSFacade;
 public class UIDriver {
     public static void main(String[] args) {
         // teacher login
-        // username: jordanw420
-        // password: jw
+        // username: john_w
+        // password: jword123
         new Landing();
         
     }
