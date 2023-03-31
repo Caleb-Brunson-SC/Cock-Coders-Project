@@ -3,60 +3,43 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 import backEnd.*;
 
 public class viewDashboard {
     private final LMSFacade facade;
+    private final Course course;
     private JFrame frame;
-    private JLabel welcomeLabel;
-    private JLabel emailLabel;
-    private JLabel coursesLabel;
-    private JLabel courseProgressLabel;
 
     viewDashboard(LMSFacade facade) {
         this.facade = facade;
+        course = new Course();
+        frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+        frame.setLocationRelativeTo(null);
+        
+        // Welcome User
+        JLabel welcomeLabel = new JLabel("Welcome, " + facade.getUser().getUserName() + "!");
+        welcomeLabel.setHorizontalAlignment(JLabel.CENTER);
+        frame.getContentPane().add(welcomeLabel, BorderLayout.NORTH);
 
-        frame = new JFrame("Dashboard");
-        frame.setSize(500, 500);
-        frame.setLayout(new GridLayout(4, 1));
+        // Show User Email
+        JPanel infoPanel = new JPanel(new GridLayout(2, 1));
+        JLabel emailLabel = new JLabel("Email: " + facade.getUser().getEmail());
+        infoPanel.add(emailLabel);
 
-        // Welcome Label
-        welcomeLabel = new JLabel();
-        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        welcomeLabel.setText("Welcome, " + facade.getUser().getName());
-        frame.add(welcomeLabel);
-
-        // Email Label
-        emailLabel = new JLabel();
-        emailLabel.setText("Email: " + facade.getUser().getEmail());
-        frame.add(emailLabel);
-
-        // Current Courses Label
-        coursesLabel = new JLabel();
-        coursesLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        coursesLabel.setText("Current Courses:");
-        frame.add(coursesLabel);
-
-        // Course Progress Label
-        courseProgressLabel = new JLabel();
-        courseProgressLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        courseProgressLabel.setText("Course Progress:");
-        frame.add(courseProgressLabel);
-
-        // Iterate through courses
-        ArrayList<Course> courses = facade.getUser().getCourses();
-        for (Course course : courses) {
-            // Add course to coursesLabel
-            JLabel courseLabel = new JLabel();
-            courseLabel.setText(course.getName());
-            coursesLabel.add(courseLabel);
-
-            // Add course progress to courseProgressLabel
-            double progress = facade.getStudentProgress(course.getId());
-            JLabel courseProgress = new JLabel();
-            courseProgress.setText(course.getName() + ": " + progress + "%");
-            courseProgressLabel.add(courseProgress);
+        // Show Course Progress
+        ArrayList<Grade> grades = StudentProgress.getGrades();
+        double totalGrade = 0.0;
+        for (Grade grade : grades) {
+            totalGrade += Grade.getGradePercentage();
         }
+        double avgGrade = totalGrade / grades.size();
+        JLabel gradeLabel = new JLabel(String.format("Course Progress: %.2f%%", avgGrade));
+        infoPanel.add(gradeLabel);
+
+        frame.getContentPane().add(infoPanel, BorderLayout.CENTER);
 
         frame.setVisible(true);
     }

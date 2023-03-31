@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class StudentProgress {
     private User student;
-    private ArrayList<Grade> grades;
+    private static ArrayList<Grade> grades;
 
     /**
      * default constructor for student progress
@@ -33,7 +33,7 @@ public class StudentProgress {
         this.student = student;
     }
     
-    public ArrayList<Grade> getGrades() {
+    public static ArrayList<Grade> getGrades() {
         return grades;
     }
 

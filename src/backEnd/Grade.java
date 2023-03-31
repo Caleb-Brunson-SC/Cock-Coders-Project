@@ -9,7 +9,7 @@ public class Grade {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     private UUID id;
     private UUID quizID;
-    private double gradePercentage;
+    private static double gradePercentage;
 
     /**
      * Constructs a new Grade object with NIL_UUID, NIL_UUID, 
@@ -62,7 +62,7 @@ public class Grade {
         this.quizID = quizID;
     }
 
-    public double getGradePercentage() {
+    public static double getGradePercentage() {
         return gradePercentage;
     }
 
