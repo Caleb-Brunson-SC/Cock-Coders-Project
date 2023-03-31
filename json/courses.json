@@ -38,7 +38,28 @@
             }
         ],
         "description": "Learn about Document Object Model",
-        "students": [],
+        "students": [
+            {
+                "studentID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                "grades": [
+                    {
+                        "quizID": "4f6ecc8e-93c5-4603-962f-28b391612ceb",
+                        "id": "22f4d9e8-652f-4d17-95a0-3dd188e7cd89",
+                        "gradePercentage": 0.0
+                    }
+                ]
+            },
+            {
+                "studentID": "0c9c939a-c580-4318-842c-055aa74ff4b9",
+                "grades": [
+                    {
+                        "quizID": "4f6ecc8e-93c5-4603-962f-28b391612ceb",
+                        "id": "22f4d9e8-652f-4d17-95a0-3dd188e7cd89",
+                        "gradePercentage": 0.0
+                    }
+                ]
+            }
+        ],
         "language": "JAVASCRIPT",
         "id": "4bc8473a-fbd6-4824-933d-ce7cea69e845",
         "title": "JavaScript DOM"

@@ -8,6 +8,9 @@ public class UIDriver {
         // teacher login
         // username: john_w
         // password: jword123
+        // student log in
+        // username: calebrb
+        // password: cword123
         new Landing();
         
     }

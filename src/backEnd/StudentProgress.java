@@ -1,5 +1,6 @@
 package backEnd;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class StudentProgress {
     private User student;
@@ -35,6 +36,15 @@ public class StudentProgress {
     
     public static ArrayList<Grade> getGrades() {
         return grades;
+    }
+
+    public Grade getGradeByQuizUUID(UUID id) {
+        for (Grade g : grades) {
+            if (g.getQuizID().equals(id)) {
+                return g;
+            }
+        }
+        return null;
     }
 
     public void setGrades(ArrayList<Grade> grades) {

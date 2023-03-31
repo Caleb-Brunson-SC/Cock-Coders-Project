@@ -114,7 +114,7 @@ public class LMSFacade {
      * @param username username of a user
      * @param email email of a user
      * @param password password of a user
-     * @return true of the user was successfully create
+     * @return true if the user was successfully created
      */
     public boolean signUp(String type, String firstName, String lastName, String username, String email, String password) {
         if(userList.addUser(type, firstName, lastName, username, email, password, NIL_UUID, NIL_UUID, NIL_UUID)) {
@@ -341,13 +341,21 @@ public class LMSFacade {
     public void updateStudentProgress(UUID courseID, Quiz quiz, double gradePercentage) {
         Course course = courseList.getCourseByUUID(courseID);
         UUID userID = user.getId();
+        UUID quizID = quiz.getId();
         ArrayList<StudentProgress> studentProgresses = course.getStudentProgresses();
 
         if (studentProgresses.contains(course.getStudentProgressByStudentUUID(userID))) { 
             //1. sp is not empty and has the user
             StudentProgress sp = course.getStudentProgressByStudentUUID(userID);
             ArrayList<Grade> grades = sp.getGrades();
-            grades.add(new Grade(quiz.getId(), gradePercentage));
+            System.out.println(grades);
+            if (hasCompletedQuiz(grades, quizID)) {
+                System.out.println("Quiz was already taken");
+                Grade previousGrade = sp.getGradeByQuizUUID(quizID);
+                previousGrade.setGradePercentage(gradePercentage);
+            } else {
+                grades.add(new Grade(quiz.getId(), gradePercentage));
+            }
         } else {
             //2. sp is not empty and does not have user
             // or sp is empty and thus does not have the user
@@ -360,25 +368,20 @@ public class LMSFacade {
         courseList.saveCourses();
     }
 
-    /**
-     * @param courseID ID of a course
-     * @param quiz quiz related to course
-     * @return true if the quiz was completed
-     */
-    public boolean hasCompletedQuiz(UUID courseID, Quiz quiz) {
-        Course course = courseList.getCourseByUUID(courseID);
-        UUID userId = user.getId();
-        if (!(course.getStudentProgressByStudentUUID(userId) == null)) {
-            StudentProgress studentProgress = course.getStudentProgressByStudentUUID(userId);
-            ArrayList<Grade> grades = studentProgress.getGrades();
-            for (Grade g : grades) {
-                if (g.getQuizID().equals(quiz.getId())) {
-                    return true;
-                }
+    /** MAY REMOVE THIS METHOD
+     * @param grades ArrayList of grades for that user's student progress
+     * @param quizID quizID of the quiz 
+     * @return true if the quiz was completed (i.e. a grade already exists)
+    */
+    private boolean hasCompletedQuiz(ArrayList<Grade> grades, UUID quizID) {
+        for (Grade g : grades) {
+            if (g.getQuizID().equals(quizID)) {
+                return true;
             }
         }
         return false;
     }
+
 
     // ADMIN PRIVLEDGES OVER TEACHERS
     public void addTeacher(Teacher teacher) {}
