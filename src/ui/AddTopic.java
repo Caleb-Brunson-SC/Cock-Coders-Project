@@ -10,6 +10,10 @@ import backEnd.*;
 //language.java is enum for all languages
 public class AddTopic implements ActionListener{
   private final LMSFacade facade;
+  Course courseToEdit;
+  Topic topicToEdit;
+  boolean edit;
+
   JFrame frame1;
   JLabel l1;
   JLabel l2;
@@ -28,8 +32,12 @@ public class AddTopic implements ActionListener{
 
   String languages[] = {"Python", "JavaScript", "Java", "C#", "PHP", "C++", "C", "R", "Swift", "Objective C", "Kotlin"};
 
-  AddTopic(LMSFacade facade){
+  AddTopic(LMSFacade facade, Course courseToEdit, Topic topicToEdit, boolean edit){
     this.facade = facade;
+    this.courseToEdit = courseToEdit;
+    this.topicToEdit = topicToEdit;
+    this.edit = edit;
+    
     // create new displayed objects
     
     frame1 = new JFrame();
@@ -47,24 +55,35 @@ public class AddTopic implements ActionListener{
     descriptionField = new JTextField();
 
     topicList= new ArrayList<Topic>();
-    addLesson = new JButton();
-    addLesson.addActionListener(this);
-    addQuiz = new JButton();
-    addQuiz.addActionListener(this);
+
+    if (!edit) {
+      addLesson = new JButton();
+      addLesson.addActionListener(this);
+      addQuiz = new JButton();
+      addQuiz.addActionListener(this);
+    }
+    
+
     button1 = new JButton();
     button1.addActionListener(this);
 
     // set text for all prompts
-    l1.setText("Create Topic");
+    if (edit) {
+      l1.setText("Edit Topic");
+    } else {
+      l1.setText("Create Topic");
+    }
     topicTitleLabel.setText("Topic Title:");
     descriptionLabel.setText("Topic Description:");
 
-    l2.setText("Lessons");
+    if (!edit) {
+      l2.setText("Lessons");
+      addLesson.setText("Add Lesson");
 
-    addLesson.setText("Add Lesson");
+      l3.setText("Quizes");
+      addQuiz.setText("Add Quiz");
+    }
 
-    l3.setText("Quizes");
-    addQuiz.setText("Add Quiz");
     button1.setText("Submit");
   
     // sets bounds for all objects
@@ -93,7 +112,9 @@ public class AddTopic implements ActionListener{
       lessonCounter++;
     }
 
-    addLesson.setBounds(300, 170 + (30 * lessonCounter), 100, 30);
+    if (!edit) {
+      addLesson.setBounds(300, 170 + (30 * lessonCounter), 100, 30);
+    }
     l3.setBounds(100, 200 + (30 * lessonCounter), 300, 15);
 
     int quizCounter = 0;
@@ -112,7 +133,10 @@ public class AddTopic implements ActionListener{
       quizCounter++;
     }
 
-    addQuiz.setBounds(300, 230 + (30 * lessonCounter) + (30 * quizCounter), 100, 30);
+    if (!edit) {
+      addQuiz.setBounds(300, 230 + (30 * lessonCounter) + (30 * quizCounter), 100, 30);
+    }
+    
     button1.setBounds(300, 260 + (30 * lessonCounter) + (30 * quizCounter), 100, 30);
 
 
@@ -128,8 +152,10 @@ public class AddTopic implements ActionListener{
     frame1.add(l2);
     frame1.add(l3);
 
-    frame1.add(addLesson);
-    frame1.add(addQuiz);
+    if (!edit) {
+      frame1.add(addLesson);
+      frame1.add(addQuiz);
+    }
     frame1.add(button1);
 
     // frame1.add(l3);

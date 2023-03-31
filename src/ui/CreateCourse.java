@@ -139,7 +139,7 @@ public class CreateCourse implements ActionListener{
       if (facade.reachedTopicLimit()) {
         JOptionPane.showMessageDialog(frame1,"Only " + LMSFacade.TOPIC_LIMIT + " topics are allowed.","Alert",JOptionPane.WARNING_MESSAGE);
       } else {
-        new AddTopic(facade);
+        new AddTopic(facade, null, null, false);
       }
     }
   }
