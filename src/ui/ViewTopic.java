@@ -73,10 +73,19 @@ public class ViewTopic implements ActionListener{
         viewLesson.setName(Integer.toString(lessonIndex));
         System.out.println(viewLesson.getName()); // TEST
         lessonIndex = lessonIndex + 1;
-        lessonName.setBounds(150, 160 + (k * 30), 100, 20);
+        lessonName.setBounds(100, 160 + (k * 30), 150, 20);
         viewLesson.setBounds(250, 160 + (k * 30), 100, 20);
         p1.add(lessonName);
         p1.add(viewLesson);
+        JButton editTopic = new JButton();
+        JButton deleteTopic = new JButton();
+        editTopic.setText("Edit");
+        deleteTopic.setText("Delete");
+
+        editTopic.setBounds(350, 160 + (k * 30), 100, 20);
+        deleteTopic.setBounds(450, 160 + (k * 30), 100, 20);
+        p1.add(editTopic);
+        p1.add(deleteTopic);
         k++;
       }
 
@@ -89,17 +98,26 @@ public class ViewTopic implements ActionListener{
       quizName.setText(workingQuiz.getTitle());
       viewQuiz.setText("View");
       viewQuiz.setName(Integer.toString(lessonIndex));
-      quizName.setBounds(150, 190 + (k * 30) + (0 * 30), 100, 20);
-      viewQuiz.setBounds(250, 190 + (k * 30) + (0 * 30), 100, 20);
+      quizName.setBounds(100, 190 + (k * 30), 150, 20);
+      viewQuiz.setBounds(250, 190 + (k * 30), 100, 20);
       p1.add(quizName);
       p1.add(viewQuiz);
       
+      JButton editTopic = new JButton();
+      JButton deleteTopic = new JButton();
+      editTopic.setText("Edit");
+      deleteTopic.setText("Delete");
+
+      editTopic.setBounds(350, 190 + (k * 30), 100, 20);
+      deleteTopic.setBounds(450, 190 + (k * 30), 100, 20);
+      p1.add(editTopic);
+      p1.add(deleteTopic);
       
-      tabbedPane.setBounds(0,0,500,500);
+      tabbedPane.setBounds(0,0,600,500);
     
       frame1.setVisible(true);
   
-      frame1.setSize(500, 600 + (k * 30));
+      frame1.setSize(600, 600 + (k * 30));
   
       frame1.add(tabbedPane);
   }
