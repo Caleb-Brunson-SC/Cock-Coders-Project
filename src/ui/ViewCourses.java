@@ -135,7 +135,7 @@ public class ViewCourses implements ActionListener{
     Topic topicOfInterest = courseOfInterest.getTopics().get(topicBtnIndex);
     if (action.equals("edit")) {
       // Edit the topic information
-      // IMPLEMENT
+      facade.editTopic(topicOfInterest);
     } else if (action.equals("delete")) {
       // Delete the topic
       facade.deleteTopic(topicOfInterest);
