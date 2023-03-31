@@ -25,14 +25,14 @@ public class AddComment implements ActionListener{
 
     submitButton.setText("Submit");
 
-    submitButton.setBounds(350, 400, 100, 30);
-    commentField.setBounds(50, 50, 400, 350);
+    submitButton.setBounds(350, 200, 100, 30);
+    commentField.setBounds(50, 50, 400, 150);
 
     frame1.add(submitButton);
     frame1.add(commentField);
     
     frame1.setVisible(true);
-    frame1.setSize(500, 500);
+    frame1.setSize(500, 300);
     frame1.setLayout(null);
   }
   public void actionPerformed(ActionEvent e) {

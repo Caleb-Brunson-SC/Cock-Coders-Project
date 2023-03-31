@@ -32,14 +32,14 @@ public class ViewComments implements ActionListener{
       authorLabel.setText("UserName"); // Course name
       dateLabel.setText("Date"); // Teacher name
       contentLabel.setText("Comment content"); // Course description
-      viewReplies.setText("Topics: ");
+      viewReplies.setText("View Replies");
 
       authorLabel.setFont(new Font(authorLabel.getFont().getName(), Font.BOLD, authorLabel.getFont().getSize()));
 
       authorLabel.setBounds(50, 50, 100, 20);
       dateLabel.setBounds(150, 50, 100, 20);
-      contentLabel.setBounds(50, 70, 300, 100);
-      viewReplies.setBounds(50, 70, 100, 30);
+      contentLabel.setBounds(50, 50, 300, 100);
+      viewReplies.setBounds(350, 70, 100, 30);
       separator.setBounds(50,200, 400, 1);
 
       frame1.add(authorLabel);

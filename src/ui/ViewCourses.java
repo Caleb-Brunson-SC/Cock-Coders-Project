@@ -104,17 +104,18 @@ public class ViewCourses implements ActionListener{
     frame1.add(tabbedPane);
   }
   public void actionPerformed(ActionEvent e) {
-    JButton btn = (JButton)e.getSource();
-    String[] splitArray = btn.getName().split("\\s+");
-    int courseBtnIndex = Integer.parseInt(splitArray[0]);
-    int topicBtnIndex = Integer.parseInt(splitArray[1]);
-
-    new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
-
     if (e.getSource() == viewComments) {
       new ViewComments(facade);
     } else if (e.getSource() == addComment) {
       new AddComment(facade);
+    } else {
+    // JButton btn = (JButton)e.getSource();
+    // String[] splitArray = btn.getName().split("\\s+");
+    // int courseBtnIndex = Integer.parseInt(splitArray[0]);
+    // int topicBtnIndex = Integer.parseInt(splitArray[1]);
+
+    // new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
+
     }
   }
 }
