@@ -72,21 +72,23 @@ public class ViewCourses implements ActionListener{
         buttonTopics.add(workingTopic);
         JLabel topicName = new JLabel();
         viewTopic = new JButton(); // Initalize viewTopic JBUTTON
-        JButton editTopic = new JButton();
-        editTopic.addActionListener(this);
-        JButton deleteTopic = new JButton();
-        deleteTopic.addActionListener(this);
-        editTopic.setText("Edit");
-        editTopic.setName("edit " + Integer.toString(i) + " " + Integer.toString(k));
-        deleteTopic.setText("Delete");
-        deleteTopic.setName("delete " + Integer.toString(i) + " " +  Integer.toString(k));
 
-        editTopic.setBounds(350, 160 + (k * 30), 100, 20);
-        deleteTopic.setBounds(450, 160 + (k * 30), 100, 20);
-        p1.add(editTopic);
-        p1.add(deleteTopic);
+        if (facade.getUser().getId().equals(workingCourse.getTeacher().getId())) {
+          JButton editTopic = new JButton();
+          editTopic.addActionListener(this);
+          JButton deleteTopic = new JButton();
+          deleteTopic.addActionListener(this);
+          editTopic.setText("Edit");
+          editTopic.setName("edit " + Integer.toString(i) + " " + Integer.toString(k));
+          deleteTopic.setText("Delete");
+          deleteTopic.setName("delete " + Integer.toString(i) + " " +  Integer.toString(k));
 
-
+          editTopic.setBounds(350, 160 + (k * 30), 100, 20);
+          deleteTopic.setBounds(450, 160 + (k * 30), 100, 20);
+          p1.add(editTopic);
+          p1.add(deleteTopic);
+        }
+        
         viewTopic.addActionListener(this);
         topicName.setText(workingTopic.getTitle()); // title/name of the topic
         viewTopic.setText("View");
