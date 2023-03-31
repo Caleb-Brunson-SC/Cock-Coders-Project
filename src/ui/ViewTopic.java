@@ -70,22 +70,30 @@ public class ViewTopic implements ActionListener{
         viewLesson.addActionListener(this);
         lessonName.setText(workingLesson.getTitle());
         viewLesson.setText("View");
-        viewLesson.setName(Integer.toString(lessonIndex));
+        viewLesson.setName("viewlesson " + Integer.toString(lessonIndex));
         System.out.println(viewLesson.getName()); // TEST
         lessonIndex = lessonIndex + 1;
         lessonName.setBounds(100, 160 + (k * 30), 150, 20);
         viewLesson.setBounds(250, 160 + (k * 30), 100, 20);
         p1.add(lessonName);
         p1.add(viewLesson);
-        JButton editTopic = new JButton();
-        JButton deleteTopic = new JButton();
-        editTopic.setText("Edit");
-        deleteTopic.setText("Delete");
 
-        editTopic.setBounds(350, 160 + (k * 30), 100, 20);
-        deleteTopic.setBounds(450, 160 + (k * 30), 100, 20);
-        p1.add(editTopic);
-        p1.add(deleteTopic);
+        if (facade.getUser().getId().equals(workingCourse.getTeacher().getId())) {
+          JButton editTopic = new JButton();
+          JButton deleteTopic = new JButton();
+          editTopic.addActionListener(this);
+          deleteTopic.addActionListener(this);
+          editTopic.setText("Edit");
+          deleteTopic.setText("Delete");
+          editTopic.setName("editlesson " + Integer.toString(lessonIndex));
+          deleteTopic.setName("deletelesson " + Integer.toString(lessonIndex));
+  
+          editTopic.setBounds(350, 160 + (k * 30), 100, 20);
+          deleteTopic.setBounds(450, 160 + (k * 30), 100, 20);
+          p1.add(editTopic);
+          p1.add(deleteTopic);
+        }
+        
         k++;
       }
 
@@ -97,21 +105,27 @@ public class ViewTopic implements ActionListener{
       viewQuiz.addActionListener(this);
       quizName.setText(workingQuiz.getTitle());
       viewQuiz.setText("View");
-      viewQuiz.setName(Integer.toString(lessonIndex));
+      viewQuiz.setName("viewquiz " + Integer.toString(lessonIndex));
       quizName.setBounds(100, 190 + (k * 30), 150, 20);
       viewQuiz.setBounds(250, 190 + (k * 30), 100, 20);
       p1.add(quizName);
       p1.add(viewQuiz);
       
-      JButton editTopic = new JButton();
-      JButton deleteTopic = new JButton();
-      editTopic.setText("Edit");
-      deleteTopic.setText("Delete");
-
-      editTopic.setBounds(350, 190 + (k * 30), 100, 20);
-      deleteTopic.setBounds(450, 190 + (k * 30), 100, 20);
-      p1.add(editTopic);
-      p1.add(deleteTopic);
+      if (facade.getUser().getId().equals(workingCourse.getTeacher().getId())) {
+        JButton editTopic = new JButton();
+        JButton deleteTopic = new JButton();
+        editTopic.addActionListener(this);
+        deleteTopic.addActionListener(this);
+        editTopic.setText("Edit");
+        deleteTopic.setText("Delete");
+        editTopic.setName("editquiz " + Integer.toString(lessonIndex));
+        deleteTopic.setName("deletequiz " + Integer.toString(lessonIndex));
+  
+        editTopic.setBounds(350, 190 + (k * 30), 100, 20);
+        deleteTopic.setBounds(450, 190 + (k * 30), 100, 20);
+        p1.add(editTopic);
+        p1.add(deleteTopic);
+      }
       
       tabbedPane.setBounds(0,0,600,500);
     
@@ -124,12 +138,23 @@ public class ViewTopic implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     JButton btn = (JButton)e.getSource();
-    int lessonBtnIndex = Integer.parseInt(btn.getName());
-
-    if (lessonBtnIndex <= lessons.size() - 1) {
-      new ViewLesson(facade, lessons.get(lessonBtnIndex));
-    } else {
+    String[] splitArray = btn.getName().split("\\s+");
+    String action = splitArray[0];
+    int btnIndex = Integer.parseInt(splitArray[1]);
+    
+    if (action.equals("viewlesson")) {
+      new ViewLesson(facade, lessons.get(btnIndex));
+    } else if (action.equals("editlesson")) {
+      System.out.println(action + " : " + btnIndex);
+    } else if (action.equals("deletelesson")) {
+      System.out.println(action + " : " + btnIndex);
+    } else if (action.equals("viewquiz")) {
       new ViewQuestion(facade, workingCourse, workingQuiz);
+    } else if (action.equals("editquiz")) {
+      System.out.println(action + " : " + btnIndex);
+    } else if (action.equals("deletequiz")) {
+      System.out.println(action + " : " + btnIndex);
     }
+
   }
 }
