@@ -14,8 +14,6 @@ public class ViewCourses implements ActionListener{
   JButton viewTopic;
   ArrayList<Course> courses;
   ArrayList<Topic> buttonTopics;
-  //int topicIndex = 0;
-  //int courseIndex = 0;
   JTabbedPane tabbedPane;
   JButton viewComments;
   JButton addComment;
@@ -93,15 +91,12 @@ public class ViewCourses implements ActionListener{
         topicName.setText(workingTopic.getTitle()); // title/name of the topic
         viewTopic.setText("View");
         viewTopic.setName("view " + Integer.toString(i) + " " + Integer.toString(k));
-        //topicIndex++;
         topicName.setBounds(150, 160 + (k * 30), 100, 20);
         viewTopic.setBounds(250, 160 + (k * 30), 100, 20);
         p1.add(topicName);
         p1.add(viewTopic);
 
       }
-      //topicIndex = 0;
-      //courseIndex++;
     }
     viewComments = new JButton();
     viewComments.setText("View Comments");
