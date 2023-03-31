@@ -229,7 +229,11 @@ public class LMSFacade {
         lessonCount++;
     }
 
-    public void deleteLesson(Lesson lesson) {}
+    public void deleteLesson(Topic topic, Lesson lesson) {
+        ArrayList<Lesson> lessons = topic.getLessons();
+        lessons.remove(lesson);
+        courseList.saveCourses();
+    }
 
 
     /**
@@ -251,7 +255,10 @@ public class LMSFacade {
         }
     }
 
-    public void deleteQuiz(Quiz quiz) {}
+    public void deleteQuiz(Quiz quiz) {
+        quiz = null; // maybe change this to quiz = new Quiz();
+        courseList.saveCourses();
+    }
 
     /**
      * @param questionString the question being asked
