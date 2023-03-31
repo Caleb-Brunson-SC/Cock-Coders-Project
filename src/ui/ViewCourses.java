@@ -109,12 +109,12 @@ public class ViewCourses implements ActionListener{
     } else if (e.getSource() == addComment) {
       new AddComment(facade);
     } else {
-    // JButton btn = (JButton)e.getSource();
-    // String[] splitArray = btn.getName().split("\\s+");
-    // int courseBtnIndex = Integer.parseInt(splitArray[0]);
-    // int topicBtnIndex = Integer.parseInt(splitArray[1]);
+    JButton btn = (JButton)e.getSource();
+    String[] splitArray = btn.getName().split("\\s+");
+    int courseBtnIndex = Integer.parseInt(splitArray[0]);
+    int topicBtnIndex = Integer.parseInt(splitArray[1]);
 
-    // new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
+    new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
 
     }
   }
