@@ -15,7 +15,7 @@ public class ViewComments implements ActionListener{
   ArrayList<Comment> comments;
   int commentIndex = 0;
 
-  ViewComments(LMSFacade facade){
+  ViewComments(LMSFacade facade) {
     this.facade = facade;    
     frame1 = new JFrame();
     frame1.setLayout(null);
@@ -26,7 +26,6 @@ public class ViewComments implements ActionListener{
       JLabel dateLabel = new JLabel();
       JButton viewReplies = new JButton();
       JSeparator separator = new JSeparator();
-      // JLabel 
 
 
       authorLabel.setText("UserName"); // Course name
