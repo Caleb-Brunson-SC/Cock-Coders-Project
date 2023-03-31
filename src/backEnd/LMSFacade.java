@@ -255,8 +255,8 @@ public class LMSFacade {
         }
     }
 
-    public void deleteQuiz(Quiz quiz) {
-        quiz = null; // maybe change this to quiz = new Quiz();
+    public void deleteQuiz(Topic topic, Quiz quiz) {
+        topic.setQuiz(new Quiz());
         courseList.saveCourses();
     }
 
