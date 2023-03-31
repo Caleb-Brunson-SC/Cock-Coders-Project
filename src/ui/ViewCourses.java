@@ -132,11 +132,13 @@ public class ViewCourses implements ActionListener{
     Topic topicOfInterest = courseOfInterest.getTopics().get(topicBtnIndex);
     if (action.equals("edit")) {
       // Edit the topic information
-      new AddTopic(facade, courseOfInterest, topicOfInterest, true);
+      new AddTopic(facade, topicOfInterest, true);
+      frame1.setVisible(false);
       //facade.editTopic(topicOfInterest);
     } else if (action.equals("delete")) {
       // Delete the topic
       facade.deleteTopic(topicOfInterest);
+      frame1.setVisible(false);
     } else if (action.equals("view")) {
       // View that particular topic
       new ViewTopic(facade, courseOfInterest, topicOfInterest);

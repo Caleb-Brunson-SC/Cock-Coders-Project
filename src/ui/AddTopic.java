@@ -10,7 +10,6 @@ import backEnd.*;
 //language.java is enum for all languages
 public class AddTopic implements ActionListener{
   private final LMSFacade facade;
-  Course courseToEdit;
   Topic topicToEdit;
   boolean edit;
 
@@ -32,9 +31,8 @@ public class AddTopic implements ActionListener{
 
   String languages[] = {"Python", "JavaScript", "Java", "C#", "PHP", "C++", "C", "R", "Swift", "Objective C", "Kotlin"};
 
-  AddTopic(LMSFacade facade, Course courseToEdit, Topic topicToEdit, boolean edit){
+  AddTopic(LMSFacade facade, Topic topicToEdit, boolean edit){
     this.facade = facade;
-    this.courseToEdit = courseToEdit;
     this.topicToEdit = topicToEdit;
     this.edit = edit;
     
@@ -178,7 +176,12 @@ public class AddTopic implements ActionListener{
       if (title.isBlank() || description.isBlank()) {
         JOptionPane.showMessageDialog(frame1,"Title or Description are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
       } else {
-        facade.createTopic(title, description);
+        if (edit) {
+          facade.editTopic(topicToEdit, title, description);
+          frame1.setVisible(false);
+        } else {
+          facade.createTopic(title, description);
+        }
       }
 
       frame1.setVisible(false);

@@ -203,8 +203,11 @@ public class LMSFacade {
         System.out.println("Delete: " + topic.getTitle());
     }
 
-    public void editTopic(Topic topic) {
+    public void editTopic(Topic topic, String title, String description) {
         System.out.println("Edit: " + topic.getTitle());
+        topic.setTitle(title);
+        topic.setDescription(description);
+        courseList.saveCourses();
     }
 
 
