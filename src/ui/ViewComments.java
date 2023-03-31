@@ -20,7 +20,7 @@ public class ViewComments implements ActionListener{
     frame1 = new JFrame();
     frame1.setLayout(null);
 
-    for (int i = 0; i < comments.size(); i++) {
+    for (int i = 0; i < 3; i++) {
       JLabel authorLabel = new JLabel();
       JLabel contentLabel = new JLabel();
       JLabel dateLabel = new JLabel();
@@ -47,7 +47,6 @@ public class ViewComments implements ActionListener{
       frame1.add(contentLabel);
       frame1.add(viewReplies);
       frame1.add(separator);
-      // should parse through all topics in course
       
     }
     

@@ -11,48 +11,28 @@ import javax.swing.JTabbedPane;
 public class AddComment implements ActionListener{
   private final LMSFacade facade;
   JFrame frame1;
-  JButton viewTopic;
-  ArrayList<Comment> comments;
-  int commentIndex = 0;
+  JButton submitButton;
+  JTextArea commentField;
 
   AddComment(LMSFacade facade){
     this.facade = facade;    
     frame1 = new JFrame();
+    submitButton = new JButton();
+    commentField = new JTextArea();
     frame1.setLayout(null);
+    commentField.setLineWrap(true);
+    
 
-    for (int i = 0; i < comments.size(); i++) {
-      JLabel authorLabel = new JLabel();
-      JLabel contentLabel = new JLabel();
-      JLabel dateLabel = new JLabel();
-      JButton viewReplies = new JButton();
-      JSeparator separator = new JSeparator();
-      // JLabel 
+    submitButton.setText("Submit");
 
+    submitButton.setBounds(350, 400, 100, 30);
+    commentField.setBounds(50, 50, 400, 350);
 
-      authorLabel.setText("UserName"); // Course name
-      dateLabel.setText("Date"); // Teacher name
-      contentLabel.setText("Comment content"); // Course description
-      viewReplies.setText("Topics: ");
-
-      authorLabel.setFont(new Font(authorLabel.getFont().getName(), Font.BOLD, authorLabel.getFont().getSize()));
-
-      authorLabel.setBounds(50, 50, 100, 20);
-      dateLabel.setBounds(150, 50, 100, 20);
-      contentLabel.setBounds(50, 70, 300, 100);
-      viewReplies.setBounds(50, 70, 100, 30);
-      separator.setBounds(50,200, 400, 1);
-
-      frame1.add(authorLabel);
-      frame1.add(dateLabel);
-      frame1.add(contentLabel);
-      frame1.add(viewReplies);
-      frame1.add(separator);
-      // should parse through all topics in course
-      
-    }
+    frame1.add(submitButton);
+    frame1.add(commentField);
     
     frame1.setVisible(true);
-    frame1.setSize(500, 600);
+    frame1.setSize(500, 500);
     frame1.setLayout(null);
   }
   public void actionPerformed(ActionEvent e) {

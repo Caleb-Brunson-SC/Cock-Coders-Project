@@ -17,11 +17,14 @@ public class ViewCourses implements ActionListener{
   int topicIndex = 0;
   int courseIndex = 0;
   JTabbedPane tabbedPane;
+  JButton viewComments;
+  JButton addComment;
 
   ViewCourses(LMSFacade facade){
     this.facade = facade;
     this.courses = facade.getCourseList().getCourses();
     this.buttonTopics = new ArrayList<Topic>();
+    
     
     frame1 = new JFrame();
     tabbedPane = new JTabbedPane();
@@ -81,10 +84,17 @@ public class ViewCourses implements ActionListener{
       }
       courseIndex++;
     }
-    JButton viewComments = new JButton();
+    viewComments = new JButton();
     viewComments.setText("View Comments");
     viewComments.setBounds(350, 500, 150, 30);
+    viewComments.addActionListener(this);
     frame1.add(viewComments);
+
+    addComment = new JButton();
+    addComment.setText("Add Comment");
+    addComment.setBounds(200, 500, 150, 30);
+    addComment.addActionListener(this);
+    frame1.add(addComment);
 
     tabbedPane.setBounds(0,0,500,500);
     
@@ -100,5 +110,11 @@ public class ViewCourses implements ActionListener{
     int topicBtnIndex = Integer.parseInt(splitArray[1]);
 
     new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
+
+    if (e.getSource() == viewComments) {
+      new ViewComments(facade);
+    } else if (e.getSource() == addComment) {
+      new AddComment(facade);
+    }
   }
 }
