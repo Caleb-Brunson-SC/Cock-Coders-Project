@@ -235,6 +235,12 @@ public class LMSFacade {
         courseList.saveCourses();
     }
 
+    public void editLesson(Lesson lesson, String title, String content) {
+        lesson.setTitle(title);
+        lesson.setContent(content);
+        courseList.saveCourses();
+    }
+
 
     /**
      * @param title the title of a quiz

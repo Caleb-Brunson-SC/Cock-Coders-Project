@@ -190,7 +190,7 @@ public class AddTopic implements ActionListener{
       if (facade.reachedLessonLimit()) {
         JOptionPane.showMessageDialog(frame1,"Only " + LMSFacade.LESSON_LIMIT + " lessons are allowed.","Alert",JOptionPane.WARNING_MESSAGE);
       } else {
-        new AddLesson(facade);
+        new AddLesson(facade, null, false);
       }
     } else if (e.getSource() == addQuiz) {
       if (facade.reachedQuizLimit()) {

@@ -146,7 +146,7 @@ public class ViewTopic implements ActionListener{
     } else if (action.equals("editlesson")) {
       btnIndex = Integer.parseInt(splitArray[1]);
       System.out.println(action + " : " + btnIndex);
-      // new AddLesson(facade, lessons.get(btnIndex));
+      new AddLesson(facade, lessons.get(btnIndex), true); // edit
       frame1.setVisible(false);
     } else if (action.equals("deletelesson")) {
       btnIndex = Integer.parseInt(splitArray[1]);

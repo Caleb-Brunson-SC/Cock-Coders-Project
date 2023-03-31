@@ -7,6 +7,8 @@ import backEnd.*;
 
 public class AddLesson implements ActionListener{
   private final LMSFacade facade;
+  Lesson lessonToEdit;
+  boolean edit;
   JFrame frame1;
   JLabel l1;
   JButton button1;
@@ -17,8 +19,10 @@ public class AddLesson implements ActionListener{
   JTextArea contentField;
   JScrollPane scroll;
 
-  AddLesson(LMSFacade facade){
+  AddLesson(LMSFacade facade, Lesson lessonToEdit, boolean edit){
     this.facade = facade;
+    this.lessonToEdit = lessonToEdit;
+    this.edit = edit;
 
     frame1 = new JFrame();
     l1 = new JLabel();
@@ -34,7 +38,12 @@ public class AddLesson implements ActionListener{
 
     l1.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
 
-    l1.setText("Create Lesson");
+    if (edit) {
+      l1.setText("Edit Lesson");
+    } else {
+      l1.setText("Create Lesson");
+    }
+    
     nameLabel.setText("Lesson Name: ");
     contentLabel.setText("Lesson Content:");
     button1.setText("Submit");
@@ -74,7 +83,11 @@ public class AddLesson implements ActionListener{
       if (name.isBlank() || content.isBlank()) {
         JOptionPane.showMessageDialog(frame1,"Name or content are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
       } else {
-        facade.createLesson(name, content);
+        if (edit) {
+          facade.editLesson(lessonToEdit, name, content);
+        } else {
+          facade.createLesson(name, content);
+        }
       }
 
       frame1.setVisible(false);
