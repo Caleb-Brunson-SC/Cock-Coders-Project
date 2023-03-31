@@ -199,8 +199,11 @@ public class LMSFacade {
         }
     }
 
-    public void deleteTopic(Topic topic) {
+    public void deleteTopic(Course course, Topic topic) {
         System.out.println("Delete: " + topic.getTitle());
+        ArrayList<Topic> topics = course.getTopics();
+        topics.remove(topic);
+        courseList.saveCourses();
     }
 
     public void editTopic(Topic topic, String title, String description) {

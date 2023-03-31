@@ -137,7 +137,7 @@ public class ViewCourses implements ActionListener{
       //facade.editTopic(topicOfInterest);
     } else if (action.equals("delete")) {
       // Delete the topic
-      facade.deleteTopic(topicOfInterest);
+      facade.deleteTopic(courseOfInterest, topicOfInterest);
       frame1.setVisible(false);
     } else if (action.equals("view")) {
       // View that particular topic
