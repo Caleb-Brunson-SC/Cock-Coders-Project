@@ -72,6 +72,17 @@ public class ViewCourses implements ActionListener{
         buttonTopics.add(workingTopic);
         JLabel topicName = new JLabel();
         viewTopic = new JButton(); // Initalize viewTopic JBUTTON
+        JButton editTopic = new JButton();
+        JButton deleteTopic = new JButton();
+        editTopic.setText("Edit");
+        deleteTopic.setText("Delete");
+
+        editTopic.setBounds(350, 160 + (k * 30), 100, 20);
+        deleteTopic.setBounds(450, 160 + (k * 30), 100, 20);
+        p1.add(editTopic);
+        p1.add(deleteTopic);
+
+
         viewTopic.addActionListener(this);
         topicName.setText(workingTopic.getTitle()); // title/name of the topic
         viewTopic.setText("View");
@@ -81,6 +92,7 @@ public class ViewCourses implements ActionListener{
         viewTopic.setBounds(250, 160 + (k * 30), 100, 20);
         p1.add(topicName);
         p1.add(viewTopic);
+
       }
       courseIndex++;
     }
@@ -96,10 +108,10 @@ public class ViewCourses implements ActionListener{
     addComment.addActionListener(this);
     frame1.add(addComment);
 
-    tabbedPane.setBounds(0,0,500,500);
+    tabbedPane.setBounds(0,0,600,500);
     
     frame1.setVisible(true);
-    frame1.setSize(500, 600);
+    frame1.setSize(600, 600);
 
     frame1.add(tabbedPane);
   }
@@ -109,12 +121,12 @@ public class ViewCourses implements ActionListener{
     } else if (e.getSource() == addComment) {
       new AddComment(facade);
     } else {
-    // JButton btn = (JButton)e.getSource();
-    // String[] splitArray = btn.getName().split("\\s+");
-    // int courseBtnIndex = Integer.parseInt(splitArray[0]);
-    // int topicBtnIndex = Integer.parseInt(splitArray[1]);
+    JButton btn = (JButton)e.getSource();
+    String[] splitArray = btn.getName().split("\\s+");
+    int courseBtnIndex = Integer.parseInt(splitArray[0]);
+    int topicBtnIndex = Integer.parseInt(splitArray[1]);
 
-    // new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
+    new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
 
     }
   }

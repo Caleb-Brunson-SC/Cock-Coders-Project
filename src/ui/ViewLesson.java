@@ -14,6 +14,8 @@ public class ViewLesson implements ActionListener{
   Lesson workingLesson;
   JTabbedPane tabbedPane;
   JScrollPane scroll;
+  JButton viewComments;
+  JButton addComment;
 
   ViewLesson(LMSFacade facade, Lesson workingLesson){
     this.facade = facade;
@@ -51,14 +53,28 @@ public class ViewLesson implements ActionListener{
       tabbedPane.add(workingLesson.getTitle() , p1);
 
       tabbedPane.setBounds(0,0,500,500);
-    
-      frame1.setVisible(true);
-      frame1.setSize(500, 500);
-  
-      frame1.add(tabbedPane);
     }
+    viewComments = new JButton();
+    viewComments.setText("View Comments");
+    viewComments.setBounds(350, 500, 150, 30);
+    viewComments.addActionListener(this);
+    frame1.add(viewComments);
+
+    addComment = new JButton();
+    addComment.setText("Add Comment");
+    addComment.setBounds(200, 500, 150, 30);
+    addComment.addActionListener(this);
+    frame1.add(addComment);
+
+    frame1.setVisible(true);
+    frame1.setSize(500, 600);
+    frame1.add(tabbedPane);
   }
   public void actionPerformed(ActionEvent e) {
-    
+    if (e.getSource() == viewComments) {
+      new ViewComments(facade);
+    } else if (e.getSource() == addComment) {
+      new AddComment(facade);
+    } 
   }
 }
