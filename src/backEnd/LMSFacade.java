@@ -199,7 +199,13 @@ public class LMSFacade {
         }
     }
 
-    public void deleteTopic(Topic topic) {}
+    public void deleteTopic(Topic topic) {
+        System.out.println("Delete: " + topic.getTitle());
+    }
+
+    public void editTopic(Topic topic) {
+        System.out.println("Edit: " + topic.getTitle());
+    }
 
 
     /**

@@ -14,8 +14,8 @@ public class ViewCourses implements ActionListener{
   JButton viewTopic;
   ArrayList<Course> courses;
   ArrayList<Topic> buttonTopics;
-  int topicIndex = 0;
-  int courseIndex = 0;
+  //int topicIndex = 0;
+  //int courseIndex = 0;
   JTabbedPane tabbedPane;
   JButton viewComments;
   JButton addComment;
@@ -73,9 +73,13 @@ public class ViewCourses implements ActionListener{
         JLabel topicName = new JLabel();
         viewTopic = new JButton(); // Initalize viewTopic JBUTTON
         JButton editTopic = new JButton();
+        editTopic.addActionListener(this);
         JButton deleteTopic = new JButton();
+        deleteTopic.addActionListener(this);
         editTopic.setText("Edit");
+        editTopic.setName("edit " + Integer.toString(i) + " " + Integer.toString(k));
         deleteTopic.setText("Delete");
+        deleteTopic.setName("delete " + Integer.toString(i) + " " +  Integer.toString(k));
 
         editTopic.setBounds(350, 160 + (k * 30), 100, 20);
         deleteTopic.setBounds(450, 160 + (k * 30), 100, 20);
@@ -86,15 +90,16 @@ public class ViewCourses implements ActionListener{
         viewTopic.addActionListener(this);
         topicName.setText(workingTopic.getTitle()); // title/name of the topic
         viewTopic.setText("View");
-        viewTopic.setName(Integer.toString(courseIndex) + " " + Integer.toString(topicIndex));
-        topicIndex++;
+        viewTopic.setName("view " + Integer.toString(i) + " " + Integer.toString(k));
+        //topicIndex++;
         topicName.setBounds(150, 160 + (k * 30), 100, 20);
         viewTopic.setBounds(250, 160 + (k * 30), 100, 20);
         p1.add(topicName);
         p1.add(viewTopic);
 
       }
-      courseIndex++;
+      //topicIndex = 0;
+      //courseIndex++;
     }
     viewComments = new JButton();
     viewComments.setText("View Comments");
@@ -123,10 +128,21 @@ public class ViewCourses implements ActionListener{
     } else {
     JButton btn = (JButton)e.getSource();
     String[] splitArray = btn.getName().split("\\s+");
-    int courseBtnIndex = Integer.parseInt(splitArray[0]);
-    int topicBtnIndex = Integer.parseInt(splitArray[1]);
-
-    new ViewTopic(facade, courses.get(courseBtnIndex), buttonTopics.get(topicBtnIndex));
+    String action = splitArray[0];
+    int courseBtnIndex = Integer.parseInt(splitArray[1]);
+    int topicBtnIndex = Integer.parseInt(splitArray[2]);
+    Course courseOfInterest = courses.get(courseBtnIndex);
+    Topic topicOfInterest = courseOfInterest.getTopics().get(topicBtnIndex);
+    if (action.equals("edit")) {
+      // Edit the topic information
+      // IMPLEMENT
+    } else if (action.equals("delete")) {
+      // Delete the topic
+      facade.deleteTopic(topicOfInterest);
+    } else if (action.equals("view")) {
+      // View that particular topic
+      new ViewTopic(facade, courseOfInterest, topicOfInterest);
+    }
 
     }
   }
