@@ -75,6 +75,6 @@ public class ViewLesson implements ActionListener{
       new ViewComments(facade, workingLesson.getComments());
     } else if (e.getSource() == addComment) {
       new AddComment(facade, workingLesson.getComments());
-    } 
+    }
   }
 }
