@@ -315,13 +315,9 @@ public class LMSFacade {
         courseList.saveCourses();
     }
 
-    public void addComment(Course courseToAdd, Lesson lessonToAdd, String content) {
+    public void addComment(ArrayList<Comment> comments, String content) {
         Comment comment = new Comment(user, LocalDate.now(), content, new ArrayList<Comment>());
-        if (courseToAdd == null) { 
-            lessonToAdd.getComments().add(comment);
-        } else if (lessonToAdd == null) {
-            courseToAdd.getComments().add(comment);
-        }
+        comments.add(comment);
         //courseList.saveCourses();
     }
 
