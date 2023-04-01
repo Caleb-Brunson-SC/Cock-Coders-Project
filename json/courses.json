@@ -1,7 +1,15 @@
 [
     {
         "teacherID": "68aa2143-d719-4b26-9b49-261874d5b4c8",
-        "comments": [],
+        "comments": [
+            {
+                "id": "3a984485-a123-4d0c-8e6c-7039475ef838",
+                "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                "date": "2023-03-12",
+                "content": "bob jones",
+                "replys": []
+            }
+        ],
         "reviews": [],
         "topics": [
             {
