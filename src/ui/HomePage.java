@@ -85,7 +85,7 @@ public class HomePage implements ActionListener {
     } else if (e.getSource() == searchButton) {
 
     } else if (e.getSource() == dashboardButton) {
-
+      new viewDashboard(facade);
     } else if (e.getSource() == createCourseButton) {
       //frame1.setVisible(false);
       new CreateCourse(facade);
