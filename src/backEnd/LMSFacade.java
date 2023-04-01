@@ -329,7 +329,7 @@ public class LMSFacade {
     public void addComment(ArrayList<Comment> comments, String content) {
         Comment comment = new Comment(user, LocalDate.now(), content, new ArrayList<Comment>());
         comments.add(comment);
-        //courseList.saveCourses();
+        courseList.saveCourses();
     }
 
 

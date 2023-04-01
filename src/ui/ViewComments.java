@@ -37,7 +37,7 @@ public class ViewComments implements ActionListener{
       dateLabel.setText("Date: " + formatter.format(workingComment.getDate())); // Teacher name
       contentLabel.setText("Content: " + workingComment.getContent()); // Course description
       viewReplies.setText("View Replies");
-      viewReplies.setName(Integer.toString(i));
+      viewReplies.setName("view " + Integer.toString(i));
       viewReplies.addActionListener(this);
 
       authorLabel.setFont(new Font(authorLabel.getFont().getName(), Font.BOLD, authorLabel.getFont().getSize()));
@@ -58,6 +58,7 @@ public class ViewComments implements ActionListener{
 
     addComment = new JButton();
     addComment.setText("Add Comment");
+    addComment.setName("add 0");
     addComment.setBounds(200, 500, 150, 30);
     addComment.addActionListener(this);
     frame1.add(addComment);
@@ -67,12 +68,17 @@ public class ViewComments implements ActionListener{
     frame1.setLayout(null);
   }
   public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == addComment) {
+    JButton btn = (JButton)e.getSource();
+    String[] splitArray = btn.getName().split("\\s+");
+    String action = splitArray[0];
+    int commentIndex;
+
+    if (action.equals("add")) {
       new AddComment(facade, comments);
       frame1.setVisible(false);
-    } else if (e.getSource() == viewReplies) {
-      JButton btn = (JButton)e.getSource();
-      int commentIndex = Integer.parseInt(btn.getName());
+    } else if (action.equals("view")) {
+      commentIndex = Integer.parseInt(splitArray[1]);
+      System.out.println(commentIndex); // test
       new ViewComments(facade, comments.get(commentIndex).getReplys());
     }
   }
