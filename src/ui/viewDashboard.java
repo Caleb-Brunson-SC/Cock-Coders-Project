@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class viewDashboard implements ActionListener{
   private final LMSFacade facade;
   JFrame frame1;
-  HashMap<Course, StudentProgress> completedCourses;
+  HashMap<String, StudentProgress> completedCourses;
   JLabel coursesLabel;
   User user;
 
@@ -35,8 +35,7 @@ public class viewDashboard implements ActionListener{
 
 
     int i = 0;
-    for (Course workingCourse : completedCourses.keySet()) {
-      StudentProgress workingProgress = completedCourses.get(workingCourse);
+    for (String courseString : completedCourses.keySet()) {
       frame1.setLayout(null);
       
       String j = i + " ";
@@ -46,9 +45,13 @@ public class viewDashboard implements ActionListener{
       // JLabel 
 
     
-      courseName.setText(workingCourse.getTitle()); // Course name
+      courseName.setText(courseString); // Course name
       viewButton.setText("view");
+      viewButton.setName("view " + courseString);
+      viewButton.addActionListener(this);
       printButton.setText("print");
+      printButton.setName("print " + courseString);
+      printButton.addActionListener(this);
 
       courseName.setFont(new Font(courseName.getFont().getName(), Font.BOLD, courseName.getFont().getSize()));
 
@@ -73,9 +76,25 @@ public class viewDashboard implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     JButton btn = (JButton)e.getSource();
-    String[] splitArray = btn.getName().split("\\s+");
-    String action = splitArray[0];
-    int courseBtnIndex = Integer.parseInt(splitArray[1]);
+    String[] stringArray = btn.getName().split("\\s+");
+    String action = stringArray[0];
+    String courseString = stringArray[1];
+    StudentProgress workingProgress = completedCourses.get(courseString);
+    ArrayList<Grade> grades = workingProgress.getGrades();
+      double gradeTotal = 0;
+      for (Grade g : grades) {
+        gradeTotal = gradeTotal + g.getGradePercentage();
+      }
+      double avgGrade = gradeTotal / grades.size();
+
+    if (action.equals("view")) {
+      JOptionPane.showMessageDialog(frame1,"Your Average Grade for " + courseString + " is: " + avgGrade + "%.","Quiz Result",JOptionPane.INFORMATION_MESSAGE);
+    } else if (action.equals("print")) {
+      String fileName = "src/" + courseString + " certificate.txt";
+      String studentName = user.getFullName();
+      facade.printCourseCertificate(fileName, courseString, studentName, avgGrade);
+    }
+    
     
     
   }

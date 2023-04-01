@@ -61,20 +61,19 @@ public class LMSFacade {
         return courseList;
     }
 
-    public HashMap<Course, StudentProgress> getCompletedCourses(UUID studentID) {
-        HashMap<Course, StudentProgress> completedCourses = new HashMap<Course, StudentProgress>();
+    public HashMap<String, StudentProgress> getCompletedCourses(UUID studentID) {
+        HashMap<String, StudentProgress> completedCourses = new HashMap<String, StudentProgress>();
         if (user.getType().equals("student")) {
             ArrayList<Course> courses = courseList.getCourses();
             for (Course course : courses) {
                 if (!(course.getStudentProgressByStudentUUID(studentID) == null)) {
                     StudentProgress sp = course.getStudentProgressByStudentUUID(studentID);
-                    completedCourses.put(course, sp);
+                    completedCourses.put(course.getTitle(), sp);
                 }
             }
         }
         return completedCourses;
     }
-
 
     /**
      * @return current user logged in
@@ -158,6 +157,23 @@ public class LMSFacade {
             FileWriter fileWriter = new FileWriter(fileName);
             PrintWriter printWriter = new PrintWriter(fileWriter);
             printWriter.print(content);
+            printWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void printCourseCertificate(String fileName, String courseName, String studentName, double grade) {
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.println("===============================================");
+            printWriter.println("CERTIFICATE OF COMPLETITION");
+            printWriter.println("Course: " + courseName);
+            printWriter.println("Student: " + studentName);
+            printWriter.println("Final Grade: " + grade);
+            printWriter.println("This certificate was printed on: " + LocalDate.now());
+            printWriter.println("===============================================");
             printWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
