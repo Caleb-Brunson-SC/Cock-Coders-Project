@@ -301,8 +301,10 @@ public class LMSFacade {
         courseList.saveCourses();
     }
     
-    public void deleteQuestion() {
-
+    public void deleteQuestion(Quiz quiz, Question question) {
+        ArrayList<Question> questions = quiz.getQuestions();
+        questions.remove(question);
+        courseList.saveCourses();
     }
 
     public void editQuestion() {
