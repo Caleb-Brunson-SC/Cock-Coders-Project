@@ -18,8 +18,10 @@ public class ViewTopic implements ActionListener{
   JTabbedPane tabbedPane;
   JButton viewLesson;
   JButton viewQuiz;
+  JButton viewComments;
+  JButton addComment;
 
-  ViewTopic(LMSFacade facade, Course workingCourse, Topic workingTopic){
+  ViewTopic(LMSFacade facade, Course workingCourse, Topic workingTopic) {
     this.facade = facade;
     this.workingCourse = workingCourse;
     this.workingTopic = workingTopic;
@@ -124,6 +126,20 @@ public class ViewTopic implements ActionListener{
         p1.add(editTopic);
         p1.add(deleteTopic);
       }
+
+      viewComments = new JButton();
+      viewComments.setText("View Comments");
+      viewComments.setName("viewcomments 0");
+      viewComments.setBounds(350, 500, 150, 30);
+      viewComments.addActionListener(this);
+      frame1.add(viewComments);
+  
+      addComment = new JButton();
+      addComment.setText("Add Comment");
+      addComment.setName("addcomment 0");
+      addComment.setBounds(200, 500, 150, 30);
+      addComment.addActionListener(this);
+      frame1.add(addComment);
       
       tabbedPane.setBounds(0,0,600,500);
     
@@ -132,7 +148,7 @@ public class ViewTopic implements ActionListener{
       frame1.setSize(600, 600 + (k * 30));
   
       frame1.add(tabbedPane);
-  }
+    }
   }
   public void actionPerformed(ActionEvent e) {
     JButton btn = (JButton)e.getSource();
@@ -161,6 +177,10 @@ public class ViewTopic implements ActionListener{
     } else if (action.equals("deletequiz")) {
       facade.deleteQuiz(workingTopic, workingQuiz);
       frame1.setVisible(false);
+    } else if (action.equals("viewcomments")) {
+      new ViewComments(facade, workingTopic.getComments());
+    } else if (action.equals("addcomment")) {
+      new AddComment(facade, workingTopic.getComments());
     }
 
   }
