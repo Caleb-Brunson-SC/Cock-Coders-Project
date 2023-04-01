@@ -2,7 +2,8 @@ package backEnd;
 import java.util.UUID;
 import java.util.ArrayList;
 import javax.swing.*;  
-import java.awt.event.*;  
+import java.awt.event.*;
+import java.time.LocalDate;  
 
 public class LMSFacade {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
@@ -314,9 +315,16 @@ public class LMSFacade {
         courseList.saveCourses();
     }
 
-    public Comment createComment() {
-        return null;
+    public void addComment(Course courseToAdd, Lesson lessonToAdd, String content) {
+        Comment comment = new Comment(user, LocalDate.now(), content, new ArrayList<Comment>());
+        if (courseToAdd == null) { 
+            lessonToAdd.getComments().add(comment);
+        } else if (lessonToAdd == null) {
+            courseToAdd.getComments().add(comment);
+        }
+        //courseList.saveCourses();
     }
+
 
     public void deleteComment() {}
 
@@ -417,5 +425,6 @@ public class LMSFacade {
     public void addTeacher(Teacher teacher) {}
 
     public void removeTeacher(Teacher teacher) {}
+
 
 }

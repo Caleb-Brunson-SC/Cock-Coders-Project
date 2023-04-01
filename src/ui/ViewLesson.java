@@ -72,9 +72,9 @@ public class ViewLesson implements ActionListener{
   }
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == viewComments) {
-      new ViewComments(facade);
+      new ViewComments(facade, workingLesson.getComments());
     } else if (e.getSource() == addComment) {
-      new AddComment(facade);
+      new AddComment(facade, null, workingLesson, workingLesson.getComments());
     } 
   }
 }

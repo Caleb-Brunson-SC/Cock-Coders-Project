@@ -142,9 +142,9 @@ public class ViewCourses implements ActionListener{
       // View that particular topic
       new ViewTopic(facade, courseOfInterest, topicOfInterest);
     } else if (action.equals("viewcomments")) {
-      new ViewComments(facade);
+      new ViewComments(facade, courseOfInterest.getComments());
     } else if (action.equals("addcomment")) {
-      new AddComment(facade);
+      new AddComment(facade, courseOfInterest, null, courseOfInterest.getComments());
     }
 
   }

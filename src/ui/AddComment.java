@@ -10,12 +10,18 @@ import javax.swing.JTabbedPane;
 
 public class AddComment implements ActionListener{
   private final LMSFacade facade;
+  Course courseToAdd;
+  Lesson lessonToAdd;
+  ArrayList<Comment> comments;
   JFrame frame1;
   JButton submitButton;
   JTextArea commentField;
 
-  AddComment(LMSFacade facade){
+  AddComment(LMSFacade facade, Course courseToAdd, Lesson lessonToAdd, ArrayList<Comment> comments){
     this.facade = facade;    
+    this.courseToAdd = courseToAdd;
+    this.lessonToAdd = lessonToAdd;
+    this.comments = comments;
     frame1 = new JFrame();
     submitButton = new JButton();
     commentField = new JTextArea();
@@ -24,6 +30,7 @@ public class AddComment implements ActionListener{
     
 
     submitButton.setText("Submit");
+    submitButton.addActionListener(this);
 
     submitButton.setBounds(350, 200, 100, 30);
     commentField.setBounds(50, 50, 400, 150);
@@ -36,6 +43,11 @@ public class AddComment implements ActionListener{
     frame1.setLayout(null);
   }
   public void actionPerformed(ActionEvent e) {
-
+    if (e.getSource() == submitButton) {
+      System.out.println("add comment");
+      String content = commentField.getText();
+      facade.addComment(courseToAdd, lessonToAdd, content);
+      frame1.setVisible(false);
+    }
   }
 }

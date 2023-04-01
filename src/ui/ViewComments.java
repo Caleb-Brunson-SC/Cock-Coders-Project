@@ -4,6 +4,7 @@ import backEnd.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -15,31 +16,33 @@ public class ViewComments implements ActionListener{
   ArrayList<Comment> comments;
   int commentIndex = 0;
 
-  ViewComments(LMSFacade facade) {
+  ViewComments(LMSFacade facade, ArrayList<Comment> comments) {
     this.facade = facade;    
+    this.comments = comments;
     frame1 = new JFrame();
     frame1.setLayout(null);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < comments.size(); i++) {
+      Comment workingComment = comments.get(i);
       JLabel authorLabel = new JLabel();
       JLabel contentLabel = new JLabel();
       JLabel dateLabel = new JLabel();
       JButton viewReplies = new JButton();
       JSeparator separator = new JSeparator();
 
-
-      authorLabel.setText("UserName"); // Course name
-      dateLabel.setText("Date"); // Teacher name
-      contentLabel.setText("Comment content"); // Course description
+      authorLabel.setText("UserName: " + workingComment.getUser().getFullName()); // Course name
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+      dateLabel.setText("Date: " + formatter.format(workingComment.getDate())); // Teacher name
+      contentLabel.setText("Content: " + workingComment.getContent()); // Course description
       viewReplies.setText("View Replies");
 
       authorLabel.setFont(new Font(authorLabel.getFont().getName(), Font.BOLD, authorLabel.getFont().getSize()));
 
-      authorLabel.setBounds(50, 50, 100, 20);
-      dateLabel.setBounds(150, 50, 100, 20);
-      contentLabel.setBounds(50, 50, 300, 100);
-      viewReplies.setBounds(350, 70, 100, 30);
-      separator.setBounds(50,200, 400, 1);
+      authorLabel.setBounds(50, 50 + (i * 150), 300, 20);
+      dateLabel.setBounds(300, 50 + (i * 150), 100, 20);
+      contentLabel.setBounds(50, 75 + (i * 150), 300, 100);
+      viewReplies.setBounds(350, 70 + (i * 150), 100, 30);
+      separator.setBounds(50,175 + (i * 150), 400, 1);
 
       frame1.add(authorLabel);
       frame1.add(dateLabel);
