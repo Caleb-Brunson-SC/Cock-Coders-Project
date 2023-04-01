@@ -139,7 +139,11 @@ public class AddQuiz implements ActionListener {
       if (title.isBlank() || description.isBlank()) {
         JOptionPane.showMessageDialog(frame1,"Title or description are incomplete.","Alert",JOptionPane.WARNING_MESSAGE);
       } else {
-        facade.createQuiz(title, description);
+        if (edit) {
+          facade.editQuiz(quizToEdit, title, description);
+        } else {
+          facade.createQuiz(title, description);
+        }
       }
 
       frame1.setVisible(false);

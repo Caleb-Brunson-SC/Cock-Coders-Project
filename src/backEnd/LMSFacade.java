@@ -266,6 +266,12 @@ public class LMSFacade {
         courseList.saveCourses();
     }
 
+    public void editQuiz(Quiz quiz, String title, String description) {
+        quiz.setTitle(title);
+        quiz.setDescription(description);
+        courseList.saveCourses();
+    }
+
     /**
      * @param questionString the question being asked
      * @param choices a list of answer choice
