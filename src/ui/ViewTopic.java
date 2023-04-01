@@ -156,7 +156,7 @@ public class ViewTopic implements ActionListener{
     } else if (action.equals("viewquiz")) {
       new ViewQuestion(facade, workingCourse, workingQuiz);
     } else if (action.equals("editquiz")) {
-      // new AddQuestion(facade, workingQuiz, true);
+      new AddQuiz(facade, workingQuiz, true);
       frame1.setVisible(false);
     } else if (action.equals("deletequiz")) {
       facade.deleteQuiz(workingTopic, workingQuiz);

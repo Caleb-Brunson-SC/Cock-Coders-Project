@@ -10,6 +10,9 @@ import backEnd.*;
 //language.java is enum for all languages
 public class AddQuiz implements ActionListener {
   private final LMSFacade facade;
+  Quiz quizToEdit;
+  boolean edit;
+
   JFrame frame1;
   JLabel l1;
   JLabel l2;
@@ -25,8 +28,10 @@ public class AddQuiz implements ActionListener {
 
   JButton addQuestion;
 
-  AddQuiz(LMSFacade facade){
+  AddQuiz(LMSFacade facade, Quiz quizToEdit, boolean edit){
     this.facade = facade;
+    this.quizToEdit = quizToEdit;
+    this.edit = edit;
     // create new displayed objects
     frame1 = new JFrame();
     l1 = new JLabel();
@@ -50,15 +55,22 @@ public class AddQuiz implements ActionListener {
     descriptionField = new JTextField();
 
     questionList= new ArrayList<Question>();
-    addQuestion = new JButton();
-    addQuestion.addActionListener(this);
-
+    if (!edit) {
+      addQuestion = new JButton();
+      addQuestion.addActionListener(this);
+      addQuestion.setText("Add Question");
+      l2.setText("Questions");
+    }
+    
     // set text for all prompts
-    l1.setText("Create Quiz");
+    if (edit) {
+      l1.setText("Edit Quiz");
+    } else {
+      l1.setText("Create Quiz");
+    }
+    
     titleLabel.setText("Quiz Title:");
     descriptionLabel.setText("Quiz Description:");
-    l2.setText("Questions");
-    addQuestion.setText("Add Question");
     button1.setText("Submit");
   
     // sets bounds for all objects
@@ -86,7 +98,10 @@ public class AddQuiz implements ActionListener {
       questionCounter++;
     }
 
-    addQuestion.setBounds(275, 170 + (30 * questionCounter), 125, 30);
+    if (!edit) {
+      addQuestion.setBounds(275, 170 + (30 * questionCounter), 125, 30);
+    }
+    
     button1.setBounds(275, 200 + (30 * questionCounter), 125,30);
 
     // adds all ojects
@@ -101,7 +116,10 @@ public class AddQuiz implements ActionListener {
     frame1.add(l2);
     frame1.add(l1);
 
-    frame1.add(addQuestion);
+    if (!edit) {
+      frame1.add(addQuestion);
+    }
+   
     frame1.add(button1);
 
     // creates frame

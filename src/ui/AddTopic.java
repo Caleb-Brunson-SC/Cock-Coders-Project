@@ -196,7 +196,7 @@ public class AddTopic implements ActionListener{
       if (facade.reachedQuizLimit()) {
         JOptionPane.showMessageDialog(frame1,"Only " + LMSFacade.QUIZ_LIMIT + " quiz is allowed.","Alert",JOptionPane.WARNING_MESSAGE);
       } else {
-        new AddQuiz(facade);
+        new AddQuiz(facade, null, false);
       }
     }
   }
