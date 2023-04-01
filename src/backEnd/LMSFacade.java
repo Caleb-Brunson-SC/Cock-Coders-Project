@@ -3,6 +3,7 @@ import java.util.UUID;
 import java.util.ArrayList;
 import javax.swing.*;  
 import java.awt.event.*;
+import java.io.*;
 import java.time.LocalDate;  
 
 public class LMSFacade {
@@ -135,6 +136,16 @@ public class LMSFacade {
     }
 
     // COURSE CREATION, EDITING, DELETION
+    public void printLesson(String fileName, String content) {
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(content);
+            printWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * print the course that was created
@@ -421,6 +432,7 @@ public class LMSFacade {
     public void addTeacher(Teacher teacher) {}
 
     public void removeTeacher(Teacher teacher) {}
+
 
 
 }

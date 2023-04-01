@@ -14,6 +14,7 @@ public class ViewLesson implements ActionListener{
   Lesson workingLesson;
   JTabbedPane tabbedPane;
   JScrollPane scroll;
+  JButton printButton;
   JButton viewComments;
   JButton addComment;
 
@@ -54,6 +55,12 @@ public class ViewLesson implements ActionListener{
 
       tabbedPane.setBounds(0,0,500,500);
     }
+    printButton = new JButton();
+    printButton.setText("Print Content");
+    printButton.setBounds(50, 500, 150, 30);
+    printButton.addActionListener(this);
+    frame1.add(printButton);
+
     viewComments = new JButton();
     viewComments.setText("View Comments");
     viewComments.setBounds(350, 500, 150, 30);
@@ -75,6 +82,9 @@ public class ViewLesson implements ActionListener{
       new ViewComments(facade, workingLesson.getComments());
     } else if (e.getSource() == addComment) {
       new AddComment(facade, workingLesson.getComments());
+    } else if (e.getSource() == printButton) {
+      String fileName = "src/" + workingLesson.getTitle() + ".txt";
+      facade.printLesson(fileName, workingLesson.getContent());
     }
   }
 }
