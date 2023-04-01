@@ -68,7 +68,7 @@ public class ViewQuestion implements ActionListener {
 
             page.setLayout(null);
 
-            question.setBounds(100, 50, 300, 30);
+            question.setBounds(100, 50, 500, 30);
             a0.setBounds(100, 100, 300, 30);
             a1.setBounds(100, 130, 300, 30);
             a2.setBounds(100, 160, 300, 30);
