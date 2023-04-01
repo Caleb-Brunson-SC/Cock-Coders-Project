@@ -133,7 +133,6 @@ public class ViewCourses implements ActionListener{
       // Edit the topic information
       new AddTopic(facade, topicOfInterest, true);
       frame1.setVisible(false);
-      //facade.editTopic(topicOfInterest);
     } else if (action.equals("delete")) {
       // Delete the topic
       facade.deleteTopic(courseOfInterest, topicOfInterest);
@@ -146,6 +145,5 @@ public class ViewCourses implements ActionListener{
     } else if (action.equals("addcomment")) {
       new AddComment(facade, courseOfInterest.getComments());
     }
-
   }
 }
