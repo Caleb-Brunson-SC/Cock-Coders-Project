@@ -1,6 +1,8 @@
 package backEnd;
 import java.util.UUID;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.swing.*;  
 import java.awt.event.*;
 import java.io.*;
@@ -58,6 +60,21 @@ public class LMSFacade {
     public CourseList getCourseList() {
         return courseList;
     }
+
+    public HashMap<Course, StudentProgress> getCompletedCourses(UUID studentID) {
+        HashMap<Course, StudentProgress> completedCourses = new HashMap<Course, StudentProgress>();
+        if (user.getType().equals("student")) {
+            ArrayList<Course> courses = courseList.getCourses();
+            for (Course course : courses) {
+                if (!(course.getStudentProgressByStudentUUID(studentID) == null)) {
+                    StudentProgress sp = course.getStudentProgressByStudentUUID(studentID);
+                    completedCourses.put(course, sp);
+                }
+            }
+        }
+        return completedCourses;
+    }
+
 
     /**
      * @return current user logged in

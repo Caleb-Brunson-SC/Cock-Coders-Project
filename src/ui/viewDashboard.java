@@ -1,5 +1,6 @@
 package ui;
 import java.util.ArrayList;
+import java.util.HashMap;
 import backEnd.*;
 import javax.swing.*;
 import java.awt.*;
@@ -8,14 +9,14 @@ import java.awt.event.*;
 public class viewDashboard implements ActionListener{
   private final LMSFacade facade;
   JFrame frame1;
-  ArrayList<Course> courses;
+  HashMap<Course, StudentProgress> completedCourses;
   JLabel coursesLabel;
   User user;
 
   viewDashboard(LMSFacade facade){
     this.facade = facade;
-    this.courses = facade.getCourseList().getCourses();  
     this.user = facade.getUser();  
+    this.completedCourses = facade.getCompletedCourses(user.getId());
     
     frame1 = new JFrame();
 
@@ -33,10 +34,9 @@ public class viewDashboard implements ActionListener{
     frame1.add(coursesLabel);
 
 
-
-    for (int i = 0; i < courses.size(); i++) {
-    // for (int i = 0; i < courses.size(); i++) {
-      Course workingCourse = courses.get(i);
+    int i = 0;
+    for (Course workingCourse : completedCourses.keySet()) {
+      StudentProgress workingProgress = completedCourses.get(workingCourse);
       frame1.setLayout(null);
       
       String j = i + " ";
@@ -61,6 +61,8 @@ public class viewDashboard implements ActionListener{
       frame1.add(viewButton);
       frame1.add(printButton);
       // should parse through all topics in course
+
+      i++;
     }
     
 
@@ -74,24 +76,7 @@ public class viewDashboard implements ActionListener{
     String[] splitArray = btn.getName().split("\\s+");
     String action = splitArray[0];
     int courseBtnIndex = Integer.parseInt(splitArray[1]);
-    int topicBtnIndex = Integer.parseInt(splitArray[2]);
-    Course courseOfInterest = courses.get(courseBtnIndex);
-    Topic topicOfInterest = courseOfInterest.getTopics().get(topicBtnIndex);
-    if (action.equals("edit")) {
-      // Edit the topic information
-      new AddTopic(facade, topicOfInterest, true);
-      frame1.setVisible(false);
-    } else if (action.equals("delete")) {
-      // Delete the topic
-      facade.deleteTopic(courseOfInterest, topicOfInterest);
-      frame1.setVisible(false);
-    } else if (action.equals("view")) {
-      // View that particular topic
-      new ViewTopic(facade, courseOfInterest, topicOfInterest);
-    } else if (action.equals("viewcomments")) {
-      new ViewComments(facade, courseOfInterest.getComments());
-    } else if (action.equals("addcomment")) {
-      new AddComment(facade, courseOfInterest.getComments());
-    }
+    
+    
   }
 }
