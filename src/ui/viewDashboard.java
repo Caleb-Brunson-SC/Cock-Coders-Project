@@ -35,10 +35,18 @@ public class viewDashboard {
         // Show Course Progress
         ArrayList<Grade> grades = StudentProgress.getGrades();
         double totalGrade = 0.0;
-        for (Grade grade : grades) {
-            totalGrade += Grade.getGradePercentage();
+        if(grades != null) {
+            for (Grade grade : grades) {
+                totalGrade += Grade.getGradePercentage();
+            }
         }
-        double avgGrade = totalGrade / grades.size();
+        double avgGrade;
+        if(grades != null) {
+            avgGrade = totalGrade; /// grades.size();
+        } else {
+            avgGrade = totalGrade;
+        }
+        
         JLabel gradeLabel = new JLabel(String.format("Course Progress: %.2f%%", avgGrade));
         infoPanel.add(gradeLabel);
 
