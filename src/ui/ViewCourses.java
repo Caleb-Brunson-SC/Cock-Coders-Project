@@ -97,18 +97,22 @@ public class ViewCourses implements ActionListener{
         p1.add(viewTopic);
 
       }
-    }
-    viewComments = new JButton();
-    viewComments.setText("View Comments");
-    viewComments.setBounds(350, 500, 150, 30);
-    viewComments.addActionListener(this);
-    frame1.add(viewComments);
 
-    addComment = new JButton();
-    addComment.setText("Add Comment");
-    addComment.setBounds(200, 500, 150, 30);
-    addComment.addActionListener(this);
-    frame1.add(addComment);
+      viewComments = new JButton();
+      viewComments.setText("View Comments");
+      viewComments.setName("viewcomments " + Integer.toString(i) + " 0");
+      viewComments.setBounds(350, 500, 150, 30);
+      viewComments.addActionListener(this);
+      frame1.add(viewComments);
+  
+      addComment = new JButton();
+      addComment.setText("Add Comment");
+      addComment.setName("addcomment " + Integer.toString(i) + " 0");
+      addComment.setBounds(200, 500, 150, 30);
+      addComment.addActionListener(this);
+      frame1.add(addComment);
+    }
+    
 
     tabbedPane.setBounds(0,0,600,500);
     
@@ -118,11 +122,6 @@ public class ViewCourses implements ActionListener{
     frame1.add(tabbedPane);
   }
   public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == viewComments) {
-      new ViewComments(facade);
-    } else if (e.getSource() == addComment) {
-      new AddComment(facade);
-    } else {
     JButton btn = (JButton)e.getSource();
     String[] splitArray = btn.getName().split("\\s+");
     String action = splitArray[0];
@@ -142,8 +141,11 @@ public class ViewCourses implements ActionListener{
     } else if (action.equals("view")) {
       // View that particular topic
       new ViewTopic(facade, courseOfInterest, topicOfInterest);
+    } else if (action.equals("viewcomments")) {
+      new ViewComments(facade);
+    } else if (action.equals("addcomment")) {
+      new AddComment(facade);
     }
 
-    }
   }
 }
