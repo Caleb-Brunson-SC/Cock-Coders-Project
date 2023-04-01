@@ -12,7 +12,6 @@ public class ViewQuestion implements ActionListener {
     Course workingCourse;
     Quiz workingQuiz;
     ArrayList<Question> questions;
-    int questionIndex = 0; // keep track of submitButton
     int numCorrectChoices = 0; // keep track of number of correct choices user makes
     int numChoices = 0;
     ArrayList<Integer> correctAnswerIndices;
@@ -87,28 +86,34 @@ public class ViewQuestion implements ActionListener {
                 submitButton = new JButton("Submit");
                 submitButton.setBounds(320, 275, 100, 30);
                 submitButton.addActionListener(this);
-                submitButton.setName(Integer.toString(questionIndex));
-                questionIndex = questionIndex + 1;
+                submitButton.setName("submit " + Integer.toString(i));
                 page.add(submitButton);
+            }
+
+            if (facade.getUser().getId().equals(workingCourse.getTeacher().getId())) {
+                JButton editQuestion = new JButton();
+                JButton deleteQuestion = new JButton();
+                JButton addQuestion = new JButton();
+                editQuestion.addActionListener(this);
+                deleteQuestion.addActionListener(this);
+                addQuestion.addActionListener(this);
+                editQuestion.setText("Edit");
+                deleteQuestion.setText("Delete");
+                addQuestion.setText("Add");
+    
+                editQuestion.setName("edit " + Integer.toString(i));
+                deleteQuestion.setName("delete " + Integer.toString(i));
+                addQuestion.setName("add");
+    
+                editQuestion.setBounds(200, 300, 100, 20);
+                deleteQuestion.setBounds(300, 300 , 100, 20);
+                addQuestion.setBounds(100, 300, 100, 20);
+                frame1.add(editQuestion);
+                frame1.add(deleteQuestion);
+                frame1.add(addQuestion);
             }
  
             tabbedPane.add("Question " + (i + 1), page);
-        }
-
-        if (facade.getUser().getId().equals(workingCourse.getTeacher().getId())) {
-            JButton editQuestion = new JButton();
-            JButton deleteQuestion = new JButton();
-            JButton addQuestion = new JButton();
-            editQuestion.setText("Edit");
-            deleteQuestion.setText("Delete");
-            addQuestion.setText("Add");
-
-            editQuestion.setBounds(200, 300, 100, 20);
-            deleteQuestion.setBounds(300, 300 , 100, 20);
-            addQuestion.setBounds(100, 300, 100, 20);
-            frame1.add(editQuestion);
-            frame1.add(deleteQuestion);
-            frame1.add(addQuestion);
         }
         
 
@@ -122,33 +127,50 @@ public class ViewQuestion implements ActionListener {
     } 
 
     public void actionPerformed(ActionEvent e) {
-        System.out.println("submit");
         JButton btn = (JButton)e.getSource();
-        int questionBtnIndex = Integer.parseInt(btn.getName());
+        String[] splitArray = btn.getName().split("\\s+");
+        String action = splitArray[0];
+        int questionBtnIndex;
 
-        int correctAnswerIndex = correctAnswerIndices.get(questionBtnIndex);
+        if (action.equals("add")) {
+            new AddQuestion(facade, workingQuiz, null, false, true);
+            frame1.setVisible(false);
+        } else if (action.equals("edit")) {
+            // new AddQuestion(...)
+            frame1.setVisible(false);
+        } else if (action.equals("delete")) {
+            
+        } else if (action.equals("submit")) {
+            questionBtnIndex = Integer.parseInt(splitArray[1]);
 
-        ButtonGroup bg = buttonGroups.get(questionBtnIndex);
-        int buttonIndex = 0;
-        for (Enumeration<AbstractButton> buttons = bg.getElements(); buttons.hasMoreElements();) {
-            AbstractButton button = buttons.nextElement();
-
-            if (button.isSelected() && buttonIndex == correctAnswerIndex) {
-                numCorrectChoices++;
+            int correctAnswerIndex = correctAnswerIndices.get(questionBtnIndex);
+    
+            ButtonGroup bg = buttonGroups.get(questionBtnIndex);
+            int buttonIndex = 0;
+            for (Enumeration<AbstractButton> buttons = bg.getElements(); buttons.hasMoreElements();) {
+                AbstractButton button = buttons.nextElement();
+    
+                if (button.isSelected() && buttonIndex == correctAnswerIndex) {
+                    numCorrectChoices++;
+                }
+    
+                buttonIndex++;
             }
-
-            buttonIndex++;
+            numChoices++;
+            btn.setVisible(false);
+    
+            if (numChoices == questions.size()) {
+                double grade = 100 * (double) numCorrectChoices / numChoices;
+                grade = Math.ceil(grade);
+                JOptionPane.showMessageDialog(frame1,"Your grade is " + grade + "%.","Quiz Result",JOptionPane.INFORMATION_MESSAGE);
+    
+                facade.updateStudentProgress(workingCourse.getId(), workingQuiz, grade);
+            }
         }
-        numChoices++;
-        btn.setVisible(false);
 
-        if (numChoices == questions.size()) {
-            double grade = 100 * (double) numCorrectChoices / numChoices;
-            grade = Math.ceil(grade);
-            JOptionPane.showMessageDialog(frame1,"Your grade is " + grade + "%.","Quiz Result",JOptionPane.INFORMATION_MESSAGE);
 
-            facade.updateStudentProgress(workingCourse.getId(), workingQuiz, grade);
-        }
+
+        
     }
 }
     

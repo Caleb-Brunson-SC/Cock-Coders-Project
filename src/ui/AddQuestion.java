@@ -10,6 +10,11 @@ import backEnd.*;
 //language.java is enum for all languages
 public class AddQuestion implements ActionListener {
   private final LMSFacade facade;
+  Quiz quizToEdit;
+  Question questionToEdit;
+  boolean edit;
+  boolean add;
+
   JFrame frame1;
   JLabel l1;
   JButton button1;
@@ -30,8 +35,12 @@ public class AddQuestion implements ActionListener {
   
   String answers[] = {"1", "2", "3", "4"};
 
-  AddQuestion(LMSFacade facade){
+  AddQuestion(LMSFacade facade, Quiz quizToEdit, Question questionToEdit, boolean edit, boolean add){
     this.facade = facade;
+    this.quizToEdit = quizToEdit;
+    this.questionToEdit = questionToEdit;
+    this.edit = edit;
+    this.add = add;
     // create new displayed objects
     frame1 = new JFrame();
     l1 = new JLabel();
@@ -132,7 +141,16 @@ public class AddQuestion implements ActionListener {
         choices.add(ans2);
         choices.add(ans3);
         choices.add(ans4);
-        facade.createQuestion(question, choices, ansIndex);
+
+        if (edit) {
+          // edit the question
+          // facade.editQuestion(...);
+        } else if (add) {
+          facade.addQuestionToQuiz(quizToEdit, question, choices, ansIndex);
+          frame1.setVisible(false);
+        } else {
+          facade.createQuestion(question, choices, ansIndex);
+        }
       }
 
       frame1.setVisible(false);

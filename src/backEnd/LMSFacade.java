@@ -288,13 +288,25 @@ public class LMSFacade {
         questionsCreated.add(question);
         questionCount++;
     }
+
+    public void addQuestionToQuiz(Quiz quiz, String question, ArrayList<String> choices, int ansIndex) {
+        Question questionToAdd = new Question();
+        questionToAdd.setId(UUID.randomUUID());
+        questionToAdd.setQuestion(question);
+        questionToAdd.setChoices(choices);
+        questionToAdd.setCorrectAnswerIndex(ansIndex);
+
+        ArrayList<Question> questions = quiz.getQuestions();
+        questions.add(questionToAdd);
+        courseList.saveCourses();
+    }
     
     public void deleteQuestion() {
 
     }
 
     public void editQuestion() {
-        
+
     }
 
     public Comment createComment() {
