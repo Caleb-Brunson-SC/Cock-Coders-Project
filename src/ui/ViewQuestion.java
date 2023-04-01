@@ -95,19 +95,22 @@ public class ViewQuestion implements ActionListener {
             tabbedPane.add("Question " + (i + 1), page);
         }
 
-        JButton editQuestion = new JButton();
-        JButton deleteQuestion = new JButton();
-        JButton addQuestion = new JButton();
-        editQuestion.setText("Edit");
-        deleteQuestion.setText("Delete");
-        addQuestion.setText("Add");
+        if (facade.getUser().getId().equals(workingCourse.getTeacher().getId())) {
+            JButton editQuestion = new JButton();
+            JButton deleteQuestion = new JButton();
+            JButton addQuestion = new JButton();
+            editQuestion.setText("Edit");
+            deleteQuestion.setText("Delete");
+            addQuestion.setText("Add");
 
-        editQuestion.setBounds(200, 300, 100, 20);
-        deleteQuestion.setBounds(300, 300 , 100, 20);
-        addQuestion.setBounds(100, 300, 100, 20);
-        frame1.add(editQuestion);
-        frame1.add(deleteQuestion);
-        frame1.add(addQuestion);
+            editQuestion.setBounds(200, 300, 100, 20);
+            deleteQuestion.setBounds(300, 300 , 100, 20);
+            addQuestion.setBounds(100, 300, 100, 20);
+            frame1.add(editQuestion);
+            frame1.add(deleteQuestion);
+            frame1.add(addQuestion);
+        }
+        
 
 
         tabbedPane.setBounds(0, 0, 500, 500);

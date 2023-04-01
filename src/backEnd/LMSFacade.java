@@ -293,6 +293,10 @@ public class LMSFacade {
 
     }
 
+    public void editQuestion() {
+        
+    }
+
     public Comment createComment() {
         return null;
     }
