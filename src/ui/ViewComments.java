@@ -59,12 +59,12 @@ public class ViewComments implements ActionListener{
     addComment = new JButton();
     addComment.setText("Add Comment");
     addComment.setName("add 0");
-    addComment.setBounds(200, 500, 150, 30);
+    addComment.setBounds(200, 800, 150, 30);
     addComment.addActionListener(this);
     frame1.add(addComment);
     
     frame1.setVisible(true);
-    frame1.setSize(500, 600);
+    frame1.setSize(500, 1000);
     frame1.setLayout(null);
   }
   public void actionPerformed(ActionEvent e) {
