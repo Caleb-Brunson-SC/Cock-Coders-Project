@@ -307,8 +307,11 @@ public class LMSFacade {
         courseList.saveCourses();
     }
 
-    public void editQuestion() {
-
+    public void editQuestion(Question questionToEdit, String question, ArrayList<String> choices, int ansIndex) {
+        questionToEdit.setQuestion(question);
+        questionToEdit.setChoices(choices);
+        questionToEdit.setCorrectAnswerIndex(ansIndex);
+        courseList.saveCourses();
     }
 
     public Comment createComment() {
@@ -356,28 +359,6 @@ public class LMSFacade {
         return null;
     }
 
-    // NAVIGATION
-    public Course viewCourse() {
-        return null;
-    }
-
-    public Topic viewTopic() {
-        return null;
-    }
-
-    public Lesson viewLesson() {
-        return null;
-    }
-
-    public Lesson viewQuiz() {
-        return null;
-    }
-
-    public void viewDashboard() {}
-
-    public void viewSettings() {}
-
-    public void viewProfile() {}
 
     // QUIZ TAKING AND GRADING
 

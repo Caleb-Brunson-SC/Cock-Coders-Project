@@ -136,7 +136,8 @@ public class ViewQuestion implements ActionListener {
             new AddQuestion(facade, workingQuiz, null, false, true);
             frame1.setVisible(false);
         } else if (action.equals("edit")) {
-            // new AddQuestion(...)
+            questionBtnIndex = Integer.parseInt(splitArray[1]);
+            new AddQuestion(facade, workingQuiz, questions.get(questionBtnIndex), true, false);
             frame1.setVisible(false);
         } else if (action.equals("delete")) {
             questionBtnIndex = Integer.parseInt(splitArray[1]);

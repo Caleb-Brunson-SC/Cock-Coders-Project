@@ -64,7 +64,12 @@ public class AddQuestion implements ActionListener {
     l1.setFont(new Font(l1.getFont().getName(), Font.BOLD, l1.getFont().getSize()));
     
     // set text for all prompts
-    l1.setText("Add Question");
+    if (edit) {
+      l1.setText("Edit Question");
+    } else {
+      l1.setText("Add Question");
+    }
+    
     button1.setText("Submit");
 
     questionLabel.setText("Question:");
@@ -144,7 +149,8 @@ public class AddQuestion implements ActionListener {
 
         if (edit) {
           // edit the question
-          // facade.editQuestion(...);
+          facade.editQuestion(questionToEdit, question, choices, ansIndex);
+          frame1.setVisible(false);
         } else if (add) {
           facade.addQuestionToQuiz(quizToEdit, question, choices, ansIndex);
           frame1.setVisible(false);
