@@ -15,6 +15,8 @@ public class ViewComments implements ActionListener{
   JButton viewTopic;
   ArrayList<Comment> comments;
   int commentIndex = 0;
+  JButton addComment;
+  JButton viewReplies;
 
   ViewComments(LMSFacade facade, ArrayList<Comment> comments) {
     this.facade = facade;    
@@ -27,7 +29,7 @@ public class ViewComments implements ActionListener{
       JLabel authorLabel = new JLabel();
       JLabel contentLabel = new JLabel();
       JLabel dateLabel = new JLabel();
-      JButton viewReplies = new JButton();
+      viewReplies = new JButton();
       JSeparator separator = new JSeparator();
 
       authorLabel.setText("UserName: " + workingComment.getUser().getFullName()); // Course name
@@ -35,6 +37,8 @@ public class ViewComments implements ActionListener{
       dateLabel.setText("Date: " + formatter.format(workingComment.getDate())); // Teacher name
       contentLabel.setText("Content: " + workingComment.getContent()); // Course description
       viewReplies.setText("View Replies");
+      viewReplies.setName(Integer.toString(i));
+      viewReplies.addActionListener(this);
 
       authorLabel.setFont(new Font(authorLabel.getFont().getName(), Font.BOLD, authorLabel.getFont().getSize()));
 
@@ -51,12 +55,25 @@ public class ViewComments implements ActionListener{
       frame1.add(separator);
       
     }
+
+    addComment = new JButton();
+    addComment.setText("Add Comment");
+    addComment.setBounds(200, 500, 150, 30);
+    addComment.addActionListener(this);
+    frame1.add(addComment);
     
     frame1.setVisible(true);
     frame1.setSize(500, 600);
     frame1.setLayout(null);
   }
   public void actionPerformed(ActionEvent e) {
-
+    if (e.getSource() == addComment) {
+      new AddComment(facade, comments);
+      frame1.setVisible(false);
+    } else if (e.getSource() == viewReplies) {
+      JButton btn = (JButton)e.getSource();
+      int commentIndex = Integer.parseInt(btn.getName());
+      new ViewComments(facade, comments.get(commentIndex).getReplys());
+    }
   }
 }

@@ -17,10 +17,8 @@ public class AddComment implements ActionListener{
   JButton submitButton;
   JTextArea commentField;
 
-  AddComment(LMSFacade facade, Course courseToAdd, Lesson lessonToAdd, ArrayList<Comment> comments){
-    this.facade = facade;    
-    this.courseToAdd = courseToAdd;
-    this.lessonToAdd = lessonToAdd;
+  AddComment(LMSFacade facade, ArrayList<Comment> comments){
+    this.facade = facade;
     this.comments = comments;
     frame1 = new JFrame();
     submitButton = new JButton();
@@ -46,7 +44,7 @@ public class AddComment implements ActionListener{
     if (e.getSource() == submitButton) {
       System.out.println("add comment");
       String content = commentField.getText();
-      facade.addComment(courseToAdd, lessonToAdd, content);
+      facade.addComment(comments, content);
       frame1.setVisible(false);
     }
   }
