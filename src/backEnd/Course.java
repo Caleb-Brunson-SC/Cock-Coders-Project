@@ -152,8 +152,8 @@ public class Course {
      * @return the topic is returned from this function
      */
     public Topic createTopic(String title, String description, Quiz quiz, 
-    ArrayList<Lesson> lessons) {
-        Topic newTopic = new Topic(title, description, quiz, lessons);
+    ArrayList<Lesson> lessons, ArrayList<Comment> comments) {
+        Topic newTopic = new Topic(title, description, quiz, lessons, comments);
         topics.add(newTopic);
         return newTopic;
         

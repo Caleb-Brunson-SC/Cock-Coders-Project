@@ -47,7 +47,7 @@ public class Topic {
      * @param quiz the quiz of the topic
      * @param lessons a list of lessons related to the topic
      * Creates a topic with parameters except comments and UUID
-     */
+     
     public Topic(String title, String description, Quiz quiz, 
         ArrayList<Lesson> lessons) {
         this.id = UUID.randomUUID();
@@ -57,6 +57,7 @@ public class Topic {
         this.lessons = lessons;
         this.comments = null;
     }
+    */
 
     /**
      * @param id the id of the topic
