@@ -1,8 +1,11 @@
 package backEnd;
 import java.util.UUID;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.swing.*;  
 import java.awt.event.*;
+import java.io.*;
 import java.time.LocalDate;  
 
 public class LMSFacade {
@@ -56,6 +59,20 @@ public class LMSFacade {
      */
     public CourseList getCourseList() {
         return courseList;
+    }
+
+    public HashMap<String, StudentProgress> getCompletedCourses(UUID studentID) {
+        HashMap<String, StudentProgress> completedCourses = new HashMap<String, StudentProgress>();
+        if (user.getType().equals("student")) {
+            ArrayList<Course> courses = courseList.getCourses();
+            for (Course course : courses) {
+                if (!(course.getStudentProgressByStudentUUID(studentID) == null)) {
+                    StudentProgress sp = course.getStudentProgressByStudentUUID(studentID);
+                    completedCourses.put(course.getTitle(), sp);
+                }
+            }
+        }
+        return completedCourses;
     }
 
     /**
@@ -135,6 +152,33 @@ public class LMSFacade {
     }
 
     // COURSE CREATION, EDITING, DELETION
+    public void printLesson(String fileName, String content) {
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(content);
+            printWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void printCourseCertificate(String fileName, String courseName, String studentName, double grade) {
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.println("===============================================");
+            printWriter.println("CERTIFICATE OF COMPLETITION");
+            printWriter.println("Course: " + courseName);
+            printWriter.println("Student: " + studentName);
+            printWriter.println("Final Grade: " + grade);
+            printWriter.println("This certificate was printed on: " + LocalDate.now());
+            printWriter.println("===============================================");
+            printWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * print the course that was created
@@ -318,7 +362,7 @@ public class LMSFacade {
     public void addComment(ArrayList<Comment> comments, String content) {
         Comment comment = new Comment(user, LocalDate.now(), content, new ArrayList<Comment>());
         comments.add(comment);
-        //courseList.saveCourses();
+        courseList.saveCourses();
     }
 
 
@@ -421,6 +465,7 @@ public class LMSFacade {
     public void addTeacher(Teacher teacher) {}
 
     public void removeTeacher(Teacher teacher) {}
+
 
 
 }

@@ -3,11 +3,19 @@
         "teacherID": "68aa2143-d719-4b26-9b49-261874d5b4c8",
         "comments": [
             {
-                "id": "3a984485-a123-4d0c-8e6c-7039475ef838",
-                "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
-                "date": "2023-03-12",
-                "content": "bob jones",
-                "replys": []
+                "date": "2023-04-04",
+                "replys": [
+                    {
+                        "date": "2023-04-04",
+                        "replys": [],
+                        "id": "299ddb70-c377-4414-b300-fe6021b8f32c",
+                        "userID": "645d36aa-f1b8-4cb5-bf28-83d31112af79",
+                        "content": "fsdaf"
+                    }
+                ],
+                "id": "da3c8f09-e132-4533-b64c-52c02a7e5a23",
+                "userID": "645d36aa-f1b8-4cb5-bf28-83d31112af79",
+                "content": "this course was sick"
             }
         ],
         "reviews": [],
@@ -46,7 +54,18 @@
             }
         ],
         "description": "Learn about Document Object Model",
-        "students": [],
+        "students": [
+            {
+                "studentID": "0c9c939a-c580-4318-842c-055aa74ff4b9",
+                "grades": [
+                    {
+                        "quizID": "4f6ecc8e-93c5-4603-962f-28b391612ceb",
+                        "id": "d35263b8-ea3b-4e4b-82e8-fe45ec0115d5",
+                        "gradePercentage": 100.0
+                    }
+                ]
+            }
+        ],
         "language": "JAVASCRIPT",
         "id": "4bc8473a-fbd6-4824-933d-ce7cea69e845",
         "title": "JavaScript DOM"
@@ -76,9 +95,9 @@
                     "title": "1"
                 },
                 "comments": [],
-                "description": "1",
+                "description": "Learn basic Python syntax",
                 "id": "21f86a3d-ae76-4d8c-8e88-1998443b2a54",
-                "title": "1",
+                "title": "Syntax",
                 "lessons": [
                     {
                         "comments": [],
@@ -108,9 +127,9 @@
                     "title": "2"
                 },
                 "comments": [],
-                "description": "2",
+                "description": "Learn to make comments",
                 "id": "17e4db43-4fbf-4ab1-b525-7969fc6e651d",
-                "title": "2",
+                "title": "Comments",
                 "lessons": [
                     {
                         "comments": [],
@@ -140,9 +159,9 @@
                     "title": "3"
                 },
                 "comments": [],
-                "description": "3",
+                "description": "How to declare variables",
                 "id": "dd2d1f30-02f6-45a1-a030-e8f31bde0f24",
-                "title": "3",
+                "title": "Variables",
                 "lessons": [
                     {
                         "comments": [],
@@ -172,9 +191,9 @@
                     "title": "4"
                 },
                 "comments": [],
-                "description": "4",
+                "description": "String, Int, etc.",
                 "id": "6db25d4c-8f37-4188-b221-a613aaade216",
-                "title": "4",
+                "title": "Data Types",
                 "lessons": [
                     {
                         "comments": [],
@@ -204,9 +223,9 @@
                     "title": "5"
                 },
                 "comments": [],
-                "description": "5",
+                "description": "Learn to use lists",
                 "id": "15f7d728-5ca0-4db4-a7fa-dccb48023fe0",
-                "title": "5",
+                "title": "Lists",
                 "lessons": [
                     {
                         "comments": [],
@@ -236,9 +255,9 @@
                     "title": "6"
                 },
                 "comments": [],
-                "description": "6",
+                "description": "Learn to use Python tuples",
                 "id": "4f3f8aa0-59cb-4996-ba0a-b59b38424307",
-                "title": "6",
+                "title": "Tuple",
                 "lessons": [
                     {
                         "comments": [],
@@ -252,31 +271,98 @@
                 "quiz": {
                     "questions": [
                         {
-                            "question": "7",
+                            "question": "What keyword is used to make a For Loop?",
                             "id": "a8eb0fdc-4fb3-44fc-8a6b-a0aa9c8258c4",
                             "choices": [
-                                "7",
-                                "7",
-                                "7",
-                                "7"
+                                "for",
+                                "while",
+                                "do",
+                                "loop"
                             ],
                             "correctAnswerIndex": 0
+                        },
+                        {
+                            "question": "What keyword is used to make a While Loop?",
+                            "id": "81d868ed-5d87-4d61-a384-4f809d3491ba",
+                            "choices": [
+                                "for",
+                                "while",
+                                "except",
+                                "throw"
+                            ],
+                            "correctAnswerIndex": 1
+                        },
+                        {
+                            "question": "Which statement exits a loop?",
+                            "id": "fa8aa780-31a6-449c-9160-68dfb0be47ed",
+                            "choices": [
+                                "continue",
+                                "pass",
+                                "break",
+                                "while"
+                            ],
+                            "correctAnswerIndex": 2
                         }
                     ],
-                    "description": "7",
+                    "description": "For Loops and While Loops",
                     "id": "e3cc3060-5f51-4c2a-b0a3-63871e31cef7",
-                    "title": "7"
+                    "title": "Loops Assessment"
                 },
-                "comments": [],
-                "description": "7",
+                "comments": [
+                    {
+                        "date": "2023-04-01",
+                        "replys": [],
+                        "id": "cfe0a621-6194-445f-b4e0-71ff47471e38",
+                        "userID": "45ace0c9-e49a-4592-b5f1-fa77f2275a44",
+                        "content": "These are throwing me for a loop\u2026 hehehe"
+                    },
+                    {
+                        "date": "2023-04-01",
+                        "replys": [],
+                        "id": "2df2eaaa-05ee-4b61-87d5-979aa5dc3ec0",
+                        "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                        "content": "Wow for loops seem super useful! :)"
+                    },
+                    {
+                        "date": "2023-04-01",
+                        "replys": [],
+                        "id": "04d40566-635f-4bc2-a200-9a8b1ee950f6",
+                        "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                        "content": "I wonder how many ways I can use the Contiue statement"
+                    },
+                    {
+                        "date": "2023-04-01",
+                        "replys": [],
+                        "id": "5cc67f2b-7cc9-458d-870c-86ae1c8f48de",
+                        "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
+                        "content": "Why might while loops be better than for loops?"
+                    }
+                ],
+                "description": "Learn the different type of loops",
                 "id": "40e668f7-01aa-4439-adca-ef578f53aa4d",
-                "title": "7",
+                "title": "Loops",
                 "lessons": [
                     {
-                        "comments": [],
+                        "comments": [
+                            {
+                                "date": "2023-04-04",
+                                "replys": [
+                                    {
+                                        "date": "2023-04-04",
+                                        "replys": [],
+                                        "id": "65ce40c3-1759-4a13-a76f-51fb4079a7a2",
+                                        "userID": "645d36aa-f1b8-4cb5-bf28-83d31112af79",
+                                        "content": "dasfsdaf"
+                                    }
+                                ],
+                                "id": "3bcb7218-93b7-4f57-baff-7d2050deec90",
+                                "userID": "645d36aa-f1b8-4cb5-bf28-83d31112af79",
+                                "content": "dsaf"
+                            }
+                        ],
                         "id": "8ccabe46-34b3-48b6-9718-64b837f3696d",
-                        "title": "7",
-                        "content": "7"
+                        "title": "For Loops",
+                        "content": "The For Loop allows for iteration over a sequence which can be a list, tuple, dictionary, set, or even a string of characters. The keyword that is used to make the loop is *for*. The loop will execute a series of statements for each individual item in the sequence. Unlike the while loop, the For Loop does not require an indexing variable to be initialized before the loop is created.\n\nThe break statement will exit the loop. With the continue statement, we can stop the iteration which is currently happening and then continue with the next iteration. The range() function allows us to loop over a certain range of numbers.\n\nAn example:\nfor i in range(10):\n      print(i)"
                     }
                 ]
             },
@@ -300,9 +386,9 @@
                     "title": "8"
                 },
                 "comments": [],
-                "description": "8",
+                "description": "Learn to use conditional statements",
                 "id": "e910d230-180c-4524-9de2-957f00e5f280",
-                "title": "8",
+                "title": "If... Else",
                 "lessons": [
                     {
                         "comments": [],
@@ -332,9 +418,9 @@
                     "title": "9"
                 },
                 "comments": [],
-                "description": "9",
+                "description": "Make and call functions",
                 "id": "738e1a3c-e3e1-48d7-ae48-99572b5459d9",
-                "title": "9",
+                "title": "Functions",
                 "lessons": [
                     {
                         "comments": [],
@@ -364,9 +450,9 @@
                     "title": "t"
                 },
                 "comments": [],
-                "description": "t",
+                "description": "Read, Write, Append files",
                 "id": "fe0bfa95-8163-4a20-b9b0-5e9d91c4b2bb",
-                "title": "t",
+                "title": "I\/O Files",
                 "lessons": [
                     {
                         "comments": [],
@@ -377,142 +463,10 @@
                 ]
             }
         ],
-        "description": "t",
+        "description": "An awesome course on Python",
         "students": [],
         "language": "PYTHON",
         "id": "72437f34-c8ff-4678-98d9-caaf6470a8ea",
-        "title": "t"
-    },
-    {
-        "teacherID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
-        "comments": [],
-        "reviews": [],
-        "topics": [
-            {
-                "quiz": {
-                    "questions": [],
-                    "description": "none",
-                    "id": "00000000-0000-0000-0000-000000000000",
-                    "title": "none"
-                },
-                "comments": [],
-                "description": "t",
-                "id": "f2589bee-deeb-4abc-80c7-6365dd6b7432",
-                "title": "t",
-                "lessons": []
-            },
-            {
-                "quiz": {
-                    "questions": [
-                        {
-                            "question": "t",
-                            "id": "3fa36cdf-b58f-4457-b053-de97aab3e8b4",
-                            "choices": [
-                                "t",
-                                "t",
-                                "t",
-                                "t"
-                            ],
-                            "correctAnswerIndex": 0
-                        }
-                    ],
-                    "description": "t",
-                    "id": "3fa38c97-00e2-4d74-9aa6-74264478eefd",
-                    "title": "t"
-                },
-                "comments": [],
-                "description": "sdf",
-                "id": "2bc0b9f1-1471-42a6-b97e-4b9fd46baf67",
-                "title": "pee",
-                "lessons": [
-                    {
-                        "comments": [],
-                        "id": "17494ec5-9b46-4ad1-aa3e-9c32681d54b8",
-                        "title": "t",
-                        "content": "t"
-                    }
-                ]
-            }
-        ],
-        "description": "t",
-        "students": [],
-        "language": "CSHARP",
-        "id": "398cbf81-34f5-45a9-8e09-f3904b5ea2f5",
-        "title": "t"
-    },
-    {
-        "teacherID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
-        "comments": [
-            {
-                "id": "7d4a9634-264c-4306-a938-253ce6ae8163",
-                "userID": "d6577ddf-067a-4d1c-a4d1-c50222ae6a71",
-                "date": "2023-03-12",
-                "content": "Why should I even care about loops?",
-                "replys": [
-                    {
-                        "id": "527b2950-fe65-43ae-accf-6f04276c5ea4",
-                        "userID": "8d8595fa-ad78-42a3-bfa8-4b57b7d68740",
-                        "date": "2023-03-12",
-                        "content": "Because they are cool, duh.",
-                        "replys": []
-                    }
-                ]
-            }
-        ],
-        "reviews": [],
-        "topics": [
-            {
-                "quiz": {
-                    "questions": [
-                        {
-                            "question": "bob",
-                            "id": "1955dc69-f9ea-4221-9614-b472520371b9",
-                            "choices": [
-                                "l",
-                                "l",
-                                "l",
-                                "l"
-                            ],
-                            "correctAnswerIndex": 0
-                        },
-                        {
-                            "question": "bob",
-                            "id": "107a9d85-962b-4772-9ad7-0f25ea7bd756",
-                            "choices": [
-                                "jones",
-                                "i",
-                                "i",
-                                "i"
-                            ],
-                            "correctAnswerIndex": 0
-                        },
-                        {
-                            "question": "e",
-                            "id": "4b2261a4-9f09-479b-bf73-49ac9b32aa48",
-                            "choices": [
-                                "e",
-                                "e",
-                                "e",
-                                "e"
-                            ],
-                            "correctAnswerIndex": 0
-                        }
-                    ],
-                    "description": "1",
-                    "id": "c37d1e2d-71fd-4b29-8b1a-376e4d1ac223",
-                    "title": "test quiz"
-                },
-                "comments": [],
-                "description": "q",
-                "id": "715a6d55-9b7f-4559-9768-698350c19b3a",
-                "title": "qq",
-                "lessons": []
-            }
-        ],
-        "description": "q",
-        "students": [],
-        "language": "CSHARP",
-        "id": "2713561b-cf0f-4e1c-b4c6-78a67a8c9480",
-        "title": "q"
+        "title": "Into to Python"
     }
 ]
