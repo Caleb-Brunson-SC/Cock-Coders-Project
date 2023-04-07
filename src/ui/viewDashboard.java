@@ -42,7 +42,7 @@ public class viewDashboard {
         }
         double avgGrade;
         if(grades != null) {
-            avgGrade = totalGrade; /// grades.size();
+            avgGrade = totalGrade; // grades.size();
         } else {
             avgGrade = totalGrade;
         }
