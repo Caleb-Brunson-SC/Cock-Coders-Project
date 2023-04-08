@@ -1,30 +1,65 @@
 package test;
+
 import backEnd.Admin;
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.Assert;
+import java.util.UUID;
 
 public class AdminTest extends Admin {
-    public static void main(String[] args) {
-        testAdminConstructor();
+    private Admin admin;
+
+    @Before
+    public void setUp() throws Exception {
+        admin = new Admin();
     }
 
-    public static void testAdminConstructor() {
-        Admin admin = new Admin();
-        if (!admin.getId().equals(NIL_UUID)) {
-            System.out.println("Error: Admin UUID not initialized correctly.");
-        }
-        if (!admin.getUserName().equals("admin")) {
-            System.out.println("Error: Admin username not initialized correctly.");
-        }
-        if (!admin.getPassword().equals("none")) {
-            System.out.println("Error: Admin password not initialized correctly.");
-        }
-        if (!admin.getFirstName().equals("none")) {
-            System.out.println("Error: Admin first name not initialized correctly.");
-        }
-        if (!admin.getLastName().equals("none")) {
-            System.out.println("Error: Admin last name not initialized correctly.");
-        }
-        if (!admin.getEmail().equals("none")) {
-            System.out.println("Error: Admin email not initialized correctly.");
-        }
+    @Test
+    public void testConstructorWithId() {
+        UUID id = UUID.randomUUID();
+        String firstName = "John";
+        String lastName = "Doe";
+        String userName = "johndoe";
+        String email = "johndoe@example.com";
+        String password = "password123";
+        UUID currentCourseID = UUID.randomUUID();
+        UUID currentTopicID = UUID.randomUUID();
+        UUID currentLessonID = UUID.randomUUID();
+
+        admin = new Admin(id, firstName, lastName, userName, email, password, currentCourseID, currentTopicID, currentLessonID);
+
+        Assert.assertEquals(id, admin.getId());
+        Assert.assertEquals(firstName, admin.getFirstName());
+        Assert.assertEquals(lastName, admin.getLastName());
+        Assert.assertEquals(userName, admin.getUserName());
+        Assert.assertEquals(email, admin.getEmail());
+        Assert.assertEquals(password, admin.getPassword());
+        Assert.assertEquals(currentCourseID, admin.getCurrentCourseID());
+        Assert.assertEquals(currentTopicID, admin.getCurrentTopicID());
+        Assert.assertEquals(currentLessonID, admin.getCurrentLessonID());
+    }
+
+    @Test
+    public void testConstructorWithoutId() {
+        String firstName = "John";
+        String lastName = "Doe";
+        String userName = "johndoe";
+        String email = "johndoe@example.com";
+        String password = "password123";
+        UUID currentCourseID = UUID.randomUUID();
+        UUID currentTopicID = UUID.randomUUID();
+        UUID currentLessonID = UUID.randomUUID();
+
+        admin = new Admin(firstName, lastName, userName, email, password, currentCourseID, currentTopicID, currentLessonID);
+
+        Assert.assertEquals("admin", admin.getType());
+        Assert.assertEquals(firstName, admin.getFirstName());
+        Assert.assertEquals(lastName, admin.getLastName());
+        Assert.assertEquals(userName, admin.getUserName());
+        Assert.assertEquals(email, admin.getEmail());
+        Assert.assertEquals(password, admin.getPassword());
+        Assert.assertEquals(currentCourseID, admin.getCurrentCourseID());
+        Assert.assertEquals(currentTopicID, admin.getCurrentTopicID());
+        Assert.assertEquals(currentLessonID, admin.getCurrentLessonID());
     }
 }
