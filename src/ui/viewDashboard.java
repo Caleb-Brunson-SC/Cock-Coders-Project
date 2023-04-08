@@ -28,28 +28,8 @@ public class viewDashboard implements ActionListener{
     coursesLabel.setText("Completed Courses");
     coursesLabel.setFont(new Font(coursesLabel.getFont().getName(), Font.BOLD, coursesLabel.getFont().getSize()));
 
-<<<<<<< HEAD
-        // Show Course Progress
-        ArrayList<Grade> grades = StudentProgress.getGrades();
-        double totalGrade = 0.0;
-        if(grades != null) {
-            for (Grade grade : grades) {
-                totalGrade += Grade.getGradePercentage();
-            }
-        }
-        double avgGrade;
-        if(grades != null) {
-            avgGrade = totalGrade; // grades.size();
-        } else {
-            avgGrade = totalGrade;
-        }
-        
-        JLabel gradeLabel = new JLabel(String.format("Course Progress: %.2f%%", avgGrade));
-        infoPanel.add(gradeLabel);
-=======
     coursesLabel.setBounds(50, 50, 200, 20);
     
->>>>>>> 1903830873b39f8997ba69149d4c22ddf85b7486
 
     frame1.add(coursesLabel);
 
