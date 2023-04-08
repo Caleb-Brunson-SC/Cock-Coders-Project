@@ -9,7 +9,7 @@ public class UserList {
     /**
      * default constructor for userlist
      */
-    private UserList() {
+    public UserList() {
         users = DataLoader.getUsers();
     }
 

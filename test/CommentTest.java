@@ -1,6 +1,9 @@
 package test;
 
 import backEnd.Comment;
+import backEnd.Student;
+import backEnd.Teacher;
+import backEnd.User;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -19,7 +22,7 @@ public class CommentTest extends Comment {
     
     @Test
     public void testConstructorWithAllArguments() {
-        // User user = new Student("John", "Doe", "johndoe@example.com", "password");
+        User user = new Student("John", "Doe", "jdoe", "johndoe@example.com", "password", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
         LocalDate date = LocalDate.of(2022, 1, 1);
         String content = "This is a comment.";
         ArrayList<Comment> replys = new ArrayList<Comment>();
@@ -40,7 +43,7 @@ public class CommentTest extends Comment {
     @Test
     public void testConstructorWithID() {
         UUID id = UUID.randomUUID();
-        // User user = new Teacher("Jane", "Smith", "janesmith@example.com", "password", "Computer Science");
+        User user = new Teacher("John", "Doe", "jdoe", "johndoe@example.com", "password", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
         LocalDate date = LocalDate.of(2022, 1, 1);
         String content = "This is a comment.";
         ArrayList<Comment> replys = new ArrayList<Comment>();
@@ -69,7 +72,7 @@ public class CommentTest extends Comment {
         replys.add(reply1);
         replys.add(reply2);
         
-        // Comment comment = new Comment(new Teacher(), LocalDate.now(), "This is a comment.", replys);
+        Comment comment = new Comment(new Teacher(), LocalDate.now(), "This is a comment.", replys);
         
         Assert.assertEquals(reply1, comment.getReplyByUUID(id1));
         Assert.assertEquals(reply2, comment.getReplyByUUID(id2));

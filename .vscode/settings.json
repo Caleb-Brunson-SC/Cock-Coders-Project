@@ -3,5 +3,13 @@
         ".",
         "json",
         "src"
-    ]
+    ],
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar"
+        ],
+        "exclude": [
+            "lib/junit-platform-console-standalone-1.9.2.jar"
+        ]
+    }
 }
