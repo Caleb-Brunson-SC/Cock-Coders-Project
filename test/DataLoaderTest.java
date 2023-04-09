@@ -3,6 +3,9 @@ import backEnd.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -36,5 +39,6 @@ public class DataLoaderTest {
     @Test
     void testGetUsersSize() {
         users = DataLoader.getUsers();
+        assertEquals(2, users.size());
     }
 }
