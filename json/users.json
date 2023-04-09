@@ -46,17 +46,5 @@
         "type": "student",
         "email": "allie_a@gmail.com",
         "username": "allie_a"
-    },
-    {
-        "firstName": "Nick",
-        "lastName": "Brunson",
-        "password": "Password",
-        "currentCourseID": "00000000-0000-0000-0000-000000000000",
-        "currentTopicID": "00000000-0000-0000-0000-000000000000",
-        "currentLessonID": "00000000-0000-0000-0000-000000000000",
-        "id": "fbf8ecae-a7c0-4ab9-9a0a-ac1f8f3b764d",
-        "type": "teacher",
-        "email": "nick.brunson.sc@gmail.com",
-        "username": "nbrunson"
     }
 ]
