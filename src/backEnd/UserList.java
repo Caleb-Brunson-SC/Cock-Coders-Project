@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
-    private ArrayList<User> users;
-    private static UserList userList;
+    public ArrayList<User> users;
+    public static UserList userList;
 
     /**
      * default constructor for userlist
