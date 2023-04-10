@@ -1,7 +1,7 @@
 package test;
 
 import backEnd.*;
-import backEnd.UserList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +20,8 @@ import java.util.UUID;
 
 public class DataLoaderTest {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
+    public static final UUID TEACHER_UUID = UUID.fromString("7b23c04e-9f5a-4eff-aaf7-d74a9f03d8c0");
+    public static final UUID STUDENT_UUID = UUID.fromString("6a73cd69-8316-4e4e-9e69-a4f743cbe148");
     public static final LocalDate DATE = LocalDate.of(2020, 1, 8);
     private UserList userList = UserList.getInstance();
 	private ArrayList<User> users = userList.getUsers();
@@ -27,12 +29,12 @@ public class DataLoaderTest {
     private ArrayList<Course> courses = courseList.getCourses();
 
     private Course createCourse() {
-        Teacher teacher = new Teacher(NIL_UUID, "bob", "jones", "bj32", "bj@gmail.com", 
+        Teacher teacher = new Teacher(TEACHER_UUID, "bob", "jones", "bj32", "bj@gmail.com", 
         "bjiscool123", NIL_UUID, NIL_UUID, NIL_UUID);
 
         ArrayList<Comment> comments = new ArrayList<Comment>();
 
-        comments.add(new Comment(NIL_UUID, teacher, DATE, "blank comment", null));
+        comments.add(new Comment(NIL_UUID, teacher, DATE, "blank comment", new ArrayList<Comment>()));
 
         ArrayList<Lesson> lessons = new ArrayList<Lesson>();
 
@@ -52,12 +54,25 @@ public class DataLoaderTest {
 
         topics.add(new Topic(NIL_UUID, "topic title", "topic description", quiz, lessons, comments));
 
+        ArrayList<StudentProgress> studentProgresses = new ArrayList<StudentProgress>();
+
+        ArrayList<Grade> grades = new ArrayList<Grade>();
+
+        grades.add(new Grade(NIL_UUID, NIL_UUID, 0));
+
+        Student student = new Student(STUDENT_UUID, "jay", "jones", "jayj",
+        "jayj@gmail.com", "jj1234", NIL_UUID, NIL_UUID, NIL_UUID);
+
+        studentProgresses.add(new StudentProgress(student, grades));
+
         ArrayList<Review> reviews = new ArrayList<Review>();
 
-        reviews.add(new Review(NIL_UUID, teacher, DATE, 5, "review comment"));
+        reviews.add(new Review(NIL_UUID, student, DATE, 5, "review comment"));
 
-        return new Course(NIL_UUID, "intro to python", Language.PYTHON, "python course", teacher, 
-        topics, reviews, comments, null);
+        Course course = new Course(NIL_UUID, "intro to python", Language.PYTHON, "python course", teacher, 
+        topics, reviews, comments, studentProgresses);
+
+        return course;
     }
 
     @Before
@@ -81,6 +96,7 @@ public class DataLoaderTest {
         DataWriter.saveCourses();
     }
 
+    // User Methods
     @Test
     public void testGetUsersSize() {
         users = DataLoader.getUsers();
@@ -94,7 +110,6 @@ public class DataLoaderTest {
         assertEquals(0, users.size());
     }
 
-    // First User
     @Test
     public void testGetUserUUID() {
         users = DataLoader.getUsers();
@@ -159,6 +174,20 @@ public class DataLoaderTest {
     public void testGetUserCurrentLessonID() {
         users = DataLoader.getUsers();
         assertEquals(NIL_UUID, users.get(0).getCurrentLessonID());
+    }
+
+    // Course Methods
+    @Test
+    public void testGetCoursesSize() {
+        courses = DataLoader.getCourses();
+        assertEquals(1, courses.size());
+    }
+
+    @Test
+    public void testGetCoursesSizeZero() {
+        CourseList.getInstance().getCourses().clear();
+        DataWriter.saveCourses();
+        assertEquals(0, courses.size());
     }
 
 
