@@ -2,79 +2,101 @@ package test;
 
 import backEnd.Comment;
 import backEnd.Student;
-import backEnd.Teacher;
 import backEnd.User;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
+import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class CommentTest extends Comment {
-    @Test
-    public void testConstructorWithNoArguments() {
-        Comment comment = new Comment();
-        Assert.assertEquals(Comment.NIL_UUID, comment.getId());
-        Assert.assertEquals(LocalDate.now(), comment.getDate());
-        Assert.assertEquals("none", comment.getContent());
-        Assert.assertEquals(new ArrayList<Comment>(), comment.getReplys());
+    private Comment comment;
+    private UUID id;
+    private User user;
+    private LocalDate date;
+    private String content;
+    private ArrayList<Comment> replys;
+
+    @Before
+    public void setUp() {
+        comment = new Comment();
+        String uuidString = "00000000-0000-0000-0000-000000000000";
+        id = UUID.fromString(uuidString);
+        user = new Student();
+        date = LocalDate.now();
+        content = "none";
+        replys = new ArrayList<Comment>();
     }
-    
-    @Test
-    public void testConstructorWithAllArguments() {
-        User user = new Student("John", "Doe", "jdoe", "johndoe@example.com", "password", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
-        LocalDate date = LocalDate.of(2022, 1, 1);
-        String content = "This is a comment.";
-        ArrayList<Comment> replys = new ArrayList<Comment>();
-        Comment reply1 = new Comment();
-        Comment reply2 = new Comment();
-        replys.add(reply1);
-        replys.add(reply2);
-        
-        Comment comment = new Comment(user, date, content, replys);
-        
-        Assert.assertNotEquals(Comment.NIL_UUID, comment.getId());
-        Assert.assertEquals(user, comment.getUser());
-        Assert.assertEquals(date, comment.getDate());
-        Assert.assertEquals(content, comment.getContent());
-        Assert.assertEquals(replys, comment.getReplys());
+
+    @After
+    public void tearDown() {
+        id = null;
+        user = null;
+        date = null;
+        content = null;
+        replys = null;
     }
-    
+
     @Test
-    public void testConstructorWithID() {
+    public void testDefaultConstructor() {
+        assertEquals(Comment.NIL_UUID, comment.getId());
+        assertEquals("none", comment.getContent());
+        assertEquals(LocalDate.now(), comment.getDate());
+        assertEquals(new Student(), comment.getUser());
+        assertEquals(new ArrayList<Comment>(), comment.getReplys());
+    }
+
+    @Test
+    public void testParameterizedConstructor() {
         UUID id = UUID.randomUUID();
-        User user = new Teacher("John", "Doe", "jdoe", "johndoe@example.com", "password", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
-        LocalDate date = LocalDate.of(2022, 1, 1);
-        String content = "This is a comment.";
-        ArrayList<Comment> replys = new ArrayList<Comment>();
-        Comment reply1 = new Comment();
-        Comment reply2 = new Comment();
-        replys.add(reply1);
-        replys.add(reply2);
-        
-        Comment comment = new Comment(id, user, date, content, replys);
-        
-        Assert.assertEquals(id, comment.getId());
-        Assert.assertEquals(user, comment.getUser());
-        Assert.assertEquals(date, comment.getDate());
-        Assert.assertEquals(content, comment.getContent());
-        Assert.assertEquals(replys, comment.getReplys());
+        User user = new Student();
+        LocalDate date = LocalDate.of(2022, 4, 9);
+        String content = "This is a comment";
+        ArrayList<Comment> replies = new ArrayList<>();
+        Comment reply1 = new Comment(new Student(), LocalDate.of(2022, 4, 9), "This is a reply", new ArrayList<>());
+        Comment reply2 = new Comment(new Student(), LocalDate.of(2022, 4, 9), "This is another reply", new ArrayList<>());
+        replies.add(reply1);
+        replies.add(reply2);
+        comment = new Comment(id, user, date, content, replies);
+        assertEquals(id, comment.getId());
+        assertEquals(user, comment.getUser());
+        assertEquals(date, comment.getDate());
+        assertEquals(content, comment.getContent());
+        assertEquals(replies, comment.getReplys());
     }
-    
+
     @Test
     public void testGetReplyByUUID() {
-        Comment reply1 = new Comment();
-        Comment reply2 = new Comment();
-        UUID id1 = reply1.getId();
-        UUID id2 = reply2.getId();
-        
-        ArrayList<Comment> replys = new ArrayList<Comment>();
-        replys.add(reply1);
-        replys.add(reply2);
-        
-        Comment comment = new Comment(new Teacher(), LocalDate.now(), "This is a comment.", replys);
-        
-        Assert.assertEquals(reply1, comment.getReplyByUUID(id1));
-        Assert.assertEquals(reply2, comment.getReplyByUUID(id2));
+        UUID id1 = UUID.randomUUID();
+        UUID id2 = UUID.randomUUID();
+        Comment reply1 = new Comment(new Student(), LocalDate.of(2022, 4, 9), "This is a reply", new ArrayList<>());
+        Comment reply2 = new Comment(new Student(), LocalDate.of(2022, 4, 9), "This is another reply", new ArrayList<>());
+        reply1.setId(id1);
+        reply2.setId(id2);
+        comment.getReplys().add(reply1);
+        comment.getReplys().add(reply2);
+        assertEquals(reply1, comment.getReplyByUUID(id1));
+        assertEquals(reply2, comment.getReplyByUUID(id2));
+        assertNull(comment.getReplyByUUID(UUID.randomUUID()));
+    }
+
+    @Test
+    public void testToString() {
+        UUID id = UUID.randomUUID();
+        User user = new Student();
+        LocalDate date = LocalDate.of(2022, 4, 9);
+        String content = "This is a comment";
+        ArrayList<Comment> replies = new ArrayList<>();
+        Comment reply1 = new Comment(new Student(), LocalDate.of(2022, 4, 9), "This is a reply", new ArrayList<>());
+        Comment reply2 = new Comment(new Student(), LocalDate.of(2022, 4, 9), "This is another reply", new ArrayList<>());
+        replies.add(reply1);
+        replies.add(reply2);
+        comment = new Comment(id, user, date, content, replies);
+        String expected = "Comment [id=" + id + ", user=" + user + ", date=" + date + ", content=" + content + ", replys=" + replies + "]";
+        assertEquals(expected, comment.toString());
     }
 }
