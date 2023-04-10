@@ -1,12 +1,13 @@
 package test;
 
 import backEnd.*;
+import ui.CreateCourse;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -29,8 +30,8 @@ public class DataLoaderTest {
     private ArrayList<Course> courses = courseList.getCourses();
 
     private Course createCourse() {
-        Teacher teacher = new Teacher(TEACHER_UUID, "bob", "jones", "bj32", "bj@gmail.com", 
-        "bjiscool123", NIL_UUID, NIL_UUID, NIL_UUID);
+        User teacher = new Teacher(TEACHER_UUID, "jimmy", "john", "jimmyj", "jimmyj@gmail.com", 
+        "howtojimmy31", NIL_UUID, NIL_UUID, NIL_UUID);
 
         ArrayList<Comment> comments = new ArrayList<Comment>();
 
@@ -60,7 +61,7 @@ public class DataLoaderTest {
 
         grades.add(new Grade(NIL_UUID, NIL_UUID, 0));
 
-        Student student = new Student(STUDENT_UUID, "jay", "jones", "jayj",
+        User student = new Student(STUDENT_UUID, "jay", "jones", "jayj",
         "jayj@gmail.com", "jj1234", NIL_UUID, NIL_UUID, NIL_UUID);
 
         studentProgresses.add(new StudentProgress(student, grades));
@@ -69,8 +70,12 @@ public class DataLoaderTest {
 
         reviews.add(new Review(NIL_UUID, student, DATE, 5, "review comment"));
 
-        Course course = new Course(NIL_UUID, "intro to python", Language.PYTHON, "python course", teacher, 
+        Course course = new Course(NIL_UUID, "course title", Language.PYTHON, "course description", (Teacher) teacher, 
         topics, reviews, comments, studentProgresses);
+
+        users.add(teacher);
+        users.add(student);
+        DataWriter.saveUsers();
 
         return course;
     }
@@ -100,7 +105,7 @@ public class DataLoaderTest {
     @Test
     public void testGetUsersSize() {
         users = DataLoader.getUsers();
-        assertEquals(1, users.size());
+        assertEquals(3, users.size());
     }
 
     @Test
@@ -190,6 +195,215 @@ public class DataLoaderTest {
         assertEquals(0, courses.size());
     }
 
+    @Test
+    public void testGetCourseUUID() {
+        courses = DataLoader.getCourses();
+        assertEquals(NIL_UUID, courses.get(0).getId());
+    }
+
+    @Test
+    public void testGetCourseTitle() {
+        courses = DataLoader.getCourses();
+        assertEquals("course title", courses.get(0).getTitle());
+    }
+
+    @Test
+    public void testGetCourseLanguage() {
+        courses = DataLoader.getCourses();
+        assertEquals(Language.PYTHON, courses.get(0).getLanguage());
+    }
+
+    @Test
+    public void testGetCourseDescription() {
+        courses = DataLoader.getCourses();
+        assertEquals("course description", courses.get(0).getDescription());
+    }
+
+    @Test
+    public void testGetCourseTeacherFullName() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getFullName(), courses.get(0).getTeacher().getFullName());
+    }
+
+    @Test
+    public void testGetCourseTeacherUUID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getId(), courses.get(0).getTeacher().getId());
+    }
+
+    @Test
+    public void testGetCourseTeacherFirstName() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getFirstName(), courses.get(0).getTeacher().getFirstName());
+    }
+
+    @Test
+    public void testGetCourseTeacherLastName() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getLastName(), courses.get(0).getTeacher().getLastName());
+    }
+
+    @Test
+    public void testGetCourseTeacherUserName() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getUserName(), courses.get(0).getTeacher().getUserName());
+    }
+
+    @Test
+    public void testGetCourseTeacherEmail() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getEmail(), courses.get(0).getTeacher().getEmail());
+    }
+
+    @Test
+    public void testGetCourseTeacherType() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getType(), courses.get(0).getTeacher().getType());
+    }
+
+    @Test
+    public void testGetCourseTeacherPassword() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getPassword(), courses.get(0).getTeacher().getPassword());
+    }
+
+    @Test
+    public void testGetCourseTeacherCurrentCourseID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getCurrentCourseID(), courses.get(0).getTeacher().getCurrentCourseID());
+    }
+
+    @Test
+    public void testGetCourseTeacherCurrentTopicID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getCurrentTopicID(), courses.get(0).getTeacher().getCurrentTopicID());
+    }
+
+    @Test
+    public void testGetCourseTeacherCurrentLessonID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTeacher().getCurrentLessonID(), courses.get(0).getTeacher().getCurrentLessonID());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentFullName() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getFullName(), courses.get(0).getStudentProgresses().get(0).getStudent().getFullName());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentUUID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getId(), courses.get(0).getStudentProgresses().get(0).getStudent().getId());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentFirstName() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getFirstName(), courses.get(0).getStudentProgresses().get(0).getStudent().getFirstName());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentLastName() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getLastName(), courses.get(0).getStudentProgresses().get(0).getStudent().getLastName());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentUserName() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getUserName(), courses.get(0).getStudentProgresses().get(0).getStudent().getUserName());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentEmail() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getEmail(), courses.get(0).getStudentProgresses().get(0).getStudent().getEmail());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentType() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getType(), courses.get(0).getStudentProgresses().get(0).getStudent().getType());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentPassword() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getPassword(), courses.get(0).getStudentProgresses().get(0).getStudent().getPassword());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentCurrentCourseID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getCurrentCourseID(), courses.get(0).getStudentProgresses().get(0).getStudent().getCurrentCourseID());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentCurrentTopicID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getCurrentTopicID(), courses.get(0).getStudentProgresses().get(0).getStudent().getCurrentTopicID());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressStudentCurrentLessonID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getStudent().getCurrentLessonID(), courses.get(0).getStudentProgresses().get(0).getStudent().getCurrentLessonID());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressGradeUUID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getGrades().get(0).getId(), courses.get(0).getStudentProgresses().get(0).getGrades().get(0).getId());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressGradeQuizUUID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses().get(0).getGrades().get(0).getQuizID(), courses.get(0).getStudentProgresses().get(0).getGrades().get(0).getQuizID());
+    }
+
+    @Test
+    public void testGetCourseStudentProgressGradeQuizGradePercentage() {
+        courses = DataLoader.getCourses();
+        assertSame(createCourse().getStudentProgresses().get(0).getGrades().get(0).getGradePercentage(), courses.get(0).getStudentProgresses().get(0).getGrades().get(0).getGradePercentage());
+    }
+
+    @Test
+    public void testGetCourseTopicUUID() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTopics().get(0).getId(), courses.get(0).getTopics().get(0).getId());
+    }
+
+    
+
+
+    /* 
+    @Test
+    public void testGetCourseStudentProgresses() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getStudentProgresses(), courses.get(0).getStudentProgresses());
+    }
+
+    @Test
+    public void testGetCourseTopics() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getTopics(), courses.get(0).getTopics());
+    }
+
+    @Test
+    public void testGetCourseComments() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getComments(), courses.get(0).getComments());
+    }
+
+    @Test
+    public void testGetCourseReviews() {
+        courses = DataLoader.getCourses();
+        assertEquals(createCourse().getReviews(), courses.get(0).getReviews());
+    }
+    */
+    
 
 
 
