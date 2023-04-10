@@ -18,7 +18,7 @@ public class Grade {
     public Grade() {
         this.id = NIL_UUID;
         this.quizID = NIL_UUID;
-        this.gradePercentage = -1;
+        Grade.gradePercentage = -1;
     }
 
     /**
