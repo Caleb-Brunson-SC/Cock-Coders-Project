@@ -5,9 +5,7 @@ import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Assert;
-
 import static org.junit.Assert.assertEquals;
-
 import java.util.UUID;
 
 public class AdminTest extends Admin {
