@@ -18,7 +18,7 @@ public class DataLoader extends DataConstants {
      * Loads the users from the JSON file and returns an ArrayList of User objects.
      * @return An ArrayList of User objects loaded from the JSON file.
      */
-    public static ArrayList<User> getUsers() {
+    public static ArrayList<User> getUsers() { 
         ArrayList<User> users = new ArrayList<User>();
         
         try {

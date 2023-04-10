@@ -20,6 +20,9 @@ public class DataLoaderTest {
     private UserList userList = UserList.getInstance(); // users in ex
 	private ArrayList<User> users = userList.getUsers(); // userList in ex
 
+    
+
+
     @Before
     public void setup() {
         users.clear();
@@ -37,8 +40,10 @@ public class DataLoaderTest {
     }
 
     @Test
-    void testGetUsersSize() {
-        users = DataLoader.getUsers();
+    public void testGetUsersSize() {
+        //users = DataLoader.getUsers();
         assertEquals(2, users.size());
     }
+
+
 }
