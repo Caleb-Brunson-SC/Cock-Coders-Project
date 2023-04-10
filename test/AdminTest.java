@@ -3,63 +3,104 @@ package test;
 import backEnd.Admin;
 import org.junit.Test;
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Assert;
+
+import static org.junit.Assert.assertEquals;
+
 import java.util.UUID;
 
 public class AdminTest extends Admin {
+    private UUID id;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String email;
+    private String password;
+    private UUID currentCourseID;
+    private UUID currentTopicID;
+    private UUID currentLessonID;
     private Admin admin;
-
+    
     @Before
-    public void setUp() throws Exception {
-        admin = new Admin();
-    }
-
-    @Test
-    public void testConstructorWithId() {
-        UUID id = UUID.randomUUID();
-        String firstName = "John";
-        String lastName = "Doe";
-        String userName = "johndoe";
-        String email = "johndoe@example.com";
-        String password = "password123";
-        UUID currentCourseID = UUID.randomUUID();
-        UUID currentTopicID = UUID.randomUUID();
-        UUID currentLessonID = UUID.randomUUID();
-
+    public void setUp() {
+        id = UUID.randomUUID();
+        firstName = "John";
+        lastName = "Doe";
+        userName = "johndoe";
+        email = "johndoe@example.com";
+        password = "password";
+        currentCourseID = UUID.randomUUID();
+        currentTopicID = UUID.randomUUID();
+        currentLessonID = UUID.randomUUID();
         admin = new Admin(id, firstName, lastName, userName, email, password, currentCourseID, currentTopicID, currentLessonID);
-
-        Assert.assertEquals(id, admin.getId());
-        Assert.assertEquals(firstName, admin.getFirstName());
-        Assert.assertEquals(lastName, admin.getLastName());
-        Assert.assertEquals(userName, admin.getUserName());
-        Assert.assertEquals(email, admin.getEmail());
-        Assert.assertEquals(password, admin.getPassword());
-        Assert.assertEquals(currentCourseID, admin.getCurrentCourseID());
-        Assert.assertEquals(currentTopicID, admin.getCurrentTopicID());
-        Assert.assertEquals(currentLessonID, admin.getCurrentLessonID());
+    }
+    
+    @After
+    public void tearDown() {
+        id = null;
+        firstName = null;
+        lastName = null;
+        userName = null;
+        email = null;
+        password = null;
+        currentCourseID = null;
+        currentTopicID = null;
+        currentLessonID = null;
+        admin = null;
     }
 
     @Test
-    public void testConstructorWithoutId() {
-        String firstName = "John";
-        String lastName = "Doe";
-        String userName = "johndoe";
-        String email = "johndoe@example.com";
-        String password = "password123";
-        UUID currentCourseID = UUID.randomUUID();
-        UUID currentTopicID = UUID.randomUUID();
-        UUID currentLessonID = UUID.randomUUID();
+    public void testDefaultConstructor() {
+        assertEquals(Admin.NIL_UUID, admin.getId());
+        assertEquals("admin", admin.getType());
+        assertEquals("none", admin.getFirstName());
+        assertEquals("none", admin.getLastName());
+        assertEquals("none", admin.getUserName());
+        assertEquals("none", admin.getEmail());
+        assertEquals("none", admin.getPassword());
+        assertEquals(Admin.NIL_UUID, admin.getCurrentCourseID());
+        assertEquals(Admin.NIL_UUID, admin.getCurrentTopicID());
+        assertEquals(Admin.NIL_UUID, admin.getCurrentLessonID());
+    }
 
-        admin = new Admin(firstName, lastName, userName, email, password, currentCourseID, currentTopicID, currentLessonID);
+    @Test
+    public void testParameterizedConstructor() {
+        UUID id = UUID.randomUUID();
+        UUID courseID = UUID.randomUUID();
+        UUID topicID = UUID.randomUUID();
+        UUID lessonID = UUID.randomUUID();
 
-        Assert.assertEquals("admin", admin.getType());
-        Assert.assertEquals(firstName, admin.getFirstName());
-        Assert.assertEquals(lastName, admin.getLastName());
-        Assert.assertEquals(userName, admin.getUserName());
-        Assert.assertEquals(email, admin.getEmail());
-        Assert.assertEquals(password, admin.getPassword());
-        Assert.assertEquals(currentCourseID, admin.getCurrentCourseID());
-        Assert.assertEquals(currentTopicID, admin.getCurrentTopicID());
-        Assert.assertEquals(currentLessonID, admin.getCurrentLessonID());
+        Admin admin = new Admin(id, "John", "Doe", "johndoe", "johndoe@example.com", "password", courseID, topicID, lessonID);
+
+        assertEquals(id, admin.getId());
+        assertEquals("admin", admin.getType());
+        assertEquals("John", admin.getFirstName());
+        assertEquals("Doe", admin.getLastName());
+        assertEquals("johndoe", admin.getUserName());
+        assertEquals("johndoe@example.com", admin.getEmail());
+        assertEquals("password", admin.getPassword());
+        assertEquals(courseID, admin.getCurrentCourseID());
+        assertEquals(topicID, admin.getCurrentTopicID());
+        assertEquals(lessonID, admin.getCurrentLessonID());
+    }
+
+    @Test
+    public void testParameterizedConstructorWithoutID() {
+        UUID courseID = UUID.randomUUID();
+        UUID topicID = UUID.randomUUID();
+        UUID lessonID = UUID.randomUUID();
+
+        Admin admin = new Admin("John", "Doe", "johndoe", "johndoe@example.com", "password", courseID, topicID, lessonID);
+
+        assertEquals("admin", admin.getType());
+        assertEquals("John", admin.getFirstName());
+        assertEquals("Doe", admin.getLastName());
+        assertEquals("johndoe", admin.getUserName());
+        assertEquals("johndoe@example.com", admin.getEmail());
+        assertEquals("password", admin.getPassword());
+        assertEquals(courseID, admin.getCurrentCourseID());
+        assertEquals(topicID, admin.getCurrentTopicID());
+        assertEquals(lessonID, admin.getCurrentLessonID());
     }
 }
