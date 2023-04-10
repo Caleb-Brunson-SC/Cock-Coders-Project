@@ -1,5 +1,7 @@
 package test;
+
 import backEnd.*;
+import backEnd.UserList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,11 +19,10 @@ import java.util.UUID;
 
 public class DataLoaderTest {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
-    private UserList userList = UserList.getInstance(); // users in ex
-	private ArrayList<User> users = userList.getUsers(); // userList in ex
+    private UserList userList = UserList.getInstance();
+	private ArrayList<User> users = userList.getUsers();
 
     
-
 
     @Before
     public void setup() {
@@ -41,7 +42,7 @@ public class DataLoaderTest {
 
     @Test
     public void testGetUsersSize() {
-        //users = DataLoader.getUsers();
+        users = DataLoader.getUsers();
         assertEquals(2, users.size());
     }
 

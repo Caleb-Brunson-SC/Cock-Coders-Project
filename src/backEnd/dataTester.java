@@ -7,7 +7,11 @@ public class dataTester {
 
         System.out.println("--------------------------------------------------------------------\n");
         UserList us = UserList.getInstance();
-        printUsers(us.getUsers());
+        ArrayList<User> users = us.getUsers();
+        printUsers(users);
+        users.clear();
+        printUsers(users);
+        
 
         // Add a User
         //us.addUser("admin", "bob", "jones", "bj32", "bj@gmail.com", "5892759fshkag");
@@ -18,7 +22,7 @@ public class dataTester {
         
         CourseList cs = CourseList.getInstance();
         ArrayList<Course> courses = cs.getCourses();
-        printCourses(courses);
+        //printCourses(courses);
         System.out.println("\n \n");
         
         
@@ -39,6 +43,7 @@ public class dataTester {
 
     public static void printUsers(ArrayList<User> users) {
         for (int i = 0; i < users.size(); i++) {
+            System.out.println(i);
             System.out.println("***" + users.get(i));
         }
     }
