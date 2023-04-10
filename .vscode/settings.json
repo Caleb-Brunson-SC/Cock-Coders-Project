@@ -11,5 +11,10 @@
         "exclude": [
             "lib/junit-platform-console-standalone-1.9.2.jar"
         ]
+    },
+    "java.test.config": {
+
+        "workingDirectory": "${workspaceFolder}"
+
     }
 }
