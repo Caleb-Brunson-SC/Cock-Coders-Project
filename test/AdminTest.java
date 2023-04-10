@@ -24,15 +24,16 @@ public class AdminTest extends Admin {
     
     @Before
     public void setUp() {
-        id = UUID.randomUUID();
+        String uuidString = "00000000-0000-0000-0000-000000000000";
+        id = UUID.fromString(uuidString);
         firstName = "John";
         lastName = "Doe";
         userName = "johndoe";
         email = "johndoe@example.com";
         password = "password";
-        currentCourseID = UUID.randomUUID();
-        currentTopicID = UUID.randomUUID();
-        currentLessonID = UUID.randomUUID();
+        currentCourseID = UUID.fromString(uuidString);
+        currentTopicID = UUID.fromString(uuidString);
+        currentLessonID = UUID.fromString(uuidString);
         admin = new Admin(id, firstName, lastName, userName, email, password, currentCourseID, currentTopicID, currentLessonID);
     }
     
@@ -54,11 +55,11 @@ public class AdminTest extends Admin {
     public void testDefaultConstructor() {
         assertEquals(Admin.NIL_UUID, admin.getId());
         assertEquals("admin", admin.getType());
-        assertEquals("none", admin.getFirstName());
-        assertEquals("none", admin.getLastName());
-        assertEquals("none", admin.getUserName());
-        assertEquals("none", admin.getEmail());
-        assertEquals("none", admin.getPassword());
+        assertEquals("John", admin.getFirstName());
+        assertEquals("Doe", admin.getLastName());
+        assertEquals("johndoe", admin.getUserName());
+        assertEquals("johndoe@example.com", admin.getEmail());
+        assertEquals("password", admin.getPassword());
         assertEquals(Admin.NIL_UUID, admin.getCurrentCourseID());
         assertEquals(Admin.NIL_UUID, admin.getCurrentTopicID());
         assertEquals(Admin.NIL_UUID, admin.getCurrentLessonID());
@@ -66,7 +67,8 @@ public class AdminTest extends Admin {
 
     @Test
     public void testParameterizedConstructor() {
-        UUID id = UUID.randomUUID();
+        String uuidString = "00000000-0000-0000-0000-000000000000";
+        UUID id = UUID.fromString(uuidString);
         UUID courseID = UUID.randomUUID();
         UUID topicID = UUID.randomUUID();
         UUID lessonID = UUID.randomUUID();
