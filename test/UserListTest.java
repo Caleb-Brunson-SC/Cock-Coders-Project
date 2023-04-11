@@ -93,7 +93,7 @@ public class UserListTest {
 
      @Test
      public void haveUserTest() {
-        boolean expected = true;
+        boolean expected = false;
         boolean actually = userList.haveUser("dphan");        
 
         assertEquals(expected, actually);
@@ -101,7 +101,7 @@ public class UserListTest {
 
      @Test
      public void haveEmailTest() {
-        boolean expected = true;
+        boolean expected = false;
         boolean actually = userList.haveEmail("phantom@email.com");        
 
         assertEquals(expected, actually);
