@@ -1,10 +1,8 @@
 package test;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import backEnd.DataWriter;
@@ -28,6 +26,7 @@ public class UserListTest {
 
     @Before
      public void setupClass() {
+      
         users.add(new Student(NIL_UUID, "bob", "jones", "bj32", "bj@gmail.com", "bjiscool123", 
         NIL_UUID, NIL_UUID, NIL_UUID));
         users.add(new Teacher(NIL_UUID, "jeremy", "lewis", "jlewis", "jlewis@gmail.com", "jlewrocks74", 
@@ -58,7 +57,7 @@ public class UserListTest {
     @Test
     public void getUserTest() {
         // expected variable, actualy variable, compare
-        User newUser = new Student("Danny", "Phantom","dphan", "phantom@email.com", "dphan", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID()) ;
+        User newUser = new Student("Danny", "Phantom","dphan", "phantom@email.com", "dphan", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
         users.add(newUser);
         DataWriter.saveUsers();
         // // testList.addUser("Student", "Danny", "Phantom","dphan", "phantom@email.com", "dphan", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
@@ -114,7 +113,6 @@ public class UserListTest {
 
         assertEquals(expected, actually);
      }
-
     // @Test 
     // public void getUsersFull() {
     //     // User newUser1 = new Student("Danny", "Phantom","dphan", "phantom@email.com", "dphan", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID()) ;
