@@ -23,6 +23,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
 public class CourseTest {
     private Course course;
     private UUID id;
@@ -36,6 +38,7 @@ public class CourseTest {
     private ArrayList<StudentProgress> studentProgresses;
     private Topic topic1;
     private Topic topic2;
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
 
     @Before
     public void setUp() {
@@ -117,7 +120,7 @@ public class CourseTest {
 
     @Test
     public void testGetTopicByUUID() {
-        Topic foundTopic1 = course.getTopicByUUID(id);
+        Topic foundTopic1 = course.getTopicByUUID(NIL_UUID);
         assertEquals(topic1, foundTopic1);
 
         Topic foundTopic2 = course.getTopicByUUID(id);
