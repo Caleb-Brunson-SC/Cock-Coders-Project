@@ -28,57 +28,6 @@ public class DataLoaderTest {
     private CourseList courseList = CourseList.getInstance();
     private ArrayList<Course> courses = courseList.getCourses();
 
-    private Course createCourse() {
-        User teacher = new Teacher(TEACHER_UUID, "jimmy", "john", "jimmyj", "jimmyj@gmail.com", 
-        "howtojimmy31", NIL_UUID, NIL_UUID, NIL_UUID);
-
-        ArrayList<Comment> comments = new ArrayList<Comment>();
-
-        comments.add(new Comment(NIL_UUID, teacher, DATE, "blank comment", new ArrayList<Comment>()));
-
-        ArrayList<Lesson> lessons = new ArrayList<Lesson>();
-
-        lessons.add(new Lesson(NIL_UUID, "lesson title", "lesson content", comments));
-
-        ArrayList<Question> questions = new ArrayList<Question>();
-
-        ArrayList<String> choices = new ArrayList<String>();
-
-        choices.add("question choice");
-
-        questions.add(new Question(NIL_UUID, "question", choices, 0));
-
-        Quiz quiz = new Quiz(NIL_UUID, "quiz title", "quiz description", questions);
-
-        ArrayList<Topic> topics = new ArrayList<Topic>();
-
-        topics.add(new Topic(NIL_UUID, "topic title", "topic description", quiz, lessons, comments));
-
-        ArrayList<StudentProgress> studentProgresses = new ArrayList<StudentProgress>();
-
-        ArrayList<Grade> grades = new ArrayList<Grade>();
-
-        grades.add(new Grade(NIL_UUID, NIL_UUID, 0));
-
-        User student = new Student(STUDENT_UUID, "jay", "jones", "jayj",
-        "jayj@gmail.com", "jj1234", NIL_UUID, NIL_UUID, NIL_UUID);
-
-        studentProgresses.add(new StudentProgress(student, grades));
-
-        ArrayList<Review> reviews = new ArrayList<Review>();
-
-        reviews.add(new Review(NIL_UUID, student, DATE, 5, "review comment"));
-
-        Course course = new Course(NIL_UUID, "course title", Language.PYTHON, "course description", (Teacher) teacher, 
-        topics, reviews, comments, studentProgresses);
-
-        users.add(teacher);
-        users.add(student);
-        DataWriter.saveUsers();
-
-        return course;
-    }
-
     @Before
     public void setup() {
         users.clear();
@@ -506,6 +455,56 @@ public class DataLoaderTest {
         assertEquals(createCourse().getReviews().get(0).getReviewer(), courses.get(0).getReviews().get(0).getReviewer());
    }
 
+   private Course createCourse() {
+    User teacher = new Teacher(TEACHER_UUID, "jimmy", "john", "jimmyj", "jimmyj@gmail.com", 
+    "howtojimmy31", NIL_UUID, NIL_UUID, NIL_UUID);
+
+    ArrayList<Comment> comments = new ArrayList<Comment>();
+
+    comments.add(new Comment(NIL_UUID, teacher, DATE, "blank comment", new ArrayList<Comment>()));
+
+    ArrayList<Lesson> lessons = new ArrayList<Lesson>();
+
+    lessons.add(new Lesson(NIL_UUID, "lesson title", "lesson content", comments));
+
+    ArrayList<Question> questions = new ArrayList<Question>();
+
+    ArrayList<String> choices = new ArrayList<String>();
+
+    choices.add("question choice");
+
+    questions.add(new Question(NIL_UUID, "question", choices, 0));
+
+    Quiz quiz = new Quiz(NIL_UUID, "quiz title", "quiz description", questions);
+
+    ArrayList<Topic> topics = new ArrayList<Topic>();
+
+    topics.add(new Topic(NIL_UUID, "topic title", "topic description", quiz, lessons, comments));
+
+    ArrayList<StudentProgress> studentProgresses = new ArrayList<StudentProgress>();
+
+    ArrayList<Grade> grades = new ArrayList<Grade>();
+
+    grades.add(new Grade(NIL_UUID, NIL_UUID, 0));
+
+    User student = new Student(STUDENT_UUID, "jay", "jones", "jayj",
+    "jayj@gmail.com", "jj1234", NIL_UUID, NIL_UUID, NIL_UUID);
+
+    studentProgresses.add(new StudentProgress(student, grades));
+
+    ArrayList<Review> reviews = new ArrayList<Review>();
+
+    reviews.add(new Review(NIL_UUID, student, DATE, 5, "review comment"));
+
+    Course course = new Course(NIL_UUID, "course title", Language.PYTHON, "course description", (Teacher) teacher, 
+    topics, reviews, comments, studentProgresses);
+
+    users.add(teacher);
+    users.add(student);
+    DataWriter.saveUsers();
+
+    return course;
+}
    
 
 }

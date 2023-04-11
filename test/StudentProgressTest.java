@@ -13,6 +13,10 @@ import backEnd.Student;
 import backEnd.StudentProgress;
 import backEnd.User;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class StudentProgressTest {
     private User student;
     private ArrayList<Grade> grades;

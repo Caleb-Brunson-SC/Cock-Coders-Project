@@ -15,6 +15,10 @@ import backEnd.Quiz;
 import backEnd.Topic;
 import backEnd.Comment;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class TopicTest {
     @Test
     public void testDefaultConstructor() {

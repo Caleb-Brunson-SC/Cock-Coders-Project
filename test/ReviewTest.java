@@ -13,6 +13,10 @@ import backEnd.Student;
 import backEnd.Teacher;
 import backEnd.User;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class ReviewTest {
     @Test
     public void testConstructor() {

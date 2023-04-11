@@ -23,7 +23,13 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.UUID;
 
+<<<<<<< HEAD
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+=======
+/**
+ * @author Jordan Wood
+ */
+>>>>>>> 084a3e5c2932a640d47aa0ec7a394237beb911ef
 
 public class CourseTest {
     private Course course;

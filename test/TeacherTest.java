@@ -7,6 +7,10 @@ import java.util.UUID;
 import org.junit.Test;
 import backEnd.Teacher;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class TeacherTest {
     @Test
     public void testConstructorWithUUID() {
