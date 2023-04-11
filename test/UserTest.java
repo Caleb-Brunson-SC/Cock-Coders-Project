@@ -10,18 +10,19 @@ import static org.junit.Assert.assertNotNull;
 import java.util.UUID;
 
 public class UserTest {
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
 
     @Test
     public void testUserConstructorWithGeneratedId() {
         User user = new Student();
 
         assertNotNull(user.getId());
-        assertEquals("Student", user.getType());
-        assertEquals("John", user.getFirstName());
-        assertEquals("Doe", user.getLastName());
-        assertEquals("johndoe", user.getUserName());
-        assertEquals("johndoe@example.com", user.getEmail());
-        assertEquals("password", user.getPassword());
+        assertEquals("student", user.getType());
+        assertEquals("none", user.getFirstName());
+        assertEquals("none", user.getLastName());
+        assertEquals("none", user.getUserName());
+        assertEquals("none", user.getEmail());
+        assertEquals("none", user.getPassword());
         assertNotNull(user.getCurrentCourseID());
         assertNotNull(user.getCurrentTopicID());
         assertNotNull(user.getCurrentLessonID());
@@ -29,16 +30,15 @@ public class UserTest {
 
     @Test
     public void testUserConstructorWithGivenId() {
-        UUID userId = UUID.randomUUID();
         User user = new Student();
 
-        assertEquals(userId, user.getId());
-        assertEquals("Teacher", user.getType());
-        assertEquals("Jane", user.getFirstName());
-        assertEquals("Doe", user.getLastName());
-        assertEquals("janedoe", user.getUserName());
-        assertEquals("janedoe@example.com", user.getEmail());
-        assertEquals("password", user.getPassword());
+        assertEquals(NIL_UUID, user.getId());
+        assertEquals("student", user.getType());
+        assertEquals("none", user.getFirstName());
+        assertEquals("none", user.getLastName());
+        assertEquals("none", user.getUserName());
+        assertEquals("none", user.getEmail());
+        assertEquals("none", user.getPassword());
         assertNotNull(user.getCurrentCourseID());
         assertNotNull(user.getCurrentTopicID());
         assertNotNull(user.getCurrentLessonID());
@@ -49,8 +49,8 @@ public class UserTest {
         UUID userId = UUID.randomUUID();
         User user = new Student();
 
-        String expectedString = "User [id=" + userId + ", type=Admin, firstName=Alice, lastName=Smith, " +
-                "userName=alicesmith, email=alicesmith@example.com, password=password, currentCourseID=" +
+        String expectedString = "User [id=" + NIL_UUID + ", type=student, firstName=none, lastName=none, " +
+                "userName=none, email=none, password=none, currentCourseID=" +
                 user.getCurrentCourseID() + ", currentTopicID=" + user.getCurrentTopicID() +
                 ", currentLessonID=" + user.getCurrentLessonID() + "]";
 
