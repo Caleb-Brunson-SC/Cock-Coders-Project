@@ -489,35 +489,24 @@ public class DataLoaderTest {
         assertEquals(createCourse().getReviews().get(0).getRating(), courses.get(0).getReviews().get(0).getRating());
    }
 
-
-
-    /* 
-    @Test
-    public void testGetCourseStudentProgresses() {
+   @Test
+   public void testGetCourseReviewDate() {
         courses = DataLoader.getCourses();
-        assertEquals(createCourse().getStudentProgresses(), courses.get(0).getStudentProgresses());
-    }
+        assertEquals(createCourse().getReviews().get(0).getDate(), courses.get(0).getReviews().get(0).getDate());
+   }
 
-    @Test
-    public void testGetCourseTopics() {
+   @Test
+   public void testGetCourseReviewComment() {
         courses = DataLoader.getCourses();
-        assertEquals(createCourse().getTopics(), courses.get(0).getTopics());
-    }
+        assertEquals(createCourse().getReviews().get(0).getComment(), courses.get(0).getReviews().get(0).getComment());
+   }
 
-    @Test
-    public void testGetCourseComments() {
+   @Test
+   public void testGetCourseReviewReviewer() {
         courses = DataLoader.getCourses();
-        assertEquals(createCourse().getComments(), courses.get(0).getComments());
-    }
+        assertEquals(createCourse().getReviews().get(0).getReviewer(), courses.get(0).getReviews().get(0).getReviewer());
+   }
 
-    @Test
-    public void testGetCourseReviews() {
-        courses = DataLoader.getCourses();
-        assertEquals(createCourse().getReviews(), courses.get(0).getReviews());
-    }
-    */
-    
-
-
+   
 
 }
