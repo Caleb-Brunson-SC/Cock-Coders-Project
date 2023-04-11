@@ -9,6 +9,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import java.util.UUID;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class UserTest {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
 

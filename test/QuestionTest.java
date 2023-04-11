@@ -8,6 +8,10 @@ import java.util.UUID;
 import org.junit.Test;
 import backEnd.Question;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class QuestionTest {
     @Test
     public void testDefaultConstructor() {

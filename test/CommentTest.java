@@ -13,6 +13,10 @@ import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class CommentTest extends Comment {
     public static final UUID NIL_UUID = UUID.fromString("a598fb8f-d3f5-4c4c-b230-33e375ed2a92");
     private Comment comment;

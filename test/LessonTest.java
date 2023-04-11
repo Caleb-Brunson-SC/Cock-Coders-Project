@@ -10,6 +10,10 @@ import org.junit.Test;
 import backEnd.Comment;
 import backEnd.Lesson;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class LessonTest {
     @Test
     public void testLessonDefaultConstructor() {

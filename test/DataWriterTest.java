@@ -13,6 +13,7 @@ import java.util.UUID;
 
 public class DataWriterTest {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
+    public static final LocalDate DATE = LocalDate.of(2020, 1, 8);
     public UserList userList = UserList.getInstance();
 	public ArrayList<User> users = userList.getUsers();
     public CourseList courseList = CourseList.getInstance();
@@ -79,17 +80,21 @@ public class DataWriterTest {
     
 
     // Courses
-    /*
+    
     @Test
     public void testWritingZeroCourses() {
-
+        courses = DataLoader.getCourses();
+        assertEquals(0, courses.size());
     }
 
     @Test
     public void testWritingOneCourse() {
-
+        courses.add(createCourse("course1"));
+        DataWriter.saveCourses();
+        assertEquals("course1", DataLoader.getCourses().get(0).getTitle());
     }
 
+    /*
     @Test
     public void testWritingFiveCourses() {
 
@@ -105,4 +110,56 @@ public class DataWriterTest {
         
     }
     */
+
+    private Course createCourse(String courseTitle) {
+        User teacher = new Teacher("jimmy", "john", "jimmyj", "jimmyj@gmail.com", 
+        "howtojimmy31", NIL_UUID, NIL_UUID, NIL_UUID);
+    
+        ArrayList<Comment> comments = new ArrayList<Comment>();
+    
+        comments.add(new Comment(teacher, DATE, "blank comment", new ArrayList<Comment>()));
+    
+        ArrayList<Lesson> lessons = new ArrayList<Lesson>();
+    
+        lessons.add(new Lesson("lesson title", "lesson content", comments));
+    
+        ArrayList<Question> questions = new ArrayList<Question>();
+    
+        ArrayList<String> choices = new ArrayList<String>();
+    
+        choices.add("question choice");
+    
+        questions.add(new Question("question", choices, 0));
+    
+        Quiz quiz = new Quiz("quiz title", "quiz description", questions);
+    
+        ArrayList<Topic> topics = new ArrayList<Topic>();
+    
+        topics.add(new Topic("topic title", "topic description", quiz, lessons, comments));
+    
+        ArrayList<StudentProgress> studentProgresses = new ArrayList<StudentProgress>();
+    
+        ArrayList<Grade> grades = new ArrayList<Grade>();
+    
+        grades.add(new Grade(NIL_UUID, 0));
+    
+        User student = new Student("jay", "jones", "jayj",
+        "jayj@gmail.com", "jj1234", NIL_UUID, NIL_UUID, NIL_UUID);
+    
+        studentProgresses.add(new StudentProgress(student, grades));
+    
+        ArrayList<Review> reviews = new ArrayList<Review>();
+    
+        reviews.add(new Review(student, DATE, 5, "review comment"));
+    
+        Course course = new Course(courseTitle, Language.PYTHON, "course description", (Teacher) teacher, 
+        topics, reviews, comments, studentProgresses);
+    
+        users.add(teacher);
+        users.add(student);
+        DataWriter.saveUsers();
+    
+        return course;
+    }
+    
 }

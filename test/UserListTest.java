@@ -16,6 +16,10 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class UserListTest {
 
     private static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");

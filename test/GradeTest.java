@@ -8,6 +8,10 @@ import org.junit.Before;
 import org.junit.Test;
 import backEnd.Grade;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class GradeTest {
     private UUID id;
     private UUID quizId;

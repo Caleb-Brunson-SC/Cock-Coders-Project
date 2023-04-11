@@ -11,6 +11,10 @@ import org.junit.Test;
 import backEnd.Question;
 import backEnd.Quiz;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class QuizTest {
     @Test
     public void testConstructorDefault() {

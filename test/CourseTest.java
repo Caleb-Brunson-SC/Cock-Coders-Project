@@ -23,6 +23,10 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class CourseTest {
     private Course course;
     private UUID id;

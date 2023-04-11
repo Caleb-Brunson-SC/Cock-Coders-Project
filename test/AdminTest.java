@@ -8,6 +8,10 @@ import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import java.util.UUID;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class AdminTest extends Admin {
     private UUID id;
     private String firstName;

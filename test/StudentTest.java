@@ -8,6 +8,10 @@ import org.junit.Test;
 
 import backEnd.Student;
 
+/**
+ * @author Jordan Wood
+ */
+
 public class StudentTest {
     @Test
     public void testStudentDefaultConstructor() {
