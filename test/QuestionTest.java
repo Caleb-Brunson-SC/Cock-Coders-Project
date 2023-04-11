@@ -65,7 +65,7 @@ public class QuestionTest {
         choices.add("Jupiter");
         int correctAnswerIndex = 3;
 
-        Question question = new Question();
+        Question question = new Question(id, questionText, choices, correctAnswerIndex);
         String expected = "Question [id=" + id + ", question=" + questionText + ", choices=" + choices + ", correctAnswerIndex=" + correctAnswerIndex + "]";
         assertEquals(expected, question.toString());
     }
