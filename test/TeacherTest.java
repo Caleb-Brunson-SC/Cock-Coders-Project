@@ -42,7 +42,7 @@ public class TeacherTest {
     @Test
     public void testToString() {
         Teacher teacher = new Teacher(UUID.randomUUID(), "Jane", "Smith", "jsmith", "jsmith@example.com", "password", null, null, null);
-        String expectedString = "Teacher [id=" + teacher.getId() + ", role=teacher, firstName=Jane, lastName=Smith, userName=jsmith, email=jsmith@example.com, currentCourseID=null, currentTopicID=null, currentLessonID=null]";
+        String expectedString = "User [id=" + teacher.getId() + ", type=teacher, firstName=Jane, lastName=Smith, userName=jsmith, email=jsmith@example.com, password=password, currentCourseID=null, currentTopicID=null, currentLessonID=null]";
         assertEquals(expectedString, teacher.toString());
     }
 }

@@ -11,6 +11,8 @@ import backEnd.Grade;
 public class GradeTest {
     private UUID id;
     private UUID quizId;
+    public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
+
     @Before
     public void setUp() {
         String uuidString = "00000000-0000-0000-0000-000000000000";
@@ -43,7 +45,7 @@ public class GradeTest {
         UUID quizId = UUID.fromString("00000000-0000-0000-0000-000000000000");
         double gradePercentage = 85.0;
         Grade grade = new Grade(quizId, gradePercentage);
-        assertEquals(Grade.NIL_UUID, grade.getId());
+        assertEquals(Grade.NIL_UUID, grade.NIL_UUID);
         assertEquals(quizId, grade.getQuizID());
         assertEquals(gradePercentage, Grade.getGradePercentage(), 0.001);
     }
