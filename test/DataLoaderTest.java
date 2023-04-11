@@ -1,7 +1,6 @@
 package test;
 
 import backEnd.*;
-import ui.CreateCourse;
 
 import org.junit.After;
 import org.junit.Before;
