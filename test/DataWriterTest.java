@@ -11,6 +11,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+* @author Caleb Brunson
+*/
+
 public class DataWriterTest {
     public static final UUID NIL_UUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
     public static final LocalDate DATE = LocalDate.of(2020, 1, 8);
