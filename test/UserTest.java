@@ -1,39 +1,59 @@
 package test;
 
-
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
+import backEnd.Student;
+import backEnd.User;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.util.UUID;
 
 public class UserTest {
 
-    @BeforeClass
-    public static void setupClass() {
-        
-
-        //testList.addUser("Student", "Joe", "Smith","jsmith", "smith@email.com", "jsmithpw", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
-        // testList.addUser("Student", "Loe", "Fmith","lfmith", "fmith@email.com", "fmmithpw", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
-        // testList.addUser("Student", "Soe", "Jmith","sjmith", "jmith@email.com", "sjmithpw", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
-
-    }
-
-    
-    //list.addUser( );
-
-    
     @Test
-    public void getUser() {
-        // expected variable, actualy variable, compare
-        // User newUser = new Student("Danny", "Phantom","dphan", "phantom@email.com", "dphan", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID()) ;
-        // testList.addUser("Student", "Danny", "Phantom","dphan", "phantom@email.com", "dphan", UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID());
-        // User expected = null;
-        // User actually = testList.getUser("dphan");
+    public void testUserConstructorWithGeneratedId() {
+        User user = new Student();
 
-        // assertEquals("Test getting User", expected, actually);
-        // assertEquals(expected, actually);
-
+        assertNotNull(user.getId());
+        assertEquals("Student", user.getType());
+        assertEquals("John", user.getFirstName());
+        assertEquals("Doe", user.getLastName());
+        assertEquals("johndoe", user.getUserName());
+        assertEquals("johndoe@example.com", user.getEmail());
+        assertEquals("password", user.getPassword());
+        assertNotNull(user.getCurrentCourseID());
+        assertNotNull(user.getCurrentTopicID());
+        assertNotNull(user.getCurrentLessonID());
     }
-    
+
+    @Test
+    public void testUserConstructorWithGivenId() {
+        UUID userId = UUID.randomUUID();
+        User user = new Student();
+
+        assertEquals(userId, user.getId());
+        assertEquals("Teacher", user.getType());
+        assertEquals("Jane", user.getFirstName());
+        assertEquals("Doe", user.getLastName());
+        assertEquals("janedoe", user.getUserName());
+        assertEquals("janedoe@example.com", user.getEmail());
+        assertEquals("password", user.getPassword());
+        assertNotNull(user.getCurrentCourseID());
+        assertNotNull(user.getCurrentTopicID());
+        assertNotNull(user.getCurrentLessonID());
+    }
+
+    @Test
+    public void testUserToString() {
+        UUID userId = UUID.randomUUID();
+        User user = new Student();
+
+        String expectedString = "User [id=" + userId + ", type=Admin, firstName=Alice, lastName=Smith, " +
+                "userName=alicesmith, email=alicesmith@example.com, password=password, currentCourseID=" +
+                user.getCurrentCourseID() + ", currentTopicID=" + user.getCurrentTopicID() +
+                ", currentLessonID=" + user.getCurrentLessonID() + "]";
+
+        assertEquals(expectedString, user.toString());
+    }
 }
