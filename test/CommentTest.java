@@ -14,8 +14,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 public class CommentTest extends Comment {
+    public static final UUID id = UUID.fromString("a598fb8f-d3f5-4c4c-b230-33e375ed2a92");
     private Comment comment;
-    private UUID id;
     private User user;
     private LocalDate date;
     private String content;
@@ -25,7 +25,6 @@ public class CommentTest extends Comment {
     public void setUp() {
         comment = new Comment();
         String uuidString = "00000000-0000-0000-0000-000000000000";
-        id = UUID.fromString(uuidString);
         user = new Student();
         date = LocalDate.now();
         content = "none";
@@ -34,7 +33,6 @@ public class CommentTest extends Comment {
 
     @After
     public void tearDown() {
-        id = null;
         user = null;
         date = null;
         content = null;
@@ -43,7 +41,8 @@ public class CommentTest extends Comment {
 
     @Test
     public void testDefaultConstructor() {
-        assertEquals(Comment.NIL_UUID, comment.getId());
+        UUID random = 
+        assertEquals(Comment.random, comment.getId());
         assertEquals("none", comment.getContent());
         assertEquals(LocalDate.now(), comment.getDate());
         assertEquals(new Student(), comment.getUser());
