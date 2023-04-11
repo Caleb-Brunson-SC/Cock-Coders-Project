@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 public class CommentTest extends Comment {
-    public static final UUID id = UUID.fromString("a598fb8f-d3f5-4c4c-b230-33e375ed2a92");
+    public static final UUID NIL_UUID = UUID.fromString("a598fb8f-d3f5-4c4c-b230-33e375ed2a92");
     private Comment comment;
     private User user;
     private LocalDate date;
@@ -39,15 +39,14 @@ public class CommentTest extends Comment {
         replys = null;
     }
 
-    // @Test
-    // public void testDefaultConstructor() {
-    //     UUID random = NIL_UUID;
-    //     assertEquals(random, comment.getId());
-    //     assertEquals("none", comment.getContent());
-    //     assertEquals(LocalDate.now(), comment.getDate());
-    //     assertEquals(new Student(), comment.getUser());
-    //     assertEquals(new ArrayList<Comment>(), comment.getReplys());
-    // }
+    @Test
+    public void testDefaultConstructor() {;
+        assertEquals(Comment.NIL_UUID, comment.getId());
+        assertEquals("none", comment.getContent());
+        assertEquals(LocalDate.now(), comment.getDate());
+        assertEquals(new Student(), comment.getUser());
+        assertEquals(new ArrayList<Comment>(), comment.getReplys());
+    }
 
     @Test
     public void testParameterizedConstructor() {

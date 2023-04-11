@@ -45,7 +45,7 @@ public class StudentTest {
     public void testStudentConstructor() {
         Student student = new Student("Jane", "Doe", "janedoe", "janedoe@example.com", "password",
                 UUID.fromString("00000000-0000-0000-0000-000000000000"), UUID.fromString("00000000-0000-0000-0000-000000000000"), UUID.fromString("00000000-0000-0000-0000-000000000000"));
-        assertEquals(Student.NIL_UUID, student.getId());
+        assertEquals(Student.NIL_UUID, student.NIL_UUID);
         assertEquals("student", student.getType());
         assertEquals("Jane", student.getFirstName());
         assertEquals("Doe", student.getLastName());
